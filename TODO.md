@@ -110,3 +110,9 @@
 - Selected event workflow-rule logic examined: required/reference/not-required modes, STRICT/GROUPED sequencing, allow-repeat, manual step completion checks and void restoration behavior.
 - Selected attachment lifecycle examined: PROJECT/EVENT attachment associations, parent project visibility for events, upload/download/thumbnail validation, Google Drive provider and deletion behavior.
 - Still pending: deeper route/permission coverage map, event amendment details, project deletion impact, integration inventory, CI/test execution-gate review, performance/migration dependency synthesis.
+
+
+### Task 0.2 incremental notes (2026-11-21 continued)
+- Selected ProjectInformationService paths: ExpectedRevision stale-write guard, revision/history and approval records, attachment validation, cardinality/data-type validation, LIVE_SYNC conflict detection and explicit conflict-resolution path.
+- Selected event void path: AllowVoid configuration and later-step constraints; restore prior project/step status, mark event VOID, audit, refresh workflow progress and potentially flag material planning.
+- Selected project deletion path: tenant-scoped administrator check, dependency preview and exact-code confirmation; protection for shared procurement items/orders, dependency handling, file trashing, audit/failure reporting. V2 deletion/recovery policy remains an open business decision.
