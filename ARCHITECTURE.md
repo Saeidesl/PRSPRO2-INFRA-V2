@@ -677,3 +677,21 @@ The frontend tree includes tests for event filtering/history/forms/image preview
 - Procurement reporting/workspace computes shared order-item project associations through allocations, receipt records and need links; visibility filtering excludes an order if any linked project is not visible. It derives project labels and material spec/calculation context. V2 must preserve shared-item privacy, allocation attribution and surplus accounting, and test ambiguous legacy associations.
 - Print-template service exposes tenant-scoped library, revision digest, dynamic sources, template definition resolution, assets and versioned updates. Templates are data-driven rather than embedding project data; resolved outputs must retain source/version context. Exact full resolve/preview/asset endpoint payloads and permission mapping remain pending.
 - Discovery priority now: (1) exhaustive route-permission-contract reconciliation, (2) exact schema header/ID/unique/cardinality dictionary and migration rules, (3) event/project/form/print/procurement report edge-case matrix, (4) integration/storage/notification requirements and migration/cutover validation strategy. No runtime tests executed; source only; production repositories/data untouched.
+
+
+## 22. Read-only audit — Router permission and mutation route trace (2026-11-21)
+
+- Re-fetched current Router.js and traced GET, POST, PUT, DELETE dispatch sections. The API mixes direct single permission guards, any-of guards, and admin-only conditions; draft-project exceptions permit creator access under PROJECT_CREATE when PROJECT_VIEW/PROJECT_EDIT is unavailable, with tenant/state/creator checks in the Router branch.
+- Major route families reviewed include project status/department, project and central information, material specifications/calculations, workflow management and steps/rules, print-template library/source/resolve/preview/assets, forms and fields, information types/columns, event types/forms, events/void, attachments, users/roles/permissions, audit, reports/dashboard and procurement.
+- Permission identifiers sampled/extracted include ATTACHMENT_DELETE/UPLOAD/VIEW, DEPARTMENT_MANAGE, EVENT_CREATE/EDIT/TYPE_MANAGE/VIEW, PERMISSION_MANAGE, PROCUREMENT_MANAGE/VIEW, PROJECT_CREATE/EDIT/STATUS_MANAGE/VIEW, REPORT_VIEW, ROLE_MANAGE, SYSTEM_SETTINGS, USER_CREATE/EDIT/VIEW, WORKFLOW_MANAGE. Route behavior also has any-of sets and ADMIN/SYS_ADMIN bypass handled by shared access service; this is not yet a complete matrix.
+- Notable policy/coverage risks for reconciliation: print-template project-data PUT route appears to dispatch without an explicit Router permission check (service-level validation must be inspected); procurement GET routes use any-of permissions and diagnostics; route ordering/pattern overlap and service-level authorization still need a complete cross-check. No bypass is asserted without service audit/tests.
+- Mutation trace: POST creates/templates, project specs, order/receipts, and other domain records; PUT includes project/role/dept/status/workflow/form/event-type/project-data/template/information-type/event form and void paths; DELETE includes central-information deactivation, template/type/column deactivation, admin project removal, session revoke, role/user-role/department-step assignments, form field removal, attachment deletion. Mixed soft-delete/void/admin-confirmation semantics require preservation.
+- This extraction is source-only and non-exhaustive. No runtime permission tests, no production data access, no modifications to production repositories.
+
+## 23. V2 authorization migration design implications
+
+- Model policies as route/action declarations plus domain-level guards; do not rely on frontend gating.
+- For multi-permission routes encode explicit any-of vs all-of requirements, with admin policy explicit and testable.
+- Project draft exceptions must be domain policies with creator, tenant and draft-state assertions.
+- Define permission coverage tests for every endpoint and tests for tenant/project visibility, IDOR, admin paths, and mutations; specifically review print-template project-data binding update before mapping its authorization.
+- Keep audit events for privileged mutations and sensitive permission/session/attachment operations.
