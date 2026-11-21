@@ -300,3 +300,10 @@
 - Frontend API supports GET request deduplication, retry on GET network/429/5xx, sync status events, and cache-assisted reads/background refresh. Preserve equivalent UX/performance behavior with a robust server/API cache strategy; ensure retry/idempotency rules for writes.
 - Frontend has client route-permission gating from /auth/me/permissions; this is UX-level and must never replace backend authorization.
 - Frontend modules and index.html inventory only; exhaustive endpoint usage mapping, pages source audit, build/test dependency audit, and API call inventory remain outstanding. Production repo is READ-ONLY; no runtime tests or changes performed.
+
+
+### Task 0.2 incremental discovery (2026-11-21 — frontend pages and API module mapping)
+- Confirmed production frontend page inventory: 22 HTML pages (login, dashboard, projects/project-detail, events, workflows, statuses, event-types, information-types, forms, procurement, attachments, reports, users, departments, roles, permissions, audit, settings, admin, print-designer, print-output). Read-only source tree inspection.
+- Sampled and extracted direct Api.get/post/put/delete calls from modules projects, events, procurement, material-planning, forms, reports, project-detail, attachments, workflows, event-types, information-types, users, roles, permissions, departments, project-statuses, audit, settings, print-designer and admin. API usage spans projects/events/attachments, material specs, procurement orders/receipts, reusable forms and event-type configuration, workflow, print templates, reporting, user/role administration and admin sessions/deletion. This mapping is partial: dynamic routes, indirect calls, helper wrappers and full request/response payload semantics remain to be examined.
+- UI modules are relatively decoupled behind shared Api client, supporting a migration strategy that preserves modules while replacing the API client/contracts. However, exact API contracts and behavioral parity require full endpoint and payload audit before implementation.
+- Source-only; no runtime or production changes. Task 0.2 remains open.
