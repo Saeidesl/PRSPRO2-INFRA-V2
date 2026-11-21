@@ -345,3 +345,23 @@ The frontend tree includes tests for event filtering/history/forms/image preview
 
 ### 23.3 Audit caveats
 - The source has separate single and batch receipt validation paths and non-transactional status updates. This was not tested in runtime. No production data was read or modified.
+
+
+## 24. Repository-Backed Relationship Map (provisional, 2026-11-21)
+
+### Core production graph
+- Project (`08_Projects.ID`) -> Events (`13_Events.ProjectID`) -> EventData (`14_EventData.EventID`). Event also references workflow/version, workflow step, event type/version, performer, creator and department.
+- EventType -> EventTypeForms (`34_EventTypeForms.EventTypeID`) -> Form (`32_Forms.ID`); Form -> FormFields (`33_FormFields.FormID`). Event responses (`35_EventFormData`) associate EventID/FormID and include form-version and definition snapshot context.
+- InformationTypes -> InformationTypeColumns; FormFields reference InformationTypeID; ProjectInformation connects ProjectID and InformationTypeID; ProjectInformationHistory references ProjectInformationID; reference-sync log associates source/target projects and information type.
+- Workflow -> WorkflowSteps; WorkflowStepDepartments associates steps/departments; WorkflowStepEventRules associates WorkflowID, WorkflowVersion, WorkflowStepID and EventTypeID. Preserve version-context keys and rule snapshots/context.
+- Attachments and AuditLogs use polymorphic EntityType/EntityID pointers; V2 must decide between explicit link tables, scoped polymorphic models, or separate attachment/audit relation structures with integrity enforcement.
+
+### Procurement graph
+- Project -> MaterialNeeds and MaterialSpecs; MaterialNeed -> calculations and may link SourceEventID and MaterialSpecID.
+- PurchaseOrder -> PurchaseOrderItems; item references MaterialNeed (optional) and PurchaseOrder; PurchaseAllocations and MaterialReceipts link through PurchaseOrderItemID, and also carry project/need context.
+- Calculations reference project, spec, need, and source event context. Shared orders/items may serve multiple projects through allocations; delete and migration logic must not assume exclusive ownership.
+
+### Relationship and schema design implications
+- Current Sheets data access provides logical relationships rather than DB-enforced foreign keys. V2 needs explicit FK constraints, tenant-aware integrity, indexes on relationship/tenant/version fields, and clear cardinality/uniqueness rules after source/data discovery.
+- Preserve event/form and workflow snapshots/version context to support historic records when definitions change. Do not silently apply current definitions to old events.
+- Relationship map is provisional; complete uniqueness, cardinality, lifecycle/status, and tenant constraint audit remains pending. No runtime test or data-level validation performed.
