@@ -237,3 +237,8 @@ The frontend tree includes tests for event filtering/history/forms/image preview
 
 ### Important limitation
 - Workflow definitions were read, not executed. No CI statuses/runs were evaluated in this audit session. These workflows provide static/test gates, but actual CI outcomes and test adequacy require separate verification. Tests that create records must remain isolated from production.
+
+
+## 17. V2 Repository Availability Check (2026-11-21)
+- GitHub API lookups returned 404/not found for `Saeidesl/PRSPRO2-V2`, `Saeidesl/PRSPRO2BACKEND-V2`, and `Saeidesl/PRSPRO2DATABASE-V2` during this check. They are not confirmed as existing repositories; repository creation remains pending and should be performed only after Phase 0 audit and the documented preparation step.
+- `PRSPRO2-INFRA-V2` remains verified and accessible.
