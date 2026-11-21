@@ -127,3 +127,9 @@
 ### Repository availability re-check (2026-11-21)
 - [x] Infra V2 repository accessible.
 - [x] Rechecked the other three intended repositories via GitHub API; 404/not found returned. Existence is not confirmed; creation is still pending.
+
+
+### Task 0.2 incremental notes (2026-11-21 continued)
+- Continued read-only integration audit: TelegramBotService uses Script Properties for token/secret and tenant-to-chat mapping, supports registration flow and polling trigger (one-minute trigger), message sending, and update offset persistence. Telegram diagnostics are also present. Secrets are not retrieved or exposed.
+- Procurement event integration source confirms a limited link: event-type setting can recalculate confirmed material needs based on a single numeric central-information type, with validation and audit. Purchase orders/receipts are stated to remain independent from this event integration.
+- Additional route/source tracing and exact route permission map remain pending. No live Telegram configuration, tokens, tenant chat IDs or user data accessed.
