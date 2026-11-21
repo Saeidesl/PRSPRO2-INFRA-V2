@@ -260,3 +260,11 @@ The frontend tree includes tests for event filtering/history/forms/image preview
 
 ### 18.3 Audit limits
 - Source reviewed read-only. No Telegram properties, token, recipient mapping, real production notification, external API action, or live business data was accessed. No test executed.
+
+## 19. Additional schema and event-operation discovery (2026-11-21)
+
+- Extracted the exact declared column/header arrays from `DatabaseSetup.js`; this is metadata only. It confirms the schema areas and key fields for tenant/user/role relationships; project/workflow versions; event type, event, event-data; information-type columns, project information and revision history; forms, form fields, event-form associations and form response snapshots; attachments/audit; workflow event rules; reference sync; and procurement needs/specifications/calculations/orders/items/allocations/receipts.
+- Preliminary route families extracted from literal Router path branches include authentication, projects, statuses, departments, project images, workflow management, templates, forms, central information, event types/events, attachments, users/roles/permissions, audit, dashboards/reports and procurement. Duplicate route branches and dynamic routes require manual mapping before this becomes a route-permission matrix.
+- EventService `create` has an optional idempotency key, validates its length, uses a user-scoped lock and tenant/user-scoped replay lookup; replay returns the existing event/context rather than creating a duplicate. If a prior request remains PROCESSING, it blocks replay and requires investigation.
+- Event void path validates tenant and project access, already-void state, event type configuration (`AllowVoid`), actor admin/department eligibility, and downstream/later-event constraints. Exact rollback behavior is not fully traced in this increment.
+- These findings are source review only. No test execution or operational data access.
