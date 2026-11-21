@@ -730,3 +730,13 @@ The frontend tree includes tests for event filtering/history/forms/image preview
 | Audit | actor/tenant/entity; old/new data and reason; chronology | missing actor/entity links where expected; chronology; completeness for privileged mutations; immutable archive |
 
 **Cross-cutting rules:** preserve soft-deleted/voided history where required; do not treat inactive as deleted; avoid destructive cascade where shared procurement or history exists; validate all tenant boundaries; use repeatable idempotent migration operations; report—not silently repair—ambiguous or conflicting source data.
+
+
+## 27. Authorization trace — print-template project data binding path
+
+- Re-read Router.js PUT branch for /print-templates/:id/project-data. It dispatches to PrintTemplateService.updateProjectBinding without a direct Router permission declaration.
+- Service trace confirmed authentication and tenant-scoped template lookup; template must be active; binding ID must exist; only LATEST selection accepted; project resolution enforces tenant and project availability. The mutation branches require PROJECT_EDIT for PROJECT_FIELD and PROJECT_INFORMATION, EVENT_EDIT for EVENT_FORM_FIELD and EVENT_FIELD, and unsupported source types fail closed.
+- Therefore this route is not evidence of a permission bypass based on the inspected service code. It illustrates why endpoint authorization must be evaluated end-to-end (Router + service + domain checks) and why route matrix should record permission gates by mutation source type.
+- Additional review of AccessControlService showed ADMIN/SYS_ADMIN role bypass is centralized; non-admin permission resolution is tenant-scoped, active-role filtered and request-cache reset. Runtime penetration/security tests remain unperformed.
+- Security testing backlog: systematically map all route branches and service gates; test cross-tenant IDs, project visibility, unauthorized binding types, stale ExpectedSource/revision conflicts, admin bypass and attachment visibility; verify token transport/log exposure and session revocation/expiry.
+- READ-ONLY; no production changes or runtime tests.
