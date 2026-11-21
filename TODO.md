@@ -444,3 +444,9 @@
 - No DB-native FK/unique/check constraints found in the source storage design; V2 should establish these explicitly.
 - Preliminary migration principles recorded: preserve IDs as text, stage immutable exports, dependency-order loads, validate counts/relations/JSON/revisions/procurement totals, storage checksums and controlled cutover/rollback; no production data access or transfer performed.
 - Exact field type/nullability, actual data counts, orphan/duplicate and legacy drift analysis remain pending safe discovery/export and V2 migration design.
+
+
+### Task 0.2 — relationship edge-case matrix checkpoint (2026-11-21)
+- Recorded relationship and migration risk matrix for project/event history, workflow versioning, event form snapshots, central-information revisions/reference synchronization, attachments and storage reconciliation, material specification/calculation/need lifecycle, shared procurement allocations/receipts/surplus, and audit chronology.
+- Validation gates include tenant-bound relation checks, orphan/duplicate detection, version/snapshot consistency, cardinality/revision validation, file checksum reconciliation, material quantity recomputation, shared procurement totals, and preservation of void/inactive/archive semantics.
+- This matrix is a planning artifact based on source audit; data-level validation, runtime tests and migration dry-run are pending. Production remains untouched.
