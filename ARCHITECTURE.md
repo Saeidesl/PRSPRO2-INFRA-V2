@@ -201,3 +201,24 @@ The frontend tree includes tests for event filtering/history/forms/image preview
 
 ### 14.5 Audit limitations
 - These findings are from selected code paths only. API route/permission mapping is not exhaustive; no tests were executed and no live data, spreadsheet, or Drive contents were accessed.
+
+
+## 15. Source Audit — Information Revision, Live-Sync Conflict, and Project Deletion (2026-11-21)
+
+### 15.1 Project-information revision and approval
+- Selected ProjectInformationService source validates information types/columns and attachment ownership/type/status, supports single/multiple cardinality and data-type validation, and records revisions/history on save.
+- Saves can use ExpectedRevision to detect stale writes; repeated event/value writes can be idempotently recognized. Approval history is revision-specific, and approvals trigger reference-sync processing.
+- Live reference sync is revision/idempotency-key aware. It checks target state against the prior synchronization record; local edits or locally-kept conflict states can prevent overwriting and create conflict records. Conflict resolution requires revision checks and a decision; a source revision mismatch is treated as stale.
+
+### 15.2 Event voiding (selected EventService path)
+- Event voiding is subject to tenant/project visibility and event-type AllowVoid configuration, and rejects voiding when later-step activity constrains the event timestamp/change.
+- For qualifying events, void operation restores stored prior project status and current-step status, marks the event VOID, logs the operation, recalculates workflow-rule progress and updates step status if necessary. Material planning may be notified to review voided-event impact.
+- This is a source-path observation, not a complete event amend/revision audit.
+
+### 15.3 Project deletion (selected ProjectDeletionService and Router)
+- Admin-only, tenant-scoped project deletion has a preview endpoint and requires exact project-code confirmation. It collects dependencies across events/event data, material needs, specifications/calculations, allocations, receipts, order items/orders, and attachments.
+- The collector protects shared/general procurement orders and order lines used by other project allocations. Deletion uses soft-deletion/VOID markers for related rows where supported, trashes attached Drive objects, then physically deletes the project row. Errors are collected and surfaced; audit logging records dependency counts and failures.
+- V2 should not replicate destructive cascade semantics blindly. Prefer transaction-backed deletion policy, dependency preview, confirmation, referential integrity, retained audit, shared procurement protection and recoverability. Whether V2 project deletion should be soft-delete-only is a pending PO/business policy decision.
+
+### 15.4 Audit limits
+- Findings are based on selected code paths only. No operational data was accessed and no tests were run.
