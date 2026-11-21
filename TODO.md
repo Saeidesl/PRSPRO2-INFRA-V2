@@ -133,3 +133,9 @@
 - Continued read-only integration audit: TelegramBotService uses Script Properties for token/secret and tenant-to-chat mapping, supports registration flow and polling trigger (one-minute trigger), message sending, and update offset persistence. Telegram diagnostics are also present. Secrets are not retrieved or exposed.
 - Procurement event integration source confirms a limited link: event-type setting can recalculate confirmed material needs based on a single numeric central-information type, with validation and audit. Purchase orders/receipts are stated to remain independent from this event integration.
 - Additional route/source tracing and exact route permission map remain pending. No live Telegram configuration, tokens, tenant chat IDs or user data accessed.
+
+### Task 0.2 incremental notes (2026-11-21)
+- Extracted all declared sheet header arrays from DatabaseSetup.js (schema inventory, not data). Key domains include tenant/security, project/workflow, event/form snapshots, central information revisions, attachments/audit, reference-sync logs, material specs/calculations, purchase orders/items, allocations and receipts.
+- Enumerated literal Router route families and EventService method names as a preliminary route/domain map; this does not yet constitute a complete route permission matrix.
+- Further EventService inspection confirmed create-request idempotency key handling with user-scoped locking and replay lookup. Void handling is tenant/project-scoped, permission/department constrained and checks event type AllowVoid and later-event conditions (full behavior still needs tracing).
+- Relationship extraction and exhaustive amendment/revision tracing remain in progress. No production writes or data access; tests not run.
