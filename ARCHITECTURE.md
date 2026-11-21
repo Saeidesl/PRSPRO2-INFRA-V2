@@ -648,3 +648,15 @@ The frontend tree includes tests for event filtering/history/forms/image preview
 - PrintTemplateService: tenant-scoped template management, version increments on updates, validator-backed definitions, resolution of dynamic project/form/event/info data, asset storage and reference-aware cleanup, deleted templates soft-marked. V2 needs template versioning, snapshot-safe outputs and asset lifecycle integrity.
 - ProjectStatusService: tenant-scoped configurable statuses and updates. Confirmed header name collision in DatabaseSetup inventory: ProjectStatuses is named `18_ProjectStatuses` while MaterialNeeds also is `18_MaterialNeeds` (not same name but numbering prefix duplicate); sheet prefix numbering is descriptive rather than a unique logical constraint. Migration should use explicit stable table names, not numeric-prefix assumptions.
 - Source review only, no runtime tests and no production changes.
+
+
+## 19. Validator and repository integrity audit (2026-11-21)
+
+- ProjectValidator enforces title/code/workflow, quantity as positive integer, at least one available department, bounded department/user lists and notification settings; update supports lifecycle/status fields, active tenant-configurable project status validated at service level.
+- EventValidator validates project linkage when supplied, required event fields and update status enum (ACTIVE/VOID); key tenant/project/type checks and lifecycle rules are in EventService.
+- FormValidator: name length limit, Code pattern (`^[A-Za-z][A-Za-z0-9_]{1,59}$`-style actual form code expression appears max 60), descriptions bounded, status ACTIVE/INACTIVE; field definitions validate ordering, required flags, display conditions and condition operators/values.
+- InformationTypeValidator: JSON validation rules (numeric ranges, lengths, pattern bounds), names and codes bounded and code pattern, cardinality/data type enums, options capped, special PROJECT_CODE invariant (single text value), column code/type/options/order/required/status validation.
+- WorkflowValidator: required name/code, workflow type/status validation; deeper step/version integrity belongs to WorkflowService/repositories.
+- WorkflowStepEventRuleValidator validates modes and data-source combinations, strict/free/grouped sequencing, duplicate order/display-order/group/event-type constraints.
+- Repository layer is generally thin Sheets access (ProjectRepository code lookup, EventRepository project lookup/inserts, ProcurementRepository tenant-filtered collections). Service validations cannot replace DB unique/FK/check constraints; V2 must enforce tenant-scoped unique indexes, FK, enum/check constraints and indexes.
+- Source inspection only; no runtime or mutation tests.
