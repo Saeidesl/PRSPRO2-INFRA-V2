@@ -491,3 +491,12 @@ The frontend tree includes tests for event filtering/history/forms/image preview
 - WebApp serializes unknown/internal exceptions with error.message in generic INTERNAL_ERROR responses. This is a potential information disclosure concern to validate in runtime/log scenarios (source observation only); V2 should return sanitized client errors and log correlated details server-side.
 - Frontend production repository top-level inventory confirms large maintained documentation/architecture and task logs, but source-file tree inventory and endpoint-to-UI coverage remain pending. Production repositories remain READ-ONLY.
 - No runtime testing, no production changes. Task 0.2 remains IN PROGRESS.
+
+
+### Task 0.2 incremental discovery (2026-11-21 — frontend API client and module inventory)
+- Read-only frontend tree inventory: modular SPA with shared core API/session/cache/router/permissions/theme, UI components, and domain modules for projects, project-detail/images, events, workflows, event-types, forms, information-types, material-planning, procurement, reports, attachments, users/roles/permissions/departments, statuses, audit, settings/admin, print-designer. Pages are dynamically loaded through Router and index.html.
+- API client (js/core/api.js) sends auth token as URL query parameter for all requests; GET and POST-overridden PUT/DELETE share URL construction. This exposes token risk through URL/log/history surfaces. V2 frontend should use header/cookie auth and shared API client.
+- Session token persisted in localStorage (pms_api_token and pms_session); V2 should prefer secure HttpOnly SameSite cookies where architecture allows, minimize JS-accessible token storage, and define CSRF protections if cookie-based.
+- Frontend API supports GET request deduplication, retry on GET network/429/5xx, sync status events, and cache-assisted reads/background refresh. Preserve equivalent UX/performance behavior with a robust server/API cache strategy; ensure retry/idempotency rules for writes.
+- Frontend has client route-permission gating from /auth/me/permissions; this is UX-level and must never replace backend authorization.
+- Frontend modules and index.html inventory only; exhaustive endpoint usage mapping, pages source audit, build/test dependency audit, and API call inventory remain outstanding. Production repo is READ-ONLY; no runtime tests or changes performed.
