@@ -415,3 +415,10 @@
 - Repositories inspected: ProjectRepository, EventRepository, ProcurementRepository; thin repository functions and tenant filtering observed, while integrity depends primarily on service layer due Sheets lacking FK/unique/check constraints.
 - V2 migration candidates: tenant-scoped unique indexes, relational FK, check/enum constraints, composite indexes, explicit cascade/restrict rules and transactions.
 - Source-only; no runtime testing and no production changes.
+
+
+### Task 0.2 — API route inventory (2026-11-21)
+- Extracted Router route families covering auth, admin, projects/central information/material planning, workflows, templates, forms, information/event types, events, attachments, users/roles/permissions, audit, dashboard, procurement and reports.
+- WebApp request handling: per-request cache reset, route-access guard, Router dispatch for GET/POST/PUT/DELETE, method override support, token can be parsed from query/body. V2 should use header/cookie authentication, explicit methods and sanitized generic errors.
+- Standard response envelope confirmed. Generic WebApp error response may leak error message; verification pending.
+- Permission-route matrix and full endpoint contract still in progress; no runtime tests/no production changes.
