@@ -408,3 +408,10 @@
 - Print templates: tenant-scoped, validated definitions, version increment, dynamic resolution, asset cleanup/reference checks, soft delete.
 - Project statuses configurable and tenant-scoped. Prefix numbering in Sheets is not a reliable key convention; V2 uses explicit table identifiers.
 - Source review only; no runtime tests, no production changes.
+
+
+### Task 0.2 — validator and repository audit update (2026-11-21)
+- Project/Event/Form/Information Type/Workflow/Workflow-step-event rule validators reviewed. Extracted limits, enum rules, code patterns, project quantity/department constraints, dynamic field validation, PROJECT_CODE special invariant, and rule sequencing/group uniqueness.
+- Repositories inspected: ProjectRepository, EventRepository, ProcurementRepository; thin repository functions and tenant filtering observed, while integrity depends primarily on service layer due Sheets lacking FK/unique/check constraints.
+- V2 migration candidates: tenant-scoped unique indexes, relational FK, check/enum constraints, composite indexes, explicit cascade/restrict rules and transactions.
+- Source-only; no runtime testing and no production changes.
