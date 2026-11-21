@@ -268,3 +268,22 @@ The frontend tree includes tests for event filtering/history/forms/image preview
 - EventService `create` has an optional idempotency key, validates its length, uses a user-scoped lock and tenant/user-scoped replay lookup; replay returns the existing event/context rather than creating a duplicate. If a prior request remains PROCESSING, it blocks replay and requires investigation.
 - Event void path validates tenant and project access, already-void state, event type configuration (`AllowVoid`), actor admin/department eligibility, and downstream/later-event constraints. Exact rollback behavior is not fully traced in this increment.
 - These findings are source review only. No test execution or operational data access.
+
+
+## 20. Source Audit — Router & Authorization Path (2026-11-21)
+
+### 20.1 Router authorization observations
+- Explicit route checks observed across projects, events, forms, workflow management, print templates, users/roles, audit, attachments, procurement, and reporting.
+- Admin-only operations observed: project deletion preview/removal and session listing/revocation.
+- Draft-project exception: selected project GET/PUT and material-spec creation/reference-copy paths allow a creator with PROJECT_CREATE where ordinary PROJECT_VIEW/PROJECT_EDIT is unavailable, subject to tenant, draft state and creator checks in examined branches.
+- Generic AccessControlService.enforceRouteAccess returns true after authentication for non-admin users; route-specific checks occur in Router/services. It is not itself a security barrier. V2 should centralize authorization, fail closed, and test tenant-aware access.
+- PermissionService resolves tenant-bound active roles and role-permission mappings and caches permissions per request/user. Source observations only; not a security test.
+
+### 20.2 Amendment and void routing
+- Event form response update: PUT `/events/:eventId/forms/:formId` -> EVENT_EDIT -> FormService.updateEventFormResponse.
+- Event void: PUT `/events/:eventId/void` -> EVENT_EDIT -> EventService.void.
+- Full amendment revision/snapshot and void rollback dependency trace remains incomplete.
+
+### 20.3 Audit limitations
+- No exhaustive route-by-route permission matrix reconciled with service checks.
+- No tests, runtime probes, penetration tests, or data access performed.
