@@ -122,3 +122,8 @@
 - Read backend-check and PMS agent-suite workflow definitions; recorded test/syntax/manifest/domain-contract/schema safety checks.
 - Read frontend-check, frontend agent suite, and cross-repo QA definitions; recorded syntax, regression tests, asset/CSS checks, isolated staging E2E fail-closed guard, and cross-repo validation.
 - Workflow definitions only; no CI run was executed or status evaluated.
+
+
+### Repository availability re-check (2026-11-21)
+- [x] Infra V2 repository accessible.
+- [x] Rechecked the other three intended repositories via GitHub API; 404/not found returned. Existence is not confirmed; creation is still pending.
