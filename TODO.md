@@ -422,3 +422,10 @@
 - WebApp request handling: per-request cache reset, route-access guard, Router dispatch for GET/POST/PUT/DELETE, method override support, token can be parsed from query/body. V2 should use header/cookie authentication, explicit methods and sanitized generic errors.
 - Standard response envelope confirmed. Generic WebApp error response may leak error message; verification pending.
 - Permission-route matrix and full endpoint contract still in progress; no runtime tests/no production changes.
+
+
+### Task 0.2 incremental notes (2026-11-21 — report/dashboard and print-template deeper trace)
+- Project report composition is tenant/visibility scoped, excludes void/cancelled events, and assembles project snapshot, event history and selected-project procurement needs/calculations/orders.
+- Dashboard source uses visible-project indexing and grouped activity aggregation. Procurement workspace/reporting models shared order-item project associations through allocations and receipts; orders with inaccessible linked projects are filtered as a whole.
+- Print-template service provides tenant-scoped library/revision/source/resolve/preview and versioned definitions/assets; exact endpoint payload/permission map remains pending.
+- Remaining discovery priorities: exhaustive route-permission-contract reconciliation, schema/header/identifier constraints dictionary, edge-case matrix, and migration/validation blueprint. Source-only; no runtime tests or production changes.
