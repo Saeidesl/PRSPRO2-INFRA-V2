@@ -147,3 +147,11 @@
 - Event form response amendment path is routed through PUT `/events/:eventId/forms/:formId` and FormService.updateEventFormResponse under EVENT_EDIT; event void through PUT `/events/:id/void`, also EVENT_EDIT. Event-form response snapshots/versioning and amendment edge cases still need service-level trace.
 - PermissionService resolves tenant-bound active roles and role-permission mappings; request caches are keyed by tenant/user. Router's generic enforceRouteAccess hook itself does not enforce permissions; route-specific enforcement occurs in Router branches and services. This architecture is an important V2 risk/requirement: centralize authorization and fail closed.
 - Route review notes are preliminary and do not represent a live penetration/security test. Tests were not run.
+
+
+### Task 0.2 — additional verified form-amendment path findings (2026-11-21)
+- Event form amendment path requires a same-tenant, same-project amendment event; amendment event type is accepted if explicitly configured as form amendment or if legacy code/name marker matches EDIT/UPDATE/AMEND/ویرایش/اصلاح. Explicit configuration restricts amendable form IDs.
+- Form response amendment validates form version, validates values against current form fields and visibility/required rules, checks tenant/project availability, and serializes updates under script lock. It supports idempotent replay keyed by LastAmendmentEventID and conflict checks on repeated differing values.
+- Response amendment also synchronizes central ProjectInformation, deactivates emptied values, handles project code specially, and writes an audit record on non-replay. This multi-step Sheets operation is not a DB transaction; partial-failure recovery remains a migration risk.
+- Event form response storage is 35_EventFormData; response fields include EventID/FormID/FormVersion/ResponseJSON/DefinitionSnapshotJSON/CreatedBy/CreatedAt (and amendment tracking fields such as LastAmendmentEventID/UpdatedAt inferred from selected update paths; schema-header verification for all fields still pending).
+- FormRepository relationships are repository-filtered by FormID and EventID/FormID; these are logical relationships without enforced database foreign keys in Sheets. Event-to-project relation uses Event.ProjectID; Event data is separate 14_EventData keyed by EventID.
