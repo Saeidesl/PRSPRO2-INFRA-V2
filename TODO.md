@@ -139,3 +139,11 @@
 - Enumerated literal Router route families and EventService method names as a preliminary route/domain map; this does not yet constitute a complete route permission matrix.
 - Further EventService inspection confirmed create-request idempotency key handling with user-scoped locking and replay lookup. Void handling is tenant/project-scoped, permission/department constrained and checks event type AllowVoid and later-event conditions (full behavior still needs tracing).
 - Relationship extraction and exhaustive amendment/revision tracing remain in progress. No production writes or data access; tests not run.
+
+
+### Task 0.2 incremental notes (2026-11-21 continued)
+- Router GET/POST/PUT/DELETE branches inspected further. Route-level permissions cover project/event/form/workflow/template/user/role/audit/attachment/procurement domains, with draft-project creator exceptions and admin-only project deletion/session management.
+- Route permission coverage is still a source-level preliminary map: endpoint branches and service-level checks need systematic reconciliation; no claim of complete authorization audit.
+- Event form response amendment path is routed through PUT `/events/:eventId/forms/:formId` and FormService.updateEventFormResponse under EVENT_EDIT; event void through PUT `/events/:id/void`, also EVENT_EDIT. Event-form response snapshots/versioning and amendment edge cases still need service-level trace.
+- PermissionService resolves tenant-bound active roles and role-permission mappings; request caches are keyed by tenant/user. Router's generic enforceRouteAccess hook itself does not enforce permissions; route-specific enforcement occurs in Router branches and services. This architecture is an important V2 risk/requirement: centralize authorization and fail closed.
+- Route review notes are preliminary and do not represent a live penetration/security test. Tests were not run.
