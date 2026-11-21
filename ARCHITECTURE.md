@@ -326,3 +326,22 @@ The frontend tree includes tests for event filtering/history/forms/image preview
 
 ### 22.4 Audit limitations
 - Selected source paths only. Receipt details, complete route/permission matrix and runtime/test verification remain pending.
+
+
+## 23. Source Audit — Receipt Allocation and Project Deletion Dependencies (2026-11-21)
+
+### 23.1 Receipt rules
+- Batch receipt processing checks tenant ownership, active order status, project/source-event validation, positive quantities, total receipts against ordered quantity, and cumulative project receipts against allocation amounts.
+- For allocated items, project receipts require an allocation to that project and cannot exceed its allocated quantity. General-stock receipt of unallocated surplus is permitted only within the unallocated order portion. Items with no allocations validate expected project linkage.
+- Batch records are inserted in bulk; order status is subsequently recomputed (`ACTIVE`, `PARTIALLY_RECEIVED`, `RECEIVED`) while `NEEDS_REVIEW` orders are protected from this status rewrite. Audit rows are emitted per receipt.
+- Single receipt processing includes source-event/item replay checks and allocation/project cumulative limits. The single and batch paths have differing validation/replay details; V2 should converge them on a shared domain rule and transactional service.
+
+### 23.2 Project dependency-aware deletion
+- Admin and tenant checks, explicit project-code confirmation, and a script lock guard deletion. Preview exposes dependency counts before deletion.
+- Dependencies collected include project events, event data, needs, material specs/calculations, attachments, receipts, allocations, order items, and eligible purchase orders.
+- Shared/general procurement protection: a purchase order is only selected for deletion when all its active items are included and none has other-project allocations. Items linked to other project allocations are protected.
+- Legacy child sheets without Status columns are prepared for soft deletion; events are marked VOID. Storage trash occurs after attachment record deletion. The project row is physically removed only if dependency processing has no failures; failures leave potentially partial state and are reported.
+- V2 should use a transactional project archive/deletion state, dependency preview and explicit safeguards, retain audit/recovery, protect shared procurement records, and queue external storage cleanup through durable outbox/jobs.
+
+### 23.3 Audit caveats
+- The source has separate single and batch receipt validation paths and non-transactional status updates. This was not tested in runtime. No production data was read or modified.
