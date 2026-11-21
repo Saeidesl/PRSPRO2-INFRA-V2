@@ -450,3 +450,10 @@
 - Recorded relationship and migration risk matrix for project/event history, workflow versioning, event form snapshots, central-information revisions/reference synchronization, attachments and storage reconciliation, material specification/calculation/need lifecycle, shared procurement allocations/receipts/surplus, and audit chronology.
 - Validation gates include tenant-bound relation checks, orphan/duplicate detection, version/snapshot consistency, cardinality/revision validation, file checksum reconciliation, material quantity recomputation, shared procurement totals, and preservation of void/inactive/archive semantics.
 - This matrix is a planning artifact based on source audit; data-level validation, runtime tests and migration dry-run are pending. Production remains untouched.
+
+
+### Task 0.2 — authorization end-to-end trace checkpoint (2026-11-21)
+- Investigated PUT print-template project-data binding route: Router dispatch lacks a direct permission call, but service/domain branch gates were confirmed. Project fields/central-information mutations require PROJECT_EDIT; event-form/event-field mutations require EVENT_EDIT. Service also tenant-scopes template/project, active template, validates binding ID/source and rejects non-LATEST selection; optimistic source conflict is checked.
+- Conclusion: no bypass claim; the matrix must capture source-specific service-level permission requirements rather than Router-only guards.
+- AccessControlService admin role bypass and tenant-scoped active role permission resolution/request caching reviewed at source level. No runtime/penetration testing.
+- Next: continue exhaustive endpoint/service permission matrix and security test planning, including cross-tenant IDOR, visibility, token/session and file-access tests.
