@@ -393,3 +393,9 @@
 - Read shared response/error helpers and cross-checked database sheet header definitions. Response contract is an envelope with success/data/error/meta; known coded errors are surfaced and unknown errors generic, but possible message leakage in WebApp-level handling requires further reconciliation.
 - Schema header inventory reconfirmed all major domains including information history, event-form snapshots, workflow rules, reference sync, material specifications/calculations, purchase allocations/receipts and procurement-event settings.
 - Constraints, uniqueness, foreign keys, idempotency and transaction semantics remain a discovery/design exercise; source/header review only. No live sheet data or reset functions touched.
+
+
+### Task 0.2 — material planning, procurement and workflow source audit (2026-11-21)
+- Reviewed service source for MaterialPlanningService, ProcurementService, ProcurementEventIntegrationService and WorkflowService.
+- Findings: revisioned material specs and calculations with idempotency keys; recalc source event/version coupling; procurement order creation locking/idempotency replay and shared-item allocation/surplus; event integration requires confirmed quantity central info linked to same event; workflow version/draft-publish semantics.
+- V2 design implication: transaction-backed versioning, explicit source linkage, durable idempotency, DB constraints for allocation/receipt quantities, concurrency-safe recalc, immutable published workflow versions. Read-only source review; no runtime tests or production changes.
