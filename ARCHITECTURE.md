@@ -629,3 +629,12 @@ The frontend tree includes tests for event filtering/history/forms/image preview
 
 ### 16.3 Audit boundaries
 - No spreadsheet records were accessed; headers and source code only. No reset/maintenance functions invoked. Production remains unchanged.
+
+
+## 17. Read-only audit — material planning, procurement and workflow services (2026-11-21)
+
+- `MaterialPlanningService.js`: lazy/additive schema handling uses script lock with timeout and a long-lived schema-ready cache. Project specifications are revisioned by SpecKey; latest revision is authoritative. Calculations identify retries with a key derived from source event/spec revision/basis tuple; calculation records capture basis, consumption, wastage, calculated/previous/variance quantity, type and source event version. Recalculation updates material needs and supersession state. GAS lock semantics must be replaced with DB transactions and concurrency controls.
+- `ProcurementService.js`: tenant-scoped validation of projects/events, lock-protected order creation, optional idempotency replay by key, shared purchase-order items, allocations against needs and surplus handling. Receipt and allocation flows need relational constraints/transactions and clear shared-order accounting; legacy quantities are handled defensively.
+- `ProcurementEventIntegrationService.js`: event type configuration maps confirmed quantity to an active tenant-owned information type; positive quantity validation; recalculation is gated on the value being saved to central project information and originating from the same source event. V2 should preserve source linkage and prevent duplicated side effects.
+- `WorkflowService.js`: tenant-scoped management/bootstrap and version-aware rule/step retrieval. Draft/published versions and repeat-reference policy snapshots are present. V2 should keep published definitions immutable and bind project/event execution to explicit versions.
+- Source review only, not runtime test; production repositories and data unchanged.
