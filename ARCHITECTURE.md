@@ -173,3 +173,31 @@ The frontend tree includes tests for event filtering/history/forms/image preview
 - Detail workflow transition, event amendment, reference-copy/synchronization, attachment lifecycle and material receipt invariants.
 - Review tests and CI definitions to understand actual execution commands, gates and deployment boundaries.
 - Finish migration-risk assessment and discovery report.
+
+
+## 14. Source Audit — Reference Projects, Event Sequencing, and Lifecycle (2026-11-21)
+
+### 14.1 Repeat-project/reference-copy behavior (verified selected ProjectService paths)
+- Repeat workflows require a source project within the same tenant; the source must be an active/non-draft project and accessible to the requesting user. Client-provided reference-policy overrides are not accepted as authoritative; the workflow policy is used.
+- Reference information policies observed: `INITIAL_COPY`, `LIVE_SYNC`, and `INDEPENDENT`. A per-type copy plan is persisted in project reference-copy status JSON, and a request operation ID is used to recover/replay project creation requests.
+- Reference-copy plan can include the source profile image. File-based information without image fields may be skipped. Copy processing is individually tracked; source image attachment validation is tenant/project scoped and copied images receive separate attachment records/storage objects.
+- Selected copy path creates project-information records/history and, for LIVE_SYNC, a sync-log record with source revision and idempotency key. Conflict resolution and broader synchronization behavior still need further tracing.
+
+### 14.2 Workflow-event sequencing and manual completion
+- EventService selected source applies configured step rules. Requirements include REQUIRED, REFERENCE, and NOT_REQUIRED semantics, repeat allowances, sequence modes (STRICT and GROUPED), ordering/group ordering, and step-specific event-type eligibility.
+- Under strict sequence, earlier incomplete required events block later events. Under grouped sequence, earlier incomplete required groups block later groups.
+- Manual step completion is permitted to system administrators or users in a department assigned to the current workflow step; completion requires all required events satisfied and a workflow configuration requiring manual completion. Completed manual steps reject further events in that step.
+- Event voiding can restore captured prior project status/current-step state and then refresh workflow-rule progress; material planning may be notified to review affected needs. Exact edge cases remain pending.
+
+### 14.3 Project creation and access boundaries (selected source)
+- Tenant identity is derived from the authenticated user rather than client input. Draft projects are handled separately from active workflow projects.
+- Active project creation requires a published/active workflow, a valid first active step, tenant-valid departments/users, and a tenant-defined active project status (or legacy/default status behavior).
+- Repeat-project source validation and duplicate project-code validation are tenant-scoped; create operations use a lock around critical insertion/validation paths.
+
+### 14.4 File lifecycle and access (selected AttachmentService/GoogleDriveStorage)
+- Attachments are linked to PROJECT or EVENT entities, tenant-scoped, and project/event visibility checks are applied. Event attachment visibility inherits parent-project visibility.
+- Upload validates file metadata/content and stores a provider key; project files have canonical server-side names. Download/thumbnail paths validate attachment tenant/visibility/status. Delete currently deletes/trashes the storage object and marks the attachment record DELETED, then audit-logs.
+- Current provider is Google Drive (DriveApp); tenant folder and root-folder behavior are present. V2 needs provider-neutral storage identifiers, safe download authorization, soft-delete/recovery policy decisions, and migration mapping. Selected code is not a full file-security audit.
+
+### 14.5 Audit limitations
+- These findings are from selected code paths only. API route/permission mapping is not exhaustive; no tests were executed and no live data, spreadsheet, or Drive contents were accessed.
