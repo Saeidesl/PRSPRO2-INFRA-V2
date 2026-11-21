@@ -6,12 +6,12 @@
 
 ### Task 0.1 — Verify V2 repositories and establish project governance
 - [x] Verify Infra repository availability and access.
-- [ ] Verify availability/access of the three remaining V2 repositories.
+- [x] Search for the three remaining V2 repositories; not found, creation pending.
 - [x] Establish initial README, TODO, and ARCHITECTURE documents.
-- [ ] Verify initial documentation commit(s).
+- [x] Verify initial documentation files by reading them back from GitHub.
 
 **Status:** IN PROGRESS  
-**Notes:** Infra repository verified as accessible. The three other V2 repositories were not found during initial search; their creation is pending.
+**Notes:** Infra repository and documentation verified. Searches did not find PRSPRO2-V2, PRSPRO2BACKEND-V2, or PRSPRO2DATABASE-V2; creation/access remains pending.
 
 ### Task 0.2 — READ-ONLY audit of current PMS
 - [ ] Audit frontend repository structure, modules, routes, dependencies, and workflows.
