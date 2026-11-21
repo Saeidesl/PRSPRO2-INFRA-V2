@@ -242,3 +242,21 @@ The frontend tree includes tests for event filtering/history/forms/image preview
 ## 17. V2 Repository Availability Check (2026-11-21)
 - GitHub API lookups returned 404/not found for `Saeidesl/PRSPRO2-V2`, `Saeidesl/PRSPRO2BACKEND-V2`, and `Saeidesl/PRSPRO2DATABASE-V2` during this check. They are not confirmed as existing repositories; repository creation remains pending and should be performed only after Phase 0 audit and the documented preparation step.
 - `PRSPRO2-INFRA-V2` remains verified and accessible.
+
+
+## 18. Source Audit — Telegram and Procurement Event Integration (2026-11-21)
+
+### 18.1 Telegram integration (selected TelegramBotService and diagnostics source)
+- Telegram token and webhook secret are read from Apps Script Script Properties; tenant-to-chat recipients are configured through a property mapping. No secret values were accessed.
+- The bot supports `/start` and `/help` registration messaging, `/chatid`, a pending tenant registration window, and validation of active tenant state before registering a chat.
+- Polling mode removes any prior webhook, creates a one-minute time-based trigger and uses a persisted update offset. Message sending uses Telegram's `sendMessage` API. A diagnostics utility reports configuration and webhook state without exposing token values.
+- V2 should treat notifications as an optional integration adapter, externalize credentials, define secure tenant recipient registration, retry/backoff and delivery logs, and avoid making core production operations depend on notification delivery. Exact notification event triggers and opt-in scope need further audit.
+
+### 18.2 Procurement/event integration
+- `ProcurementEventIntegrationService` supports a narrowly scoped event-type setting to recalculate confirmed material needs from a numeric, single-cardinality central-information type.
+- The configured quantity must be supplied by exactly one connected form response, positive, and persisted centrally from the same event; project access and tenant scope are validated. Setting changes are audit logged.
+- Source comments explicitly keep purchase orders and receipts independent from this event integration; legacy receipt mappings are inert.
+- This is a selected service audit, not a complete procurement domain mapping.
+
+### 18.3 Audit limits
+- Source reviewed read-only. No Telegram properties, token, recipient mapping, real production notification, external API action, or live business data was accessed. No test executed.
