@@ -660,3 +660,11 @@ The frontend tree includes tests for event filtering/history/forms/image preview
 - WorkflowStepEventRuleValidator validates modes and data-source combinations, strict/free/grouped sequencing, duplicate order/display-order/group/event-type constraints.
 - Repository layer is generally thin Sheets access (ProjectRepository code lookup, EventRepository project lookup/inserts, ProcurementRepository tenant-filtered collections). Service validations cannot replace DB unique/FK/check constraints; V2 must enforce tenant-scoped unique indexes, FK, enum/check constraints and indexes.
 - Source inspection only; no runtime or mutation tests.
+
+
+## 20. API route and transport inventory audit (2026-11-21)
+
+- Router path inventory extracted from production Router.js (READ-ONLY). Route families include auth/me and permissions; admin project deletion preview/session administration; project statuses/departments; project listing/detail/image gallery/card images/form lookups/information/history/material specifications/calculations; workflows/bootstrap and workflow management; print-template library/revision/sources/resolve/preview; forms/fields; information types/columns; event types/forms; events; attachments; users; roles/available permissions; permissions; audit/entity/user; project-dashboard lookups; procurement workspace/reports/dashboard/needs/orders/receipts; report projects/project; dashboard.
+- WebApp GET/POST handlers parse requests, reset per-request caches, invoke route-access enforcement before Router dispatch, then dispatch GET/POST/PUT/DELETE. POST may use method override; token parsing allows query and body transfer. This confirms API transport migration concern: avoid query-token transport and method override in V2; prefer standard HTTP methods and header/cookie auth.
+- Response envelope observed in Response.js: success `{success:true,data,error:null,meta}` and error `{success:false,data:null,error:{code,message,details},meta}`. WebApp's generic error path appears to include raw error.message in INTERNAL_ERROR response; needs runtime/security verification.
+- Router path inventory captured, but permission-by-route matrix and full route contract (schemas, side effects, response shapes) remain incomplete. Source-only, no runtime tests or production changes.
