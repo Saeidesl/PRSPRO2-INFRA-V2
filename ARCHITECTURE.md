@@ -373,3 +373,8 @@ The frontend tree includes tests for event filtering/history/forms/image preview
 - `AccessControlService.enforceRouteAccess` generically authenticates and returns true, delegating operational checks to Router/service code. V2 should centralize route policy and fail closed, with an exhaustive endpoint matrix and automated authorization tests.
 - Candidate targeted review: Router PUT `/print-templates/:id/project-data` branch calls `PrintTemplateService.updateProjectBinding` without an explicit Router-level permission check in the examined branch. Service-level authorization may exist; this is unverified and not asserted as a vulnerability.
 - This review is preliminary/source-only. Complete route reconciliation, service checks, runtime authorization testing and penetration testing remain outstanding.
+
+
+### Task 0.2 incremental notes (2026-11-21 — print-template direct binding permission verification)
+- Rechecked the previously flagged print-template project-data binding update route against `PrintTemplateService.updateProjectBinding`. The service explicitly enforces `PROJECT_EDIT` for project-field and central-information updates, and `EVENT_EDIT` for event-form-field and event-field updates. This narrows the earlier concern: Router-level permission check is not visible in that branch, but service-level authorization is present for supported editable source types. This is source-path confirmation only; no runtime authorization test was performed.
+- Other route/service authorization reconciliation remains incomplete.
