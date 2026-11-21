@@ -14,15 +14,15 @@
 **Notes:** Infra repository and documentation verified. Searches did not find PRSPRO2-V2, PRSPRO2BACKEND-V2, or PRSPRO2DATABASE-V2; creation/access remains pending.
 
 ### Task 0.2 — READ-ONLY audit of current PMS
-- [ ] Audit frontend repository structure, modules, routes, dependencies, and workflows.
-- [ ] Audit backend services, routes, repositories, data access, permissions, integrations, and deployment.
-- [ ] Inventory Google Sheets database tables, headers, identifiers, relationships, and data conventions.
-- [ ] Map current business workflows and role/permission behavior.
-- [ ] Inventory file storage and integrations (Drive, Telegram, etc.).
-- [ ] Identify critical risks, performance constraints, and migration dependencies.
-- [ ] Record findings and unknowns in ARCHITECTURE.md.
+- [x] Preliminary frontend repository structure and selected modules retrieved.
+- [x] Backend route surface and selected service files retrieved.
+- [x] Inventory database sheet definitions and headers from DatabaseSetup.js.
+- [ ] Extract relationship/business rules in detail; audit workflows and role/permission enforcement.
+- [ ] Inventory file storage and integrations (Drive, Telegram, etc.) in detail.
+- [ ] Identify critical risks, performance constraints, migration dependencies, and test/deployment coverage.
+- [ ] Record detailed findings and unknowns in ARCHITECTURE.md.
 
-**Status:** NOT STARTED
+**Status:** IN PROGRESS
 
 ### Task 0.3 — Discovery report and target boundaries
 - [ ] Produce a verified current-system map.
