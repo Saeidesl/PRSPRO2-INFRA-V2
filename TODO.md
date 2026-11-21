@@ -185,3 +185,8 @@
 - Candidate for deeper verification: PUT /print-templates/:id/project-data dispatches directly to PrintTemplateService.updateProjectBinding in Router without an explicit AccessControlService.require in the examined Router branch. Whether service-level validation/auth is sufficient is unknown; flag for targeted source review, not a confirmed vulnerability.
 - AccessControlService.enforceRouteAccess itself returns true for authenticated users (except public auth paths) and explicitly relies on Router/service checks. This makes systematic route-to-service authorization verification and fail-closed centralized enforcement a V2 requirement; no vulnerability claim based solely on this generic hook.
 - Source-level review only. No runtime tests, penetration tests, production data or changes to production repos.
+
+
+### Task 0.2 incremental notes (2026-11-21 — print-template direct binding permission verification)
+- Rechecked the previously flagged print-template project-data binding update route against `PrintTemplateService.updateProjectBinding`. The service explicitly enforces `PROJECT_EDIT` for project-field and central-information updates, and `EVENT_EDIT` for event-form-field and event-field updates. This narrows the earlier concern: Router-level permission check is not visible in that branch, but service-level authorization is present for supported editable source types. This is source-path confirmation only; no runtime authorization test was performed.
+- Other route/service authorization reconciliation remains incomplete.
