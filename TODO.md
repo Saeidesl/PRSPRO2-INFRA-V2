@@ -18,8 +18,8 @@
 - [x] Backend route surface and selected service files retrieved.
 - [x] Inventory database sheet definitions and headers from DatabaseSetup.js.
 - [x] Preliminary audit of tenant-scoping patterns, workflow-version/rule context, event/form version snapshot references, and procurement idempotency paths.
-- [ ] Extract relationship/business rules in detail; audit workflows and role/permission enforcement.
-- [ ] Inventory file storage and integrations (Drive, Telegram, etc.) in detail.
+- [x] Extract selected workflow-event sequencing, repeat-project/reference copy behavior, and file lifecycle rules (selected paths).\n- [ ] Extract relationship/business rules in detail; audit workflows and role/permission enforcement.
+- [x] Preliminary inventory of Drive storage and attachment lifecycle.\n- [ ] Inventory integrations (Telegram and other external services) in detail.
 - [x] Inventory frontend and backend test-file names and CI workflow files (inventory only; tests not run).
 - [ ] Identify critical risks, performance constraints, migration dependencies, and test/deployment coverage.
 - [ ] Record detailed findings and unknowns in ARCHITECTURE.md.
@@ -102,3 +102,9 @@
 - Task COMPLETE requires successful verification and explicit Product Owner acceptance.
 - Report blockers, dependencies, test results, changes, and risks.
 - Existing production repositories remain read-only; do not commit, branch, or PR against them.
+
+### Task 0.2 incremental notes (2026-11-21)
+- Selected project creation and reference-copy paths examined: tenant-derived IDs, repeat-workflow source checks, policy-driven initial copy/live sync/independent, copy-plan state, profile-image copy and sync-log behavior.
+- Selected event workflow-rule logic examined: required/reference/not-required modes, STRICT/GROUPED sequencing, allow-repeat, manual step completion checks and void restoration behavior.
+- Selected attachment lifecycle examined: PROJECT/EVENT attachment associations, parent project visibility for events, upload/download/thumbnail validation, Google Drive provider and deletion behavior.
+- Still pending: deeper route/permission coverage map, event amendment details, project deletion impact, integration inventory, CI/test execution-gate review, performance/migration dependency synthesis.
