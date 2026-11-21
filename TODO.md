@@ -17,8 +17,10 @@
 - [x] Preliminary frontend repository structure and selected modules retrieved.
 - [x] Backend route surface and selected service files retrieved.
 - [x] Inventory database sheet definitions and headers from DatabaseSetup.js.
+- [x] Preliminary audit of tenant-scoping patterns, workflow-version/rule context, event/form version snapshot references, and procurement idempotency paths.
 - [ ] Extract relationship/business rules in detail; audit workflows and role/permission enforcement.
 - [ ] Inventory file storage and integrations (Drive, Telegram, etc.) in detail.
+- [x] Inventory frontend and backend test-file names and CI workflow files (inventory only; tests not run).
 - [ ] Identify critical risks, performance constraints, migration dependencies, and test/deployment coverage.
 - [ ] Record detailed findings and unknowns in ARCHITECTURE.md.
 
