@@ -387,3 +387,9 @@
 - Read-only extraction of Router permission branches confirmed a mixture of single-permission checks, any-of permission sets, and admin-only checks across major API families.
 - Sampled GET and mutation route families were inventoried. This is not a complete route-to-service permission matrix; service-level checks, route overlap/order, request contracts and tenant boundary regression tests remain to be reconciled.
 - Architecture risk recorded: branch-based authorization policy is difficult to exhaustively verify; V2 should use declarative centralized policy plus domain/service checks and automated route coverage. Source review only; no test or runtime security verification.
+
+
+### Task 0.2 — Response contract and schema header cross-check (2026-11-21)
+- Read shared response/error helpers and cross-checked database sheet header definitions. Response contract is an envelope with success/data/error/meta; known coded errors are surfaced and unknown errors generic, but possible message leakage in WebApp-level handling requires further reconciliation.
+- Schema header inventory reconfirmed all major domains including information history, event-form snapshots, workflow rules, reference sync, material specifications/calculations, purchase allocations/receipts and procurement-event settings.
+- Constraints, uniqueness, foreign keys, idempotency and transaction semantics remain a discovery/design exercise; source/header review only. No live sheet data or reset functions touched.
