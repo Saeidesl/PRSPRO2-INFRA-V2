@@ -375,3 +375,10 @@
 - TelegramBotService uses Script Properties for secrets/config, Apps Script polling/webhook machinery, tenant chat mapping, time-limited pairing, tenant-scoped notification formatting and attachment filtering. Notifications are integration concerns; V2 should use a separate adapter, secret management, job queue/outbox, retry/backoff, dead-letter observability and no secret exposure.
 - AuditService writes tenant/user/action/entity metadata with old/new data as applicable and supports tenant-scoped reads by entity/user. Append-only enforcement and atomic coupling to business operations are not proven in source-only audit. V2 transactional audit plus immutable retention controls are requirements.
 - Source-only review, not runtime/security tests. Task 0.2 remains IN PROGRESS.
+
+
+### Task 0.2 — Additional repository/test inventory (2026-11-21)
+- Recursive repository tree snapshots confirmed 187 frontend entries and 153 backend entries; identified feature-test inventories spanning UI workflows, contracts, access control, storage, procurement, reports, workflow and integrations.
+- Existing production CI/automation workflows were inventoried for context only; none were run or modified as part of the read-only audit.
+- Test filenames were inventoried only; no tests were executed. No production writes, PRs, deployments, spreadsheet/Drive access or secrets access.
+- Remaining gaps: complete route/permission and request-response mapping; exhaustive relationship/unique-key mapping; remaining receipt/report/print edge cases; migration validation and rollback blueprint. Task 0.2 remains IN PROGRESS.
