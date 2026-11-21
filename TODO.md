@@ -399,3 +399,12 @@
 - Reviewed service source for MaterialPlanningService, ProcurementService, ProcurementEventIntegrationService and WorkflowService.
 - Findings: revisioned material specs and calculations with idempotency keys; recalc source event/version coupling; procurement order creation locking/idempotency replay and shared-item allocation/surplus; event integration requires confirmed quantity central info linked to same event; workflow version/draft-publish semantics.
 - V2 design implication: transaction-backed versioning, explicit source linkage, durable idempotency, DB constraints for allocation/receipt quantities, concurrency-safe recalc, immutable published workflow versions. Read-only source review; no runtime tests or production changes.
+
+
+### Task 0.2 — project information, deletion, reporting and print-template audit (2026-11-21)
+- ProjectInformation: ExpectedRevision, revision/history, event-linked idempotent behavior, approvals bound to current revision, and source/target revision checks for reference conflict resolution.
+- Project deletion: dependency preview and explicit confirmation, tenant/admin scope, preserve shared PO/item dependencies, soft-delete/VOID/physical deletion mixed semantics, Drive trash and partial failure reporting. V2 must avoid non-atomic cascades with transaction/outbox and reconciliation.
+- Reports: tenant-visible project index, exclusion of VOID/CANCELLED events and tenant-filtered enrichments.
+- Print templates: tenant-scoped, validated definitions, version increment, dynamic resolution, asset cleanup/reference checks, soft delete.
+- Project statuses configurable and tenant-scoped. Prefix numbering in Sheets is not a reliable key convention; V2 uses explicit table identifiers.
+- Source review only; no runtime tests, no production changes.
