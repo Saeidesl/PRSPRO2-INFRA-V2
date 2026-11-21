@@ -18,8 +18,10 @@
 - [x] Backend route surface and selected service files retrieved.
 - [x] Inventory database sheet definitions and headers from DatabaseSetup.js.
 - [x] Preliminary audit of tenant-scoping patterns, workflow-version/rule context, event/form version snapshot references, and procurement idempotency paths.
-- [x] Extract selected workflow-event sequencing, repeat-project/reference copy behavior, and file lifecycle rules (selected paths).\n- [ ] Extract relationship/business rules in detail; audit workflows and role/permission enforcement.
-- [x] Preliminary inventory of Drive storage and attachment lifecycle.\n- [ ] Inventory integrations (Telegram and other external services) in detail.
+- [x] Extract selected workflow-event sequencing, repeat-project/reference copy behavior, and file lifecycle rules (selected paths).
+- [ ] Extract relationship/business rules in detail; audit workflows and role/permission enforcement.
+- [x] Preliminary inventory of Drive storage and attachment lifecycle.
+- [ ] Inventory integrations (Telegram and other external services) in detail.
 - [x] Inventory frontend and backend test-file names and CI workflow files (inventory only; tests not run).
 - [ ] Identify critical risks, performance constraints, migration dependencies, and test/deployment coverage.
 - [ ] Record detailed findings and unknowns in ARCHITECTURE.md.
