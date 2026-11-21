@@ -287,3 +287,22 @@ The frontend tree includes tests for event filtering/history/forms/image preview
 ### 20.3 Audit limitations
 - No exhaustive route-by-route permission matrix reconciled with service checks.
 - No tests, runtime probes, penetration tests, or data access performed.
+
+
+## 21. Source Audit — Form Amendment and Logical Relationships (2026-11-21)
+
+### 21.1 Form amendment path
+- `FormService.updateEventFormResponse` validates the original event and project within tenant scope, project availability, and the amendment event as same-tenant and same-project.
+- Amendment type qualifies when explicitly marked `IsFormAmendment` or when a legacy name/code marker matches EDIT/UPDATE/AMEND/ویرایش/اصلاح. Explicitly configured amendment types restrict the allowed form IDs through `AmendableFormIDs`.
+- The operation validates form version, input shape, field visibility and required rules, field data types, and field membership. It locks and rereads response data before writing; replay through the same amendment event is idempotent if payload matches and conflicts if it differs.
+- Form response changes synchronize ProjectInformation values/deactivations and special project-code handling, then log an audit record for non-replay. The response and information sync are separate Sheets operations and therefore are not atomic; partial-failure recovery is a key V2 requirement.
+
+### 21.2 Logical data relationships observed (not FK constraints)
+- Project (`08_Projects`) logically parents events (`13_Events`) via ProjectID; events may also carry WorkflowID/WorkflowStepID/EventTypeID and actor/department fields.
+- Event payload data (`14_EventData`) is associated by EventID.
+- Form definitions: `32_Forms` -> `33_FormFields` by FormID; field references `InformationTypeID`.
+- Event-type/form associations: `34_EventTypeForms` links EventTypeID and FormID.
+- Event form responses: `35_EventFormData` associated by EventID/FormID, with response/snapshot JSON and version metadata.
+- Central information: `30_ProjectInformation` links ProjectID and InformationTypeID; `31_ProjectInformationHistory` links ProjectInformationID and records revisions. Reference sync logs (`38_ProjectReferenceSyncLog`) link source/target project and information type.
+- Attachments (`15_Attachments`) use polymorphic EntityType/EntityID rather than one dedicated FK; audit logs (`16_AuditLogs`) also use entity type/ID.
+- These are logical relations established from selected source paths and headers; they are not enforced PostgreSQL-style foreign-key constraints in the existing Sheets system. Complete relationship inventory remains pending.
