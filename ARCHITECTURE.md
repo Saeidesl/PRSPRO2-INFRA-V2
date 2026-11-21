@@ -122,3 +122,28 @@ This list is a route-family inventory only. Exact request/response contracts, HT
 - Route families are inventoried; exact endpoint contracts and authorization checks require continued review.
 - No tests were executed and no runtime or performance claims are made.
 - All retrieval remains read-only; production repositories have not been written to.
+
+
+## 12. Source Audit — Security, Workflow, Projects, and Storage (2026-11-21)
+
+### 12.1 Permission and tenant scoping — preliminary code observations
+- PermissionService uses user/tenant-aware permission lookup and caches permission results with a tenant/user key pattern.
+- WorkflowService and ProjectService repeatedly scope records to the current user's TenantID; workflow source includes version-aware selection (draft/published versions).
+- Router has route-specific permission checks and admin-only paths. These patterns are promising but are not a complete security assessment; authorization paths, bypass resistance and cross-tenant tests remain to be audited.
+
+### 12.2 Workflow and project behavior
+- Workflow source has version/lifecycle concepts and tenant-scoped workflow/step/event-rule handling.
+- ProjectService contains locking-related logic (LockService), validation and audit/notification-related behavior. Detailed transition rules, side effects and compatibility constraints remain pending.
+- MaterialPlanningService uses script locks for certain operations and has calculation/specification revision concepts. These are important migration requirements to investigate, not a blueprint for the new DB design.
+
+### 12.3 File-storage dependency
+- AttachmentService is tenant-scoped and references Google Drive storage provider metadata.
+- GoogleDriveStorage.js directly uses DriveApp operations, confirming a GAS/Google Drive dependency in the current attachment storage implementation.
+- V2 storage design must preserve attachment associations and lifecycle semantics, while replacing provider-specific operations; exact metadata, upload, download, copying and authorization flows remain pending audit.
+
+### 12.4 Reliability/migration risks identified for deeper assessment
+- Google Sheets multi-sheet operations are not equivalent to database transactions. Source procurement code explicitly prevalidates graphs before writes and comments on the lack of atomic multi-sheet commits; the V2 migration should model transactional operations where applicable.
+- LockService-based concurrency controls and idempotency mechanisms appear in selected project/material/procurement paths. Their business guarantees must be mapped and tested before migration.
+- Tenant isolation, workflow versioning, file access controls, dynamic forms and project-reference synchronization are high-priority audit areas.
+
+These are preliminary observations from selected source files; no live runtime, production spreadsheet or Drive data was accessed, and no test suite was executed.
