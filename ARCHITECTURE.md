@@ -476,3 +476,11 @@ The frontend tree includes tests for event filtering/history/forms/image preview
 - Password SHA-256 implementation and login path confirmed; current password migration needs a secure reset or controlled migration design, not reuse of this hash scheme.
 - Session expiry is configurable and sessions are stored in Script Properties. No runtime verification of config values or security controls was performed.
 - Audit increment only; no production modifications, runtime tests, login attempts, or credentials accessed.
+
+
+### Task 0.2 incremental notes (2026-11-21 — Router authorization audit)
+- READ-ONLY route audit of Router.js and AccessControlService.js across GET, POST, PUT and DELETE dispatch. Most sensitive route branches explicitly require permission codes or admin checks; admin bypass is centralized in AccessControlService.require and Router.requireAny. Domain services additionally validate tenant/resource ownership in previously examined flows. This source review did not establish a confirmed authorization bypass.
+- AccessControlService.enforceRouteAccess is primarily an authentication gate (allowing login/logout/me exceptions and admin shortcut); operational permission enforcement is deliberately deferred to Router/service dispatch. V2 should implement centralized route policy plus service/domain authorization, with deny-by-default and automated route coverage.
+- Route groups sampled: projects/drafts and information, events/forms/attachments, workflow management, templates, forms and information types, event types, users/roles/permissions, audit, procurement, reports, admin sessions and project deletion. There are many ad hoc permission combinations; V2 needs a documented matrix, explicit resource-scope checks and automated tests per route and method.
+- Special admin-only endpoints reviewed in Router: deletion-preview, project deletion and session listing/revocation. Admin status based on active tenant role codes SYS_ADMIN/ADMIN.
+- Source-only review. No runtime testing or production changes. Task 0.2 remains open pending deeper endpoint/service coverage, production frontend integration audit and final Discovery synthesis.
