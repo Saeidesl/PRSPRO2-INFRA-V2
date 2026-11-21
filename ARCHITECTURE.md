@@ -222,3 +222,18 @@ The frontend tree includes tests for event filtering/history/forms/image preview
 
 ### 15.4 Audit limits
 - Findings are based on selected code paths only. No operational data was accessed and no tests were run.
+
+
+## 16. Source Audit — CI/QA Gates (workflow definitions read-only; 2026-11-21)
+
+### Backend gates observed
+- Backend-check workflow uses Node 20, runs `node --test tests/*.test.js`, validates Apps Script manifest JSON and syntax of top-level JS files, rejects duplicate target names and checks a minimum source-file count.
+- PMS agent suite additionally runs a read-only domain contract audit script, tests, source/manifest validation and schema-contract safety test.
+
+### Frontend gates observed
+- Frontend-check workflow uses Node 20, runs syntax checks across JS files, regression tests, local asset existence and CSS brace-balance checks, and an E2E safety guard that expects write-enabled staging E2E to fail closed when isolated staging API credentials/config are absent.
+- Frontend agent suite performs read-only contract/diff review and asset/CSS checks.
+- Cross-repository QA checks frontend syntax/assets and runs backend tests and source/manifest checks against the backend main reference; it also checks presence of key event/material-planning components.
+
+### Important limitation
+- Workflow definitions were read, not executed. No CI statuses/runs were evaluated in this audit session. These workflows provide static/test gates, but actual CI outcomes and test adequacy require separate verification. Tests that create records must remain isolated from production.
