@@ -484,3 +484,10 @@ The frontend tree includes tests for event filtering/history/forms/image preview
 - Route groups sampled: projects/drafts and information, events/forms/attachments, workflow management, templates, forms and information types, event types, users/roles/permissions, audit, procurement, reports, admin sessions and project deletion. There are many ad hoc permission combinations; V2 needs a documented matrix, explicit resource-scope checks and automated tests per route and method.
 - Special admin-only endpoints reviewed in Router: deletion-preview, project deletion and session listing/revocation. Admin status based on active tenant role codes SYS_ADMIN/ADMIN.
 - Source-only review. No runtime testing or production changes. Task 0.2 remains open pending deeper endpoint/service coverage, production frontend integration audit and final Discovery synthesis.
+
+
+### Task 0.2 incremental discovery (2026-11-21 — API transport/error handling and frontend inventory)
+- Reviewed production backend RequestParser.js and WebApp.js read-only. GET accepts token in query params; POST/PUT/DELETE parser accepts token in query params or JSON body, with method override via params/body. V2 should use Authorization header or secure cookie, strict method/path handling, no URL token exposure, and avoid carrying auth token in payload semantics.
+- WebApp serializes unknown/internal exceptions with error.message in generic INTERNAL_ERROR responses. This is a potential information disclosure concern to validate in runtime/log scenarios (source observation only); V2 should return sanitized client errors and log correlated details server-side.
+- Frontend production repository top-level inventory confirms large maintained documentation/architecture and task logs, but source-file tree inventory and endpoint-to-UI coverage remain pending. Production repositories remain READ-ONLY.
+- No runtime testing, no production changes. Task 0.2 remains IN PROGRESS.
