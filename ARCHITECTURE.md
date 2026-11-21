@@ -600,3 +600,16 @@ The frontend tree includes tests for event filtering/history/forms/image preview
 ### 14.4 Safety status
 - Production repos remain read-only. No code, branches, PRs, deployments, live sheet data, Drive files, secrets or users were changed/accessed.
 - Source-level audit only; tests were not run.
+
+## 15. Source Audit — Route Permission Matrix Sampling (2026-11-21)
+
+### 15.1 Route-level permission patterns confirmed by Router source
+- Router has a helper requiring any of a permission set, with admin bypass via AccessControlService; single-permission routes use AccessControlService.require.
+- GET route families observed: project status, departments, project and image/galleries, project information/history, workflows and rules, print-template library/source/image/PDF, forms, information types, event types/events, attachments, users/roles/permissions, audit, dashboards/reports and procurement workspace/reports/dashboard/needs/orders.
+- Mutation families observed: project/information/material specifications/reference-copy, workflow and rules, forms/information types/event types, event creation/amendment/step completion, attachments, users/roles/permissions/departments/statuses, print template assets, procurement orders and receipts, and admin project deletion/session revocation.
+- Several route branches use alternatives (e.g., PROJECT_VIEW or PROJECT_CREATE; WORKFLOW_MANAGE or PROJECT_CREATE or SYSTEM_SETTINGS; SYSTEM_SETTINGS or EVENT_TYPE_MANAGE). The route map is not yet reconciled with every service-level guard or frontend expectation.
+- Admin-only branches include project deletion preview/deletion and session management. Sensitive paths also validate tenant/project visibility and/or department ownership in service layers.
+
+### 15.2 Security architecture risk
+- Router authorization is branch-specific rather than a single declarative route policy; omission risk and maintenance complexity remain. V2 should adopt centralized declarative route policy, service-level domain authorization, tenant scoping, fail-closed behavior, and automated route coverage tests.
+- This is a source-level sampling, not an exhaustive authorization matrix, bypass assessment, or runtime penetration test. No tests were run.
