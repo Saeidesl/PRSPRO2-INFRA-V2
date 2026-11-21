@@ -306,3 +306,23 @@ The frontend tree includes tests for event filtering/history/forms/image preview
 - Central information: `30_ProjectInformation` links ProjectID and InformationTypeID; `31_ProjectInformationHistory` links ProjectInformationID and records revisions. Reference sync logs (`38_ProjectReferenceSyncLog`) link source/target project and information type.
 - Attachments (`15_Attachments`) use polymorphic EntityType/EntityID rather than one dedicated FK; audit logs (`16_AuditLogs`) also use entity type/ID.
 - These are logical relations established from selected source paths and headers; they are not enforced PostgreSQL-style foreign-key constraints in the existing Sheets system. Complete relationship inventory remains pending.
+
+
+## 22. Source Audit — Procurement Operation and Event Void Recovery (2026-11-21)
+
+### 22.1 Purchase-order creation
+- Order creation validates tenant/project/need scope, line name/unit and positive quantity, optional unit price, project-need consistency, allocation scope and quantity, and total allocations not exceeding the ordered quantity.
+- Outstanding quantity calculations account for prior allocations and eligible order items; surplus quantity/cost is tracked distinctly. Shared/general order scenarios and protected need states are handled in validation paths.
+- An idempotency key and script lock protect order creation. The order header, items and allocation records are multiple Sheets writes; if a later write fails, the order is marked `NEEDS_REVIEW` and recovery context is added rather than pretending the operation completed.
+- V2 should implement transactional order/line/allocation creation, idempotency uniqueness, constrained quantity arithmetic, reconciliation records, and audit logging.
+
+### 22.2 Receipt processing — pending deeper trace
+- Receipt creation and batch processing are lock/idempotency guarded. The exact validation edge cases, allocation accounting, and receipt-to-need recalculation effects require further source tracing before migration rules are finalized.
+
+### 22.3 Event void restoration safety
+- Event void restoration checks that the project still matches the event's expected configured changes and that a prior state snapshot is available. If not, it rejects restoration to avoid overwriting intervening project changes.
+- On successful void, it restores prior project fields, marks the event VOID, refreshes workflow-rule progress and step state, audits, and attempts material-needs review/reconciliation. Reconciliation failure is surfaced and logged rather than represented as successful.
+- This is still non-transactional in Sheets; V2 should coordinate event status, project-state restoration, workflow progress and material-plan reconciliation in one transaction where possible, with durable reconciliation/outbox handling for external effects.
+
+### 22.4 Audit limitations
+- Selected source paths only. Receipt details, complete route/permission matrix and runtime/test verification remain pending.
