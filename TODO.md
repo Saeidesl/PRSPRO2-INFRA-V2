@@ -382,3 +382,8 @@
 - Existing production CI/automation workflows were inventoried for context only; none were run or modified as part of the read-only audit.
 - Test filenames were inventoried only; no tests were executed. No production writes, PRs, deployments, spreadsheet/Drive access or secrets access.
 - Remaining gaps: complete route/permission and request-response mapping; exhaustive relationship/unique-key mapping; remaining receipt/report/print edge cases; migration validation and rollback blueprint. Task 0.2 remains IN PROGRESS.
+
+### Task 0.2 — Route authorization sampling (2026-11-21)
+- Read-only extraction of Router permission branches confirmed a mixture of single-permission checks, any-of permission sets, and admin-only checks across major API families.
+- Sampled GET and mutation route families were inventoried. This is not a complete route-to-service permission matrix; service-level checks, route overlap/order, request contracts and tenant boundary regression tests remain to be reconciled.
+- Architecture risk recorded: branch-based authorization policy is difficult to exhaustively verify; V2 should use declarative centralized policy plus domain/service checks and automated route coverage. Source review only; no test or runtime security verification.
