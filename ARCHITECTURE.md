@@ -695,3 +695,22 @@ The frontend tree includes tests for event filtering/history/forms/image preview
 - Project draft exceptions must be domain policies with creator, tenant and draft-state assertions.
 - Define permission coverage tests for every endpoint and tests for tenant/project visibility, IDOR, admin paths, and mutations; specifically review print-template project-data binding update before mapping its authorization.
 - Keep audit events for privileged mutations and sensitive permission/session/attachment operations.
+
+
+## 24. Data Dictionary — schema-header inventory checkpoint (source audit, 2026-11-21)
+
+- Re-read the DatabaseSetup.js schema definitions. Confirmed inventory includes core tenancy/auth/authorization (Tenant, User, Department, Role, Permission, UserRole, RolePermission), projects/workflows/steps/event types/fields/events/event payload, central-information types/columns/project-information/history, forms/fields/event-type-form links/event-form snapshots, print templates, attachments/audit, workflow step departments/rules, project-reference synchronization, event-type procurement settings, material needs/specs/calculations, purchase orders/items/allocations/receipts, and project statuses.
+- Schema definitions use string/prefixed identifiers and JSON columns for several evolving payload/configuration structures. Header definitions are source-of-truth candidates but require data-level checks to establish actual sheet content/order and legacy drift; do not assume all populated rows match headers.
+- The definitions show no database-native FK, unique, or check constraints. Their equivalent must be designed for PostgreSQL, including tenant-scoped uniqueness, relation consistency, enums/checks, versioning and idempotency.
+- Observed tables (header definitions) with important migration semantics: project RecordState/reference-copy operation metadata; workflow lifecycle/published/draft versions and repeat policies; event versions/idempotency/previous-state snapshot; central information revision/history/reference sync; form definition snapshots; material spec/calculation revision/key and need status; purchase allocation and receipt idempotency; attachments provider/key metadata; audit old/new/reason.
+- This is a header inventory checkpoint, not a final data dictionary. Exact field types/nullability/validity, row counts, duplicate-key findings, and relation orphan counts require safe export/analysis not performed against production data.
+
+## 25. Data migration blueprint — preliminary principles
+
+1. Preserve existing prefixed identifiers as PostgreSQL text; no forced integer conversion.
+2. Stage source exports into a non-production migration environment; retain immutable raw copies and checksums.
+3. Load in dependency order: tenant/auth/catalogs → workflow definitions → projects → event types/forms/information types → events and snapshots → central information/history/reference sync → attachments metadata → material specifications/calculations/needs → purchase headers/items/allocations/receipts → audit and remaining references (adjust exact order after FK map).
+4. Reconcile counts, IDs, tenant ownership, FK/orphan/duplicate candidates, enums/statuses, JSON validity, revisions, procurement totals and shared-order allocation totals.
+5. Never migrate binary content without a validated storage inventory and permissions; transfer through a staged private storage process and reconcile checksums/metadata.
+6. Cutover requires approved backup, freeze/read-only strategy, repeatable delta strategy, validation report, explicit PO approval and rollback window. No dual-write by default.
+7. Migration dry-run/rollback and real data transfer remain out of scope until V2 implementation and test gates are approved.
