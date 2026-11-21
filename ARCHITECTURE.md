@@ -770,3 +770,12 @@ The frontend tree includes tests for event filtering/history/forms/image preview
 - WorkflowStepDepartmentService selected assignment operations validate tenant and active workflow/steps/departments and limit batches to 100. Selected methods did not show direct permission guard, so route coverage must be verified for every mutation endpoint.
 - AccessControlService admin resolution uses active tenant roles and SYS_ADMIN/ADMIN codes. Its require helper grants admin bypass and otherwise delegates to PermissionService. Permission resolution is tenant-scoped, filters active roles and caches per request. The shared enforceRouteAccess authenticates then returns true; actual authorization is route-branch-specific. Therefore full route coverage—not this shared gate alone—is security-critical. PermissionService selected list/get methods authenticate but do not visibly require a specific permission internally; Router guard reconciliation remains essential.
 - This review does not establish a live vulnerability. No runtime/penetration testing, live user data, or production modifications.
+
+
+## 31. Router audit — user, role and permission relationship routes (2026-11-21)
+
+- Read routes: `/users` → USER_VIEW; `/users/:id/roles` → USER_EDIT; `/roles/available-permissions` and `/roles/:id/permissions` → ROLE_MANAGE; `/roles` → ROLE_MANAGE or USER_EDIT; `/permissions` → PERMISSION_MANAGE.
+- Mutation routes: POST `/users` → USER_CREATE; POST `/users/:id/roles` → USER_EDIT; POST `/roles/:id/permissions` → ROLE_MANAGE; PUT `/roles/:id` → ROLE_MANAGE; DELETE `/roles/:id/permissions/:permissionId` → ROLE_MANAGE; PUT `/users/:id` and DELETE `/users/:id/roles/:roleId` → USER_EDIT.
+- RoleService tenant-scopes reads and mutations, validates tenant duplicate codes and audits create/update. UserService tenant-scopes target records, derives tenant at creation, validates department ownership, sanitizes outputs and audits. Username uniqueness is service-level/global; SHA-256 password hashing remains a legacy security concern already noted.
+- UserRoleService validates tenant alignment, active role for assignment and duplicates; tenant-scopes list/removal and audits. RolePermissionRepository-style batch insert/delete uses ScriptLock but not transactional DB semantics. Relationship service exhaustive validation and audit trace remains pending.
+- Route excerpts and selected source only; no live runtime or security tests. Production remains unchanged.
