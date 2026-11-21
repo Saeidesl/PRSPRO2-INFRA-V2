@@ -613,3 +613,19 @@ The frontend tree includes tests for event filtering/history/forms/image preview
 ### 15.2 Security architecture risk
 - Router authorization is branch-specific rather than a single declarative route policy; omission risk and maintenance complexity remain. V2 should adopt centralized declarative route policy, service-level domain authorization, tenant scoping, fail-closed behavior, and automated route coverage tests.
 - This is a source-level sampling, not an exhaustive authorization matrix, bypass assessment, or runtime penetration test. No tests were run.
+
+
+## 16. Source Audit — API Response, Error Handling and Data Dictionary Cross-Check (2026-11-21)
+
+### 16.1 Response contract
+- Shared response envelope in `Response.js`: success responses carry `success:true`, `data`, `error:null`, `meta`; error responses carry `success:false`, `data:null`, `error:{code,message,details}`, and empty meta.
+- `ErrorHandler` logs server-side stack/error; recognized coded errors return their code/message/details, unknown errors return INTERNAL_ERROR with a generic Persian message. Earlier WebApp review noted some internal error paths may expose message text; needs reconciliation and tests.
+- V2 should standardize envelope (or decide on typed REST errors), correlation IDs, sanitized public error messages, validation details, and server-side structured logs; avoid exposing stack traces or sensitive details.
+
+### 16.2 Schema cross-check
+- Read-only header inventory reconfirmed domain table/sheet definitions for tenant/user/access control, projects/workflows, event types/fields/events/data, attachments/audit, information types/columns/project info/history, forms/fields/event-form mapping/form snapshots, print templates, workflow rules/step departments, reference sync logs, material specs/calculations/needs, purchase orders/items/allocations/receipts and event-procurement settings.
+- Important normalization/constraint candidates for V2: unique tenant-scoped codes and relations, workflow/event/form version snapshots, idempotency keys, project-information revision history, purchase allocation quantity constraints, receipt idempotency, shared PO item allocations, soft-delete/status semantics.
+- Sheets do not provide relational FK/unique/transaction guarantees comparable to PostgreSQL; actual constraints must be derived and validated before schema design.
+
+### 16.3 Audit boundaries
+- No spreadsheet records were accessed; headers and source code only. No reset/maintenance functions invoked. Production remains unchanged.
