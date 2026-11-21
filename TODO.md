@@ -436,3 +436,11 @@
 - Permission codes sampled include ATTACHMENT_DELETE/UPLOAD/VIEW, DEPARTMENT_MANAGE, EVENT_CREATE/EDIT/TYPE_MANAGE/VIEW, PERMISSION_MANAGE, PROCUREMENT_MANAGE/VIEW, PROJECT_CREATE/EDIT/STATUS_MANAGE/VIEW, REPORT_VIEW, ROLE_MANAGE, SYSTEM_SETTINGS, USER_CREATE/EDIT/VIEW, WORKFLOW_MANAGE. This is not yet exhaustive mapping.
 - Mutation route families and soft-delete/void/admin-confirmation semantics recorded. Potentially sensitive print-template project-data binding PUT branch requires service-level authorization review; no bypass claim made.
 - V2 policy design: declarative route/action policies, explicit any-of/all-of/admin semantics, domain-level tenant/creator checks, exhaustive endpoint permission coverage and IDOR regression tests. Source-only, no runtime tests/no production changes.
+
+
+### Task 0.2 — Data Dictionary and preliminary migration blueprint checkpoint (2026-11-21)
+- DatabaseSetup.js header inventory re-read and cataloged across tenant/auth, projects/workflows/events, forms/central information, templates/files/audit, material planning and procurement.
+- Identifiers are prefixed strings; JSON payload/configuration and revision/version/idempotency metadata are central migration concerns. Schema sheet headers are not a substitute for checking actual data drift.
+- No DB-native FK/unique/check constraints found in the source storage design; V2 should establish these explicitly.
+- Preliminary migration principles recorded: preserve IDs as text, stage immutable exports, dependency-order loads, validate counts/relations/JSON/revisions/procurement totals, storage checksums and controlled cutover/rollback; no production data access or transfer performed.
+- Exact field type/nullability, actual data counts, orphan/duplicate and legacy drift analysis remain pending safe discovery/export and V2 migration design.
