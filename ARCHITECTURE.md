@@ -91,3 +91,34 @@ Backend: Router.js, DatabaseSetup.js, GoogleSheetsRepository.js, AuthService.js,
 ## 10. Next Work
 Phase 0, Task 0.1: verify access/availability of the three remaining V2 repositories.
 Phase 0, Task 0.2: perform read-only audit of the production frontend and backend source, database structure and workflows.
+
+## 11. Source Audit — Database and API Surface (2026-11-21)
+
+### 11.1 Verified sheet definitions from backend DatabaseSetup.js
+The source file declares these sheet-backed entities (table names are the configured sheet names; this is an inventory, not yet a relational schema design):
+- Tenant and access: 01_Tenants, 02_Users, 03_Departments, 04_Roles, 05_Permissions, 06_UserRoles, 07_RolePermissions.
+- Projects/workflows: 08_Projects, 09_Workflows, 10_WorkflowSteps, 17_WorkflowStepDepartments, 37_WorkflowStepEventRules, 18_ProjectStatuses.
+- Events/forms: 11_EventTypes, 12_EventFields, 13_Events, 14_EventData, 32_Forms, 33_FormFields, 34_EventTypeForms, 35_EventFormData.
+- Information model: 28_InformationTypes, 29_InformationTypeColumns, 30_ProjectInformation, 31_ProjectInformationHistory.
+- Files/audit/templates: 15_Attachments, 16_AuditLogs, 36_PrintTemplates, 38_ProjectReferenceSyncLog.
+- Procurement/material planning: 18_MaterialNeeds, 23_EventTypeProcurementSettings, 24_ProjectMaterialSpecs, 25_MaterialNeedCalculations, 19_PurchaseOrders, 20_PurchaseOrderItems, 21_PurchaseAllocations, 22_MaterialReceipts.
+
+**Important discovery:** the configured names contain overlapping numeric prefixes (e.g. MaterialNeeds and ProjectStatuses both use prefix 18). Prefixes must not be treated as unique identifiers; exact sheet names and header definitions are authoritative. Table relationships, constraints, and data semantics still require service/repository-level verification.
+
+### 11.2 API route families observed in Router.js
+Route families include authentication/session, projects and project information/history/reference copy, project image galleries, departments and statuses, workflow management and step event rules, event types/forms, event registration and amendments, information types and columns, print templates and image/PDF endpoints, attachments, users/roles/permissions, audit, dashboards/reports, and procurement needs/orders/receipts/workspace/reporting.
+
+This list is a route-family inventory only. Exact request/response contracts, HTTP method semantics, and route authorization are still being extracted.
+
+### 11.3 Selected frontend architecture observations
+- js/core/api.js requires an explicitly configured API base URL and avoids fallback to Development/Staging deployments; it also contains in-flight GET deduplication and diagnostics functionality.
+- js/core/cache.js stores cache data in browser localStorage and uses a cache-version mechanism and optional TTL.
+- js/core/router.js maintains route definitions and route-permission metadata.
+- The selected feature modules are substantial: projects.js (~168 KB), events.js (~219 KB), and procurement.js (~73 KB); module boundaries and behavior will require careful mapping rather than a superficial rewrite.
+
+### 11.4 Audit limits and pending risks
+- Sheet header definitions are verified from source, but no real sheet data or production spreadsheet was accessed.
+- No exhaustive foreign-key/relationship analysis or migration mapping has been performed.
+- Route families are inventoried; exact endpoint contracts and authorization checks require continued review.
+- No tests were executed and no runtime or performance claims are made.
+- All retrieval remains read-only; production repositories have not been written to.
