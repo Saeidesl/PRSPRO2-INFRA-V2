@@ -714,3 +714,19 @@ The frontend tree includes tests for event filtering/history/forms/image preview
 5. Never migrate binary content without a validated storage inventory and permissions; transfer through a staged private storage process and reconcile checksums/metadata.
 6. Cutover requires approved backup, freeze/read-only strategy, repeatable delta strategy, validation report, explicit PO approval and rollback window. No dual-write by default.
 7. Migration dry-run/rollback and real data transfer remain out of scope until V2 implementation and test gates are approved.
+
+
+## 26. Relationship and migration edge-case matrix checkpoint
+
+| Domain | Relationship/edge cases to preserve | Migration validation |
+|---|---|---|
+| Projects/events | Event history linked to project; events may carry workflow/step/version, previous-state snapshots, variant quantities, idempotency state; void/cancelled history retained | orphan event/project; version references; duplicate idempotency; status/snapshot consistency |
+| Workflows | Projects/events may refer to versioned workflows/steps; publish/draft lifecycle; event rule ordering/grouping and repeat policies | version/step existence; published-version consistency; rule uniqueness/order; stale references |
+| Event forms | Event-type↔form associations, version and definition snapshot in event-form responses; historical snapshots must remain stable if definitions change | association and event links; snapshot completeness; historical version consistency |
+| Central information | Information-type/cardinality, JSON values, revision, source event, actor history; reference-copy policy/conflicts/idempotency | cardinality; revision monotonicity; history coverage; source links; reference-sync replay collisions |
+| Attachments | entity ownership and tenant; attachment type/profile/information; source-copy relationship; metadata separate from binary provider | inaccessible/orphan metadata; checksum and MIME validation; source-link visibility; staged storage reconciliation |
+| Materials | project spec key/revision; calculations linked to specs, source event/version and need; superseded/review states | key/revision uniqueness; source-event void handling; calculation↔need links; quantity recomputation comparison |
+| Procurement | shared order items may be allocated across projects/needs; surplus; receipts attributed; voided events affect reports | order-item quantity vs allocation; tenant/project/need relation; receipt attribution; shared-item totals; surplus accounting |
+| Audit | actor/tenant/entity; old/new data and reason; chronology | missing actor/entity links where expected; chronology; completeness for privileged mutations; immutable archive |
+
+**Cross-cutting rules:** preserve soft-deleted/voided history where required; do not treat inactive as deleted; avoid destructive cascade where shared procurement or history exists; validate all tenant boundaries; use repeatable idempotent migration operations; report—not silently repair—ambiguous or conflicting source data.
