@@ -365,3 +365,11 @@ The frontend tree includes tests for event filtering/history/forms/image preview
 - Current Sheets data access provides logical relationships rather than DB-enforced foreign keys. V2 needs explicit FK constraints, tenant-aware integrity, indexes on relationship/tenant/version fields, and clear cardinality/uniqueness rules after source/data discovery.
 - Preserve event/form and workflow snapshots/version context to support historic records when definitions change. Do not silently apply current definitions to old events.
 - Relationship map is provisional; complete uniqueness, cardinality, lifecycle/status, and tenant constraint audit remains pending. No runtime test or data-level validation performed.
+
+
+## 25. Source Audit — Preliminary Route Authorization Review (2026-11-21)
+- Router GET/POST/PUT/DELETE branches and AccessControlService/PermissionService were reread. Route-specific checks are distributed across Router and service calls. Tenant-scoped active admin roles (`SYS_ADMIN`/`ADMIN`) bypass individual permission checks. Permission lookup uses tenant-scoped role assignments, active tenant roles and tenant-scoped role-permission rows, with request caches.
+- Reviewed examples include project/event/form/workflow/attachment/user/role/permission/report/procurement paths; admin-only project deletion and session-management routes; creator exceptions for certain draft project operations; EVENT_EDIT for amendment/void; ATTACHMENT_VIEW/UPLOAD/DELETE separation; PROCUREMENT_MANAGE for order/receipt mutations.
+- `AccessControlService.enforceRouteAccess` generically authenticates and returns true, delegating operational checks to Router/service code. V2 should centralize route policy and fail closed, with an exhaustive endpoint matrix and automated authorization tests.
+- Candidate targeted review: Router PUT `/print-templates/:id/project-data` branch calls `PrintTemplateService.updateProjectBinding` without an explicit Router-level permission check in the examined branch. Service-level authorization may exist; this is unverified and not asserted as a vulnerability.
+- This review is preliminary/source-only. Complete route reconciliation, service checks, runtime authorization testing and penetration testing remain outstanding.
