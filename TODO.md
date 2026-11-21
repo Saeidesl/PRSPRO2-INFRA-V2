@@ -190,3 +190,8 @@
 ### Task 0.2 incremental notes (2026-11-21 — print-template direct binding permission verification)
 - Rechecked the previously flagged print-template project-data binding update route against `PrintTemplateService.updateProjectBinding`. The service explicitly enforces `PROJECT_EDIT` for project-field and central-information updates, and `EVENT_EDIT` for event-form-field and event-field updates. This narrows the earlier concern: Router-level permission check is not visible in that branch, but service-level authorization is present for supported editable source types. This is source-path confirmation only; no runtime authorization test was performed.
 - Other route/service authorization reconciliation remains incomplete.
+
+
+### Task 0.2 incremental notes (2026-11-21 — direct event-field update audit)
+- READ-ONLY source review of `EventService.updateFieldFromTemplate`: allowed fields are restricted to `OccurredAt` and `Description`; it verifies tenant ownership, event validity/status, project tenant and user visibility, event type tenant, and department ownership (or admin). Date edits are blocked when later cross-department events exist. Optimistic concurrency compares `UpdatedAt`/`CreatedAt` against the expected version; the update is locked and an audit record is written. The code states this direct edit does not rerun workflow.
+- Source review only; runtime tests remain pending. Broader event mutation and history/version paths still need discovery.
