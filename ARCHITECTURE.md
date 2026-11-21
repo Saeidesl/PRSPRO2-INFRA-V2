@@ -147,3 +147,29 @@ This list is a route-family inventory only. Exact request/response contracts, HT
 - Tenant isolation, workflow versioning, file access controls, dynamic forms and project-reference synchronization are high-priority audit areas.
 
 These are preliminary observations from selected source files; no live runtime, production spreadsheet or Drive data was accessed, and no test suite was executed.
+
+
+## 13. Source Audit — Event/Form contracts, Procurement Idempotency, and Test Inventory (2026-11-21)
+
+### 13.1 Event and form data/versioning observations
+Selected EventService, EventRepository, EventDataRepository, EventTypeRepository, FormRepository and WorkflowStepEventRuleRepository sources were retrieved. The observed data model carries tenant identifiers, workflow version/step context, event-type references, and form-version/snapshot concepts (including EventFormData definition snapshots). Event service logic filters workflow rule context by project workflow version and current step. Detailed behavioral mapping, amendment handling, and full request/response contracts remain pending.
+
+### 13.2 Workflow enforcement and event sequencing
+WorkflowStepEventRuleRepository supports workflow-version-specific rule retrieval and cloning rules between versions. EventService applies version and step filters to rule context. The repository contains test files specifically for workflow-event enforcement and event rules, indicating these behaviors are covered by contract/regression tests, but tests were not run in this audit.
+
+### 13.3 Procurement operation reliability
+ProcurementService source shows idempotency keys for purchase order creation and receipts, replay checks, project/need/order validation, allocations and receipt processing. Source code references audit logging for order operations. This must be translated into database constraints and transaction-safe idempotency in V2; exact invariants require a deeper operation-level mapping.
+
+### 13.4 Existing test inventory — backend
+The backend tree includes tests for access control, attachment service, dashboard performance contracts, event form-definition batching/caching, event idempotency, form API contracts, Google Drive storage, Sheets cache invalidation, information cardinality and file types, material planning, print templates, procurement integration/service, project deletion/draft-information/reference-copy/image gallery, reports, reusable forms, schema contracts, Telegram integrations, workflow enforcement and workflow rules.
+
+### 13.5 Existing test inventory — frontend
+The frontend tree includes tests for event filtering/history/forms/image previews/submission latency and progress, event type loading, project entry and picker, information types and files, Jalali calendar/date handling, print designer/output, project information, reference synchronization/conflicts, reports, reusable forms, router deployment path, shared page cache, workflow management and modal accessibility. GitHub Actions workflow files were inventoried for frontend checks, staging, cross-repository QA, UI performance, regression and agent suite.
+
+**Verification status:** test file inventory only. No tests were executed; these files and workflow names do not establish that current tests pass or that coverage is complete.
+
+### 13.6 Pending audit
+- Trace major API handlers to service functions and exact permission codes/HTTP contracts.
+- Detail workflow transition, event amendment, reference-copy/synchronization, attachment lifecycle and material receipt invariants.
+- Review tests and CI definitions to understand actual execution commands, gates and deployment boundaries.
+- Finish migration-risk assessment and discovery report.
