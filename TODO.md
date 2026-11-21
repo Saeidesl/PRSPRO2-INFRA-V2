@@ -429,3 +429,10 @@
 - Dashboard source uses visible-project indexing and grouped activity aggregation. Procurement workspace/reporting models shared order-item project associations through allocations and receipts; orders with inaccessible linked projects are filtered as a whole.
 - Print-template service provides tenant-scoped library/revision/source/resolve/preview and versioned definitions/assets; exact endpoint payload/permission map remains pending.
 - Remaining discovery priorities: exhaustive route-permission-contract reconciliation, schema/header/identifier constraints dictionary, edge-case matrix, and migration/validation blueprint. Source-only; no runtime tests or production changes.
+
+
+### Task 0.2 — Router permission and mutation trace update (2026-11-21)
+- Re-fetched Router.js and sampled GET/POST/PUT/DELETE dispatch. Identified mixed permission patterns: direct guards, any-of sets, admin-only and draft-project creator exception with tenant/state/creator validation.
+- Permission codes sampled include ATTACHMENT_DELETE/UPLOAD/VIEW, DEPARTMENT_MANAGE, EVENT_CREATE/EDIT/TYPE_MANAGE/VIEW, PERMISSION_MANAGE, PROCUREMENT_MANAGE/VIEW, PROJECT_CREATE/EDIT/STATUS_MANAGE/VIEW, REPORT_VIEW, ROLE_MANAGE, SYSTEM_SETTINGS, USER_CREATE/EDIT/VIEW, WORKFLOW_MANAGE. This is not yet exhaustive mapping.
+- Mutation route families and soft-delete/void/admin-confirmation semantics recorded. Potentially sensitive print-template project-data binding PUT branch requires service-level authorization review; no bypass claim made.
+- V2 policy design: declarative route/action policies, explicit any-of/all-of/admin semantics, domain-level tenant/creator checks, exhaustive endpoint permission coverage and IDOR regression tests. Source-only, no runtime tests/no production changes.
