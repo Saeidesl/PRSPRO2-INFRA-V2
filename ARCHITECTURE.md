@@ -575,3 +575,28 @@ The frontend tree includes tests for event filtering/history/forms/image preview
 - TelegramBotService uses Script Properties for secrets/config, Apps Script polling/webhook machinery, tenant chat mapping, time-limited pairing, tenant-scoped notification formatting and attachment filtering. Notifications are integration concerns; V2 should use a separate adapter, secret management, job queue/outbox, retry/backoff, dead-letter observability and no secret exposure.
 - AuditService writes tenant/user/action/entity metadata with old/new data as applicable and supports tenant-scoped reads by entity/user. Append-only enforcement and atomic coupling to business operations are not proven in source-only audit. V2 transactional audit plus immutable retention controls are requirements.
 - Source-only review, not runtime/security tests. Task 0.2 remains IN PROGRESS.
+
+
+## 14. Source Audit — Repository/Test Landscape and Remaining Discovery (2026-11-21)
+
+### 14.1 Read-only repository structure confirmation
+- Recursive tree retrieval confirmed frontend production repository has 187 tree entries and backend has 153 tree entries at audited main snapshots.
+- Frontend test inventory covers event registration/history/context, forms/cache, images/gallery, project workflows/drafts, procurement UI, printing/report builder, calendars, accessibility, router and shared caching.
+- Backend test inventory covers access-control caches, attachments/storage, dashboard/performance, event idempotency/form definitions, information cardinality/file types, material planning, print templates, procurement/integration, project deletion/drafts/images/reference-copy, reports, schema contracts, Telegram and workflow rules.
+- These are inventories only. No tests were executed.
+
+### 14.2 Repository automation context
+- Frontend workflows include frontend checks, staging Pages, cross-repository QA, UI/performance audit, print regression and E2E diagnostics.
+- Backend workflows include backend checks, agent suite, procurement diagnostics and Apps Script synchronization.
+- V2 will have independent CI; no production deployment or GAS synchronization workflow will be reused.
+
+### 14.3 Discovery gaps still open
+- Complete route-to-permission and request/response contract mapping.
+- Exhaustive relational model and identifier/unique-index mapping.
+- Remaining project/event/report/print/procurement receipt edge cases and integration contracts.
+- Migration data dictionary, synthetic migration fixtures, validation and rollback design.
+- Runtime testing/performance measurements belong to later safe synthetic/test environments.
+
+### 14.4 Safety status
+- Production repos remain read-only. No code, branches, PRs, deployments, live sheet data, Drive files, secrets or users were changed/accessed.
+- Source-level audit only; tests were not run.
