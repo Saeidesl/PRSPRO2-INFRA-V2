@@ -74,6 +74,20 @@ The following are documented in the read-only production repositories and are no
 - 2026-11-21: Initial documentation review performed on the production frontend and backend TODO.md and ARCHITECTURE.md. This was documentation discovery only; full source audit is pending.
 - 2026-11-21: No production code or repository was modified.
 
-## 9. Next Work
+## 9. Source Audit — Preliminary Inventory (2026-11-21)
+
+### Repository tree inventory
+- Frontend tree contains 187 entries; notable structure: core API/cache/router/session/permissions; feature modules for projects, events, procurement, workflows, reports, forms, attachments, print designer; page files and a broad test directory; GitHub Actions workflows include frontend checks, staging deployment, QA and UI/performance-related workflows.
+- Backend tree contains 153 entries; notable services/repositories include Router, DatabaseSetup, GoogleSheetsRepository, authentication/access control, projects, events, forms, workflow, procurement, attachments/storage, audit, reports, print templates and Telegram; tests cover service/API contracts, caching, schema, integration and performance diagnostics.
+
+### Source files fetched for read-only review
+Frontend: js/core/api.js, js/core/cache.js, js/core/router.js, js/modules/projects.js, js/modules/events.js, js/modules/procurement.js.
+Backend: Router.js, DatabaseSetup.js, GoogleSheetsRepository.js, AuthService.js, AccessControlService.js, EventService.js, ProcurementService.js.
+
+### Audit scope status
+- Repository trees and selected source files retrieved successfully. This is a preliminary audit; detailed extraction of API contracts, table schemas, workflow rules, permission coverage and test execution remains pending.
+- The audit is performed through read-only GitHub retrieval; no production repository writes have been performed.
+
+## 10. Next Work
 Phase 0, Task 0.1: verify access/availability of the three remaining V2 repositories.
 Phase 0, Task 0.2: perform read-only audit of the production frontend and backend source, database structure and workflows.
