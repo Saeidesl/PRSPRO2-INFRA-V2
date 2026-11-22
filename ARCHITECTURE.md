@@ -1153,3 +1153,7 @@ Selected GET Router branches were traced against permission gates and service de
 
 ## Phase 2 procurement source-mapping checkpoint (2026-11-22)
 - Procurement source mappings and limited observed service behavior are documented in DATA-MODEL-DRAFT.md. The evidence is source-level and provisional; exact quantity policies, data validation, schema and migration remain pending.
+
+
+## Phase 2 identity and authorization mapping checkpoint (2026-11-22)
+- Legacy source mapping and targeted auth/permission path observations are recorded in DATA-MODEL-DRAFT.md. The analysis is preliminary; the authorization matrix and security design remain pending review.
