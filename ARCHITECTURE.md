@@ -839,3 +839,17 @@ The frontend tree includes tests for event filtering/history/forms/image preview
 ### Reconciliation caveats
 - This is a source-derived inventory of Router branches, not an exhaustive route test matrix. Route pre-guard, service-level tenant/resource checks, audit coverage and parser/route edge cases still need systematic verification. Several routes rely on service authorization (e.g. print-template project binding) and require inspection of each service method. The route table must not be interpreted as proof of endpoint security.
 - Source-only review; no runtime tests, production changes or data access.
+
+
+## 38. Audit-log and mutation consistency review (2026-11-22)
+
+- Read-only source inspection of AuditService confirms audit entries are serialized as OldData/NewData JSON, with tenant, user, action, entity type/ID, reason and timestamp. Audit list and entity/user list paths apply tenant filtering. This source alone does not establish append-only storage, retention, sensitive-field redaction, or immutability guarantees.
+- Selected CRUD service traces show a recurring write-then-audit sequence rather than a transaction. DepartmentService creates/updates department rows then logs audit; EventTypeService creates/updates and then logs; ProjectStatusService writes directly to its sheet then logs. Audit failure after the business write could leave the business mutation without a corresponding audit record. Conversely, audit payloads may capture broad old/new objects; V2 must define field-level redaction and audit retention.
+- Selected services use tenant context and validate tenant ownership for resources; authorization is sometimes route-level and sometimes service-level. This pattern must be reconciled endpoint-by-endpoint rather than assuming a generic shared gate enforces permissions.
+- Concurrency risk remains where duplicate-code/name checks are read-then-write operations without database constraints (e.g. departments/event types/project statuses). V2 should use tenant-scoped unique indexes and transactions.
+- V2 audit design requirement: immutable/append-only audit table with actor and tenant identity, structured diff or event payload, explicit redaction, retention/access controls, correlation IDs, and transactional coupling to business writes; integration/storage side effects should use outbox/reconciliation.
+- Source-level audit only. No runtime tests, penetration tests, production changes, or live data access.
+
+### Audit coverage status
+- Confirmed in sampled traces: department CRUD, event-type CRUD, project-status CRUD, user/role assignments, role CRUD, selected workflow publish/rule changes, event form amendment, project information mutation, event void, attachment lifecycle, procurement operations and project deletion have audit-related behavior in at least selected paths.
+- Not established: exhaustive mutation-to-audit coverage, consistent action taxonomy, append-only enforcement, payload redaction, audit-write failure recovery, and all workflow/form/catalog mutation paths. This is a pending verification matrix, not an assertion that uncovered paths are unaudited.
