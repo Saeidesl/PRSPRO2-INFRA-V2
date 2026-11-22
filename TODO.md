@@ -1557,3 +1557,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 51 (2026-11-22)
 - Read-only schema-header tenant ownership classification documented in `TASK-2.8-SCHEMA-HEADER-TENANT-OWNERSHIP-CLASSIFICATION-INCREMENT-51.md`. Explicit TenantID headers catalogued; Permissions appears shared/global; EventData lacks direct TenantID and relies on parent Event linkage.
 - E1 only; header presence does not prove DB integrity or live schema. G-10 remains OPEN. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+### Task 2.8 Increment 52 (2026-11-22)
+- Header-derived tenant-qualified relationship crosswalk recorded in `TASK-2.8-TENANT-QUALIFIED-RELATIONSHIP-HEADER-CROSSWALK-INCREMENT-52.md`, mapping candidate tenant-consistent FK edges and special cases (EventData, global-looking Permissions, polymorphic Attachments/AuditLogs, nullable/independent events).
+- E1 structural evidence only; this is not live schema or runtime integrity proof. G-10 remains OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
