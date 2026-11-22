@@ -168,3 +168,19 @@ No tests were run; no SQL/DDL, migration, DB provisioning, live data, production
 - G-08 remains HIGH: authentication lookup and session observations do not close user, password, tenant membership, role and permission migration semantics.
 
 No SQL/DDL, migration, DB provisioning, live data access, test execution, production changes or deployment occurred.
+
+
+## Increment 8 — Quantity, unit, numeric precision and temporal evidence (2026-11-22)
+
+### Evidence (bounded, source-only)
+- Project creation validation requires supplied project Quantity to be a positive integer; this is not evidence that all material/procurement quantities are integer-valued.
+- Procurement and material-planning code use JavaScript numeric conversion/validation (`Number`, finite/non-negative checks) in sampled paths. This does not establish domain-specific precision, decimal scale, rounding, unit conversion or currency rules.
+- The registry and sampled services contain quantity/unit-related fields and material specification/calculation concepts, but the audit has not exhaustively traced all unit-bearing fields, conversion sources, rounding stages or historical calculated values.
+- Event validation accepts OccurredAt when parseable by JavaScript Date and EventService contains occurrence/creation time handling; sampled session timestamps are ISO strings. This bounded evidence does not establish a complete timezone contract, UTC/local storage policy, daylight-saving behavior, Jalali display rules or historical timezone normalization.
+
+### Gap implications
+- G-06 remains HIGH: define precision/scale per quantity/cost/rate domain, rounding points, unit catalog and conversion policy, and how legacy numeric values are reconciled without loss.
+- G-07 remains HIGH: define UTC storage, explicit timezone metadata where required, timezone conversion/display, Jalali calendar presentation only at UI boundary, and import/export rules. These are recommendations requiring evidence/decision, not observed contracts.
+- G-01 remains BLOCKER: all quantity and timestamp field usages across write/read/report/export paths need a complete inventory.
+
+No SQL/DDL, migration, DB provisioning, live data, tests, production changes or deployment occurred.
