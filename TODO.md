@@ -763,3 +763,11 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - [x] Document provisional mappings, transaction/integrity candidates and unresolved policy questions.
 - [ ] Confirm precision/unit conversion, surplus, returns, corrections, reallocation, status rules and uniqueness scopes.
 - Status: IN PROGRESS. No executable schema/migration.
+
+
+### Phase 2 / Task 2.1 — Identity and Authorization mapping (2026-11-22)
+- [x] Extract identity, tenant, department, role, permission and assignment table headers.
+- [x] Review targeted legacy authentication, access-control, permission-resolution and Router authorization excerpts.
+- [x] Document V2 security design candidates, risks and unresolved tenant/identity policies.
+- [ ] Resolve tenant membership, department scope, session migration, privilege model and resource authorization matrix.
+- Status: IN PROGRESS. Mapping and security design are provisional; no implementation/schema.
