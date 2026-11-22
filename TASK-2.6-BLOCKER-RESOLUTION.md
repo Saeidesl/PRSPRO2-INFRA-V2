@@ -299,3 +299,29 @@ This baseline is a technical recommendation and does not close G-06/G-07/G-10. A
 7. Model failure/recovery and duplicate-request outcomes explicitly, and test concurrency, partial failure, replay and batch atomicity in V2.
 
 **Limitations:** Source-level bounded review only. No tests executed; no live data, SQL/DDL, migration, database provisioning, production changes or deployment. G-02 remains BLOCKER, and G-01/G-10 remain open.
+
+
+### Increment 14 — order lifecycle, cancellation and history-retention audit (2026-11-22)
+
+**Read-only sources:** ProcurementService.js createOrder flow, status/countability checks and receipt eligibility/update paths; Router.js procurement mutation dispatch; repository-level code search (bounded) for cancellation API.
+
+**Verified findings:**
+- Order creation initializes status ACTIVE. The reviewed service mutation inventory exposes order creation and receipt mutations but no order cancel/update lifecycle mutation in the bounded service excerpt.
+- Need/order calculations exclude statuses CANCELLED, VOID, DELETED and NEEDS_REVIEW in some countable-order paths, while other projections have distinct filter rules.
+- Receipt creation rejects orders with CANCELLED status, but sampled checks do not consistently reject all non-active states (e.g. NEEDS_REVIEW) at the same validation boundary. Batch and single paths have further differences noted in Increment 13.
+- Order creation handles multi-sheet write failure by marking the order NEEDS_REVIEW and appending a recovery note; it intentionally preserves a partial record rather than deleting it. The evidence does not establish a complete recovery/reconciliation operation.
+- Cancellation behavior for orders with existing receipts, allocations, supplier commitments, downstream stock movement or audit references was not found in bounded public service/API review. Do not assume cancellation means hard-delete or that receipts can be discarded.
+- There is no demonstrated atomic transaction spanning order header, lines, allocations, receipt records, order projection and audit in the legacy Sheets implementation.
+
+**Provisional V2 lifecycle contract recommendations:**
+1. Explicit state machine: draft/active, partially received, received, review hold, cancelled (exact states and transitions to be finalized from business discovery); disallow arbitrary status mutation.
+2. Cancellation must preserve all history. Define restrictions for any posted receipt; cancellation after receipt requires reconciliation/return/reversal policy and an authorized reason, not deletion.
+3. Allocation/need reservation release on cancellation must be an explicit domain action and auditable; avoid silently releasing or double-counting quantities.
+4. Validate receipt eligibility against order state and line/allocation state at a single authoritative command boundary; review-hold orders must require controlled resolution.
+5. Order status is a projection from authoritative ledger/commands where appropriate, with explicit manual review state and reconciliation events.
+6. Persist state-transition records (actor, timestamp, prior/new state, reason, source), and audit them transactionally.
+7. Migration must classify legacy statuses and partial-write cases; unresolved records stay quarantined/reviewable, not silently normalized.
+
+### Task 2.6 — audit closure assessment
+
+Task 2.6 source audit and blocker-register consolidation is **AUDIT COMPLETE / DESIGN READINESS NOT APPROVED**. Increment 1–14 findings and recommendations have been documented. The unresolved blockers are not represented as solved: source-field/data coverage, complete relationship/tenant-integrity coverage, receipt lifecycle and reversal semantics, precision/unit policy, time-field inventory, configuration/attachment/audit retention, and validation of assumptions against real but non-production sample data or data dictionary evidence. This audit closure does not authorize physical schema, SQL, migrations or database setup. The next phase must address blocker closure with explicit evidence and product-owner decisions only where business policy is needed.
