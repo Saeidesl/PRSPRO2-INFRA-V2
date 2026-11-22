@@ -939,3 +939,15 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Product Owner explicitly accepted the comprehensive Task 2.3 audit package.
 - Task 2.3 is COMPLETE and accepted. Do not repeat this task.
 - Next: begin Task 2.4 only after reviewing roadmap and current architecture/documentation; schema-design scope and approval gates remain to be established in the next task.
+
+
+## Phase 2 — Task 2.4: PostgreSQL Schema Blueprint (design-only)
+- Status: IN PROGRESS.
+- Scope established: logical tables/domain groups, tenant-aware key/FK strategy, uniqueness and association constraints, historical/snapshot/soft-delete/polymorphic/storage models, transaction/idempotency/concurrency strategy, and unresolved decision register.
+- Inputs: accepted Task 2.1, 2.2 and 2.3 artifacts; do not repeat these audits.
+- Guardrails: no DDL/SQL/migration implementation, database provisioning, live data, production changes, deployment or VPS work.
+- Work packages: 2.4-A logical inventory; 2.4-B keys/relationships; 2.4-C history/snapshot/audit/storage; 2.4-D transaction/concurrency/decision register.
+- [ ] Complete blueprint and decision register with evidence levels and unresolved business choices.
+- [ ] Cross-review consistency against accepted discovery artifacts and target architecture.
+- [ ] Read back and verify document updates.
+- Stop for Product Owner review/acceptance before schema implementation.
