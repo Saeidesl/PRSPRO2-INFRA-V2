@@ -1509,3 +1509,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 57 — Procurement/material planning lifecycle trace
 - Source trace recorded in `TASK-2.8-PROCUREMENT-MATERIAL-PLANNING-LIFECYCLE-TRACE-INCREMENT-57.md`: bounded order/receipt/idempotency/locking and recovery behavior, material-spec revision and calculation ledger, source-event void cascade and separate audit writes.
 - E1 only; no runtime testing. G-02/G-03/G-10 remain OPEN; schema readiness NOT APPROVED.
+
+
+## Task 2.8 Increment 58 — Event void and ProjectInformation revision/sync
+- Bounded source trace recorded in `TASK-2.8-EVENT-VOID-PROJECT-INFORMATION-REVISION-SYNC-TRACE-INCREMENT-58.md`: sequential event/project restoration and material cascade with surfaced reconciliation failure; ProjectInformation value/history/audit/reference sync writes; sampled form/event data visibility controls.
+- E1 only; runtime testing not performed. G-03/G-10/G-01 remain OPEN.
