@@ -1502,3 +1502,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ## Phase 2 — Task 2.8 Increment 40 (2026-11-22)
 - Draft V2 transaction/integrity/test matrix across tenant/RBAC, project, central info/history, event/form, workflow, material planning, procurement/allocation/receipt, attachments, deletion and audit documented in `TASK-2.8-V2-TRANSACTION-INTEGRITY-TEST-MATRIX-DRAFT-INCREMENT-40.md`.
 - Matrix and transaction strategy are evidence-derived proposals only, not approved business policy or schema. G-01/G-02/G-03/G-04/G-10 remain OPEN; schema readiness NOT APPROVED. No implementation, tests, live data, DDL/migrations, provisioning or deployment.
+
+
+## Phase 2 — Task 2.8 Increment 41 (2026-11-22)
+- Remaining technical defaults vs unresolved business decisions and evidence boundary recorded in `TASK-2.8-REMAINING-POLICY-DECISIONS-EVIDENCE-BOUNDARY-INCREMENT-41.md`.
+- Source evidence pack is bounded and documented, but business-policy items remain unconfirmed, and no E3 runtime tests or E4 live-data evidence exist. Task 2.8 discovery/decision pack cannot declare schema readiness. G-01/G-02/G-03/G-04/G-10 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
