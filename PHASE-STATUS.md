@@ -181,3 +181,8 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 ### Task 2.6 — Increment 5
 - Provisional procurement lifecycle matrix recorded; sampled service/repository inventory contains create/read projection paths but no dedicated correction/deallocation/reversal API surfaced.
 - G-02 remains BLOCKER and decision matrix is not yet finalized.
+
+
+### Task 2.6 — Increment 6
+- Reviewed cross-service procurement/material-planning integration and project-delete dependency semantics.
+- G-02 remains unresolved; provisional contract and retention implications documented.
