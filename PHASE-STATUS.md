@@ -339,3 +339,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 G-01 Increment 7 (2026-11-22)
 - Read-only frontend API caller sampling across API/router/permissions and event, form, procurement, project, attachment modules recorded in `TASK-2.8-FRONTEND-API-CALLER-SAMPLING-INCREMENT-7.md`.
 - Coverage remains bounded; no exhaustive caller/route/permission/test matrix established. G-01 OPEN; schema readiness NOT APPROVED. No tests, schema/DDL, migrations, production changes or deployment.
+
+
+## Phase 2 — Task 2.8 G-01 Increment 8 (2026-11-22)
+- Recorded bounded frontend/backend Router string cross-check and unresolved workflow-progress path discrepancy in `TASK-2.8-BACKEND-ROUTER-CROSSCHECK-INCREMENT-8.md`.
+- String matches do not prove handler, method, permission or test coverage. G-01 remains open; schema readiness not approved. No tests or production modifications.
