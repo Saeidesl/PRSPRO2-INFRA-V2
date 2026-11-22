@@ -1040,3 +1040,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Read-only sampling of user lifecycle and audit paths, user repository delete capability, role-permission bulk deletion, dependency-aware project deletion and Google Drive file trashing.
 - Recorded bounded identity/audit/deletion/storage evidence and unresolved migration, restore, purge, retention and reconciliation policies in the readiness register.
 - G-08/G-09/G-11 remain HIGH; G-01 remains BLOCKER. No SQL/DDL, migration, DB provisioning, live data, tests or production writes.
+
+
+### Task 2.5 incremental audit — configuration and dependency graph sampling increment 10 (2026-11-22)
+- Read-only review of workflow/step-department, department, project-status, print-template and legacy event-field pathways.
+- Recorded bounded relationship graph additions and lifecycle/constraint gaps in the readiness register.
+- G-01/G-10 remain BLOCKERS; G-12 remains open; historical payload and file/template lifecycle gaps persist. No SQL/DDL, migration, DB provisioning, live data, tests or production writes.
