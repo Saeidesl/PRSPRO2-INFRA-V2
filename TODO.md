@@ -1058,3 +1058,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Sampled user-role assignment, role/permission catalog, workflow-step-event-rule versioning, workflow-step-department associations and project-status lifecycle source paths read-only.
 - Recorded bounded CONFIRMED/PARTIAL/UNVERIFIED coverage states; no exhaustive operation matrix claim.
 - G-01/G-10 remain BLOCKERS and G-12 open. No SQL/DDL, migrations, DB provisioning, live data, tests or production writes.
+
+
+### Task 2.5 — Increment 13 (2026-11-22)
+- Read-only Router.js evidence for selected user-role, role, permissions, workflow, project-status and permission introspection paths added to readiness register.
+- Confirmed only bounded route/permission/dispatch snippets; full endpoint family lifecycle coverage remains incomplete. G-01/G-10 blockers and G-12 open/high.
+- No SQL/DDL, migration, DB provisioning, live data, tests, production changes or deployment.
