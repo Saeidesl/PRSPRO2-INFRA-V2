@@ -114,3 +114,23 @@ Evidence:
 G-02 is NOT resolved. The source inventory suggests the legacy service primarily supports creation and read projections; corrective lifecycle contracts and operational policy remain insufficiently discovered. Next steps should inspect project/business requirements, downstream event/report consumers, and any deletion/void/adjustment routes in other services before treating the matrix as finalized.
 
 No tests executed, no live data, SQL/DDL, migration, DB provisioning, production modifications or deployment.
+
+
+### Increment 6 — cross-service consumers and project deletion retention review (2026-11-22)
+
+Reviewed MaterialPlanningService method inventory, ProcurementEventIntegrationService and ProjectDeletionService collector/preview context.
+
+Evidence:
+- MaterialPlanningService versioned specification and calculation-history functions create/revise specs, record/recalculate needs and mark source-event voids. Its header and sampled logic intentionally leave existing orders/receipts intact; calculation updates can be linked to material-need records and source event status.
+- Procurement event integration explicitly treats receipt mappings as inert and Receipt APIs independent; its active integration recalculates confirmed material needs from project central information. V2 should not couple event integration directly to posted receipt ledger.
+- Project deletion dependency collection includes events/event-data, needs, order/items, allocations, receipts, specs, calculations and attachments. It is allocation-aware for shared procurement items/orders and receipt association through item/project/order. However, delete collection is a legacy destructive cascade, not a universal retention policy.
+- A project-delete cascade should not be copied literally into V2 for procurement history: V2 should preserve posted fulfillment and audit records, anonymize/archive project data only under approved retention policy, and use referential restrict/soft-archive or explicit retention-aware workflow when linked procurement history exists.
+
+### G-02 decision refinement
+- Procurement needs are recalculated from central project information/event integration, but posted receipts must remain independent from need recalculation. Changes to needs should not automatically reverse received quantities.
+- Need/spec/calculation revisions and procurement allocations are separate concepts; preserve their linkage without treating a revised need as an order/receipt mutation.
+- Project deletion and order deletion are not interchangeable; fulfillment records must survive project archival/deletion policy.
+
+G-02 remains BLOCKER. The lifecycle contract is now sufficiently drafted for internal technical design but requires remaining discovery (write routes/other consumers and report calculations) and final consistency review before this gap can be marked resolved.
+
+No tests executed, no live data, SQL/DDL, migration, DB provisioning, production modifications or deployment.
