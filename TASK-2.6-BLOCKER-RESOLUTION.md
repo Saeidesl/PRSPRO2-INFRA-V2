@@ -273,3 +273,29 @@ This baseline is a technical recommendation and does not close G-06/G-07/G-10. A
 6. Dashboard/report/workspace must consume the same canonical domain projection and reconciliation status, with raw ledger totals available for audit.
 
 **Scope and limitations:** This increment does not prove receipt reversal/correction pathways, every report consumer, race-safe uniqueness, or complete source coverage. G-02 remains BLOCKER; G-01/G-10 and precision/history constraints remain open. No tests executed, live data accessed, SQL/DDL, migration, database provisioning, production changes or deployment.
+
+
+### Increment 13 — single/batch receipt mutation parity and replay audit (2026-11-22)
+
+**Read-only sources:** ProcurementService.js single receipt, batch receipt, unlocked single receipt paths and Router.js receipt dispatch (bounded).
+
+**Verified source evidence:**
+- Router dispatch exposes POST-style receipt paths for single receipt and batch receipt; both reach separate service implementations.
+- Single and batch validations differ: batch permits unallocated general-stock receipt for an item with project allocations only up to the unallocated portion; the single receipt path requires a project selection for allocated items and does not surface that general-stock branch.
+- Batch receipt idempotency keys are checked against existing receipt keys and duplicate keys within the batch; single receipt checks key replay at wrapper level. Idempotency uniqueness is not demonstrated as a persisted/database constraint.
+- Batch source-event replay and single source-event replay behavior differ; the single unlocked path checks existing SourceEventID+item and excludes VOID rows, while batch relies on idempotency-key handling. This is not equivalent.
+- Batch receipt validation calculates prior quantities from receipt rows without a status exclusion in the sampled aggregation. Single receipt prior-item/project receipt sums similarly use broad receipt collections; reversal/void accounting parity is unproven.
+- Batch inserts the prepared receipts in one repository insertMany call, but order status updates and audit writes occur afterward, across multiple writes; the operation is not shown to be transactionally atomic. Single receipt performs a receipt insert, then rereads and recalculates order totals, updates order, and logs audit; partial completion remains possible.
+- Batch preserves NEEDS_REVIEW order status during recomputation; single path updates order status unless NEEDS_REVIEW, but the sampled status and aggregate logic are not identical. Receipt eligibility/replay/reconciliation contract remains divergent.
+- No dedicated receipt correction, reversal, or void mutation API was identified in the sampled public service method inventory; this is a bounded finding, not proof of absence from all repository code.
+
+**Recommended V2 decisions:**
+1. One receipt command contract for single and batch submissions; batch is a wrapper over validated commands with one consistent policy, not a separate rules implementation.
+2. Receipt idempotency scoped by tenant and durable unique constraint; define key requiredness, retention and payload mismatch behavior (same key with different payload must conflict rather than replay silently).
+3. Source-event deduplication must be explicitly defined per event/item/tenant and unified across single/batch, including VOID/reversal behavior.
+4. Introduce immutable receipt postings plus explicit reversal/correction postings; net accounting derives from these states and lineage, not mutable totals or ambiguous VOID filters.
+5. Define allowed receipt destination semantics: project allocation vs unallocated/general stock; implement the same validation for single/batch.
+6. Persist receipt command/posting, order-state projection and audit/outbox within one transaction in V2; reconciliation repairs projections from authoritative postings.
+7. Model failure/recovery and duplicate-request outcomes explicitly, and test concurrency, partial failure, replay and batch atomicity in V2.
+
+**Limitations:** Source-level bounded review only. No tests executed; no live data, SQL/DDL, migration, database provisioning, production changes or deployment. G-02 remains BLOCKER, and G-01/G-10 remain open.
