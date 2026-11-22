@@ -837,3 +837,7 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - [x] Extract table registry from DatabaseSetup source and document structural naming/numbering concerns.
 - [ ] Verify exact entity relationships and tenant/global ownership from service behavior, not just table headers.
 - [ ] Investigate auxiliary backup sheet semantics before migration scope decisions.
+
+
+- [x] Audit cascade deletion, procurement partial-failure recovery, form amendment replay/concurrency, and attachment deletion semantics at source level; document findings.
+- [ ] Continue audit of procurement cancellation and receipt-adjustment/return paths, complete dependency inventory and retry semantics.
