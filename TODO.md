@@ -862,3 +862,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Consolidated the conceptual entity inventory, relationship evidence, transaction boundaries, reliability requirements and unresolved policy gates in DATA-MODEL-DRAFT.md.
 - The draft is prepared for Product Owner review; it is not an accepted schema blueprint.
 - Task 2.1 remains IN PROGRESS until explicit acceptance. No schema/migration code or tests started.
+
+
+## Phase 2 — Task 2.1 acceptance (2026-11-22)
+- Product Owner explicitly accepted the consolidated conceptual model and review package.
+- Task 2.1 is accepted/closed. Proceed to Task 2.2: detailed source-to-target field mapping and constraint matrix; this next task is read-only discovery and must not create schema/migrations until its review/approval gate.
