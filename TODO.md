@@ -1212,3 +1212,10 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Documented validation differences, source-event/idempotency replay divergence, broad receipt aggregation, multi-write partial completion and absence of a verified reversal/correction API in the sampled public method inventory.
 - Recommended unified receipt command, tenant-scoped idempotency constraint, explicit postings/reversals, allocation/general-stock parity and transactional writes with reconciliation. G-02 remains BLOCKER.
 - No tests, live data, SQL/DDL, migration, DB provisioning, production changes or deployment.
+
+
+### Task 2.6 Increment 14 and audit closure assessment
+- Bounded read-only audit of order lifecycle/status/countability, cancel-related code search, receipt eligibility and partial-write recovery.
+- Recorded cancellation-after-receipt/allocation policy gaps and recommendations for state machine, history preservation, release/reversal controls, transactional state-transition audit and legacy quarantine.
+- Task 2.6 audit marked AUDIT COMPLETE / DESIGN READINESS NOT APPROVED. Blockers remain explicitly open; physical schema/SQL/migration not authorized.
+- No tests, live data, SQL/DDL, migration, DB provisioning, production changes or deployment.
