@@ -133,3 +133,10 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 - Documented snapshot/state guard, multi-write sequence, audit records and potential partial completion, with migration implications in readiness register.
 - Task 2.5 remains IN PROGRESS. G-01/G-02/G-03/G-10 remain blockers; G-09 remains open/high. No readiness approval.
 - No tests, SQL/DDL, migrations, live data, DB provisioning, production modifications, deployment or VPS action.
+
+
+## Phase 2 — Task 2.5 checkpoint (2026-11-22, Increment 22)
+- Read-only audit of material-specification revision paths, CalculationKey idempotency, recalculation multi-write sequence and event-void reconciliation.
+- Recorded revision/provenance, status mutability, NEEDS_REVIEW behavior and precision observations/limitations in readiness register.
+- Task 2.5 remains IN PROGRESS. G-01/G-02/G-03/G-10 remain blockers; G-06/G-09 remain open/high. No readiness approval.
+- No tests, live data, SQL/DDL, migrations, DB provisioning, production modifications, deployment or VPS action.
