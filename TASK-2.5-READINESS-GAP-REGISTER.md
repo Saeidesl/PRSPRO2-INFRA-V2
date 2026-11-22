@@ -598,3 +598,7 @@ MaterialPlanningService recalculates needs from central information; procurement
 
 ### Task 2.6 Increment 7 evidence
 Workflow publication and draft/version semantics, logical deactivation of information types/columns, tenant-scoped event-type validation, status lifecycle and permission services were sampled. V2 recommendations favor immutable published versions, logical deactivation with history retention and restrict deletion when referenced. G-01/G-10 remain BLOCKERS.
+
+
+### Task 2.6 Increment 8 evidence
+User-role and role-permission service paths apply tenant validations but repository adapters do not independently enforce tenant-safe relational integrity. V2 requires tenant-compatible FKs, unique association constraints and deny-by-default centralized authorization with explicit domain checks. G-01/G-10 remain BLOCKERS.
