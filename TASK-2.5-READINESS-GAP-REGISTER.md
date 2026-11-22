@@ -184,3 +184,23 @@ No SQL/DDL, migration, DB provisioning, live data access, test execution, produc
 - G-01 remains BLOCKER: all quantity and timestamp field usages across write/read/report/export paths need a complete inventory.
 
 No SQL/DDL, migration, DB provisioning, live data, tests, production changes or deployment occurred.
+
+
+## Increment 9 — Identity, audit, deletion, retention and file recovery evidence (2026-11-22)
+
+### Evidence (bounded, source-only)
+- UserService supports tenant-scoped user list/update flows in sampled code, status-based user lifecycle and audit logging; update strips TenantID from accepted update data. This does not close identity migration, account merge, password reset/rehash or membership policy.
+- UserRepository exposes physical deleteById capability in its repository adapter. This demonstrates a deletion operation exists, but its complete caller coverage, permissions, cascade behavior and use in production lifecycle were not exhaustively verified.
+- RolePermissionService exposes bulk-delete behavior for role-permission association records. This is evidence of relationship mutation, not a confirmed retention policy.
+- AuditService requires TenantID, Action, EntityType and EntityID and captures optional UserID and serialized old/new data. Audit querying is by entity/user in sampled repository. Retention, tamper resistance, completeness of audit coverage and audit redaction rules remain unresolved.
+- ProjectDeletionService describes dependency-aware soft delete and trashes Drive attachments; sampled behavior includes dependency collection, preservation of shared procurement items/orders and project-scoped associations. Recovery/restore, durable tombstones, failure compensation and transactional consistency are not established.
+- GoogleDriveStorage.delete sets the file to trash; sampled attachment deletion path has storage and metadata operations that may fail separately. Reconciliation, restore from trash, permanent purge and orphan cleanup contracts remain unresolved.
+- Attachment/storage metadata and Tenant folder paths exist in sampled source, but a full inventory of file lifecycle states and all delete/copy/restore callers is still pending.
+
+### Gap implications
+- G-08 remains HIGH: establish identity mapping, login identifier normalization/uniqueness, password handling migration, disabled/inactive accounts, membership and role/permission reconciliation, and recovery procedure.
+- G-09 remains HIGH: specify logical/physical deletion, tombstone, restore, purge, retention/archival, audit retention and recovery/rollback boundaries for all domains.
+- G-11 remains HIGH: define file metadata contract, storage key migration, checksum, orphan/metadata reconciliation, restore, purge and retry/compensation.
+- G-01 remains BLOCKER: full caller/lifecycle inventory for delete/update/restore/reversal is still required.
+
+No SQL/DDL, migration, DB provisioning, live data, tests, production changes or deployment occurred.
