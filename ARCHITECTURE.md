@@ -1213,3 +1213,7 @@ Selected GET Router branches were traced against permission gates and service de
 
 ## 2026-11-22 — Phase 2 Task 2.1 conceptual consolidation
 The consolidated conceptual model and review gate are documented in DATA-MODEL-DRAFT.md. It separates source-evidenced relationships from recommendations and unresolved questions, including tenant isolation, project/event/form snapshots and amendment/void, reference-project sync/copy, material calculation provenance, procurement allocations/receipts, attachment retention, audit policy, print resolver and transaction/outbox boundaries. It also records security migration concerns (legacy SHA-256 password hashing, observed URL token transport, missing rate-limiting evidence) and limitations of the route audit. The next recommended task is detailed field-level source-to-target mapping and constraint validation. This package awaits Product Owner acceptance; no schema or migration was implemented.
+
+
+## 2026-11-22 — Phase 2.2 mapping task started
+Read-only field/constraint mapping started. SOURCE-TO-TARGET-MAPPING-2.2.md records registry header evidence and verified behavioral constraints while distinguishing unknowns. Full source-level validation of types, requiredness, uniqueness, FK/cardinality, tenant constraints, reversals, integration contracts and workload patterns remains pending. No schema or migration work has begun.
