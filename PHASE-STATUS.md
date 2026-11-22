@@ -334,3 +334,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Recorded bounded source evidence for registry/header semantics, reused sheet-number prefixes, JSON/list and polymorphic fields, and destructive legacy reset routine in `TASK-2.8-SCHEMA-REGISTRY-AUXILIARY-EVIDENCE-INCREMENT-6.md`.
 - The reset routine was not executed; no live data or configuration accessed. G-01/G-10 remain open; schema readiness remains NOT APPROVED.
 - No tests, SQL/DDL, migration, provisioning, production modifications, deployment or VPS action.
+
+
+## Phase 2 — Task 2.8 G-01 Increment 7 (2026-11-22)
+- Read-only frontend API caller sampling across API/router/permissions and event, form, procurement, project, attachment modules recorded in `TASK-2.8-FRONTEND-API-CALLER-SAMPLING-INCREMENT-7.md`.
+- Coverage remains bounded; no exhaustive caller/route/permission/test matrix established. G-01 OPEN; schema readiness NOT APPROVED. No tests, schema/DDL, migrations, production changes or deployment.
