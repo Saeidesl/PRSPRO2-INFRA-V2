@@ -1110,3 +1110,10 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Documented tenant-scoped procurement datasets, idempotency and receipt paths, project cascade dependency graph, shared order preservation, partial-failure behavior, attachment ownership/access checks and Drive storage operations in TASK-2.5-READINESS-GAP-REGISTER.md.
 - G-01/G-02/G-04/G-10 remain blockers; G-06/G-09/G-11 remain open/high. No exhaustive coverage claim.
 - No live data, tests, SQL/DDL, migration, DB provisioning, production changes, deployment or VPS action.
+
+
+### Task 2.5 increment 21 — Event void reversal and recovery audit (2026-11-22)
+- Read-only sampling of EventService void path, EventRepository, ProjectRepository, ProjectService and Router excerpts.
+- Documented conditional project-state restoration, event VOID status, workflow-progress recomputation, material-plan review integration, prior-state snapshots and multi-write partial-failure risks in TASK-2.5-READINESS-GAP-REGISTER.md.
+- G-01/G-02/G-03/G-10 remain blockers; G-09 remains open/high. No full lifecycle or transaction guarantees claimed.
+- No live data, tests, SQL/DDL, migration, DB provisioning, production modifications, deployment or VPS action.
