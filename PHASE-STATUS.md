@@ -206,3 +206,8 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 ### Task 2.6 — Increment 10
 - Bounded audit/report/history/legacy-ID relationship review and provisional V2 decisions recorded.
 - G-01/G-05/G-09/G-10 remain unresolved.
+
+
+### Task 2.6 — Increment 11
+- Cross-cutting technical baseline for numeric/unit, chronology, tenant integrity and deletion semantics documented.
+- G-06/G-07/G-10 remain unresolved; physical schema is still not authorized/readiness-approved.
