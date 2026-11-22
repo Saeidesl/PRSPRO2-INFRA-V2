@@ -1188,3 +1188,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.6 Increment 9 — attachment/storage lifecycle
 - Reviewed attachment service/repository/validator, Google Drive storage adapter and StorageRepository boundary.
 - Provisional V2 metadata/object-storage lifecycle, staged recovery, retention purge and tenant-parent relationship constraints documented. G-04/G-11/G-10 remain BLOCKERS.
+
+
+### Task 2.6 Increment 10 — audit/report and legacy ID relationship semantics
+- Reviewed audit/report repository/service and EventData, ProjectInformation and project repository relationships.
+- Provisional append-only audit, tenant-safe report, historical-retention and legacy-ID mapping decisions documented. G-01/G-05/G-09/G-10 remain OPEN/BLOCKERS as applicable.
