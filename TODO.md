@@ -1592,3 +1592,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 58 (2026-11-22)
 - Event void and ProjectInformation revision/sync trace recorded in `TASK-2.8-EVENT-VOID-PROJECT-INFORMATION-REVISION-SYNC-TRACE-INCREMENT-58.md`: sequential void restoration/cascade/audit writes and recoverable material reconciliation failure, plus information current/history/audit/reference-sync write boundaries and sampled Form/EventData controls.
 - E1 only; runtime tests not executed. G-03/G-10/G-01 remain OPEN; schema readiness NOT APPROVED. No live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+### Task 2.8 Increment 59 (2026-11-22)
+- Attachment storage/delete lifecycle trace recorded in `TASK-2.8-ATTACHMENT-STORAGE-DELETE-LIFECYCLE-TRACE-INCREMENT-59.md`: Google Drive storage abstraction, sequential file/metadata/audit writes and delete-to-trash/soft-delete boundary; recovery/retention/backup policies not established in inspected source.
+- E1 source review only; runtime testing not executed. G-04/G-10 remain OPEN; schema readiness NOT APPROVED. No live data/DDL/migrations/provisioning/deployment/production changes.
