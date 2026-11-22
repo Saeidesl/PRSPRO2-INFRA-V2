@@ -1552,3 +1552,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 50 (2026-11-22)
 - Consolidated blocker/evidence matrix and closure dependency review recorded in `TASK-2.8-CONSOLIDATED-EVIDENCE-MATRIX-CLOSURE-DEPENDENCIES-INCREMENT-50.md`, summarizing E1/E2, G-01/G-02/G-03/G-04/G-10, seven business-policy decisions and safe evidence execution boundary.
 - Schema readiness remains NOT APPROVED. Task 2.8 cannot be marked complete until decisions/closure criteria are accepted or dispositioned; current GitHub-only access cannot execute isolated legacy runtime tests and production mutation is prohibited.
+
+
+### Task 2.8 Increment 51 (2026-11-22)
+- Read-only schema-header tenant ownership classification documented in `TASK-2.8-SCHEMA-HEADER-TENANT-OWNERSHIP-CLASSIFICATION-INCREMENT-51.md`. Explicit TenantID headers catalogued; Permissions appears shared/global; EventData lacks direct TenantID and relies on parent Event linkage.
+- E1 only; header presence does not prove DB integrity or live schema. G-10 remains OPEN. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
