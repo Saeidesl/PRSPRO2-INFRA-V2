@@ -644,3 +644,9 @@
 - V2 API contract must avoid URL token transport; prefer secure HttpOnly/SameSite cookie architecture with CSRF controls if cookie-based, or Authorization headers where appropriate. Query-string secrets must not be logged, stored in browser history, or included in analytics. Method override should not be carried forward unless explicitly justified and hardened.
 - The frontend client currently centralizes retries for GET/HEAD, GET deduplication, sync-state notification and diagnostics. Preserve appropriate UX behaviors in V2, but constrain retries to safe/idempotent operations and ensure diagnostics never expose sensitive payloads.
 - This was a source-level slice only; no runtime/security testing or production changes. Task 0.2 remains READY FOR PO REVIEW but not COMPLETE until explicit acceptance.
+
+
+### Task 0.2 audit continuation (2026-11-22 — sessions and authorization resolution)
+- Source inspection verified tenant-bound role resolution, admin derivation from active tenant roles (SYS_ADMIN/ADMIN), request-scoped permission caching and service/Router permission checks. Generic route-access hook authenticates but intentionally does not itself enforce domain permissions; fail-closed centralized policies and resource-level scope validation remain a V2 requirement.
+- Session source inspection verified Script Properties token-keyed storage, expiry/status checks, tenant/user consistency, and tenant-scoped admin listing/revocation (including protection from revoking the current session through that path). No tokens or live session records were accessed.
+- Added V2 requirements for secure session storage, revocation/rotation, tenant-bound policies, cache invalidation and automated route authorization matrix tests. No runtime test or production change. Task 0.2 remains IN PROGRESS.
