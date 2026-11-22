@@ -196,3 +196,8 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 ### Task 2.6 — Increment 8
 - Bounded identity/role/permission relationship review; provisional tenant integrity and authorization design recorded.
 - G-01/G-10 remain unresolved.
+
+
+### Task 2.6 — Increment 9
+- Bounded attachment ownership/storage lifecycle review; provisional V2 storage decisions documented.
+- G-04/G-11/G-10 remain unresolved.
