@@ -1280,3 +1280,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Task 2.7 audit deliverable complete pending Product Owner acceptance. This is NOT underlying blocker closure or schema readiness.
 - G-01, G-02, G-03, G-04 and G-10 remain OPEN with documented closure conditions. Schema Readiness NOT APPROVED.
 - No runtime tests, live data, SQL/DDL, migrations, DB provisioning, deployment, VPS setup or production writes. Production repos remain read-only.
+
+
+### Task 2.8 — Remaining Blocker Policy & Evidence Decision Pack (2026-11-22)
+- IN PROGRESS. Drafted policy recommendations for G-01/G-02/G-03/G-04/G-10, separating technical proposals from business decisions and evidence requirements.
+- Document: TASK-2.8-BLOCKER-POLICY-DECISION-PACK.md. No schema readiness, SQL/DDL, migration, provisioning, live data, production write or deployment.
