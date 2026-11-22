@@ -365,3 +365,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 G-01 Increment 12 (2026-11-22)
 - Sampled source-to-test assertion trace recorded in `TASK-2.8-SOURCE-TO-TEST-ASSERTION-TRACE-INCREMENT-12.md` across workflow, procurement, attachments, deletion, schema and idempotency.
 - Evidence is partial/static and test execution is absent. G-01/G-10 remain OPEN; schema readiness NOT APPROVED. No production modifications.
+
+
+## Phase 2 — Task 2.8 Increment 13: consolidated gap register (2026-11-22)
+- Consolidated evidence and remaining gaps across route/API, workflow, events/forms, procurement, attachments, project lifecycle, definitions, audit, schema and tests in `TASK-2.8-CONSOLIDATED-GAP-REGISTER-INCREMENT-13.md`.
+- G-01/G-02/G-03/G-04/G-10 remain OPEN; schema readiness NOT APPROVED. No tests executed, no production changes or live data.
