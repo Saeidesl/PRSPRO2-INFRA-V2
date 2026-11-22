@@ -1522,3 +1522,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 44 (2026-11-22)
 - Reconciled exact frontend/backend test-tree inventories (43 test files each) with thematic mapping recorded in `TASK-2.8-G01-FRONTEND-BACKEND-TEST-TREE-RECONCILIATION-INCREMENT-44.md`. Tree counts are filename-level only and do not prove execution/assertion coverage.
 - G-01 remains OPEN pending operation-to-assertion mapping and test execution; other blockers remain open. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+### Task 2.8 Increment 45 (2026-11-22)
+- Assertion-level source inspection for five selected backend test files documented in `TASK-2.8-SELECTED-LEGACY-TEST-ASSERTION-CROSSWALK-INCREMENT-45.md`. Identified bounded assertions/mock boundaries for request cache, user validation, deletion dependency collection, procurement read reuse and attachment project access.
+- E2 source assertion inspection only; no test execution. Cross-tenant runtime coverage, atomicity and exhaustive G-01/G-10 remain open. No live data/DDL/migrations/provisioning/deployment/production changes.
