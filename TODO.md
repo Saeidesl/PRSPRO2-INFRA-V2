@@ -548,3 +548,15 @@
 - ProjectInformationService: revisions/history/audit and reference sync conflict logs; multi-row sync/resolution needs transactions/idempotency/recovery.
 - MaterialPlanningService and ProcurementService: version/idempotency patterns, project/tenant visibility and multi-record mutation/reconciliation needs documented; order creation uses a script lock but does not provide transactional guarantees.
 - Source-only, sampled inspection; no tests or production changes. Route-level permissions, exhaustive audit coverage and runtime verification remain pending.
+
+
+### Task 0.2 incremental notes (2026-11-22 — event/workflow execution trace)
+- Selected EventService transition helpers traced: target-step resolution validates tenant/workflow and active step-department assignment; strict paths reject invalid mappings. Draft projects are exempt from configured project lifecycle changes in the inspected helper.
+- Event later-record/void checks use tenant/project scope, timestamps, and exclude VOID records. Restoration is conditional on expected current-state/snapshot consistency rather than unconditional overwrite.
+- WorkflowService management bootstrap and management-data paths tenant-filter workflows, departments, active project event types, active information types, assignments and workflow-version-scoped steps.
+- This incremental source trace does not complete exhaustive route/service authorization, event mutation, sequencing, integration or performance audit.
+
+### Task 0.2 checkpoint limitations (2026-11-22)
+- The audit remains source-only: no live Google Sheets/Drive data, user records, deployed configuration or runtime telemetry were accessed.
+- Pending major areas: exhaustive route-to-service authorization matrix; full integration inventory beyond Telegram and the sampled procurement-event integration; test inventory-to-execution and coverage mapping; baseline data volumes/performance; migration anomaly and cutover dependencies; complete event/project/workflow relationship and mutation coverage.
+- No tests were run; production repositories and production systems remain untouched.
