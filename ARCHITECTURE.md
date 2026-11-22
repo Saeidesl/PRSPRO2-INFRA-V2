@@ -1322,3 +1322,20 @@ A read-only extraction of the APP_CONFIG.SHEETS registry in DatabaseSetup.js ide
 
 ## Task 2.5 evidence increment 12 — partial service/repository mapping
 Read-only sampling recorded selected tenant-aware service/repository pathways for user-role assignment, role and permission catalog access, workflow-step event-rule versioned repository/validator, workflow-step-department association persistence and project-status lifecycle. Coverage states remain bounded; route callers, delete/restore, published configuration immutability, atomicity, indirect tenant constraints and consumer graph require further mapping. G-01/G-10 remain blockers and G-12 open. No SQL/DDL, migration, DB provisioning, live data, tests, production changes or deployment.
+
+
+## Increment 13 — Router/API reachability evidence (read-only, 2026-11-22)
+
+Router.js sampled directly in the read-only production-reference repository:
+- `/users/{id}/roles` path is permission-gated with USER_EDIT and dispatches to UserRoleService.listByUser in the inspected branch. Assignment endpoint/mutation route completeness not established from this limited trace.
+- `/roles/available-permissions` requires ROLE_MANAGE and dispatches PermissionService.list.
+- `/roles` list is gated by ROLE_MANAGE or USER_EDIT and dispatches RoleService.list.
+- `/roles/{...}` route family exists, but complete operation/permission mapping requires further branch tracing.
+- `/workflow-management/bootstrap` requires WORKFLOW_MANAGE and dispatches WorkflowService.managementBootstrap.
+- `/workflows` has a requireAny gate (WORKFLOW_MANAGE, PROJECT_CREATE, SYSTEM_SETTINGS) and dispatches WorkflowService.list.
+- `/project-statuses` list/create and `/project-statuses/{id}` update are observed under PROJECT_STATUS_MANAGE; full deletion and route semantics not established.
+- `/auth/me/permissions` returns permission codes, with admin and user-permission branches.
+
+Coverage: CONFIRMED for the specific route/permission/dispatch snippets above; PARTIAL for endpoint families and mutation lifecycle; UNVERIFIED for exhaustive route coverage, indirect tenant enforcement, transaction/constraint semantics, delete/restore, and caller graph. G-01 and G-10 remain blockers; G-12 remains open/high.
+
+No SQL/DDL, migration, DB provisioning, live data, tests, production changes or deployment.
