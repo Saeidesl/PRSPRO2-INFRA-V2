@@ -1282,3 +1282,7 @@ A source-only review of DatabaseSetup.js, ProcurementService.js, AttachmentServi
 
 ## Task 2.5 — mutation and tenant-boundary evidence increment 2 (2026-11-22)
 A bounded read-only sample across Router, Project/User/Workflow/EventType/InformationType services, ProjectDeletionService and related repositories confirmed tenant-aware service checks in several pathways, but not exhaustive indirect relationship integrity. Router authorization, service validation and relational constraints are separate layers to assess. G-01 and G-10 remain blockers. Evidence is in `TASK-2.5-READINESS-GAP-REGISTER.md`. No live data, schema, SQL, migrations, tests, production change or deployment.
+
+
+## Task 2.5 — procurement/material/attachment evidence increment 3 (2026-11-22)
+Source sampling observed tenant-scoped order idempotency, receipt replay checks, a separate locked batch-receipt pathway, source-event-driven material recalculation and void propagation, confirmed-quantity event integration, PROJECT/EVENT attachment owner validation, and preservation of shared procurement records during project deletion. These findings are bounded evidence, not a complete lifecycle contract. G-02 remains a blocker; G-04 is partially evidenced but not exhaustive. Storage deletion ordering and recovery are unresolved. See `TASK-2.5-READINESS-GAP-REGISTER.md`. No SQL/DDL, migration, live data, DB setup, tests, production change or deployment.
