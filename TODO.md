@@ -817,3 +817,13 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - [x] Record evidence in PROCUREMENT-ATTACHMENT-REFERENCE-SYNC-CHECKPOINT-2.1.md.
 - [ ] Continue source audit of remaining transitions/recovery and permission/data constraints.
 - Status: IN PROGRESS; conceptual model still not presented for approval.
+
+
+### Phase 2 / Task 2.1 — Identity, permissions and tenant isolation checkpoint (2026-11-22)
+- [x] Inspect authentication/current-user and session lifecycle paths.
+- [x] Inspect tenant-scoped role assignment and role-permission resolution.
+- [x] Inspect route-level permission enforcement patterns and identify route-coverage audit as pending.
+- [x] Inspect repository scoping patterns and tenant/project visibility considerations.
+- [x] Record findings in IDENTITY-PERMISSIONS-TENANT-CHECKPOINT-2.1.md.
+- [ ] Complete route-by-route permission coverage and remaining table/relationship audit.
+- Status: IN PROGRESS.
