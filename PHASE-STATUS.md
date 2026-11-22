@@ -126,3 +126,10 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 - Source evidence highlights non-transactional multi-record cascade and storage operations, partial failure reporting, tenant/parent visibility checks and Drive file dependency. Target transaction/compensation and recovery design remain pending discovery.
 - Task 2.5 remains IN PROGRESS. G-01/G-02/G-04/G-10 remain blockers; G-06/G-09/G-11 remain open/high. No schema implementation readiness established.
 - No tests, SQL/DDL, migrations, live data, DB provisioning, production modification, deployment or VPS action.
+
+
+## Phase 2 — Task 2.5 checkpoint (2026-11-22, Increment 21)
+- Read-only audit of event-void conditional restoration and downstream material-planning reconciliation path.
+- Documented snapshot/state guard, multi-write sequence, audit records and potential partial completion, with migration implications in readiness register.
+- Task 2.5 remains IN PROGRESS. G-01/G-02/G-03/G-10 remain blockers; G-09 remains open/high. No readiness approval.
+- No tests, SQL/DDL, migrations, live data, DB provisioning, production modifications, deployment or VPS action.
