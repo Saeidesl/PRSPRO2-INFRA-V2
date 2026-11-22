@@ -573,3 +573,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 Increment 51 (2026-11-22)
 - Legacy schema-header tenant ownership classification documented in `TASK-2.8-SCHEMA-HEADER-TENANT-OWNERSHIP-CLASSIFICATION-INCREMENT-51.md`. TenantID presence mapped; Permission catalog appears global; EventData relies on EventID parent relation.
 - E1 header inspection only; G-10 remains OPEN; schema readiness NOT APPROVED. No live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+## Phase 2 — Task 2.8 Increment 52 (2026-11-22)
+- Header-derived tenant-qualified relationship crosswalk recorded in `TASK-2.8-TENANT-QUALIFIED-RELATIONSHIP-HEADER-CROSSWALK-INCREMENT-52.md`.
+- Candidate tenant-consistent FK edges mapped from declarations; special cases noted. E1 only; G-10 remains OPEN, schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
