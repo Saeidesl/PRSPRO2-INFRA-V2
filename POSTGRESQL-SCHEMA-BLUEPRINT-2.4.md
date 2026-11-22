@@ -179,3 +179,46 @@ These are design candidates, not finalized constraints:
 
 ### A.7 Work package status
 2.4-A inventory and logical ownership design has been drafted. This remains a proposal and is not an accepted schema. Next work package 2.4-B will refine tenant-scoped keys, associations, FK candidates and uniqueness without generating executable DDL.
+
+
+## Work package 2.4-B — Tenant keys, relationships and constraint candidates
+
+### B.1 Key strategy (proposal)
+- UUID primary keys for V2 records; preserve legacy IDs in dedicated compatibility/mapping fields when required. Final generation and mapping strategy is pending.
+- Explicit tenant_id on tenant-owned rows; candidate alternate key (tenant_id,id) enables tenant-safe composite FK patterns.
+- Global catalogs (permission definitions, potentially) remain global unless tenant customization is evidenced. Tenant-owned assignments remain scoped.
+- Membership, user-role, department assignment and role-permission associations need explicit scope and uniqueness.
+
+### B.2 Tenant isolation
+Preferred candidate: composite FK patterns (tenant_id plus referenced key) for tenant-owned relationships, so a mismatched tenant relationship is rejected by the database. API authorization, composite constraints and optional PostgreSQL RLS are complementary; RLS remains unselected pending pooled-session/context safety analysis. Membership-level assignment is preferred if user accounts can belong to multiple tenants.
+
+### B.3 Candidate relationship/constraint rules
+**Identity:** candidate unique membership (tenant_id,user_id); user_roles reference membership and role, unique within tenant; role-permission uniqueness depends on global vs tenant role scope; department assignment uniqueness unless effective-date history is required.
+
+**Projects/information:** project code uniqueness likely tenant-scoped but draft/no-code and lifecycle exceptions must be resolved. Project-information uniqueness applies only to SINGLE cardinality; MULTIPLE must be modeled distinctly. History revision sequencing and copy-operation/per-item idempotency constraints remain conditional on validated semantics.
+
+**Workflow:** candidate unique workflow version (tenant_id,workflow_id,version_number); step codes/order uniqueness only where confirmed; step-department association uniqueness; event-rule identity/uniqueness needs further evidence.
+
+**Events/forms:** event references must be tenant-safe and ProjectID remains nullable. Idempotency candidate unique (tenant_id,operation_scope,key) with request fingerprint. EventData cardinality is not assumed. Form version/field/association unique scopes depend on version semantics; response cardinality and amendment/void linkage are unresolved.
+
+**Materials/procurement:** specification revision candidate unique (tenant_id,project_id,spec_key,revision); calculation idempotency scoped by tenant and calculation scope/key plus provenance/fingerprint. MaterialNeed uniqueness is conditional on generated/manual semantics. Order code uniqueness, allocation uniqueness, receipt replay safety and quantity/reversal constraints require further validation and transactional enforcement.
+
+**Files/audit/templates:** storage keys unique within provider/storage namespace; association uniqueness is policy-dependent. Audit append-only is a candidate, with redaction. Template version unique within owner. Outbox delivery/idempotency scope must prevent duplicate dispatch.
+
+### B.4 File association alternatives
+1. Typed association tables (preferred for finite owner types) with tenant-safe FKs.
+2. Controlled owner registry (generic but lifecycle/registry integrity complexity).
+3. Unconstrained polymorphic text links (least preferred; API checks and reconciliation required).
+Decision awaits final owner inventory/query needs.
+
+### B.5 Constraint layers
+- CHECK/NOT NULL only for validated semantics, not guesses.
+- FK/composite FK enforce confirmed relationships and tenant coherence.
+- UNIQUE protects verified uniqueness and race conditions.
+- Partial/exclusion constraints only for confirmed state invariants.
+- Application validation provides usable errors; DB constraints remain integrity authority.
+- RLS optional defense in depth and must be tested with pooled connections/context resets.
+- Transactional service operations plus constraints protect multi-row integrity and concurrency.
+
+### B.6 Open decisions
+Global vs tenant-local user identity; tenant/legacy ID mapping; tenant-local code uniqueness scopes; temporal vs immutable revision entities; event/form response and amendment model; receipt allocations/reversals; file-owner typing; RLS and tenant-context mechanism; ID generation.
