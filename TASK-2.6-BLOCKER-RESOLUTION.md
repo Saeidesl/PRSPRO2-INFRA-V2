@@ -249,3 +249,27 @@ Consolidated the recurring source-audit findings into a baseline for the next di
 
 #### Readiness status
 This baseline is a technical recommendation and does not close G-06/G-07/G-10. Actual legacy data format coverage, business unit conversion policy, timezone field inventory, precision requirements and relation coverage remain discovery items.
+
+
+### Increment 12 — procurement projection divergence and shared-order visibility audit (2026-11-22)
+
+**Read-only source:** ProcurementService.js lines covering listNeeds, listOrders, workspace, reports and dashboard (bounded source review).
+
+**Verified evidence and risks:**
+- Need projection uses a countable-order status filter that excludes CANCELLED, VOID, DELETED and NEEDS_REVIEW; receipt projection and dashboard/order listing use related but not identical filters. A unified V2 order/line/receipt status projection is required.
+- Allocation-based received quantity is proportionally distributed across allocations using aggregate item receipts capped at allocation total. This is a legacy projection rule, not evidence that individual receipt records are project-allocated.
+- Unallocated order items with a MaterialNeedID subtract SurplusQuantity from ordered quantity for need coverage; items without allocations and items with allocations take different calculation paths. Surplus quantity therefore needs explicit modeled semantics, not a generic receipt adjustment.
+- Need projection caps displayed ordered/received quantities against requested need, while preserving OverOrderedQuantity. Dashboard totals are item-based and cap received per item at ordered quantity; report/workspace reuse these projection paths. These caps can conceal raw over-receipt or status inconsistencies in aggregates.
+- Order list derives project associations from allocations, then fallback need and order project. It hides an entire order if any associated project is inaccessible. This visibility rule is important for tenant/project security and reporting semantics.
+- Receipt records are summed by item without an explicit correction/reversal/status filter in the sampled projection, so any future reversal model must be consistently applied to every consumer.
+- Projected order remaining quantity in order view is ordered minus all item receipts (floored at zero), while need and dashboard projections apply additional caps/filters; consumer parity is not established.
+
+**Provisional V2 contract refinements (recommended, pending full review):**
+1. Use one authoritative posted-receipt net quantity function, including explicit receipt state and correction/reversal links, shared by needs, order detail, workspace, dashboard and reports.
+2. Treat order-level status as a lifecycle state and separately determine whether line receipts are countable; NEEDS_REVIEW must be explicit and reconciliation must not silently discard posted receipt history.
+3. Model allocation shares as durable rows with exact decimal quantities and invariant checks; avoid proportional distribution of historical aggregate receipts as the primary accounting model unless the allocation-at-receipt policy is explicitly adopted.
+4. Preserve over-order/surplus separately from fulfillment against need, and calculate need coverage from validated allocation/receipt accounting rather than display caps.
+5. Retain whole-order hiding when a user's project visibility is incomplete, or redesign the response to avoid leaking inaccessible project/item/receipt labels or totals.
+6. Dashboard/report/workspace must consume the same canonical domain projection and reconciliation status, with raw ledger totals available for audit.
+
+**Scope and limitations:** This increment does not prove receipt reversal/correction pathways, every report consumer, race-safe uniqueness, or complete source coverage. G-02 remains BLOCKER; G-01/G-10 and precision/history constraints remain open. No tests executed, live data accessed, SQL/DDL, migration, database provisioning, production changes or deployment.
