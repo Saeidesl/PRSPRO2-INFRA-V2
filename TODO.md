@@ -1299,3 +1299,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Retrieved recursive read-only trees: frontend reference 187 entries; backend reference 153 entries.
 - Added TASK-2.8-G01-SOURCE-COVERAGE-INCREMENT-1.md with verified tree-level page/service/repository surfaces and explicit PARTIAL classifications.
 - G-01 remains OPEN; tree inventory is not exhaustive route, caller, permission or dependency reconciliation. No tests/runtime execution or production modifications.
+
+
+### Task 2.8 — G-01 Router surface increment 2 (2026-11-22)
+- Read-only fetched complete Router.js plus Frontend router/API core. Recorded GET/POST/PUT/DELETE route families and client route-permission map in TASK-2.8-G01-ROUTER-SURFACE-INCREMENT-2.md.
+- Not exhaustive pattern/handler/caller/permission matrix; explicit gaps and next reconciliation steps recorded. G-01 remains OPEN; no runtime tests or legacy modifications.
