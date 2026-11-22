@@ -553,3 +553,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 Increment 47 (2026-11-22)
 - Frontend assertion-source crosswalk recorded in `TASK-2.8-FRONTEND-ASSERTION-CROSSWALK-INCREMENT-47.md` for five selected tests.
 - E2 only; no runtime tests/browser execution claimed. G-01 remains OPEN; schema readiness NOT APPROVED. No live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+## Phase 2 — Task 2.8 Increment 48 (2026-11-22)
+- Assertion-source crosswalk for form API, material planning, procurement integration and draft/reusable form lifecycle recorded in `TASK-2.8-FORM-MATERIAL-PROCUREMENT-DRAFT-ASSERTION-CROSSWALK-INCREMENT-48.md`.
+- E2 only; no runtime tests claimed. G-01/G-02/G-03 remain OPEN; schema readiness NOT APPROVED. No live data/DDL/migrations/provisioning/deployment/production changes.
