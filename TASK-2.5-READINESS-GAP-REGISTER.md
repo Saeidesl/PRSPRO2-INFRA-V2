@@ -254,3 +254,25 @@ Read-only inspection of the production backend `DatabaseSetup.js` APP_CONFIG.SHE
 - G-12 remains OPEN/HIGH for configuration scope, revision, lifecycle and dependency evidence.
 
 No live data, SQL/DDL, migration, DB provisioning, tests, production changes or deployment occurred.
+
+
+## Increment 12 — Partial entity-to-service/repository lifecycle coverage (2026-11-22)
+
+### Read-only source evidence sampled
+- User-role assignment: UserRoleService exposes tenant-validated listing and assignment pathways; UserRoleRepository is a separate persistence adapter. Coverage of unassignment/reassignment route callers and lifecycle invariants remains partial.
+- Role: RoleService has tenant-scoped listing/get and create path evidence; full route, update/deactivate/delete and association dependency coverage remains unverified in this increment.
+- Permission catalog: PermissionService read/list/get-by-code paths and PermissionRepository read adapter observed. Catalog write lifecycle appears separate/limited in sampled service; provisioning/seed and global-vs-tenant scope need verification.
+- Role-permission association: RolePermissionService and repository sampled in prior increments; repository contains bulk association operations. Transactional atomicity and full tenant alignment constraints are not established.
+- Workflow step event rules: repository includes schema ensure, version-scoped lookup and clone-version operation; validator checks rule arrays and bounded enum-like values. Tenant ownership, rule deletion/restore, published-version immutability, event-type alignment and all router callers still need complete tracing.
+- Workflow step-department association: repository has insert/insertMany and lookup paths; complete update/deactivate/delete/cascade mapping remains pending.
+- Project Status: service-level permission/context and sheet lifecycle operations sampled; history/transition consumers, deletion impact and concurrency remain unresolved.
+- Reports and Telegram are consumers across multiple domains; this sampling confirms they exist but does not inventory all entities read, report projections or notification triggers.
+
+### Coverage status for this increment
+- CONFIRMED (bounded): selected tenant-aware service/repository existence and selected read/association/versioning operations.
+- PARTIAL: lifecycle and API route coverage for user-role, role-permission, role, permission, workflow rules, step-department and project-status entities.
+- UNVERIFIED: exhaustive operation matrix, dependency constraints, atomicity, indirect tenant links, historical retention and consumer projections.
+
+G-01 and G-10 remain BLOCKERS; G-12 remains OPEN/HIGH. This increment does not claim exhaustive CRUD coverage.
+
+No SQL/DDL, migration, DB provisioning, live data, tests, production changes or deployment occurred.
