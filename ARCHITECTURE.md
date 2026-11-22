@@ -898,3 +898,25 @@ Selected GET Router branches were traced against permission gates and service de
 - Router branch gates differ in purpose and are not a substitute for resource-level tenant/ownership checks. V2 should use consistent authentication, permission policy and resource-scope enforcement in middleware/service boundaries, with no UI trust.
 - Any-of permission gates and admin bypasses should be explicit policy constructs and tested. Draft creator exceptions should be narrowly defined and covered by tests.
 - No security test or runtime validation was performed in this source trace.
+
+
+## 44. Selected mutation route authorization and effects trace (2026-11-22)
+
+### POST (sampled Router branches)
+- Creates/changes: print templates and media (SYSTEM_SETTINGS); project statuses (PROJECT_STATUS_MANAGE); departments (DEPARTMENT_MANAGE); roles and permission assignments (ROLE_MANAGE); procurement orders/receipts (PROCUREMENT_MANAGE); projects (PROJECT_CREATE); workflow create/publish/step and department assignment (WORKFLOW_MANAGE); information types/forms (SYSTEM_SETTINGS); project-information save/approve/reference conflict resolution (PROJECT_EDIT); event types and procurement integration (EVENT_TYPE_MANAGE); event creation (EVENT_CREATE); attachments (ATTACHMENT_UPLOAD); users (USER_CREATE) and user-role assignment (USER_EDIT).
+- Material specifications and reference-information copy paths include narrowly scoped creator-owned project Draft exception requiring PROJECT_CREATE after PROJECT_EDIT check fails.
+
+### PUT (sampled Router branches)
+- Project statuses, departments, roles, information types/columns, templates, workflow/rules, forms/fields, event types, event form responses and user updates are guarded by their corresponding management/edit permissions.
+- Project update has a creator-owned tenant Draft exception with PROJECT_CREATE after PROJECT_EDIT failure.
+- Print-template project-data binding delegates resource-specific authorization to its service; do not infer bypass from router branch alone.
+- Event void uses EVENT_EDIT; material-spec revision uses PROJECT_EDIT.
+
+### DELETE (sampled Router branches)
+- Project information deactivation and material/catalog/form/template deactivation are permission-gated; role-permission/user-role removal and workflow assignment removal are management-gated; attachment removal uses ATTACHMENT_DELETE.
+- Project removal is admin-only and uses confirmation code plus ProjectDeletionService. Session revocation is admin-only and revokes a selected session via SessionManager.
+- Workflow department assignment removal verifies assignment belongs to specified workflow before service call.
+
+### Risk and limitations
+- These are selected Router paths, not exhaustive endpoint inventories or tests. Method/path normalization, overlapping prefix handlers, resource authorization in services, audit completeness and mutation atomicity remain open validation items.
+- V2 should model writes as explicit command handlers with validated input, tenant/resource scope, permission policy, transaction, audit/outbox and idempotency where appropriate; soft deactivation vs deletion semantics must be deliberately preserved.
