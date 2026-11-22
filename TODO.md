@@ -841,3 +841,7 @@ This update supersedes earlier conflicting task-status notes in this historical 
 
 - [x] Audit cascade deletion, procurement partial-failure recovery, form amendment replay/concurrency, and attachment deletion semantics at source level; document findings.
 - [ ] Continue audit of procurement cancellation and receipt-adjustment/return paths, complete dependency inventory and retry semantics.
+
+
+- [x] Inspect procurement state transitions, cancellation checks, receipt aggregate recalculation, and project-delete protection for shared procurement items; record missing explicit cancellation/adjustment paths as discovery items.
+- [ ] Finish domain dependency and API contract inventory; prepare conceptual model and unresolved decision list.
