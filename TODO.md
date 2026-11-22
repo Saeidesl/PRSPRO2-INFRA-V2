@@ -1383,3 +1383,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Header-grounded inventory of nullable, polymorphic and versioned relationship edges documented in `TASK-2.8-NULLABLE-POLYMORPHIC-VERSIONED-EDGE-INVENTORY-INCREMENT-18.md`.
 - Recorded tenant derivation for EventData, repeated parent references in history/sync, optional procurement edge combinations, attachment/audit polymorphism and version-sensitive rule relationships. Nullability remains unconfirmed without full source/data validation.
 - G-01/G-10/G-02/G-03/G-04 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+## Phase 2 — Task 2.8 Increment 19 (2026-11-22)
+- Read-only reconciliation of project cascade deletion dependency collector and source-event-void material planning path recorded in `TASK-2.8-DELETION-SOURCE-EVENT-DEPENDENCY-RECONCILIATION-INCREMENT-19.md`.
+- Evidence confirms collector protects shared order lines/cross-project allocations but mutation is sequential and non-transactional; project row physical deletion is gated on child failures, and audit recovery is not established. Source-event void moves calculations/needs to review but does not directly reverse receipts/allocations in the inspected path.
+- G-01/G-02/G-03/G-04/G-10 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
