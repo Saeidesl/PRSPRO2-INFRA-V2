@@ -496,3 +496,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Core project read/mutation route crosswalk documented in `TASK-2.8-CORE-PROJECT-READ-MUTATION-ROUTE-CROSSWALK-INCREMENT-35.md`; route families and sampled gates catalogued.
 - Follow-up on PUT print-template project-data binding documented in `TASK-2.8-PRINT-TEMPLATE-PROJECT-BINDING-GATE-VERIFICATION-INCREMENT-36.md`. Router branch lacks visible explicit gate, but PrintTemplateService enforces source-specific PROJECT_EDIT/EVENT_EDIT, tenant-scoped template lookup, active template, latest-binding and stale-source checks; no vulnerability conclusion.
 - G-01/G-10 remain OPEN; schema readiness NOT APPROVED. Tests not executed; no live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+## Phase 2 — Task 2.8 Increment 37 (2026-11-22)
+- GET route permission/domain crosswalk for project nested reads, event/form/data, workflow, reusable forms/information types/event types, procurement read and reporting routes recorded in `TASK-2.8-GET-ROUTE-PERMISSION-DOMAIN-CROSSWALK-INCREMENT-37.md`.
+- Source gates and dispatch are recorded; exhaustive callers, service tenant validation and runtime test evidence remain unverified. G-01/G-10 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
