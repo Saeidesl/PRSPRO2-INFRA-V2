@@ -511,3 +511,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 Increment 39 (2026-11-22)
 - PUT/DELETE route crosswalk recorded in `TASK-2.8-PUT-DELETE-ROUTE-CROSSWALK-INCREMENT-39.md`, covering update/deactivate/remove, admin delete/session, attachment and workflow/form/RBAC families.
 - Dispatch gates documented; service-level tenant guards, atomicity, retention/recovery and runtime test evidence remain unverified. G-01/G-03/G-04/G-10 OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+## Phase 2 — Task 2.8 Increment 40 (2026-11-22)
+- Draft V2 transaction/integrity/test matrix across tenant/RBAC, project, central info/history, event/form, workflow, material planning, procurement/allocation/receipt, attachments, deletion and audit documented in `TASK-2.8-V2-TRANSACTION-INTEGRITY-TEST-MATRIX-DRAFT-INCREMENT-40.md`.
+- Matrix and transaction strategy are evidence-derived proposals only, not approved business policy or schema. G-01/G-02/G-03/G-04/G-10 remain OPEN; schema readiness NOT APPROVED. No implementation, tests, live data, DDL/migrations, provisioning or deployment.
