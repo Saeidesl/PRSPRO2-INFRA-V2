@@ -178,3 +178,27 @@ Evidence:
 G-10 remains BLOCKER until complete entity relationship inventory and composite tenant integrity design are established; G-01 remains BLOCKER pending source coverage.
 
 No tests executed, no live data, SQL/DDL, migration, DB provisioning, production modifications or deployment.
+
+
+### Increment 9 — attachment metadata, ownership and storage boundary (2026-11-22)
+
+Read-only review of AttachmentService/Repository/Validator, GoogleDriveStorage and StorageRepository.
+
+Evidence:
+- Attachment records are entity-linked to PROJECT or EVENT. Service visibility checks TenantID and parent project/event access. File upload validation restricts MIME/extension combinations and attachment type; upload/download/thumbnail/gallery/delete/copy paths are exposed.
+- AttachmentRepository is a simple metadata adapter and findByEntity excludes deleted status. Storage is a separate GoogleDriveStorage adapter behind StorageRepository.
+- Upload sequence includes storage write followed by metadata/audit; delete sequence may perform storage delete and metadata/status/audit writes. Multi-step recovery/transactional guarantees are not proven; prior audit noted partial failure risk.
+- File storage key/Drive ID is used as the physical storage reference. File ownership derives from metadata plus parent entity and tenant, not from a demonstrated storage-level tenant isolation mechanism.
+- Attachment ownership, metadata lifecycle and physical object lifecycle must be separate concepts in V2.
+
+### V2 attachment decisions
+- Store object metadata in PostgreSQL and object bytes in independent object storage; never expose storage object keys as public authorization tokens.
+- Tenant/project/event-compatible relationship constraints must ensure attachments cannot reference cross-tenant or invalid parents.
+- Upload should use staged object upload plus transactional metadata and a recoverable state machine/outbox; failure cleanup/retry must be explicit.
+- Delete should be logical/retention-aware first, then asynchronous physical purge after policy and dependencies are verified. Audit/retention history remains.
+- Enforce size, content type, extension and file-signature checks server-side; allowlist and scan/quarantine policy are defined independently from frontend controls.
+- Attachment copy/move must preserve provenance and tenant ownership, and be idempotent.
+
+G-04/G-11/G-10 remain BLOCKERS until file inventory, metadata/data migration coverage, lifecycle policy and tenant relationships are fully documented.
+
+No tests executed, no live data, SQL/DDL, migration, DB provisioning, production modifications or deployment.
