@@ -204,3 +204,28 @@ No SQL/DDL, migration, DB provisioning, live data, tests, production changes or 
 - G-01 remains BLOCKER: full caller/lifecycle inventory for delete/update/restore/reversal is still required.
 
 No SQL/DDL, migration, DB provisioning, live data, tests, production changes or deployment occurred.
+
+
+## Increment 10 — Configuration, workflow, project status, template and relationship graph sampling (2026-11-22)
+
+### Evidence (bounded, source-only)
+- WorkflowService and WorkflowStepDepartmentService provide tenant-scoped workflow and active step-department associations; workflow management bootstrap also combines tenant workflows, departments and project-connected active event types. Cross-entity alignment and relational constraint enforcement remain unproven.
+- DepartmentService tenant-filters department access. Department lifecycle/cascade effects on workflow steps, project assignments and historical event data require full inventory.
+- ProjectStatusService implements tenant context and permission-gated management; ProjectStatusSetup is additive setup evidence, not migration behavior. Project-status history/transition rules and foreign-key impacts remain unresolved.
+- PrintTemplateService/repository implement tenant-scoped reusable templates, versioned definitions, status and storage metadata for PDF/assets. Template version immutability, asset migration, historic rendered-output retention and associations with project/event data need further lifecycle evidence.
+- EventFieldRepository is sampled as read-only for historical dynamic event-field labeling. This implies legacy field-definition context may be needed for historical EventData interpretation; complete EventFields inventory and payload decoding remain pending.
+- Repository/service boundaries and registry structures are not sufficient evidence of database-level FK, unique, check or tenant alignment constraints; association and configuration entities must be included in the full dependency matrix.
+
+### Dependency graph additions (observed or candidate relationships, not schema declarations)
+- Workflow -> WorkflowStepDepartment -> Department and workflow-linked EventType associations.
+- Project -> configured ProjectStatus (status lifecycle/history contract pending).
+- PrintTemplate -> versioned DefinitionJSON and storage-backed PDF/image asset metadata (tenant scope observed).
+- Historical EventData -> legacy EventField definition context (read-only sampled).
+
+### Gap implications
+- G-01 remains BLOCKER: complete lifecycle/mutation/read/report consumer coverage is still incomplete.
+- G-10 remains BLOCKER: relationship/tenant alignment matrix and constraint evidence are not exhaustive.
+- G-12 remains OPEN/HIGH pending full revision, scope and dependency lifecycle review across configuration entities.
+- G-03 and G-11 remain unresolved regarding historical payload interpretation and template/file asset lifecycle.
+
+No SQL/DDL, migration, DB provisioning, live data, tests, production changes or deployment occurred.
