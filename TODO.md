@@ -1443,3 +1443,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Read-only selected frontend assertion crosswalk documented in `TASK-2.8-FRONTEND-BACKEND-CONTRACT-ASSERTION-CROSSWALK-INCREMENT-28.md`; production frontend repo remains unmodified.
 - Tests assert dossier/revision history, event submit progress/retry/accessibility, five-second success close, repeat-reference sync/conflict/retry and receipt form loading/error behavior. Tests not executed and are not API/database integrity evidence.
 - G-01 remains OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+## Phase 2 — Task 2.8 Increment 29 (2026-11-22)
+- Consolidated blocker evidence classifications and measurable closure criteria across increments 1–28 recorded in `TASK-2.8-CONSOLIDATED-EVIDENCE-COVERAGE-BLOCKER-CLOSURE-CRITERIA-INCREMENT-29.md`.
+- Evidence currently E1/E2 only (source and test assertion inspections); E3 runtime test evidence and E4 live-data/database evidence are absent by scope. Critical closure criteria for G-01/G-02/G-03/G-04/G-10 and cross-cutting audit/transaction/migration/auth risks are recorded. Schema readiness remains NOT APPROVED; Task 2.8 not complete.
