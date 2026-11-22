@@ -161,3 +161,53 @@ Avoid bundling unrelated domains into long transactions. External storage/provid
 - Confirm whether relations are direct, join-table-based or inferred from payloads.
 - Validate multi-row forms and procurement quantity relationships.
 - Capture read/write paths and query patterns before choosing indexes.
+
+
+## 11. Focused entity notes — Project, Event, Forms and workflow context (audit-backed; provisional)
+
+### Project aggregate (conceptual)
+- Project identity/code and tenant scope.
+- Current project lifecycle/workflow context.
+- Central/project information and its revision/history.
+- Associated events (not all events should be assumed project-bound).
+- File associations and report/template references are links, not necessarily aggregate-owned rows.
+- Exact legacy columns and uniqueness scope are deliberately not specified pending detailed source-to-target mapping.
+
+### Event aggregate (conceptual)
+- Event identity and type.
+- Optional project link where applicable.
+- Event payload/field-value records.
+- Form-related response/snapshot data.
+- Attachments and audit references.
+- State transitions such as amendment/revision or voiding must be modeled from actual behavior; do not assume a simple delete/update lifecycle.
+- Preserve the historical event representation and associated workflow context where needed.
+
+### Form model
+- Form definition and its version/history behavior (to verify).
+- Form field definitions and data types.
+- Event type/form selection or association.
+- Submitted response values and their snapshot/immutability rules.
+- Multi-row or repeatable field structures need explicit modeling; avoid encoding all repeatable data as an opaque string unless legacy mapping and query needs justify it.
+
+### Workflow context
+- Workflow definition and version.
+- Ordered step definitions and departmental assignments.
+- Transition rules and event-driven state changes.
+- Project state/history representation.
+- Event-to-workflow impact must be a rule-driven association, not inferred from event-name text or UI labels.
+
+### Candidate relational constraints (subject to validation)
+- Tenant ownership should be enforced through FK paths or equivalent constraints so tenant-scoped child records cannot be attached to another tenant's parent.
+- Event.ProjectID, if present, must reference a project within the same tenant.
+- EventData.EventID and form-response EventID references must resolve to an event.
+- Historical snapshots/version references should not be silently reassigned or deleted.
+- Unique constraints should reflect the actual legacy uniqueness scope, not a guessed global uniqueness rule.
+
+### Questions still open
+- Is project code unique globally, per tenant, or only under some lifecycle/status rules?
+- Are central information revisions immutable snapshots, or mixed mutable/history records?
+- How are form versions frozen for historical event submissions?
+- What exact structure represents repeatable fields, color/size breakdowns, or multi-row entries?
+- Which event states are represented explicitly vs inferred from records?
+- What are the actual deletion/reversal policies for projects, events, forms and workflow history?
+- Which associations are direct FK references vs service-level payload links?
