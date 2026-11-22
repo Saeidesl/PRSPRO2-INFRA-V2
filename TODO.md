@@ -1363,3 +1363,7 @@ This update supersedes earlier conflicting task-status notes in this historical 
 
 ### Task 2.8 — Structured Entity Manifest Increment 14 (2026-11-22)
 - Extracted 37 declared legacy sheet registry entries and grouped candidate domain/relationship notes in `TASK-2.8-STRUCTURED-ENTITY-MANIFEST-INCREMENT-14.md`. Registry evidence only; candidate edges are inferred and remain to be validated against source consumers. No live data/tests/schema/migration or production changes.
+
+
+### Task 2.8 — Registry-to-Code Surface Crosswalk Increment 15 (2026-11-22)
+- Crosswalked registry domains against read-only frontend/backend tree paths in `TASK-2.8-REGISTRY-CODE-SURFACE-CROSSWALK-INCREMENT-15.md`. Path correspondence only; exact consumers and field operations remain partial. No tests or production changes.
