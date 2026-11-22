@@ -797,3 +797,13 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - [x] Record evidence and design implications in LIFECYCLE-SEMANTICS-CHECKPOINT-2.1.md.
 - [ ] Validate complete registration/void/amendment/publish paths and recovery semantics.
 - Status: IN PROGRESS; no schema/migration or tests.
+
+
+### Phase 2 / Task 2.1 — Project/reference, workflow-version, form, and material-planning audit (2026-11-22)
+- [x] Inspect project creation, workflow-version selection and repeat-project policies.
+- [x] Inspect workflow draft-version cloning and version-specific rule edits.
+- [x] Inspect form versioning, soft-delete, response validation and snapshot references.
+- [x] Inspect material specification revisions, calculation history and event-void reconciliation.
+- [x] Record observations in PROJECT-WORKFLOW-FORM-MATERIAL-CHECKPOINT-2.1.md.
+- [ ] Complete source paths for copy recovery, form snapshot guarantees and material reconciliation resolution.
+- Status: IN PROGRESS; no executable schema or migration.
