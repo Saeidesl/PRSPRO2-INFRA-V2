@@ -1238,3 +1238,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Sampled DatabaseSetup.js and Router.js in read-only legacy backend.
 - Reconciled 35+ legacy structures across security, project/workflow, event/form, information/template, attachment/audit, procurement domains and bounded route inventory.
 - Identified naming/numbering anomalies and legacy backup structure; no V2 entity assumptions. G-01/G-10 remain open; inventory extraction is not exhaustive.
+
+
+### Task 2.7 Increment 3 — service-operation inventory (2026-11-22)
+- Read-only method inventory reconciled across ProjectService, EventService, FormService, AttachmentService, ProcurementService, AuditService and Router.
+- Recorded lifecycle/projection cross-dependencies and high-risk delete/void/amend/copy paths; bounded coverage only, no exhaustive handler/dependency matrix or runtime tests.
+- G-01/G-03/G-04/G-10 remain open; G-02 remains unresolved. Schema readiness NOT APPROVED; no SQL/DDL, live data, migrations, provisioning, deployment or production modification.
