@@ -462,3 +462,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 Increment 29 (2026-11-22)
 - Consolidated blocker evidence classifications and measurable closure criteria across increments 1–28 recorded in `TASK-2.8-CONSOLIDATED-EVIDENCE-COVERAGE-BLOCKER-CLOSURE-CRITERIA-INCREMENT-29.md`.
 - Evidence currently E1/E2 only (source and test assertion inspections); E3 runtime test evidence and E4 live-data/database evidence are absent by scope. Critical closure criteria for G-01/G-02/G-03/G-04/G-10 and cross-cutting audit/transaction/migration/auth risks are recorded. Schema readiness remains NOT APPROVED; Task 2.8 not complete.
+
+
+## Phase 2 — Task 2.8 Increment 30 (2026-11-22)
+- Read-only literal route-family inventory from backend Router.js recorded in `TASK-2.8-ROUTER-ROUTE-FAMILY-INVENTORY-INCREMENT-30.md` (51 dispatch literal matches in source extraction; duplicates represent method-specific route occurrences). Dynamic path families explicitly flagged as requiring separate trace.
+- Route inventory is a checklist, not an exhaustive authorization or tenant audit. G-01/G-10 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
