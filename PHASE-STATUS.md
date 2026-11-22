@@ -568,3 +568,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 Increment 50 (2026-11-22)
 - Consolidated evidence matrix and closure dependencies documented in `TASK-2.8-CONSOLIDATED-EVIDENCE-MATRIX-CLOSURE-DEPENDENCIES-INCREMENT-50.md`.
 - G-01/G-02/G-03/G-04/G-10 remain OPEN. E1/E2 evidence only; E3 runtime testing unavailable via current GitHub-only access and prohibited against production. Seven business policy items remain unconfirmed. Schema readiness NOT APPROVED.
+
+
+## Phase 2 — Task 2.8 Increment 51 (2026-11-22)
+- Legacy schema-header tenant ownership classification documented in `TASK-2.8-SCHEMA-HEADER-TENANT-OWNERSHIP-CLASSIFICATION-INCREMENT-51.md`. TenantID presence mapped; Permission catalog appears global; EventData relies on EventID parent relation.
+- E1 header inspection only; G-10 remains OPEN; schema readiness NOT APPROVED. No live data/DDL/migrations/provisioning/deployment/production changes.
