@@ -91,3 +91,26 @@ Evidence:
 G-02 remains BLOCKER until receipt corrections/reversals, allocation mutation/deallocation, over-receipt/surplus, lifecycle states and dependency policies are sufficiently discovered and decision-ready.
 
 No tests executed, no live data, SQL/DDL, migration, DB provisioning, production modifications or deployment.
+
+
+### Increment 5 — lifecycle surface inventory and allocation/surplus semantics (2026-11-22)
+
+Read-only source inventory of ProcurementService public method list, ProcurementRepository, event-integration service and test-source assertions.
+
+Evidence:
+- ProcurementService public method inventory includes createOrder, createReceipt, createReceiptsBatch, listNeeds, listOrders, workspace, reports and dashboard; no allocation-update/deallocation, order-cancel, receipt-void or receipt-adjustment public method appeared in the sampled service inventory.
+- ProcurementRepository is read-only collection access for needs, orders, items, allocations and receipts; it exposes no dedicated mutation/lifecycle API. Mutation logic is embedded in ProcurementService.
+- Existing test source includes allocation cap/surplus behavior: cumulative order allocations against a need are capped at requested quantity and remaining ordered quantity is recorded as surplus. Estimated and confirmed need records share allocation key semantics for existing procurement.
+- Tests are only inspected, not executed. These are bounded observations, not complete proof that no lifecycle operations exist in another file or indirect route.
+
+### Proposed procurement lifecycle matrix — provisional
+- Order: DRAFT/ACTIVE -> PARTIALLY_RECEIVED -> RECEIVED; CANCELLED allowed only before posted receipt or after explicit reconciled adjustment; NEEDS_REVIEW is an operational exception state, not an ordinary lifecycle transition. Confirm whether draft state exists in product requirements before adopting.
+- Receipt: POSTED (immutable) -> linked REVERSAL/ADJUSTMENT; no silent deletion or overwrite after posting. Void semantics, if allowed before posting, need an explicit state and reason.
+- Allocation: explicit allocate/reallocate/release operations with quantity invariant: active allocation sum <= order-line quantity; project-specific received quantity <= active allocation quantity unless approved surplus/exception path. Release/reallocation must preserve receipt history and reconcile downstream needs.
+- Surplus: separate unallocated quantity from need-allocated quantity. Do not treat surplus as negative need or silently alter material requirements. Confirm warehouse/general procurement policy and how surplus can be allocated later.
+- NEEDS_REVIEW: controlled repair/reconciliation workflow with reason, actor, timestamp, prior/current snapshots and resolution record.
+
+### G-02 resolution status
+G-02 is NOT resolved. The source inventory suggests the legacy service primarily supports creation and read projections; corrective lifecycle contracts and operational policy remain insufficiently discovered. Next steps should inspect project/business requirements, downstream event/report consumers, and any deletion/void/adjustment routes in other services before treating the matrix as finalized.
+
+No tests executed, no live data, SQL/DDL, migration, DB provisioning, production modifications or deployment.
