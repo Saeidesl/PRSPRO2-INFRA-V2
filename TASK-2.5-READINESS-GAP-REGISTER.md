@@ -456,3 +456,32 @@ ProcurementService.js, ProcurementRepository.js, ProjectDeletionService.js, Atta
 - G-11 remains HIGH: storage provider/key migration, compensating failure strategy and object lifecycle remain open.
 
 Source-only inspection. No live data, test execution, SQL/DDL, migration, database provisioning, production modification, deployment or VPS action.
+
+
+## Increment 21 — Event void reversal, historical snapshot and recovery semantics (read-only, 2026-11-22)
+
+### Reference files sampled
+EventService.js (void method and related helper evidence), EventRepository.js, ProjectRepository.js, ProjectService.js and Router.js dispatch excerpts.
+
+### Bounded evidence
+- Event void is a status change to VOID rather than deletion. The sampled service validates tenant and project visibility, event type and AllowVoid configuration, actor department/admin status and downstream events in other departments.
+- Before voiding, the service compares expected project state changes against current state and checks a prior snapshot. When conditions match, it restores prior project step/status/available-department fields, then marks the event VOID and audits project restoration and event void.
+- After void, it recalculates current-step completion based on workflow-rule progress and invokes MaterialPlanningService.markEventVoided. Material-review failure is handled as a reported/reconciliation failure and separately audited, rather than preventing the void from returning.
+- Event records carry prior-state snapshot fields and idempotency processing/completion fields in sampled paths. This indicates recovery/replay and event lifecycle semantics that must be preserved, but does not prove full immutability, retry safety or completeness of snapshots.
+- The sequence includes multiple separate sheet writes (project restore, event status, recalculation, audit and material review); no atomic transaction guarantee is established. Partial completion and compensation/reconciliation are significant migration requirements.
+- Router exposes event void through a dispatch path; this review does not claim exhaustive route coverage.
+
+### Findings / design implications
+- Event void must remain an auditable lifecycle operation, not physical deletion.
+- PostgreSQL design should preserve event's prior-state snapshot/transition provenance and model status transition rules, with transactions for database-side mutations and outbox/reconciliation handling for external or independently failing integrations.
+- Material-planning changes after event void need a deterministic reconciliation/replay strategy.
+- Restoration is conditional on current project state matching the event's expected changes; this protects against blind overwrites and should be preserved in target behavior.
+
+### Readiness and limitations
+- G-01 remains BLOCKER (full lifecycle/consumer coverage).
+- G-03 remains BLOCKER (complete historical snapshot, form response/amendment and event transition semantics not established).
+- G-02 remains BLOCKER (procurement/material-plan reversal and reconciliation semantics).
+- G-09 remains HIGH/open (recovery and retention).
+- G-10 remains BLOCKER (tenant-safe relationship constraints).
+
+Read-only source review only. No live data, tests, SQL/DDL, migration, database provisioning, production modification, deployment or VPS action.
