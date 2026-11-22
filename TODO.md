@@ -901,3 +901,5 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Status: IN PROGRESS (partial evidence checkpoint). No SQL/schema/migrations, tests, live-data inspection, deployment, VPS or production modifications.
 
 - [x] Inspect shared Validator.js semantics and selected GoogleSheetsRepository row-to-object persistence boundary; append findings to Task 2.3 checkpoint. (2026-11-22)
+
+- [x] Inspect selected project, workflow/rule, user/role/department, attachment/audit and print-template validators; document additional evidence and caveats in Task 2.3 checkpoint. (2026-11-22)
