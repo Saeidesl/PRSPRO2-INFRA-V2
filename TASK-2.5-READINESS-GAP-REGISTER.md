@@ -590,3 +590,7 @@ Order header/item/allocation writes are sequential; failures attempt to mark the
 
 ### Task 2.6 Increment 5 evidence
 Bounded service/repository inventory and test-source review. No dedicated allocation mutation, order cancellation, receipt reversal or adjustment method surfaced in ProcurementService sampled public inventory. Allocation cap/surplus behavior and shared estimated/confirmed allocation-key semantics observed in test source. Provisional lifecycle matrix recorded in Task 2.6 document. G-02 remains BLOCKER.
+
+
+### Task 2.6 Increment 6 evidence
+MaterialPlanningService recalculates needs from central information; procurement event integration keeps receipt mapping inert and receipt APIs independent. Project deletion collector is allocation-aware but destructive cascade is not suitable as V2 fulfillment-history retention policy. Posted procurement history should survive archival/deletion policy. G-02 remains BLOCKER.
