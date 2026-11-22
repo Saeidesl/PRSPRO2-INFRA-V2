@@ -909,3 +909,5 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - [x] Inspect material-planning specification lifecycle (latest revision resolution, key uniqueness check, revision guard, numeric ranges/defaults); document evidence and concurrency/precision caveats. (2026-11-22)
 
 - [x] Inspect dependency-aware project deletion, event workflow/status transition logic and user-role assignment/removal semantics; record shared-dependency, fail-closed, draft transition and association-race evidence. (2026-11-22)
+
+- [x] Inspect selected ProcurementService project visibility/numeric helper, ProjectInformationService attachment-reference and approval-revision logic, AttachmentService visibility/copy checks, and EventDataService historical read validation; document caveats and unresolved integrity boundaries. (2026-11-22)
