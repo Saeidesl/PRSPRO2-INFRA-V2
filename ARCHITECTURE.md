@@ -1391,3 +1391,9 @@ EventDataService and FormService were re-read in the read-only production refere
 
 ## Task 2.7 — Evidence closure work package (2026-11-22)
 Task 2.7 is a read-only discovery and traceability effort covering event/form history (G-03), attachment ownership/lifecycle (G-04), tenant-safe relationship integrity (G-10), and registry-to-route/service/dependency coverage (G-01). G-02 remains an open procurement lifecycle blocker. Physical schema design remains gated; source observations must not be converted into executable constraints without evidence and review. No production repository writes, live-data access, SQL/DDL or migration work is authorized in this task.
+
+
+## Task 2.7 Increment 1 checkpoint (2026-11-22)
+- Bounded read-only event/form and attachment lifecycle cross-check recorded in TASK-2.7-BLOCKER-CLOSURE.md.
+- Evidence notes include void policy, form amendment/snapshot behavior, EventData access, polymorphic attachment owner and visibility, deletion ordering, project-image copy linkage and candidate tenant relationship graph.
+- G-03/G-04/G-10/G-01 remain unresolved. No tests, live data, SQL/DDL, migration, DB provisioning or production modifications.
