@@ -1479,3 +1479,8 @@ Read-only review recorded for project cascade removal, attachment deletion and p
 
 ### Event/Form Lifecycle Evidence — Increment 5
 Read-only source review documents event creation/void, project-state restoration, direct metadata edits, form response definition snapshots and correction flows. V2 should preserve immutable revision history, transactional DB-local changes, and reconciled projections/outbox. Evidence is bounded; tests not run.
+
+
+## Task 2.8 Increment 52 — Tenant-qualified relationship header crosswalk
+- Added `TASK-2.8-TENANT-QUALIFIED-RELATIONSHIP-HEADER-CROSSWALK-INCREMENT-52.md`: header-derived candidate tenant-qualified relationship edges and special-case notes for parent-derived EventData, global-looking Permissions, polymorphic attachment/audit ownership, and nullable event scope.
+- This is structural E1 evidence only; no live schema, runtime validation, SQL, migration or production write. G-10 remains OPEN.
