@@ -1010,3 +1010,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Read-only sampled event idempotency/replay, event void, form-response validation/persistence and definition snapshots, amendment event linkage, central-information history/approval and live-reference conflict handling.
 - Findings recorded in `TASK-2.5-READINESS-GAP-REGISTER.md`; G-03/G-01/G-10 remain blockers and G-12 remains open.
 - No SQL/DDL, migration, DB provisioning, live data, tests, production change or deployment.
+
+
+### Task 2.5 increment 5 — payload shape and form-definition evidence (2026-11-22)
+- Reviewed read-only legacy EventData JSON parsing and reusable-form definition/snapshot logic, field ordering/visibility/requiredness/cardinality helper behavior and separate central-information history/sync repositories.
+- Evidence recorded in `TASK-2.5-READINESS-GAP-REGISTER.md`; G-03 remains blocker and G-01/G-10/G-12 remain open.
+- No SQL/DDL, migration, live data, tests, database provisioning, production change or deployment.
