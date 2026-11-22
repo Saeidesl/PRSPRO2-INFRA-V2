@@ -907,3 +907,5 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - [x] Extend Task 2.3 read-only review into repository/service semantics: lookup/uniqueness candidates, event-data cardinality assumption, polymorphic attachments, audit JSON snapshots, active/history semantics for project information, and procurement numeric/integrity concerns. Findings recorded in FIELD-SEMANTICS-CONSTRAINT-VALIDATION-2.3.md. (2026-11-22)
 
 - [x] Inspect material-planning specification lifecycle (latest revision resolution, key uniqueness check, revision guard, numeric ranges/defaults); document evidence and concurrency/precision caveats. (2026-11-22)
+
+- [x] Inspect dependency-aware project deletion, event workflow/status transition logic and user-role assignment/removal semantics; record shared-dependency, fail-closed, draft transition and association-race evidence. (2026-11-22)
