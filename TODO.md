@@ -1082,3 +1082,10 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Re-read EventDataService.js and FormService.js read-only: tenant/parent visibility, independent-event access path, DataJSON parsing and response-record upsert with serialized ResponseJSON/DefinitionSnapshotJSON were cross-checked.
 - This is bounded evidence only; full immutable response history, query/report/search workload and amendment semantics remain unresolved (G-03 blocker). G-01/G-10 remain blockers.
 - No tests, SQL/DDL, migration, DB provisioning, live data or production changes/deployment.
+
+
+### Task 2.5 increment 17 — Project mutation and route-dispatch cross-check (2026-11-22)
+- Re-read Router.js and selected Project, ProjectDeletion, ProjectInformation, Event and Form services in the READ-ONLY production-reference repository.
+- Confirmed bounded API dispatch/permission snippets for project create/update/delete-preview/delete, project-information deactivation, event create/void, event-form-response update, and form/form-field management. Coverage remains partial, not exhaustive.
+- Recorded evidence and limitations in TASK-2.5-READINESS-GAP-REGISTER.md. G-01/G-10 remain blockers.
+- No live data, tests, SQL/DDL, migration, database provisioning, production changes, deployment or VPS action.
