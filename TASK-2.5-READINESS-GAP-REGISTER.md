@@ -512,3 +512,28 @@ MaterialPlanningService.js (specification create/revise, calculation recording, 
 G-01 BLOCKER, G-02 BLOCKER, G-03 BLOCKER, G-06 HIGH/open, G-09 HIGH/open, G-10 BLOCKER.
 
 Read-only review only. No tests, live data, SQL/DDL, migration, DB provisioning, production changes, deployment or VPS action.
+
+
+## Increment 23 — Historical event-data and project-information/reference-sync dependency audit (read-only, 2026-11-22)
+
+### Files sampled
+EventDataService.js, EventDataRepository.js, ProjectInformationRepository.js, ProjectDeletionService.js, WorkflowRepository.js, WorkflowStepDepartmentRepository.js, WorkflowStepEventRuleRepository.js.
+
+### Evidence and findings
+- EventDataRepository stores DataJSON in collection 14_EventData and lookup by EventID. EventDataService reads through parent Event validation: event tenant is checked and, for project-linked events, parent Project tenant/access is validated. The repository record itself is not shown carrying a TenantID in this sample; integrity/access depends on its parent Event association.
+- ProjectInformationRepository exposes values (30_ProjectInformation), history (31_ProjectInformationHistory) and reference synchronization logs (38_ProjectReferenceSyncLog). The current ProjectDeletionService dependency collection and deletion sequence sampled earlier does not include these three collections. This creates a potential orphan/retention/cascade policy gap; whether records intentionally survive deletion needs explicit business decision and broader audit.
+- ProjectInformation lookup-by-project/type in repository samples does not itself filter TenantID; services perform tenant/project/type validation and filter tenant in selected paths. Database V2 should enforce tenant-compatible relationships rather than rely solely on service-layer filtering.
+- Reference sync logs connect SourceProjectID, TargetProjectID, InformationTypeID and TenantID; relationship integrity, retention and cascade policy require mapping. They are cross-project dependencies and should not be blindly cascade-deleted.
+- Workflow step department links are keyed by WorkflowID and WorkflowStepID; event rules also carry TenantID, WorkflowID, WorkflowVersion, WorkflowStepID and EventTypeID. Version-cloning and step replacement paths write multiple records. Constraint enforcement and atomicity are not proven.
+- ProjectDeletionService dependency collection previously sampled covers Event/EventData, attachment, material/procurement and calculation rows, but this increment highlights potential uncollected project-information/history/reference-sync dependencies. Do not claim the cascade is exhaustive.
+
+### PostgreSQL implications / unresolved decisions
+- Parent-child FK for event data to event, tenant-consistent FK or composite tenant keys where appropriate.
+- Explicit retention/deletion policy for project information, history, approval history and reference-sync log, including linked/duplicated projects.
+- Referential integrity for workflow step/department/rules across workflow versions and tenant.
+- Deletion preview and audit should include all discovered dependencies or deliberately disclose retained records; orphan detection is required before migration.
+
+### Gap status
+G-01 BLOCKER; G-03 BLOCKER; G-09 HIGH/open; G-10 BLOCKER; G-12 HIGH/open.
+
+Read-only audit only. No tests, live data, SQL/DDL, migration, DB provisioning, production modifications, deployment or VPS action.
