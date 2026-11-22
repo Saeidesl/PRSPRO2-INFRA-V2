@@ -498,3 +498,40 @@ No schema, SQL, migration, live-data extraction or production modification was p
 - Authorization matrix for resource access and department/project restrictions.
 
 No credential values, token values or user data were extracted. No executable schema, migration or production modification performed.
+
+
+## 19. Source-to-target mapping checkpoint — Attachments, Audit, Print Templates and Integrations (2026-11-22)
+
+**Evidence:** Read-only header/configuration inspection of `DatabaseSetup.js` in `PRSPRO2BACKEND-PRODUCTION`. This checkpoint is header-level and config evidence, not a full behavioral review. No Drive files, audit rows, templates, Telegram configuration or secrets were accessed.
+
+### Source structures observed
+
+| Legacy sheet/config | Header or observed configuration | Provisional target and cautions |
+|---|---|---|
+| `15_Attachments` | `ID, TenantID, EntityType, EntityID, FileName, MimeType, FileSize, StorageProvider, StorageKey, UploadedBy, UploadedAt, Status, AttachmentType, SourceAttachmentID` | File metadata/attachment association; `EntityType` observed allowed values `PROJECT`, `EVENT`; provider configuration observed `GOOGLE_DRIVE`; status values `ACTIVE`, `DELETED`. Validate lifecycle, uniqueness, association semantics, storage access and deletion behavior against service logic. |
+| `16_AuditLogs` | `ID, TenantID, UserID, Action, EntityType, EntityID, OldData, NewData, Reason, CreatedAt` | Append-oriented audit domain candidate. Validate event coverage, JSON/data encoding, retention, redaction, immutability, actor handling, and whether audits are transactionally coupled to mutations. |
+| `36_PrintTemplates` | `ID, TenantID, Code, Name, Description, Status, Version, DefinitionJSON, CreatedBy, CreatedAt, UpdatedBy, UpdatedAt` | Tenant-scoped template definition/versioning candidate; preserve definition and version lineage. Validate template payload structure, revision semantics, rendering dependencies and version retention. |
+| Attachment config | `ATTACHMENT_ENTITY_TYPES: ['PROJECT','EVENT']`; `STORAGE_PROVIDERS: ['GOOGLE_DRIVE']` | These are observed legacy config values, not necessarily V2 restrictions. V2 storage must be provider-independent. |
+| Permission catalog excerpts | `ATTACHMENT_VIEW`, `ATTACHMENT_UPLOAD`, `ATTACHMENT_DELETE`, `ATTACHMENT_MANAGE`, `AUDIT_VIEW`, `REPORT_VIEW`, `SYSTEM_SETTINGS` | Permission names observed in setup/catalog excerpt; endpoint and resource-level enforcement must be mapped from complete source behavior, not inferred from names. |
+
+### Integration evidence and limits
+- Google Drive is the configured legacy attachment provider in the inspected setup. V2 should use a storage abstraction and not retain a dependency on Drive IDs, Drive permissions or Apps Script credentials.
+- Telegram notification integration was documented in prior source-audit notes, but this checkpoint did not inspect live configuration or token/chat values. Provider delivery, webhook behavior, retry/idempotency, tenant mapping, notification event triggers and credential handling require further source review.
+- Repository file discovery/code-search requests did not return usable matches for dedicated attachment/audit/template/integration service files during this checkpoint. `DatabaseSetup.js` was successfully fetched and inspected; exact service behavior is therefore not asserted here.
+
+### Candidate V2 design requirements (not final schema)
+1. Attachment records retain tenant/resource association, uploader, timestamps, source lineage where relevant, validated metadata and integrity checksums; storage object operations are external side effects coordinated through an outbox/reconciliation pattern.
+2. Enforce authorization for upload, retrieval, download, preview, deletion and association at resource level; do not expose storage keys or rely on provider permissions as application authorization.
+3. Define upload limits, MIME/content validation, safe filenames, quarantine/scan policy, lifecycle/soft-delete and retention, orphan detection, and recovery before implementation.
+4. Audit records should be structured, append-oriented and redact sensitive fields; define coverage, retention, access controls, integrity and export rules. Avoid silently coupling audit availability to unsafe partial business mutations; decide transactional/outbox semantics.
+5. Print-template definitions need validation/versioning, tenant isolation, deterministic rendering inputs and controlled compatibility behavior; preserve historic template references where records depend on them.
+6. Integration delivery should be provider-abstracted, secret-managed, tenant-scoped, retryable, deduplicated, observable and recoverable; record delivery state without exposing credentials or sensitive payloads.
+
+### Open validation questions
+- Attachment access policy, allowed resource types, multi-file behavior, size/type limits, previews, download semantics, storage-key uniqueness, delete/restore and copy/reference lineage.
+- Audit action coverage, `OldData`/`NewData` shape, sensitive-field redaction, append-only guarantees, retention and actor/resource semantics.
+- Print definition JSON structure, supported element types, data binding semantics, rendering pipeline, revision/compatibility and permissions.
+- Telegram/integration trigger rules, retries, idempotency, tenant-chat mapping, secrets rotation and failure/recovery handling.
+- Workload/volume estimates, retention, storage provider choice and performance targets.
+
+No schema, SQL, migration, live data, secret/config value, file content or production modification was performed.
