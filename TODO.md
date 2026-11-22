@@ -1263,3 +1263,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Read-only cross-check of generic repositories and tenant validation patterns in project/event/event-data/form/information/attachment/procurement/access-control services.
 - Generic repository contracts often remain global-sheet/ID based; tenant scoping is largely service-layer, while procurement read helpers filter by tenant. Polymorphic attachment ownership and nullable independent events remain physical integrity cases.
 - Recorded relationship matrix and constraint gaps. G-10 remains OPEN; G-01/G-03/G-04/G-02 open. No live data, runtime tests, DDL/migrations, provisioning/deployment or production writes.
+
+
+### Task 2.7 Increment 7 — Event/form history evidence (2026-11-22)
+- Reviewed bounded event-create, form-response persistence/snapshot, amendment, void, audit and report projection paths. Evidence includes multi-step writes and service-level replay/optimistic checks; atomicity, immutable history, complete projection parity and retention remain unproven.
+- G-03 remains OPEN. No tests/live data/SQL/DDL/migrations/provisioning/deployment or production changes.
