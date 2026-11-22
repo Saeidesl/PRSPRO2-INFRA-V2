@@ -1470,3 +1470,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Read-only Router crosswalk for central project information save/resolve/approve/deactivate, reusable form definition/assignment, event form amendment, event void, workflow update and workflow event-rule mutation recorded in `TASK-2.8-PROJECT-INFORMATION-FORM-EVENT-WORKFLOW-MUTATION-PERMISSION-TRACE-INCREMENT-33.md`.
 - Explicit gates observed: PROJECT_EDIT, SYSTEM_SETTINGS, EVENT_TYPE_MANAGE (or SYSTEM_SETTINGS for assignment), EVENT_EDIT, EVENT_CREATE and WORKFLOW_MANAGE. Exhaustive service/runtime/tenant test coverage remains unverified.
 - G-01/G-03/G-10 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+## Phase 2 — Task 2.8 Increment 34 (2026-11-22)
+- Read-only Router trace for user/role/permission, department and workflow GET route gates documented in `TASK-2.8-RBAC-DEPARTMENT-WORKFLOW-ROUTE-PERMISSION-TRACE-INCREMENT-34.md`.
+- Explicit gates observed, including broad requireAny permission lists for department and workflow read routes. Least-privilege business suitability, service tenant checks and runtime tests remain unverified.
+- G-01/G-10 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
