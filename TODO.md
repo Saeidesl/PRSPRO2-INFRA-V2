@@ -578,3 +578,12 @@
 - Read-only inspection of AuditService.log/list/listByEntity/listByUser and selected mutation service files (FormService, WorkflowService, ProjectInformationService, ProcurementService, AttachmentService, EventService, PrintTemplateService).
 - Audit log creation requires tenant/action/entity fields, serializes OldData/NewData and writes through AuditRepository; sampled list operations filter by tenant. Redaction, append-only enforcement, payload bounds, retention, indexes and transaction coupling were not established.
 - Service-level source has multi-step workflows and audit/locking markers, but their existence is not proof of complete coverage or atomicity. This remains source-review-only, no tests.
+
+
+## Phase 0 — Task 0.2 Discovery Audit: consolidated readiness (2026-11-22)
+- Status: READY FOR PRODUCT OWNER REVIEW; awaiting explicit acceptance before marking COMPLETE.
+- Consolidated source audit, route permission traces, service/Audit observations, integration dependencies, test directories and historical CI verification evidence into ARCHITECTURE.md section 46.
+- CI evidence checked (historical GitHub Actions runs): backend validate SUCCESS on 2026-11-19 commit 4a131ae; frontend-check SUCCESS on 2026-11-19 commit f1b667f. This does not constitute fresh test execution or acceptance.
+- V2 repo readiness: Infra repo confirmed; frontend/backend/database V2 repos were not found in the checks and remain pending.
+- Safety: production repositories unchanged; no live data, credentials, migration or VPS work.
+- Task completion requires Product Owner acceptance; next phase remains blocked until accepted.
