@@ -48,3 +48,26 @@ Evidence:
 - G-02 still BLOCKER: over-receipt, surplus, item/order state transitions, receipt correction and allocation rebalancing require further coverage and policy decisions.
 
 No tests, live data, SQL/DDL, migration, DB provisioning, production modifications or deployment.
+
+
+### Increment 3 — receipt batch invariants and API surface (2026-11-22)
+
+Reviewed batch-receipt implementation, Router procurement read endpoints and existing test files (tests were read, not executed).
+
+Evidence:
+- Batch receipts normalize and validate all entries before the insertMany call; duplicate idempotency keys within a batch are rejected, and previously recorded keys are replayed.
+- Receipt batch enforces item ordered-quantity ceiling, allocation-to-project limits and unallocated general-warehouse limits. It rejects receipts against CANCELLED orders; NEEDS_REVIEW orders are treated specially during order status recalculation.
+- Batch inserts receipt rows, recalculates order status (ACTIVE/PARTIALLY_RECEIVED/RECEIVED) based on aggregated quantities, then audits each receipt. These steps are multi-write and not demonstrated atomic. Status recalculation is skipped for NEEDS_REVIEW orders.
+- Single receipt and batch receipt paths have slightly different implementation details and replay handling; both require a shared canonical policy in V2.
+- Router sampled read routes expose workspace, reports, dashboard, needs and orders under permission checks. EventType procurement settings route is separate. Procurement create/receipt write endpoints were not fully enumerated in this increment, so route coverage remains pending.
+- Existing tests assert idempotency/quantity allocation behavior, workspace caching and event integration separation, but were not run. Test presence is evidence of intended legacy behavior, not a successful test result.
+
+### V2 design direction refined
+- Receipt posting should validate and post in one DB transaction; order status should be a derived projection or updated within the same transaction.
+- The same receipt eligibility, allocation and idempotency rules must apply to single and batch paths.
+- Order lifecycle states should be explicit and mutually coherent, with NEEDS_REVIEW treated as a controlled state rather than a generic active/inactive flag.
+- Implement reconciliation for status/quantity drift and preserve audit links for all corrections.
+
+G-02 remains BLOCKER: correction/reversal paths, allocation mutations, route write surface, surplus/over-receipt policies and report semantics still require source coverage.
+
+No tests executed, no live data, SQL/DDL, migration, DB provisioning, production modifications or deployment.
