@@ -566,3 +566,9 @@
 - Mapped sampled GET router gates for project, workflow, form/information-type, event, attachment, user/role/permission, audit/report and procurement branches. Detailed permission categories and nested access gates recorded in ARCHITECTURE.md section 42.
 - Router gate review is not proof of service-level authorization/resource ownership or exhaustive coverage. Reconciliation of all route methods and nested paths remains pending.
 - V2 authorization design requirement: consistent policy enforcement with tenant/resource scope, explicit any-of/admin/Draft exceptions, and automated tests; do not trust frontend checks.
+
+
+### Task 0.2 incremental notes (2026-11-22 — selected mutation route trace)
+- Reviewed selected POST/PUT/DELETE branches in production Router read-only. POST categories include project/event creation, workflow configuration/publish/assignments, project-information mutations, forms/catalogue, procurement receipts/orders, attachment upload, users/roles and template media. PUT includes configuration revisions, project update (Draft creator exception), event form amendments/void and user updates. DELETE includes soft-deactivation, relationship removals, attachment removal, admin project deletion and session revocation.
+- Permission categories and notable Draft/admin/resource-scoping behavior are recorded in ARCHITECTURE.md section 44.
+- No production changes or tests. Endpoint exhaustiveness, underlying service/resource authorization, mutation atomicity and audit coverage remain pending verification.
