@@ -370,3 +370,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 Increment 13: consolidated gap register (2026-11-22)
 - Consolidated evidence and remaining gaps across route/API, workflow, events/forms, procurement, attachments, project lifecycle, definitions, audit, schema and tests in `TASK-2.8-CONSOLIDATED-GAP-REGISTER-INCREMENT-13.md`.
 - G-01/G-02/G-03/G-04/G-10 remain OPEN; schema readiness NOT APPROVED. No tests executed, no production changes or live data.
+
+
+## Phase 2 — Task 2.8 Increment 14: structured entity manifest (2026-11-22)
+- Parsed the declared DatabaseSetup.js sheet registry into 37 entries, domain grouping and candidate relationship notes in `TASK-2.8-STRUCTURED-ENTITY-MANIFEST-INCREMENT-14.md`.
+- Explicitly distinguished registry facts from inferred relationships and live-data/runtime unknowns. G-01 remains OPEN; no tests or production changes.
