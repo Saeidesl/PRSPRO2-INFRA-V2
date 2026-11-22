@@ -913,3 +913,5 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - [x] Inspect selected ProcurementService project visibility/numeric helper, ProjectInformationService attachment-reference and approval-revision logic, AttachmentService visibility/copy checks, and EventDataService historical read validation; document caveats and unresolved integrity boundaries. (2026-11-22)
 
 - [x] Inspect procurement order and receipt write paths (locking, idempotency, allocation/receipt ceilings, batch normalization, status updates and partial-write recovery); record V2 transactional requirements and unresolved edge cases. (2026-11-22)
+
+- [x] Inspect procurement allocation lifecycle visibility in service methods, allocation aggregation and current named tests; record the bounded absence of mutation/void methods in inspected service, VOID aggregate uncertainty, and unexecuted test-coverage gaps. (2026-11-22)
