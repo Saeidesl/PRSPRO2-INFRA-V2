@@ -3,27 +3,22 @@
 Updated: 2026-11-22
 
 ## Accepted milestones
-- Phase 0 — Discovery & Repository Preparation: COMPLETE and Product Owner accepted.
-  - Task 0.1 — Repository verification: COMPLETE.
-  - Task 0.2 — READ-ONLY legacy source audit: COMPLETE within documented source-inspection scope and accepted.
-  - Task 0.3 — Discovery report and target boundaries: COMPLETE and accepted.
-- Phase 1 Task 1.1 — Repository collaboration conventions: COMPLETE. Product Owner acceptance received on 2026-11-22. CONTRIBUTING.md verified from GitHub.
+- Phase 0 — Discovery & Repository Preparation: COMPLETE and Product Owner accepted (Tasks 0.1, 0.2, 0.3).
+- Phase 1 Task 1.1 — Repository collaboration conventions: COMPLETE and accepted.
+- Phase 1 Task 1.2 — CI baseline inventory/readiness review: COMPLETE. Product Owner directed continuation on 2026-11-22, treated as acceptance of the reviewed task. This closes the inventory/documentation task only; CI pipelines are not implemented or tested.
 
 ## Current task
-- Phase 1 Task 1.2 — CI baseline inventory and readiness: IN PROGRESS.
-- Read-only CI workflow review of production frontend and backend references completed; V2 repository contents remain empty and no V2 CI runs are available.
-- CI recommendations and guardrails recorded in CI-BASELINE.md.
-- This task remains pending Product Owner acceptance; no CI workflow implementation has started.
+- Phase 1 Task 1.3 — Architecture, API, security, logging and error-handling standards: IN PROGRESS.
+- Draft recorded in ARCHITECTURE-STANDARDS.md; pending Product Owner review and acceptance.
 
-## Boundaries
-- This reconciliation supersedes conflicting older status statements in historical TODO.md entries and README status.
-- Historical notes in TODO.md are retained for traceability.
+## Evidence
+- CI-BASELINE.md documents read-only legacy workflow patterns, proposed CI requirements and limitations.
+- Existing frontend and backend production workflows inspected read-only.
+- ARCHITECTURE-STANDARDS.md created as a design draft, not implemented architecture.
+- TODO.md reconciliation appended to supersede older conflicting checkpoints.
+- README to be refreshed to reflect this task.
+
+## Safety boundaries
 - Existing production repositories remain READ-ONLY.
-- No schema, implementation, live data, migration, deployment, VPS acquisition or production changes are authorized by this status.
-
-## Verification evidence
-- CONTRIBUTING.md read back from GitHub and reviewed.
-- README.md and PHASE-STATUS.md updated and verified following previous accepted task.
-- CI-BASELINE.md created with source patterns, proposed baseline and limitations.
-- Existing production frontend-check.yml and backend-check.yml inspected read-only.
-- No tests executed; V2 repos are empty and this is an inventory/documentation task.
+- No application code, database schema, migration, live production data access, deployment, VPS purchase or production-system changes.
+- No CI pipeline implementation or test execution is claimed.
