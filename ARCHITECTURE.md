@@ -1157,3 +1157,10 @@ Selected GET Router branches were traced against permission gates and service de
 
 ## Phase 2 identity and authorization mapping checkpoint (2026-11-22)
 - Legacy source mapping and targeted auth/permission path observations are recorded in DATA-MODEL-DRAFT.md. The analysis is preliminary; the authorization matrix and security design remain pending review.
+
+
+## Phase 2 / Task 2.1 — Attachment, Audit, Print and Integration mapping checkpoint (2026-11-22)
+- Header-level source structures for `15_Attachments`, `16_AuditLogs` and `36_PrintTemplates` and legacy attachment configuration values are recorded in DATA-MODEL-DRAFT.md section 19.
+- Observed legacy attachment entity types are PROJECT/EVENT and configured provider GOOGLE_DRIVE; these are not V2 provider restrictions.
+- Dedicated service behavior was not fully validated in this checkpoint. Lifecycle, authorization, audit coverage/redaction, template payload/version semantics, and Telegram delivery remain discovery items.
+- No production data, file contents, credentials, secret values, schema, SQL, migration or production changes were accessed/performed.
