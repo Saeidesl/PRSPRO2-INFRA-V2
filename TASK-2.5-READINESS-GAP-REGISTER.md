@@ -105,3 +105,22 @@ G-10 remains BLOCKER: tenant integrity across form/event/project-information/app
 G-12 remains open: full configuration/form/field revision publication and compatibility semantics remain to be mapped.
 
 No executable SQL/DDL, migration, DB setup, live data, tests, production changes or deployment performed.
+
+## Increment 5 — Payload shape and form-definition rules (2026-11-22)
+Further read-only review of EventDataService, EventDataRepository, FormService, FormValidator and ProjectInformationRepository.
+
+### Evidence
+- Legacy EventData is read-only through the sampled EventDataService and parses DataJSON as a JSON object; malformed JSON and non-object/array payloads are rejected. Its repository stores a single lookup by EventID. This does not prove the legacy payload's full field inventory or complete historic consistency.
+- Reusable forms have tenant-scoped form definitions and fields referencing InformationType records; definition assembly includes active columns and visibility rules. Disabled/inactive type handling and active status are checked in the form-definition pathway.
+- Form field definition supports ordered fields, group/label/help overrides, requiredness and visibility rules referencing a preceding active field in the same form (with operators EMPTY/FILLED/EQUALS/NOT_EQUALS).
+- Form response snapshots capture form ID/code/name/version and field definitions, information-type metadata, columns, visibility and requiredness. Thus the snapshot is more than just the response values and may increase payload/storage cost; size and query strategy require workload evidence.
+- Information-type cardinality defaults to SINGLE in observed helper logic, supports MULTIPLE, and field empty-value shape depends on active columns and cardinality (array, object or scalar). The full cross-product of information type data types, columns, cardinality and validation still needs inventory.
+- ProjectInformationRepository maintains separate value, history and sync-log repositories; history retrieval is revision ordered. These relationships need explicit normalized constraints and unique/revision rules in V2.
+- The legacy EventData pathway and reusable Form responses are separate; migration discovery must preserve both, identify records with legacy DataJSON, and not assume every historical event has reusable-form responses.
+
+### Gap implications
+G-03 remains BLOCKER: complete InformationType data-type/cardinality/column semantics, payload field inventory, reporting/query requirements, attachment references and historical data shape are not yet fully enumerated. Snapshot size, retention and query indexing need evidence-based design.
+G-01/G-10 remain BLOCKERS: repository and service relationship coverage and tenant-safe constraint matrix are incomplete.
+G-12 remains open: configuration/form/field revision compatibility and publishing semantics are not fully evidenced.
+
+No SQL/DDL, migration, DB provisioning, live data, tests, production changes or deployment occurred.
