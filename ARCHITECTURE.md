@@ -1196,3 +1196,9 @@ Selected GET Router branches were traced against permission gates and service de
 - Project, Event, Workflow, Form and Project Information service paths were inspected at function-level. Their distinct lifecycle/versioning/snapshot/history semantics must be preserved rather than collapsed into generic records.
 - ProjectDeletionService collects project dependencies across events, event data, attachments, material needs, procurement records, receipts, material specifications and calculations. Deletion/retention semantics must be explicitly designed and validated.
 - Findings and unresolved questions are recorded in REPOSITORY-LIFECYCLE-AUDIT-CHECKPOINT-2.1.md; discovery remains open and no schema design is approved.
+
+
+## Print-template resolver and API surface audit (2026-11-22)
+- Print templates resolve allow-listed project fields, project information, event fields, and event-form fields on demand, tenant/project-access scoped; templates store definitions/version and asset references rather than project values.
+- Resolver excludes void/cancelled events in inspected paths and selectively reads required sources. Template image/PDF asset handling has validation and reference-aware cleanup behavior; V2 must preserve asset integrity and decide snapshot/audit semantics.
+- Router route families and selected authorization requirements documented in PRINT-RESOLVER-API-CHECKPOINT-2.1.md. Full endpoint mutation matrix remains pending; no schema implementation has started.
