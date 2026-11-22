@@ -273,3 +273,8 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 ## Task 2.7 Increment 6 checkpoint — tenant relationship integrity (2026-11-22)
 - Read-only matrix records repository access patterns vs service-layer tenant validation, procurement tenant-filtered helpers, polymorphic attachment owner and nullable event/project relationships.
 - Physical tenant-safe relational constraints remain unproven; G-10 OPEN, G-01/G-03/G-04/G-02 OPEN. No live data, runtime tests, SQL/DDL, migrations, provisioning, deployment or production changes.
+
+
+## Task 2.7 Increment 7 checkpoint — event/form history (2026-11-22)
+- Evidence recorded for event create/form response snapshots, amendment/replay/optimistic checks, void state restoration and material review, audit and sampled report projections.
+- G-03 OPEN: multi-step transactionality, immutable lineage, projection parity and retention unproven. No tests/live data/DDL/migration/provisioning/deployment/production changes.
