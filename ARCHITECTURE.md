@@ -1466,3 +1466,8 @@ Task 2.7 is a read-only discovery and traceability effort covering event/form hi
 ### Task 2.8 — G-01 Router surface increment 2
 - Fetched backend Router.js and frontend router/API core; documented GET/POST/PUT/DELETE surface families and client route-permission registry.
 - Evidence: TASK-2.8-G01-ROUTER-SURFACE-INCREMENT-2.md. Dynamic route branches, exact handlers, permissions, tenant checks, callers and tests remain to reconcile. G-01 remains open.
+
+
+### Task 2.8 — G-01 service/test evidence sampling
+- Sampled core access-control, event, procurement, attachment, project-deletion, workflow and project-information services read-only; catalogued test file themes.
+- Evidence document: TASK-2.8-G01-SERVICE-TEST-SAMPLING-INCREMENT-3.md. This remains partial evidence, not verification of runtime behavior. G-01 stays open.
