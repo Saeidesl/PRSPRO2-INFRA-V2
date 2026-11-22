@@ -1152,3 +1152,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Reviewed workspace/dashboard/report calculations and project-deletion procurement dependency logic.
 - Recorded receipt eligibility/status semantics, shared order visibility, shared allocation/receipt dependencies and project-delete retention implications in TASK-2.6-BLOCKER-RESOLUTION.md.
 - G-02 remains BLOCKER. Further increment must inspect the remaining receipt batch write logic, order/line normalization and source API/router exposure, then produce lifecycle matrix.
+
+
+### Task 2.6 Increment 3 — batch receipt invariants
+- Reviewed batch receipt normalization, quantity/allocation caps, idempotency, order status recalculation, router read-surface and existing tests (tests not executed).
+- Evidence recorded in TASK-2.6-BLOCKER-RESOLUTION.md. Single/batch parity and atomicity are not proven; G-02 remains BLOCKER.
