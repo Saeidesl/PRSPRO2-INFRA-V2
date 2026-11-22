@@ -1070,3 +1070,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Bounded read-only Procurement Lifecycle Evidence Audit: order creation, allocations, single/batch receipt creation, idempotency/replay, quantity totals and status recomputation documented.
 - Cancellation, correction/reversal, atomicity, precision, reconciliation and full VOID semantics remain unresolved; G-02 blocker.
 - No SQL/DDL, migration, DB provisioning, live data, tests, production changes or deployment.
+
+
+### Task 2.5 — Increment 15 (2026-11-22)
+- Read-only Attachment/File Ownership audit documented: PROJECT/EVENT owner types, validator limits, metadata, visibility, storage delegation, copy-image lineage and deletion sequence.
+- Owner inventory, polymorphic FK design, orphan/reconciliation/recovery, storage migration, retention and full historical completeness remain unresolved; G-04 blocker, G-10 blocker and G-11 open/high.
+- No SQL/DDL, migration, DB provisioning, live data, tests, production changes or deployment.
