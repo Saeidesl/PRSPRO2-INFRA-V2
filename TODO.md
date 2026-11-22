@@ -717,3 +717,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Tasks 1.1–1.5: COMPLETE and accepted. Phase 1 Foundation & Architecture is closed as a planning/documentation phase; implementation of CI or architecture is not implied.
 - Phase 2 Task 2.1 — Conceptual entity inventory and relationship consolidation: IN PROGRESS. DATA-MODEL-DRAFT.md created for review.
 - This task is conceptual only. No SQL/schema, migration scripts, live data, deployment, VPS or production-system change.
+
+
+### Task 2.1 incremental checkpoint — relationship matrix (2026-11-22)
+- Added an evidence-aware conceptual relationship matrix to DATA-MODEL-DRAFT.md, distinguishing observed source links from design candidates and unknown cardinality.
+- Added candidate transaction boundaries (hypotheses only) and a relationship-validation checklist for source-to-target mapping.
+- Task 2.1 remains IN PROGRESS pending Product Owner acceptance. No executable schema or migration was created; no tests were run.
