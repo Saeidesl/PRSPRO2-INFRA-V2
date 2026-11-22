@@ -594,3 +594,7 @@ Bounded service/repository inventory and test-source review. No dedicated alloca
 
 ### Task 2.6 Increment 6 evidence
 MaterialPlanningService recalculates needs from central information; procurement event integration keeps receipt mapping inert and receipt APIs independent. Project deletion collector is allocation-aware but destructive cascade is not suitable as V2 fulfillment-history retention policy. Posted procurement history should survive archival/deletion policy. G-02 remains BLOCKER.
+
+
+### Task 2.6 Increment 7 evidence
+Workflow publication and draft/version semantics, logical deactivation of information types/columns, tenant-scoped event-type validation, status lifecycle and permission services were sampled. V2 recommendations favor immutable published versions, logical deactivation with history retention and restrict deletion when referenced. G-01/G-10 remain BLOCKERS.
