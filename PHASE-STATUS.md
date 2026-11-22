@@ -112,3 +112,10 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 - Workflow, workflow-step-department, event-type, department, project-status and information-type operation families and selected permission gates are documented.
 - G-01 and G-10 remain blockers; G-12 remains open/high. Task 2.5 remains IN PROGRESS and schema/migration readiness is not established.
 - No SQL/DDL, migrations, live data access, tests, production modifications, deployment or VPS action.
+
+
+## Phase 2 — Task 2.5 checkpoint (2026-11-22, Increment 19)
+- Continued read-only sampling across identity/role assignment, audit, reporting and print-template domains.
+- Added bounded source evidence for user validation and password hashing paths, tenant-safe role assignment/removal, audit fields/read filters, project-report/dashboard consumers and print-template definition/PDF/image metadata and selected route gates.
+- Task 2.5 remains IN PROGRESS; G-01 and G-10 remain blockers. G-08, G-09, G-11 and G-12 remain open/high. No readiness approval for schema implementation.
+- No tests, SQL/DDL, migrations, live data, DB provisioning, production modifications, deployment or VPS action.
