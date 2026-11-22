@@ -202,3 +202,26 @@ Evidence:
 G-04/G-11/G-10 remain BLOCKERS until file inventory, metadata/data migration coverage, lifecycle policy and tenant relationships are fully documented.
 
 No tests executed, no live data, SQL/DDL, migration, DB provisioning, production modifications or deployment.
+
+
+### Increment 10 — audit, reports and historical relationships (2026-11-22)
+
+Read-only review of AuditService/Repository, ReportService/Repository, ProjectInformationRepository, EventDataRepository, EventRepository and ProjectRepository.
+
+Evidence:
+- Audit records capture tenant, actor, action, entity type/id, old/new data, reason and timestamp (bounded earlier sample). AuditRepository is simple access; append-only/tamper protection and transactional coupling to domain writes are not proven.
+- Reports aggregate project, event, attachment, user, department, workflow, event-type and procurement/material planning sources. Report filtering depends on tenant/project visibility in service paths; underlying repositories are generic collection adapters.
+- EventData is linked through EventID and central Project Information through ProjectID/InformationTypeID with separate history and reference-sync logs. These relationships have distinct history/retention requirements and cannot be treated as simple cascades.
+- ProjectRepository supports generic update/delete; service-layer project deletion uses a dependency collector and confirmation workflow. DB integrity must make bypassing service paths safe.
+- Legacy IDs are primarily string-based and cross-referenced by IDs across sheets. No canonical UUID mapping or full duplicate/orphan audit was proven in source sampling.
+
+### V2 decisions
+- Audit events should be append-only by application policy and protected from ordinary update/delete; domain mutation and audit insertion must be transactionally coupled. Sensitive payloads should be redacted/minimized.
+- Report queries must apply tenant scope at query/data layer and use stable domain definitions; shared calculation logic must avoid divergent dashboard/report quantities.
+- Preserve event/form definition snapshots, Project Information history and reference-sync relationships with explicit retention and linked-project policy.
+- Migration requires stable legacy-ID mapping and orphan/duplicate detection before foreign-key enforcement; preserve IDs or store mapping table, do not silently regenerate/relink.
+- Deletion policy: default restrict for historical/financial/fulfillment dependencies; archive/soft-delete with controlled retention and audit. Avoid broad cascades across shared records.
+
+G-01/G-05/G-09/G-10 remain open. Full source/ID coverage and retention decisions still require completion.
+
+No tests executed, no live data, SQL/DDL, migration, DB provisioning, production modifications or deployment.
