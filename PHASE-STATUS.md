@@ -360,3 +360,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 G-01 Increment 11 (2026-11-22)
 - Recursive read-only test-path inventory from legacy frontend/backend recorded in `TASK-2.8-TEST-SURFACE-INVENTORY-INCREMENT-11.md`.
 - Test filenames do not establish execution, pass status or comprehensive assertion coverage; source/test traceability remains open. G-01 remains OPEN; schema readiness NOT APPROVED. No tests or production changes.
+
+
+## Phase 2 — Task 2.8 G-01 Increment 12 (2026-11-22)
+- Sampled source-to-test assertion trace recorded in `TASK-2.8-SOURCE-TO-TEST-ASSERTION-TRACE-INCREMENT-12.md` across workflow, procurement, attachments, deletion, schema and idempotency.
+- Evidence is partial/static and test execution is absent. G-01/G-10 remain OPEN; schema readiness NOT APPROVED. No production modifications.
