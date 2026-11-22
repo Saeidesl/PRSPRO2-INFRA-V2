@@ -637,3 +637,10 @@
 - [x] PRSPRO2BACKEND-V2 — Private.
 - [x] PRSPRO2DATABASE-V2 — Private.
 - Infra repository remains public; it currently contains governance documentation only.
+
+
+### Task 0.2 audit continuation (2026-11-22 — frontend auth/API transport)
+- Re-read the legacy frontend shared API client and backend Router source in READ-ONLY mode. The frontend API client places the session token in the query string for all requests, including GET and POST-overridden mutations; it also uses method override parameters for PUT/DELETE. The backend parser accepts token query transport and method override semantics, confirming this is an end-to-end legacy contract rather than an isolated frontend detail.
+- V2 API contract must avoid URL token transport; prefer secure HttpOnly/SameSite cookie architecture with CSRF controls if cookie-based, or Authorization headers where appropriate. Query-string secrets must not be logged, stored in browser history, or included in analytics. Method override should not be carried forward unless explicitly justified and hardened.
+- The frontend client currently centralizes retries for GET/HEAD, GET deduplication, sync-state notification and diagnostics. Preserve appropriate UX behaviors in V2, but constrain retries to safe/idempotent operations and ensure diagnostics never expose sensitive payloads.
+- This was a source-level slice only; no runtime/security testing or production changes. Task 0.2 remains READY FOR PO REVIEW but not COMPLETE until explicit acceptance.
