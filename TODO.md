@@ -1183,3 +1183,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.6 Increment 8 — identity/authorization relational integrity
 - Reviewed user-role, role-permission, role/permission repository and request-cache/authorization paths.
 - Provisional V2 tenant-compatible FK, unique association, deny-by-default and centralized authorization decisions documented. G-01/G-10 remain BLOCKERS.
+
+
+### Task 2.6 Increment 9 — attachment/storage lifecycle
+- Reviewed attachment service/repository/validator, Google Drive storage adapter and StorageRepository boundary.
+- Provisional V2 metadata/object-storage lifecycle, staged recovery, retention purge and tenant-parent relationship constraints documented. G-04/G-11/G-10 remain BLOCKERS.
