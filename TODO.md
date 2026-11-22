@@ -1304,3 +1304,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 — G-01 Router surface increment 2 (2026-11-22)
 - Read-only fetched complete Router.js plus Frontend router/API core. Recorded GET/POST/PUT/DELETE route families and client route-permission map in TASK-2.8-G01-ROUTER-SURFACE-INCREMENT-2.md.
 - Not exhaustive pattern/handler/caller/permission matrix; explicit gaps and next reconciliation steps recorded. G-01 remains OPEN; no runtime tests or legacy modifications.
+
+
+### Task 2.8 — G-01 Service/Test sampling increment 3 (2026-11-22)
+- Read-only sampled AccessControl, Event, Procurement, Attachment, ProjectDeletion, Workflow and ProjectInformation service sources; inventory backend test filenames from tree.
+- Record: TASK-2.8-G01-SERVICE-TEST-SAMPLING-INCREMENT-3.md. Sampling only, not test execution or exhaustive mapping. G-01 remains OPEN.
