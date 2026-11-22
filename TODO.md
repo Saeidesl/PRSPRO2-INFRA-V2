@@ -1389,3 +1389,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Read-only reconciliation of project cascade deletion dependency collector and source-event-void material planning path recorded in `TASK-2.8-DELETION-SOURCE-EVENT-DEPENDENCY-RECONCILIATION-INCREMENT-19.md`.
 - Evidence confirms collector protects shared order lines/cross-project allocations but mutation is sequential and non-transactional; project row physical deletion is gated on child failures, and audit recovery is not established. Source-event void moves calculations/needs to review but does not directly reverse receipts/allocations in the inspected path.
 - G-01/G-02/G-03/G-04/G-10 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+## Phase 2 — Task 2.8 Increment 20 (2026-11-22)
+- Targeted read-only AttachmentService failure-boundary review documented in `TASK-2.8-ATTACHMENT-FAILURE-BOUNDARY-RECONCILIATION-INCREMENT-20.md`.
+- Normal upload stores object before metadata/audit without demonstrated compensation; delete removes object before metadata/audit; copyProjectImage has bounded compensating cleanup on error. Recommendations recorded for staged/outbox storage operations and reconciliation.
+- G-04/G-10/G-01 remain OPEN; schema readiness NOT APPROVED. No tests, live files/data, DDL/migrations/provisioning/deployment/production changes.
