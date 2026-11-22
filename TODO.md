@@ -1178,3 +1178,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.6 Increment 7 — configuration lifecycle
 - Reviewed workflow publication/versioning, information-type logical deactivation, event-type reference validation, project-status lifecycle and permission service.
 - Provisional V2 configuration lifecycle decisions recorded. G-01/G-10 remain BLOCKERS pending dependency coverage and relationship matrix.
+
+
+### Task 2.6 Increment 8 — identity/authorization relational integrity
+- Reviewed user-role, role-permission, role/permission repository and request-cache/authorization paths.
+- Provisional V2 tenant-compatible FK, unique association, deny-by-default and centralized authorization decisions documented. G-01/G-10 remain BLOCKERS.
