@@ -233,3 +233,19 @@ These are selected validator excerpts. Service-level authorization, tenant const
 
 ### Evidence limitation
 - This excerpt review does not establish complete procurement status transitions, receipt VOID lifecycle, allocation mutation/delete path, repository uniqueness or all error recovery behavior. These remain pending.
+
+
+## Procurement allocation lifecycle and test-coverage checkpoint (2026-11-22)
+
+### Allocation behavior supported by inspected source/tests
+- ProcurementService createOrder is the observed allocation creation path; no separate allocation mutation/delete or receipt-void service method was found in the inspected service method list.
+- Existing allocation rows are used in need aggregation and receipt ceilings; need-key logic unifies legacy estimated and confirmed need rows by MaterialSpecKey and project.
+- Inspected tests verify cumulative allocation capped at need quantity and record remainder as surplus. They also verify workspace request reuse/caching and tenant-scoped collections.
+- The inspected procurement-service test file contains five named tests: project-visibility bulk-read behavior, workspace collection read reuse, estimated/confirmed need-key equivalence, allocation cap/surplus behavior, and workspace reuse of mapping/context/visibility checks.
+- Tests were inspected but not executed during this source-audit increment; test presence is not evidence of runtime pass.
+
+### Lifecycle and integrity gaps
+- The inspected ProcurementService method list does not expose allocation update/delete or receipt void methods. This is a bounded finding for this service, not proof that no other router/repository or UI path exists.
+- Receipt totals in the reviewed logic include rows from the receipt collection without a comprehensive VOID exclusion in the batch aggregate excerpts; a dedicated VOID lifecycle and reversal policy is not evidenced in the inspected service. V2 must define whether VOID is excluded, how reversals are audited, and whether order status recalculates atomically.
+- Legacy allocation and receipt aggregate rules are service-calculated; PostgreSQL transaction locking and constraints must protect aggregate ceilings. A simple row CHECK alone cannot enforce sums across related rows.
+- Task 2.3 remains incomplete: route-level auth, all allocation/receipt mutation paths, uniqueness scopes, exhaustive state transitions, and tests for idempotency replay, duplicate batch keys, void/reversal, over-receipt races, and allocation races remain to discover/specify.
