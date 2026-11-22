@@ -1004,3 +1004,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Sampled single/batch receipt and order idempotency paths, material calculation/source-event void, procurement event integration, attachment owner/visibility/upload/delete, and project deletion preservation of shared procurement records.
 - Evidence is recorded in `TASK-2.5-READINESS-GAP-REGISTER.md`. G-02 remains blocker; G-04 has bounded observed owners PROJECT/EVENT but exhaustive coverage is still pending; G-03/G-09/G-11 remain open.
 - Read-only only: no DB/DDL, migration, live data, test, production write or deployment.
+
+
+### Task 2.5 increment 4 — Event/Form snapshot, amendment and central-information evidence (2026-11-22)
+- Read-only sampled event idempotency/replay, event void, form-response validation/persistence and definition snapshots, amendment event linkage, central-information history/approval and live-reference conflict handling.
+- Findings recorded in `TASK-2.5-READINESS-GAP-REGISTER.md`; G-03/G-01/G-10 remain blockers and G-12 remains open.
+- No SQL/DDL, migration, DB provisioning, live data, tests, production change or deployment.
