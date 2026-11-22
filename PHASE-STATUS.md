@@ -278,3 +278,8 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 ## Task 2.7 Increment 7 checkpoint — event/form history (2026-11-22)
 - Evidence recorded for event create/form response snapshots, amendment/replay/optimistic checks, void state restoration and material review, audit and sampled report projections.
 - G-03 OPEN: multi-step transactionality, immutable lineage, projection parity and retention unproven. No tests/live data/DDL/migration/provisioning/deployment/production changes.
+
+
+## Task 2.7 Increment 8 checkpoint — attachments (2026-11-22)
+- Recorded storage/metadata/audit sequencing and failure risks for upload/delete/copy, owner visibility and polymorphic relationships.
+- G-04 OPEN pending reconciliation/recovery/retention/restore evidence; no tests/live data/DDL/migrations/provisioning/deployment/production changes.
