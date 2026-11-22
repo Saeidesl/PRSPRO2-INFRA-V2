@@ -593,3 +593,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ### Task 2.8 Increment 55 (2026-11-22)
 - Bounded identity/RBAC repository tenant-boundary trace recorded in `TASK-2.8-IDENTITY-RBAC-REPOSITORY-TENANT-BOUNDARY-TRACE-INCREMENT-55.md`: selected ID lookup and association repository methods are not tenant-qualified themselves; sampled service-level role validation/filtering is layered above.
 - E1 only; uniqueness scopes and exhaustive mutation/caller/runtime testing remain unresolved. G-01/G-10 remain OPEN; schema readiness NOT APPROVED. No live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+### Task 2.8 Increment 56 (2026-11-22)
+- Bounded UserRoleService/RolePermissionService/PermissionService trace documented in `TASK-2.8-USER-ROLE-MUTATION-AUDIT-BOUNDARY-TRACE-INCREMENT-56.md`: assignment tenant/role checks, duplicate guard and separate audit write sequence; tenant-based active-role resolution and global permission-catalog read sampled.
+- E1 only; runtime behavior and complete mutation coverage unverified. G-01/G-10 remain OPEN; schema readiness NOT APPROVED. No live data/DDL/migrations/provisioning/deployment/production changes.
