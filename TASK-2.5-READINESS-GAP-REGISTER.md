@@ -610,3 +610,7 @@ Attachment ownership is metadata/parent-based and storage is Google Drive behind
 
 ### Task 2.6 Increment 10 evidence
 Audit append-only/tamper guarantees and domain-write coupling not proven; reports aggregate across tenant-scoped entities; EventData and project-information history/reference-sync require distinct retention. Legacy ID mapping and orphan/duplicate coverage incomplete. V2 recommendations recorded; G-01/G-05/G-09/G-10 remain open/blockers.
+
+
+### Task 2.6 Increment 11 evidence and baseline
+Recommended exact-decimal persisted values, explicit unit/conversion and rounding policies, UTC instants with local business-date intent, tenant-compatible FKs and retention-safe polymorphic relationships. This baseline does not close G-06/G-07/G-10; legacy field/data coverage and business policies remain pending.
