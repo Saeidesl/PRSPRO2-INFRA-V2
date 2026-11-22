@@ -485,3 +485,30 @@ EventService.js (void method and related helper evidence), EventRepository.js, P
 - G-10 remains BLOCKER (tenant-safe relationship constraints).
 
 Read-only source review only. No live data, tests, SQL/DDL, migration, database provisioning, production modification, deployment or VPS action.
+
+
+## Increment 22 — Material planning specifications, calculation ledger and void reconciliation audit (read-only, 2026-11-22)
+
+### Source files sampled
+MaterialPlanningService.js (specification create/revise, calculation recording, project recalculation, void handling), ProjectInformationService.js and repositories sampled previously for linkage context.
+
+### Bounded evidence
+- Project material specifications are tenant/project-scoped; a SpecKey groups revisions. Revision creates a new record and marks the prior row SUPERSEDED, while latest revision selection is based on Revision. The multi-write sequence has no transaction guarantee established.
+- Calculations use a CalculationKey for idempotent replay and are recorded with source event/version, specification, basis quantity, consumption, wastage, computed quantity, previous quantity, variance and type/status metadata. Ledger is append-oriented in intent, but sampled service later updates calculation records to link MaterialNeedID and on void to set SOURCE_EVENT_VOIDED; strictly immutable semantics are not established.
+- Recalculation identifies active specifications by latest revision, locates confirmed/estimated needs, supersedes prior needs, records calculations, creates/updates needs and links calculation to need. Multiple independent writes plus audit may partially complete.
+- Void handling marks source calculations SOURCE_EVENT_VOIDED and confirmed needs NEEDS_REVIEW, and logs aggregate counts. This is a review state, not a full reversal of quantities or procurement lifecycle.
+- Calculation rounding is observed to 4 decimal places after ceiling in the sampled path; unit precision and domain-wide rounding policy are not established.
+- CalculationKey tuple and replay checks exist in sampled paths; unique constraint/race-safe enforcement is not proven.
+- ProjectInformationService validates typed scalar/table values and attachment ownership, and has revision/history/approval/reference-sync paths; this increment focuses on material-plan linkage.
+
+### Target architecture implications
+- Preserve specification revision identity and status history; define concurrency-safe unique keys and revision constraints in PostgreSQL.
+- Represent calculations and needs with explicit relationship constraints and transactional orchestration. Decide whether ledger entries are immutable or permit controlled transitions; legacy does not establish immutability.
+- Void reconciliation should explicitly track NEEDS_REVIEW and calculation invalidation and must not silently imply purchase order/receipt reversal.
+- Establish quantity/decimal precision policy across quantities, wastage, variance and units; G-06 remains open/high.
+- Preserve source-event provenance and event-version association for calculations.
+
+### Readiness status
+G-01 BLOCKER, G-02 BLOCKER, G-03 BLOCKER, G-06 HIGH/open, G-09 HIGH/open, G-10 BLOCKER.
+
+Read-only review only. No tests, live data, SQL/DDL, migration, DB provisioning, production changes, deployment or VPS action.
