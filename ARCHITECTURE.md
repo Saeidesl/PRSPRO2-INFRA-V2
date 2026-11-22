@@ -1489,3 +1489,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 53 — Independent event and attachment ownership trace
 - Read-only EventService/AttachmentService trace recorded in `TASK-2.8-INDEPENDENT-EVENT-ATTACHMENT-OWNERSHIP-TRACE-INCREMENT-53.md`. Sampled independent events are tenant-filtered; project-linked events and attachments require parent-project tenant/access validation; polymorphic attachment ownership remains a DB integrity challenge.
 - Bounded evidence only; no runtime tests or readiness approval. G-10/G-04/G-01 remain open.
+
+
+## Task 2.8 Increment 54 — Repository lookup/tenant-filter boundary
+- Read-only inspection of EventRepository, AttachmentRepository, ProjectRepository and generic ID lookup recorded in `TASK-2.8-REPOSITORY-LOOKUP-TENANT-FILTER-BOUNDARY-TRACE-INCREMENT-54.md`. Generic repository ID lookup and selected relation filters do not themselves enforce tenant ownership; service-level checks are relied upon in sampled callers.
+- Bounded evidence only; exhaustive caller/runtime negative testing not done. G-01/G-10 remain OPEN.
