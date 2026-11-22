@@ -1202,3 +1202,10 @@ Selected GET Router branches were traced against permission gates and service de
 - Print templates resolve allow-listed project fields, project information, event fields, and event-form fields on demand, tenant/project-access scoped; templates store definitions/version and asset references rather than project values.
 - Resolver excludes void/cancelled events in inspected paths and selectively reads required sources. Template image/PDF asset handling has validation and reference-aware cleanup behavior; V2 must preserve asset integrity and decide snapshot/audit semantics.
 - Router route families and selected authorization requirements documented in PRINT-RESOLVER-API-CHECKPOINT-2.1.md. Full endpoint mutation matrix remains pending; no schema implementation has started.
+
+
+## Reference-copy and dependency deletion audit (2026-11-22)
+- Repeat projects use workflow-owned reference policy (LIVE_SYNC/INITIAL_COPY/INDEPENDENT); copy operation IDs support replay/recovery lookup, with per-information-type status and source revision in copy plan.
+- Project deletion collects dependencies under admin access and lock, protects shared procurement items/orders, soft deletes dependent rows, trashes attachment storage after metadata deletion, and physically removes project only when dependency handling has no failure. Partial failures are surfaced; not atomic.
+- Audit rows are tenant-scoped and store action/entity/actor, old/new JSON, reason and timestamp; coverage is service-call-based, not proven exhaustive.
+- Attachment access is tenant and parent-project visibility scoped; retention/recovery remains pending.
