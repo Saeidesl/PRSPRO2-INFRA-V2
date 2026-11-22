@@ -268,3 +268,8 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 - Read-only sampled WorkflowService/Repository, EventTypeService, InformationTypeService, ProjectInformationService and FormService/Repository.
 - Evidence recorded: tenant-scoped lookup/management, soft-delete and audit paths for information types/columns, project information history, form field/mapping deletion, and workflow/event type update/version/configuration.
 - Dependent effect enforcement, complete version lineage, retention and all mutation paths remain unproven; bounded review only. G-01/G-03/G-04/G-10 open; G-02 open. No live data/tests/DDL/migrations/provisioning/deployment/production write.
+
+
+## Task 2.7 Increment 6 checkpoint — tenant relationship integrity (2026-11-22)
+- Read-only matrix records repository access patterns vs service-layer tenant validation, procurement tenant-filtered helpers, polymorphic attachment owner and nullable event/project relationships.
+- Physical tenant-safe relational constraints remain unproven; G-10 OPEN, G-01/G-03/G-04/G-02 OPEN. No live data, runtime tests, SQL/DDL, migrations, provisioning, deployment or production changes.
