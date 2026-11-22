@@ -818,3 +818,24 @@ The frontend tree includes tests for event filtering/history/forms/image preview
 - WebApp error response returns error.message even for unrecognized errors, assigning INTERNAL_ERROR code but potentially exposing internal exception text. ErrorHandler.handle logs stack/error; WebApp catch path also serializes message for unknown errors. V2 should sanitize client-facing unknown errors, retain structured internal logs with correlation IDs, and avoid sensitive details.
 - Router has explicit route-specific branches and unknown paths return NOT_FOUND. Method-specific route coverage is extensive but not yet systematically reconciled; no runtime tests were executed. This source trace is not a penetration test or vulnerability confirmation.
 - No production modifications, live data or credentials accessed.
+
+
+## 37. Router mutation-route inventory (source-only, partial reconciliation; 2026-11-22)
+
+### POST routes and guard categories inspected
+- Authentication: `/auth/login`, `/auth/logout`.
+- Print templates: create, resolve/preview, image/PDF upload; SYSTEM_SETTINGS or PROJECT_VIEW guards as route-specific.
+- Project status and department creation: PROJECT_STATUS_MANAGE / DEPARTMENT_MANAGE.
+- Roles and permissions: ROLE_MANAGE; bulk assign/remove permission operations.
+- Procurement: orders and receipt/batch receipt creation; PROCUREMENT_MANAGE.
+- Project/material: create project PROJECT_CREATE; material specification create with PROJECT_EDIT and draft-creator exception; reference-copy with same draft exception; workflow create/step/publish/department assignment WORKFLOW_MANAGE; information types/columns/forms and form fields SYSTEM_SETTINGS; event type and procurement integration EVENT_TYPE_MANAGE; project information save/approve/reference conflict resolve PROJECT_EDIT; event create EVENT_CREATE; attachment upload ATTACHMENT_UPLOAD; user creation USER_CREATE; user-role assignment USER_EDIT.
+
+### PUT routes and guard categories inspected
+- Project status, role, department, information-type/column, print template, material specification, project update, workflow/event rules and workflow updates, form/form-field, event type, event form response, event void, user update. Guards include respective management settings, PROJECT_EDIT (with draft creator exception for project update), EVENT_EDIT, USER_EDIT. Print-template project binding delegates its resource-specific authorization to service.
+
+### DELETE routes and guard categories inspected
+- Project information deactivation PROJECT_EDIT; information-type column/template/type deactivation SYSTEM_SETTINGS; project deletion and session revocation Admin-only; role permission/user-role removal respective ROLE_MANAGE/USER_EDIT; workflow-step department assignment removal WORKFLOW_MANAGE with assignment/workflow match; form-field removal SYSTEM_SETTINGS; event-type/form unassignment EVENT_TYPE_MANAGE or SYSTEM_SETTINGS; attachment delete ATTACHMENT_DELETE.
+
+### Reconciliation caveats
+- This is a source-derived inventory of Router branches, not an exhaustive route test matrix. Route pre-guard, service-level tenant/resource checks, audit coverage and parser/route edge cases still need systematic verification. Several routes rely on service authorization (e.g. print-template project binding) and require inspection of each service method. The route table must not be interpreted as proof of endpoint security.
+- Source-only review; no runtime tests, production changes or data access.
