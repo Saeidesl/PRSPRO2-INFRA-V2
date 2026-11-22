@@ -2,22 +2,27 @@
 
 Updated: 2026-11-22
 
-## Accepted milestones
-- Phase 0 — Discovery & Repository Preparation: COMPLETE and accepted (Tasks 0.1, 0.2, 0.3).
-- Phase 1 Task 1.1 — Repository collaboration conventions: COMPLETE and accepted.
-- Phase 1 Task 1.2 — CI baseline inventory/readiness review: COMPLETE and accepted; pipelines not implemented.
-- Phase 1 Task 1.3 — Architecture/API/security/logging/error standards: COMPLETE and accepted.
-- Phase 1 Task 1.4 — Domain boundaries and database migration strategy: COMPLETE and accepted on 2026-11-22. Draft strategy document accepted as a planning baseline, not schema or migration implementation.
+## Phase 0 — Discovery & Repository Preparation
+COMPLETE and accepted (Tasks 0.1, 0.2, 0.3).
 
-## Current task
-- Phase 1 Task 1.5 — Testing strategy and quality gates: IN PROGRESS.
-- Draft recorded in TESTING-STRATEGY.md, pending Product Owner review and acceptance.
+## Phase 1 — Foundation & Architecture
+COMPLETE and accepted. Tasks 1.1–1.5:
+- Collaboration conventions.
+- CI baseline inventory (not CI implementation).
+- Architecture/API/security/logging/error standards.
+- Domain boundaries and migration strategy planning baseline.
+- Testing strategy and quality gates planning baseline.
 
-## Evidence
-- CI-BASELINE.md, ARCHITECTURE-STANDARDS.md and DOMAIN-MIGRATION-STRATEGY.md documented and verified.
-- No code, schema, migration, live data, deployment or production changes.
-- No software test execution is claimed for these documentation/design tasks.
+## Phase 2 — Data Model & Migration Design
+- Task 2.1 — Consolidate conceptual entity inventory and relationships: IN PROGRESS.
+- Draft in DATA-MODEL-DRAFT.md; pending Product Owner review/acceptance.
+- Task 2.1 is conceptual only; executable schema and migration tooling are not started.
+
+## Evidence / current repo state
+- CI-BASELINE.md, ARCHITECTURE-STANDARDS.md, DOMAIN-MIGRATION-STRATEGY.md, TESTING-STRATEGY.md and DATA-MODEL-DRAFT.md documented.
+- The three implementation repositories remain empty at last verified checkpoint; infrastructure repository contains governance/design documents.
+- No software tests executed for these design tasks.
 
 ## Safety boundaries
 - Existing production repositories remain READ-ONLY.
-- No VPS purchase, deployment, real-data migration or dual-writing.
+- No production data access/export, migration, dual-writing, deployment, VPS purchase or production changes.
