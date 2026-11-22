@@ -849,3 +849,7 @@ This update supersedes earlier conflicting task-status notes in this historical 
 
 - [x] Document provisional entity relationship map and API audit scope/permissions spot-check; capture remaining endpoint-contract and cardinality questions.
 - [ ] Complete API endpoint and data-contract inventory, print-template resolver mapping and remaining relationship constraints before preparing the conceptual model review.
+
+
+- [x] Audit print-template resolver source bindings, tenant-scoped resolution, asset lifecycle, and Router route families (partial mutation/API inventory); checkpoint PRINT-RESOLVER-API-CHECKPOINT-2.1.md.
+- [ ] Complete remaining resolver source/output assembly and full HTTP route/mutation contract matrix.
