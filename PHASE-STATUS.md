@@ -5,19 +5,19 @@ Updated: 2026-11-22
 ## Accepted milestones
 - Phase 0 — Discovery & Repository Preparation: COMPLETE and accepted (Tasks 0.1, 0.2, 0.3).
 - Phase 1 Task 1.1 — Repository collaboration conventions: COMPLETE and accepted.
-- Phase 1 Task 1.2 — CI baseline inventory/readiness review: COMPLETE; inventory documented, pipelines not implemented.
-- Phase 1 Task 1.3 — Architecture/API/security/logging/error standards: COMPLETE and accepted on 2026-11-22. Draft standards are documented in ARCHITECTURE-STANDARDS.md; accepted as design baseline, not implementation.
+- Phase 1 Task 1.2 — CI baseline inventory/readiness review: COMPLETE and accepted; pipelines not implemented.
+- Phase 1 Task 1.3 — Architecture/API/security/logging/error standards: COMPLETE and accepted.
+- Phase 1 Task 1.4 — Domain boundaries and database migration strategy: COMPLETE and accepted on 2026-11-22. Draft strategy document accepted as a planning baseline, not schema or migration implementation.
 
 ## Current task
-- Phase 1 Task 1.4 — Domain boundaries and database migration strategy: IN PROGRESS.
-- Draft documented in DOMAIN-MIGRATION-STRATEGY.md; pending Product Owner review/acceptance.
+- Phase 1 Task 1.5 — Testing strategy and quality gates: IN PROGRESS.
+- Draft recorded in TESTING-STRATEGY.md, pending Product Owner review and acceptance.
 
 ## Evidence
-- CI-BASELINE.md documents read-only CI patterns and recommendations.
-- ARCHITECTURE-STANDARDS.md documents cross-cutting standards.
-- DOMAIN-MIGRATION-STRATEGY.md documents provisional logical domain ownership, PostgreSQL principles and migration stages.
-- No application tests or migration tests run; design documents only.
+- CI-BASELINE.md, ARCHITECTURE-STANDARDS.md and DOMAIN-MIGRATION-STRATEGY.md documented and verified.
+- No code, schema, migration, live data, deployment or production changes.
+- No software test execution is claimed for these documentation/design tasks.
 
 ## Safety boundaries
 - Existing production repositories remain READ-ONLY.
-- No application code, schema, migration, live data access, deployment, VPS purchase or production changes.
+- No VPS purchase, deployment, real-data migration or dual-writing.
