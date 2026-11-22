@@ -992,3 +992,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Re-read source-only backend files DatabaseSetup.js, ProcurementService.js, AttachmentService.js, EventService.js, ProjectInformationService.js and FormService.js; registry, lifecycle operation families and key evidence gaps recorded in `TASK-2.5-READINESS-GAP-REGISTER.md`.
 - Confirmed this increment remains read-only and limited: no live data, tests, SQL/DDL, migration, provisioning, production modification or deployment.
 - Task 2.5 remains IN PROGRESS; next focus is exhaustive mutation-path/tenant relationship trace, followed by procurement and event/form payload semantics.
+
+
+### Task 2.5 incremental audit — mutation/tenant boundary sample (2026-11-22)
+- Expanded read-only review to Router, Project, User, Workflow, EventType, InformationType, ProjectDeletion, Storage/Attachment/Event repositories and EventData service.
+- Evidence and bounded observations recorded in `TASK-2.5-READINESS-GAP-REGISTER.md`; G-01/G-10 remain blockers. Service validation, router authorization and DB relational enforcement are distinct layers.
+- No live data, tests, executable schema, SQL, migration, provisioning, production modification or deployment.
