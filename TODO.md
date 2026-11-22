@@ -1226,3 +1226,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Scope: traceability matrix; G-03 event/form history; G-04 attachment lifecycle/ownership; G-10 tenant-safe relationship coverage; G-01 registry/service/route/dependency reconciliation; closure gate assessment.
 - Task plan: TASK-2.7-BLOCKER-CLOSURE.md.
 - Schema design readiness remains NOT APPROVED; no SQL/DDL, migrations, live data, tests, provisioning, deployment or production modifications authorized/performed.
+
+
+### Task 2.7 Increment 1 — bounded event/form and attachment cross-check (2026-11-22)
+- Read-only review of EventService, EventData, FormService, AttachmentService, ProjectInformationService and Router source paths.
+- Documented evidence for void validation, form amendment/snapshot, event-data access, attachment polymorphic ownership, upload visibility, storage deletion ordering, image-copy linkage and candidate tenant relationships.
+- G-03/G-04/G-10/G-01 remain open. Coverage bounded; no runtime tests, live data, SQL/DDL, migrations, DB provisioning or production changes.
