@@ -1198,3 +1198,10 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.6 Increment 11 — cross-cutting technical baseline
 - Consolidated recommended exact-decimal/unit, UTC/local-time, tenant-compatible relational constraints and retention-safe relationship policies.
 - These are provisional V2 technical decisions; G-06/G-07/G-10 remain OPEN/BLOCKERS pending source/data-field discovery and business precision/time policy.
+
+
+### Task 2.6 Increment 12 — procurement projection parity audit
+- Read-only review of ProcurementService need/order/workspace/report/dashboard projection paths.
+- Recorded projection divergence: status filtering, allocation proportional receipt distribution, surplus handling, quantity caps and whole-order project visibility in TASK-2.6-BLOCKER-RESOLUTION.md.
+- Recommended a canonical net receipt projection, explicit lifecycle/reconciliation, allocation accounting and shared report/dashboard projection. G-02 remains BLOCKER; no schema/migration readiness.
+- No tests, live data, SQL/DDL, migration, DB provisioning, production changes or deployment.
