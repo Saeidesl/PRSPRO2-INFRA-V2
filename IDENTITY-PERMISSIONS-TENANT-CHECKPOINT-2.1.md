@@ -50,3 +50,9 @@ Read-only source audit: PRSPRO2BACKEND-PRODUCTION AuthService.js, AccessControlS
 - Password hashing algorithm/upgrade policy and session revocation/rotation semantics.
 - Audit/event logging coverage and repository constraints.
 - No schema, migration, production modifications or live data access.
+
+
+## Router permission coverage spot-check (continued)
+- Inspected Router.js (1094 lines) and located explicit permission checks throughout GET and mutation handlers, including project/event/attachment, workflow/event-type, user/role, reporting and procurement routes.
+- Checks observed include PROJECT_VIEW/CREATE/EDIT, EVENT_VIEW/CREATE/EDIT, ATTACHMENT_VIEW/UPLOAD/DELETE, WORKFLOW_MANAGE, EVENT_TYPE_MANAGE, USER_VIEW/CREATE/EDIT, ROLE_MANAGE, PERMISSION_MANAGE, REPORT_VIEW, PROCUREMENT_VIEW/MANAGE, SYSTEM_SETTINGS, DEPARTMENT_MANAGE and PROJECT_STATUS_MANAGE.
+- Some routes use requireAny combinations, while others use single permission checks. A complete endpoint-to-permission matrix, tests for missing route checks and service-level checks remain outstanding; the spot-check is not an exhaustive security review.
