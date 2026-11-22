@@ -1387,3 +1387,7 @@ No SQL/DDL, migration, DB provisioning, live data, tests, production changes or 
 
 ### Task 2.5 — Increment 16 evidence checkpoint (2026-11-22)
 EventDataService and FormService were re-read in the read-only production reference. Bounded evidence confirms tenant/parent-project visibility checks, independent-event handling, DataJSON parsing/rejection of malformed or non-object payloads, and form-response records containing ResponseJSON and DefinitionSnapshotJSON with update-or-insert behavior. This does not establish immutable response history, comprehensive payload query/report/search requirements, exhaustive amendment lifecycle, or transactional sync with central information. G-03 remains BLOCKER; G-01/G-10 remain BLOCKERS. No tests or implementation work.
+
+
+## Task 2.7 — Evidence closure work package (2026-11-22)
+Task 2.7 is a read-only discovery and traceability effort covering event/form history (G-03), attachment ownership/lifecycle (G-04), tenant-safe relationship integrity (G-10), and registry-to-route/service/dependency coverage (G-01). G-02 remains an open procurement lifecycle blocker. Physical schema design remains gated; source observations must not be converted into executable constraints without evidence and review. No production repository writes, live-data access, SQL/DDL or migration work is authorized in this task.
