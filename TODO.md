@@ -779,3 +779,11 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - [x] Document V2 candidate requirements and explicit unresolved behavior/policy questions.
 - [ ] Validate dedicated service paths, attachment lifecycle and access, audit coverage/redaction, template definition semantics and integration delivery behavior.
 - Status: IN PROGRESS. Mapping is header/config-level; no SQL, schema implementation, live data, secrets or migration.
+
+
+### Phase 2 / Task 2.1 — Event, workflow, project-information and form mapping checkpoint (2026-11-22)
+- [x] Retrieve and verify the complete event header inventory in read-only source.
+- [x] Inspect targeted EventService, ProjectInformationService, FormService and WorkflowService excerpts.
+- [x] Record source mapping observations and unresolved semantics in SOURCE-MAPPING-CHECKPOINT-2.1.md.
+- [ ] Complete audit of event mutation/amendment/void, form snapshots, workflow publish/version, and project-information revision semantics.
+- Status: IN PROGRESS; no schema or migrations.
