@@ -593,3 +593,16 @@
 - Product Owner explicitly accepted the consolidated READ-ONLY audit and findings.
 - Task 0.2 status changed to COMPLETE. Phase 0 remains IN PROGRESS because V2 repository preparation and Task 0.3 discovery boundaries/report remain outstanding.
 - No production changes, live data access, tests, migration or deployment.
+
+### Task 0.3 — Discovery report and target boundaries
+- [x] Draft high-level current-system map from read-only source audit evidence.
+- [x] Draft candidate migration scope, platform exclusions/replacement handling, domain boundaries and compatibility requirements.
+- [x] Record unknowns and items requiring live-data discovery or business confirmation.
+- [ ] Product Owner review and acceptance.
+
+**Status:** IN PROGRESS — draft prepared for Product Owner review. No schema or implementation work authorized.
+
+### Task 0.3 incremental note (2026-11-22)
+- Draft discovery report added to ARCHITECTURE.md section 47.
+- Report includes high-level system map, candidate scope, platform exclusions, provisional domain boundaries, compatibility/migration guardrails and pending discovery questions.
+- This is a draft, not an accepted architecture or migration decision.
