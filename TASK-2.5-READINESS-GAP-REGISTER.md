@@ -382,3 +382,25 @@ This cross-check confirms selected API-to-service mutation reachability and perm
 G-01 and G-10 remain BLOCKERS. The next bounded increment should continue systematic route-to-service mapping and repository-level mutation/dependency coverage across the remaining registry domains, with evidence tiers and unresolved items retained.
 
 No live data, tests, SQL/DDL, migration, DB provisioning, production changes, deployment or VPS action occurred.
+
+
+## Increment 18 — Configuration/workflow domain mutation and route cross-check (read-only, 2026-11-22)
+
+### Reference files sampled
+Router.js, WorkflowService.js, WorkflowStepDepartmentService.js, WorkflowStepDepartmentRepository.js, WorkflowRepository.js, WorkflowStepEventRuleRepository.js, EventTypeService.js, EventTypeRepository.js, DepartmentService.js, DepartmentRepository.js, ProjectStatusService.js, InformationTypeService.js and InformationTypeRepository.js.
+
+### Bounded operation inventory
+- WorkflowService exposes management bootstrap/data, list/get, create/update, step operations, step event-rule retrieval/save and publish. WorkflowStepDepartmentService exposes listing, assign/assignMany and remove. Repositories provide insert/update, association lookups and workflow-version rule cloning/replacement.
+- EventTypeService exposes list/get/create/update and validates references including department, project status and amendment forms in sampled code; EventTypeRepository has insert/update/delete operations.
+- DepartmentService exposes list/get/create/update; DepartmentRepository exposes tenant-oriented lookup and insert/update.
+- ProjectStatusService exposes list/create/update in the sampled service. A dedicated repository file was not located under the guessed filename; the service appears to access sheet-level operations directly in sampled code.
+- InformationTypeService exposes list/get/create/update/deactivate and column list/create/update/deactivate operations; InformationTypeRepository contains type and column persistence methods.
+- Router samples confirm selected read and mutation gates: workflow management routes are gated by WORKFLOW_MANAGE (read list also permits PROJECT_CREATE/SYSTEM_SETTINGS); department create/update gates use DEPARTMENT_MANAGE; event type creation/update gates use EVENT_TYPE_MANAGE; information type creation and column operations use SYSTEM_SETTINGS in inspected branches; project status listing/create use PROJECT_STATUS_MANAGE.
+
+### Evidence limitations and gap impact
+This is a bounded method/route sample, not a full CRUD/consumer matrix. It does not establish all deletion/deactivation paths, route conditions, repository callers, published workflow immutability, cross-tenant constraint enforcement, association cascade/restore, transaction semantics, historical consumers or database constraints. Repository file names not found are not treated as proof that operations are absent.
+- G-01 remains BLOCKER: full registry-to-route/service/repository/read/report lifecycle mapping is not complete.
+- G-10 remains BLOCKER: indirect tenant-alignment and relational-constraint matrix remains incomplete.
+- G-12 remains OPEN/HIGH: configuration scope, revision/publish/deactivate lifecycle and historical consumer contracts remain unresolved.
+
+No live data, SQL/DDL, migration, database provisioning, tests, production modification, deployment or VPS action occurred.
