@@ -1117,3 +1117,10 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Documented conditional project-state restoration, event VOID status, workflow-progress recomputation, material-plan review integration, prior-state snapshots and multi-write partial-failure risks in TASK-2.5-READINESS-GAP-REGISTER.md.
 - G-01/G-02/G-03/G-10 remain blockers; G-09 remains open/high. No full lifecycle or transaction guarantees claimed.
 - No live data, tests, SQL/DDL, migration, DB provisioning, production modifications, deployment or VPS action.
+
+
+### Task 2.5 increment 22 — Material-planning revisions, calculation ledger and reconciliation audit (2026-11-22)
+- Read-only sampled MaterialPlanningService specification revision, calculation-key replay, calculation records, recalculation and event-void review paths.
+- Documented multi-write partial completion, revision and calculation provenance, status mutation (not strictly immutable ledger), NEEDS_REVIEW on void, and observed four-decimal ceiling rounding in TASK-2.5-READINESS-GAP-REGISTER.md.
+- G-01/G-02/G-03/G-10 remain blockers; G-06/G-09 remain open/high. No exhaustive audit or transaction guarantee claimed.
+- No tests, live data, SQL/DDL, migration, DB provisioning, production modifications, deployment or VPS action.
