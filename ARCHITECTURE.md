@@ -1524,3 +1524,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 60 — Audit and project cascade deletion integrity
 - Trace recorded in `TASK-2.8-AUDIT-PROJECT-CASCADE-DELETION-INTEGRITY-TRACE-INCREMENT-60.md`: audit query boundary and sequential cascade deletion/storage trashing, culminating in project physical deletion and partial-failure reporting.
 - E1 only; no runtime tests. G-04/G-10/G-01 remain OPEN.
+
+
+## Task 2.8 Increment 61 — Router/API permission boundary trace
+- Sampled Router.js permission route trace recorded in `TASK-2.8-ROUTER-API-PERMISSION-BOUNDARY-TRACE-INCREMENT-61.md` for procurement, project material planning, information/history, attachment and audit endpoints.
+- E1 only; full endpoint coverage/tests remain pending. G-01/G-10 remain OPEN.
