@@ -1157,3 +1157,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.6 Increment 3 — batch receipt invariants
 - Reviewed batch receipt normalization, quantity/allocation caps, idempotency, order status recalculation, router read-surface and existing tests (tests not executed).
 - Evidence recorded in TASK-2.6-BLOCKER-RESOLUTION.md. Single/batch parity and atomicity are not proven; G-02 remains BLOCKER.
+
+
+### Task 2.6 Increment 4 — order recovery and receipt parity
+- Reviewed order write sequence/partial recovery marker, single receipt sequence and Router procurement write service inventory.
+- Documented NEEDS_REVIEW compensation semantics, multi-write non-atomicity and single/batch receipt policy parity needs. G-02 remains BLOCKER.
