@@ -899,3 +899,5 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Initial confirmed findings include optional Event.ProjectID (independent events), API-validator versus database-nullability distinction, configured information-type values/cardinality, visibility-rule shape, and event-type connection restrictions.
 - Full domain coverage, persistence normalization, precision/rounding, unique/FK scopes, complete state transitions and evidence-backed review remain outstanding.
 - Status: IN PROGRESS (partial evidence checkpoint). No SQL/schema/migrations, tests, live-data inspection, deployment, VPS or production modifications.
+
+- [x] Inspect shared Validator.js semantics and selected GoogleSheetsRepository row-to-object persistence boundary; append findings to Task 2.3 checkpoint. (2026-11-22)
