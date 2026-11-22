@@ -107,3 +107,29 @@ Task 2.2 accepted the consolidated mapping package, but deliberately deferred tr
 - Validator.js is shared utility behavior, not a complete validator inventory for every domain.
 - Numeric-string acceptance/rejection varies across individual domain validators and conversion code; normalize only with source-path evidence.
 - A 404 was returned for guessed `ProcurementValidator.js` and `MaterialPlanningValidator.js` paths; this does not imply validators do not exist under other names or locations.
+
+
+## Further domain-validator evidence (2026-11-22)
+
+### Projects
+- The inspected ProjectValidator supports a DRAFT create path with Title required and early return; regular project creation requires ProjectCode, Title and WorkflowID, and AvailableDepartmentIDs is an array with at least one entry (bounded to 100 in the excerpt).
+- Quantity is optional but, if present/nonblank, converted and validated as an integer >=1. This illustrates domain-path-dependent requirements; DRAFT and regular project records must not be assumed to share identical requiredness.
+
+### Workflow and step event rules
+- Workflow creation requires Name and Code; Version is numeric-validated when supplied. WorkflowType observed values are INITIAL and REPEAT; Status values are ACTIVE/INACTIVE in the validator excerpt.
+- WorkflowStepEventRuleValidator observed RequirementMode values REQUIRED, OPTIONAL, REFERENCE, NOT_REQUIRED; DataSource values NEW_EVENT, SOURCE_PROJECT, NONE; SequenceMode values STRICT, FREE, GROUPED. Combinations are validated (e.g. REFERENCE/source-project, NOT_REQUIRED/NONE). A step's rule list is required to be an array and sequence mode consistency is enforced across rules.
+- These are configuration validation semantics; the full version-bound uniqueness and relational constraints still require service-level verification.
+
+### Identity/reference domains
+- User create validator requires Name, Username and Password (minimum length 8 in the examined excerpt); DepartmentID is optional and ID validated; Status accepts ACTIVE/INACTIVE.
+- Role and Department validators require Name and Code; TenantID is optional at validator boundary; Status accepts ACTIVE/INACTIVE. Tenant assignment is expected to be enforced in service/access layers; validator-level optionality does not imply global entities.
+
+### Attachments and audit
+- Attachment validator requires EntityType, EntityID, FileName, MimeType and Base64; EntityType accepts PROJECT/EVENT in the excerpt. MIME type and file extension must both match configured allowlists. This upload DTO does not imply Base64 belongs in persisted attachment rows; registry maps storage metadata separately.
+- Audit validator requires Action, EntityType and EntityID; UserID, TenantID and Reason are optional at validator boundary. Actor/tenant scope should be enforced by services and audit policy, not inferred solely from DTO requiredness.
+
+### Print template definitions
+- PrintTemplateValidator uses JSON definition structure, supports schemaVersion 1, arrays of elements/bindings and page defaults. Page-size values observed include A4, A5, LETTER and CUSTOM; orientation portrait/landscape. Treat definition as versioned JSON, not an untyped permanent blob without validation/version strategy.
+
+### Caveat
+These are selected validator excerpts. Service-level authorization, tenant constraints, lifecycle, uniqueness, and all branches were not exhaustively audited in this increment.
