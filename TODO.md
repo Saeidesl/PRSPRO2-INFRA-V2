@@ -737,3 +737,13 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - [x] Add file-storage metadata/association and audit lifecycle requirements.
 - [ ] Consolidate conceptual inventory/relationship matrix and open questions for Product Owner review.
 - Status: IN PROGRESS; no SQL schema or migration tooling.
+
+
+### Phase 2 / Task 2.1 consolidation checkpoint (2026-11-22)
+- [x] Consolidate conceptual domain dependency sequence.
+- [x] Document candidate transaction boundaries and external side-effect/recovery patterns.
+- [x] Consolidate cross-domain integrity invariants and schema design validation gate.
+- [ ] Validate detailed source-to-target IDs/fields/cardinality and uniqueness scope.
+- [ ] Resolve business policy questions and confirm workload/query baseline.
+- [ ] Present consolidated draft to Product Owner for acceptance.
+- Status: IN PROGRESS; executable schema is not started or authorized.
