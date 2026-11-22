@@ -1244,3 +1244,9 @@ Task 2.3 additional evidence: project deletion is admin-gated, tenant-scoped, de
 ### Discovery checkpoint: Procurement routes and material-planning lifecycle (2026-11-22)
 
 Read-only source audit confirms the observed procurement write entry points require `PROCUREMENT_MANAGE` for order creation and receipt registration (single/batch), while read endpoints apply procurement/report view permissions. Material-planning source-event void handling marks calculation history `SOURCE_EVENT_VOIDED` and active confirmed needs `NEEDS_REVIEW`; it does not evidence automatic procurement reversal. Specification revision and calculation idempotency rely on service-level lookup/locking patterns that V2 must strengthen with DB-enforced uniqueness and transactions. These are discovery findings, not finalized schema or business decisions.
+
+
+## Phase 2 — Task 2.3 comprehensive audit package (2026-11-22)
+Task 2.3 field semantics and constraint validation source audit has been consolidated and cross-reviewed against accepted Task 2.2 mapping and the conceptual data-model draft. Findings include API validator semantics vs database constraints, tenant relationships, field representation/normalization, JSON and temporal boundaries, numeric precision uncertainty, revision/history/idempotency patterns, transaction boundaries, status and reversal observations, polymorphic references, and candidate uniqueness/FK/atomicity rules. Procurement lifecycle observations remain bounded to inspected sources; missing routes/methods are not asserted system-wide, and receipt VOID path/status remains unverified.
+
+The review package is **IMPLEMENTED — READY FOR PRODUCT OWNER REVIEW**, not COMPLETE until explicit acceptance. No tests were executed; no live Sheets data, SQL/schema/migrations, production changes, deployment or VPS activity occurred. Next after acceptance: Phase 2 Task 2.4, schema design/constraint decisions, only as roadmap permits.
