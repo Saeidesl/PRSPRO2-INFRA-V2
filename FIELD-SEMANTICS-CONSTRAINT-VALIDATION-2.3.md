@@ -169,3 +169,25 @@ These are selected validator excerpts. Service-level authorization, tenant const
 - IDs, generated item codes and timestamps are source-generated; generated ID format should not be copied blindly into PostgreSQL. Uniqueness scopes and revision race protection need service-path review.
 - Material calculation history is described as immutable in service header, but its exact full write-path and invariants remain to be audited. No precision/rounding or calculation algorithm assumptions are finalized here.
 - These findings support evaluation of decimal precision, immutable revision records, tenant/project-scoped key uniqueness, optimistic/concurrency-safe revision creation, and audit trail requirements, but are not approved constraints.
+
+
+## Dependency-aware deletion, event transition and role assignment semantics (2026-11-22)
+
+### Project deletion
+- ProjectDeletionService performs dependency-aware soft deletion and is admin-gated at service context; project and dependency scope is tenant-filtered.
+- Dependency collection traverses events/event data, material needs, purchase-order items, allocations, receipts, specifications and calculations. It deliberately protects order lines or orders still used by another project and avoids cascade-removing shared procurement objects.
+- The service comments state a sheet-read/schema failure must not be interpreted as an empty dependency list. This is a critical fail-closed behavior.
+- V2 deletion policy must model dependency graph and shared procurement relationships, use transactions, and distinguish logical deletion from file-storage cleanup. Exact cascade/retention policy remains pending business approval.
+
+### Event transition semantics
+- EventService uses event-time comparison (OccurredAt falling back to CreatedAt) to inspect later events in other departments, ignores VOID events in that comparison, and prevents/adjusts transition behavior based on configured event types and workflow assignments.
+- Draft project events are explicitly treated as information collection only in inspected configured-change logic; lifecycle/workflow transitions wait until explicit completion.
+- Event type configuration can set target project status, step status, current step, and available departments. These are service-level transition rules; complete state-machine constraints and all update/delete branches require further review.
+
+### User-role association
+- UserRoleService validates both user and role tenant matches, checks role ACTIVE, and checks duplicate assignment before insert. Remove validates tenant and deletes the association with audit logging.
+- RolePermissionRepository exposes duplicate lookup and lock-protected bulk insert/delete, but UserRoleService.assign's check-then-insert path as inspected does not show a lock/transaction around the duplicate check. PostgreSQL should enforce unique user-role association in tenant scope and use transactional assignment to avoid races.
+- Role/permission assignment and removal are relationship operations and should be represented as constrained association tables, with audit history retained.
+
+### Caveats
+- Excerpts are not a complete audit of every service branch, router authorization, repository write implementation or concurrency scenario. No DB constraint is finalized or approved based on these observations alone.
