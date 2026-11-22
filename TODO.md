@@ -1052,3 +1052,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Extracted and grouped the 38 configuration registry definitions from DatabaseSetup.js (read-only source; no live sheet/data access).
 - Recorded a baseline inventory and highlighted the need for per-entity caller/lifecycle/constraint mapping. The inventory is not yet a completed mutation matrix.
 - G-01/G-10 remain BLOCKERS; G-12 remains open. No SQL/DDL, migration, DB provisioning, live data, tests or production writes.
+
+
+### Task 2.5 incremental audit — partial service/repository lifecycle mapping increment 12 (2026-11-22)
+- Sampled user-role assignment, role/permission catalog, workflow-step-event-rule versioning, workflow-step-department associations and project-status lifecycle source paths read-only.
+- Recorded bounded CONFIRMED/PARTIAL/UNVERIFIED coverage states; no exhaustive operation matrix claim.
+- G-01/G-10 remain BLOCKERS and G-12 open. No SQL/DDL, migrations, DB provisioning, live data, tests or production writes.
