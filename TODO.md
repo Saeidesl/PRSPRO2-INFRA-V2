@@ -977,3 +977,12 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Task 2.4 is COMPLETE and accepted as a design artifact; it is not a migration-ready specification and no SQL/DDL, schema migration or database provisioning has been authorized or executed.
 - Important remaining dependencies: source mapping completeness, payload/search requirements, procurement correction/reversal contract, attachment owner inventory, precision/timezone, identifier migration, retention, RLS, identity migration.
 - Next roadmap step: prepare a safe detailed schema/migration implementation readiness task, first closing the source-evidence gaps and design decisions before executable migrations.
+
+
+## Phase 2 — Task 2.5: Schema implementation readiness & evidence gap closure (IN PROGRESS — 2026-11-22)
+- Dependency: accepted Task 2.4 logical blueprint; do not repeat accepted 2.1–2.4 work.
+- Scope: read-only evidence audit and decision inventory to determine whether source mapping and write-path evidence are sufficiently complete for safe migration/schema implementation.
+- Focus areas: table/entity coverage, mutations and lifecycle paths, uniqueness/FK evidence, event response/payload search requirements, procurement reversal/correction contract evidence, attachment owner types, identifiers, precision/timezone, identity migration and retention.
+- Deliverable: readiness-gap register, evidence-backed updates, prioritized resolution plan and review package.
+- Guardrail: no executable SQL/DDL, migrations, DB provisioning, live production data access, production changes, deployment or VPS action during this task.
+- Task remains IN PROGRESS; no acceptance/completion claim until review and Product Owner acceptance.
