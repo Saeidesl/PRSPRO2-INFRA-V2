@@ -262,3 +262,9 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 - Collector evidence maps event/data, needs, procurement allocations/items/orders/receipts, specs/calculations and project/event attachments; cross-project allocation safeguards noted.
 - Deletion is multi-step/non-atomic, soft-delete/void child handling followed by file trash and physical project row removal if no prior failures; recovery/rollback unknown. This is legacy evidence, not a V2 design decision.
 - G-01/G-04/G-10 remain open; G-02 open. No tests, live data, SQL/DDL, migration, provisioning, deployment or production modification.
+
+
+### Task 2.7 Increment 5 — Definition/history mutation review (2026-11-22)
+- Read-only sampled WorkflowService/Repository, EventTypeService, InformationTypeService, ProjectInformationService and FormService/Repository.
+- Evidence recorded: tenant-scoped lookup/management, soft-delete and audit paths for information types/columns, project information history, form field/mapping deletion, and workflow/event type update/version/configuration.
+- Dependent effect enforcement, complete version lineage, retention and all mutation paths remain unproven; bounded review only. G-01/G-03/G-04/G-10 open; G-02 open. No live data/tests/DDL/migrations/provisioning/deployment/production write.
