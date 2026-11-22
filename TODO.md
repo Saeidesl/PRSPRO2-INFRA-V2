@@ -572,3 +572,9 @@
 - Reviewed selected POST/PUT/DELETE branches in production Router read-only. POST categories include project/event creation, workflow configuration/publish/assignments, project-information mutations, forms/catalogue, procurement receipts/orders, attachment upload, users/roles and template media. PUT includes configuration revisions, project update (Draft creator exception), event form amendments/void and user updates. DELETE includes soft-deactivation, relationship removals, attachment removal, admin project deletion and session revocation.
 - Permission categories and notable Draft/admin/resource-scoping behavior are recorded in ARCHITECTURE.md section 44.
 - No production changes or tests. Endpoint exhaustiveness, underlying service/resource authorization, mutation atomicity and audit coverage remain pending verification.
+
+
+### Task 0.2 incremental notes (2026-11-22 — audit/service review)
+- Read-only inspection of AuditService.log/list/listByEntity/listByUser and selected mutation service files (FormService, WorkflowService, ProjectInformationService, ProcurementService, AttachmentService, EventService, PrintTemplateService).
+- Audit log creation requires tenant/action/entity fields, serializes OldData/NewData and writes through AuditRepository; sampled list operations filter by tenant. Redaction, append-only enforcement, payload bounds, retention, indexes and transaction coupling were not established.
+- Service-level source has multi-step workflows and audit/locking markers, but their existence is not proof of complete coverage or atomicity. This remains source-review-only, no tests.
