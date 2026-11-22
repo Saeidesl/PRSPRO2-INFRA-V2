@@ -533,3 +533,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Read-only authenticated tenant-context/RBAC resolution trace added in `TASK-2.8-AUTHENTICATED-TENANT-CONTEXT-RBAC-RESOLUTION-TRACE-INCREMENT-43.md`.
 - Source evidence records session tenant/user binding, tenant-scoped role and RolePermission resolution, tenant-specific admin check and global permission catalog read. Router/service-specific authorization is relied upon beyond generic authenticated hook.
 - G-10/G-01 remain OPEN; E1 only. Schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+## Phase 2 — Task 2.8 Increment 44 (2026-11-22)
+- Exact recursive-tree test inventories reconciled: 43 frontend test files and 43 backend test files, documented in `TASK-2.8-G01-FRONTEND-BACKEND-TEST-TREE-RECONCILIATION-INCREMENT-44.md`.
+- Filename-level thematic mapping is preliminary and not test execution or coverage proof. G-01 remains OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
