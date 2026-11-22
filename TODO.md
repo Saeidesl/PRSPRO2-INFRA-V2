@@ -560,3 +560,9 @@
 - The audit remains source-only: no live Google Sheets/Drive data, user records, deployed configuration or runtime telemetry were accessed.
 - Pending major areas: exhaustive route-to-service authorization matrix; full integration inventory beyond Telegram and the sampled procurement-event integration; test inventory-to-execution and coverage mapping; baseline data volumes/performance; migration anomaly and cutover dependencies; complete event/project/workflow relationship and mutation coverage.
 - No tests were run; production repositories and production systems remain untouched.
+
+
+### Task 0.2 incremental notes (2026-11-22 — selected GET route permission trace)
+- Mapped sampled GET router gates for project, workflow, form/information-type, event, attachment, user/role/permission, audit/report and procurement branches. Detailed permission categories and nested access gates recorded in ARCHITECTURE.md section 42.
+- Router gate review is not proof of service-level authorization/resource ownership or exhaustive coverage. Reconciliation of all route methods and nested paths remains pending.
+- V2 authorization design requirement: consistent policy enforcement with tenant/resource scope, explicit any-of/admin/Draft exceptions, and automated tests; do not trust frontend checks.
