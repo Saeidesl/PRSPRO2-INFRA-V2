@@ -891,3 +891,11 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Task 2.2 is COMPLETE and accepted. Do not repeat it.
 - Next task may begin only according to the Phase 2 roadmap and protocol.
 - Acceptance does not approve schema/migrations, production data access, deployment or production changes.
+
+
+## Phase 2 — Task 2.3: Field semantics & constraint validation (2026-11-22)
+- Started read-only source validation of API field semantics, optional/required behavior, enums, JSON boundaries, tenant relationships and constraint candidates.
+- Created `FIELD-SEMANTICS-CONSTRAINT-VALIDATION-2.3.md` with task scope, work plan, initial evidence from EventValidator, InformationTypeValidator, FormValidator, EventTypeValidator, DatabaseSetup and selected MaterialPlanningService excerpt.
+- Initial confirmed findings include optional Event.ProjectID (independent events), API-validator versus database-nullability distinction, configured information-type values/cardinality, visibility-rule shape, and event-type connection restrictions.
+- Full domain coverage, persistence normalization, precision/rounding, unique/FK scopes, complete state transitions and evidence-backed review remain outstanding.
+- Status: IN PROGRESS (partial evidence checkpoint). No SQL/schema/migrations, tests, live-data inspection, deployment, VPS or production modifications.
