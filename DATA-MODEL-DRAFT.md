@@ -450,3 +450,51 @@ Table is a design hypothesis; detailed source mapping and Product Owner decision
 - Uniqueness scopes for item codes, calculation keys, order numbers and idempotency keys.
 
 No schema, SQL, migration, live-data extraction or production modification was performed.
+
+
+## 18. Source-to-target mapping checkpoint — Identity, Tenant and Authorization
+
+**Evidence:** Read-only source review of legacy `DatabaseSetup.js`, `AccessControlService.js`, `PermissionService.js`, `AuthService.js`, selected repositories and Router excerpts in `PRSPRO2BACKEND-PRODUCTION`, 2026-11-22. Header-level mapping and targeted logic observations only; not a comprehensive security audit.
+
+### Source tables and provisional mapping
+| Legacy sheet | Header fields | Provisional V2 target / cautions |
+|---|---|---|
+| 01_Tenants | ID, Name, Code, Timezone, Status, CreatedAt, UpdatedAt | Tenant boundary; code uniqueness and tenant lifecycle pending |
+| 02_Users | ID, TenantID, Name, Username, PasswordHash, DepartmentID, Status, CreatedAt, UpdatedAt | User/account, tenant relationship, password hash, primary department; global identity vs tenant-scoped username unresolved |
+| 03_Departments | ID, TenantID, Name, Code, Status, CreatedAt, UpdatedAt | Tenant-scoped department; code uniqueness and multi-department membership behavior pending |
+| 04_Roles | ID, TenantID, Name, Code, Status, CreatedAt, UpdatedAt | Tenant role; scope and privileged role semantics pending |
+| 05_Permissions | ID, Code, Name, Module, Description, Status | Permission catalog; source appears catalog-wide, scope and versioning pending |
+| 06_UserRoles | ID, TenantID, UserID, RoleID, CreatedAt | User-to-role assignments; tenant consistency constraints required |
+| 07_RolePermissions | ID, TenantID, RoleID, PermissionID, CreatedAt | Role-to-permission assignments; tenant consistency and uniqueness required |
+
+### Observed legacy authorization behavior (limited excerpts)
+- Authentication retrieves the current session/token context through AuthService; AccessControlService calls AuthService.me and rejects missing/invalid user context.
+- The legacy user record includes TenantID and DepartmentID. Department lookup validates tenant and active status.
+- UserRole rows are filtered by user and tenant. Roles are filtered by tenant and active status.
+- Admin detection recognizes active tenant roles with codes SYS_ADMIN or ADMIN (observed in AccessControlService).
+- Permission resolution combines active roles, tenant-scoped UserRoles and RolePermissions; Permission catalog records are read globally in the observed path.
+- Router.requireAny checks authenticated user, allows admin path, otherwise checks any supplied permission code.
+- AccessControlService.enforceRouteAccess, in the inspected excerpt, authenticates but returns true after noting operational checks occur in Router/services. This reinforces the need for explicit authorization at each V2 endpoint and resource-level policy.
+- Login path in AuthService checks matching username records and fails closed unless exactly one matching record exists; source comments note usernames may repeat across tenants and tenant selector is not supplied in this path.
+- Request-level caching is present in AccessControlService and PermissionService excerpts. V2 cache design must not leak authorization decisions across tenants, users, resource scopes or sessions and should invalidate safely.
+
+### V2 security architecture requirements (design candidates, not implementation)
+1. Resolve tenant context from authenticated membership/session and never trust a tenant ID supplied only by the client.
+2. Decide whether identity is global with tenant memberships or tenant-scoped; support explicit tenant selection if membership can span tenants.
+3. Enforce compound tenant constraints on membership, department, role, role-permission and resource relationships.
+4. Centralize authorization policy with explicit endpoint and resource-level checks; no broad admin shortcut without documented scope.
+5. Require active membership/account, session expiry/revocation, password policy and secure credential hashing; avoid legacy hash compatibility assumptions until migration assessment.
+6. Use secure session storage, rotation/revocation, rate limiting, anti-brute-force controls, CSRF policy for cookie sessions, and redacted logs.
+7. Audit privilege changes, membership changes, permission changes, session lifecycle and sensitive access with retention/export safeguards.
+8. Design authorization tests for cross-tenant access, inactive users/roles/departments, role assignment, missing permissions, privilege escalation and object-level access.
+
+### Open policy decisions
+- Global user identity versus tenant-specific user identities and usernames.
+- Users with multiple tenant memberships and tenant switching behavior.
+- Role and permission scope, tenant/system roles and any exceptional administrator privileges.
+- Department assignment cardinality (single department or membership list) and department-based visibility rules.
+- Account/membership disable, termination, session invalidation and audit retention semantics.
+- Password/session migration and legacy hash conversion/forced reset strategy.
+- Authorization matrix for resource access and department/project restrictions.
+
+No credential values, token values or user data were extracted. No executable schema, migration or production modification performed.
