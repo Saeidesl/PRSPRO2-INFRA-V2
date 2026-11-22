@@ -1306,3 +1306,7 @@ A read-only sample reviewed core ID prefix constants, UUID-derived procurement i
 
 ## Task 2.5 evidence increment 8 — quantity and temporal semantics (2026-11-22)
 Bounded source review observed positive-integer project quantity validation, JavaScript numeric validation in procurement/material planning, and parseable OccurredAt plus ISO timestamp patterns in sampled event/session pathways. This does not establish decimal precision, rounding, unit conversion, timezone storage/display or Jalali policy. G-06/G-07 remain HIGH and G-01 remains a blocker pending exhaustive field and consumer inventory. See TASK-2.5-READINESS-GAP-REGISTER.md. No executable SQL/DDL, migration, DB provisioning, live data, tests, production changes or deployment.
+
+
+## Task 2.5 evidence increment 9 — identity and lifecycle recovery (2026-11-22)
+Read-only sampling observed user status/update/audit paths, repository physical-delete capability, role-permission association bulk deletion, dependency-aware project deletion, shared procurement preservation and Drive trash behavior. This does not establish identity migration, audit completeness/retention, restore/purge or cross-system recovery contracts. G-08/G-09/G-11 remain HIGH and G-01 remains a blocker pending complete mutation/lifecycle coverage. See TASK-2.5-READINESS-GAP-REGISTER.md. No SQL/DDL, migration, DB provisioning, live data, tests, production changes or deployment.
