@@ -1343,3 +1343,7 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 — Route dispatch/caller method evidence Increment 9 (2026-11-22)
 - Reconciled frontend API wrapper verb helpers with verb-specific Router.js branches for sampled route families; resolved prior workflow-progress literal-search discrepancy: the GET project-prefix dispatch exists and calls EventService.workflowProgress behind PROJECT_VIEW.
 - Evidence recorded in `TASK-2.8-ROUTE-DISPATCH-CALLER-METHOD-EVIDENCE-INCREMENT-9.md`. Bounded source comparison only; not exhaustive handler, tenant, permission or test coverage. G-01 remains OPEN; no tests or production changes.
+
+
+### Task 2.8 — Targeted tenant service validation Increment 10 (2026-11-22)
+- Read-only inspection of EventService.workflowProgress and selected ProjectService/ProcurementService tenant-visibility helpers recorded in `TASK-2.8-TARGETED-TENANT-SERVICE-VALIDATION-INCREMENT-10.md`. Observed project tenant and availability validation in these inspected paths; coverage is bounded, not exhaustive. G-10/G-01 remain OPEN; no tests/live data/production changes.
