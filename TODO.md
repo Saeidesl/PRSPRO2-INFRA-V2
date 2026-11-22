@@ -1232,3 +1232,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Read-only review of EventService, EventData, FormService, AttachmentService, ProjectInformationService and Router source paths.
 - Documented evidence for void validation, form amendment/snapshot, event-data access, attachment polymorphic ownership, upload visibility, storage deletion ordering, image-copy linkage and candidate tenant relationships.
 - G-03/G-04/G-10/G-01 remain open. Coverage bounded; no runtime tests, live data, SQL/DDL, migrations, DB provisioning or production changes.
+
+
+### Task 2.7 Increment 2 — header and router inventory (2026-11-22)
+- Sampled DatabaseSetup.js and Router.js in read-only legacy backend.
+- Reconciled 35+ legacy structures across security, project/workflow, event/form, information/template, attachment/audit, procurement domains and bounded route inventory.
+- Identified naming/numbering anomalies and legacy backup structure; no V2 entity assumptions. G-01/G-10 remain open; inventory extraction is not exhaustive.
