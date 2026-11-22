@@ -1254,3 +1254,7 @@ The review package is **IMPLEMENTED — READY FOR PRODUCT OWNER REVIEW**, not CO
 
 ## Phase 2 — Task 2.3 Product Owner acceptance (2026-11-22)
 The Product Owner explicitly accepted the Task 2.3 field semantics and constraint validation audit. Task 2.3 is closed/accepted. The audit package remains discovery evidence and candidate constraints, not an authorization to implement schema/migrations or access production data. Next task is Phase 2 Task 2.4, subject to reviewing the roadmap and establishing its scope and gate.
+
+
+## Phase 2 — Task 2.4 schema blueprint initiation (2026-11-22)
+Task 2.3 has been accepted. Task 2.4 is now IN PROGRESS and design-only. Its scope is a logical PostgreSQL schema blueprint, tenant-aware keys/relationships, uniqueness/cardinality candidates, lifecycle/history/snapshot/polymorphic storage modeling, transaction/idempotency/concurrency design, and a decision register. No SQL/DDL/migration, DB provisioning, live legacy data, production changes, deployment or VPS work is authorized. The deliverable will be reviewed against accepted Task 2.1–2.3 evidence and presented for Product Owner acceptance before implementation.
