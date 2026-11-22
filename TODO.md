@@ -1587,3 +1587,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 57 (2026-11-22)
 - Bounded procurement/material-planning lifecycle trace recorded in `TASK-2.8-PROCUREMENT-MATERIAL-PLANNING-LIFECYCLE-TRACE-INCREMENT-57.md`: tenant-scoped repository reads, locked/idempotent order and receipt paths, compensating NEEDS_REVIEW behavior for partial order writes, calculation/spec revision lifecycle, source-event void handling and separate audit writes.
 - E1 source review only; no runtime testing. G-02/G-03/G-10 remain OPEN; schema readiness NOT APPROVED. No live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+### Task 2.8 Increment 58 (2026-11-22)
+- Event void and ProjectInformation revision/sync trace recorded in `TASK-2.8-EVENT-VOID-PROJECT-INFORMATION-REVISION-SYNC-TRACE-INCREMENT-58.md`: sequential void restoration/cascade/audit writes and recoverable material reconciliation failure, plus information current/history/audit/reference-sync write boundaries and sampled Form/EventData controls.
+- E1 only; runtime tests not executed. G-03/G-10/G-01 remain OPEN; schema readiness NOT APPROVED. No live data/DDL/migrations/provisioning/deployment/production changes.
