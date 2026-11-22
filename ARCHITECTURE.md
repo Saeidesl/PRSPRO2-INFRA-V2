@@ -865,3 +865,17 @@ The frontend tree includes tests for event filtering/history/forms/image preview
 - MaterialPlanningService trace: validates tenant/project visibility; specification revisions and calculations use keyed history/idempotency patterns and AuditService in sampled paths. Recalculation may update material needs and calculations across multiple rows; V2 must preserve revision/basis snapshots and transact these changes.
 - ProcurementService trace: tenant-scoped reads/validation, script lock for order creation and idempotency replay logic; order creation inserts order, items and allocations, then audit. Receipt paths similarly touch multiple records and audit. The script lock is a legacy concurrency control but does not establish atomicity or DB constraint equivalence.
 - Source-only review, sampled methods. No runtime tests, penetration tests, production modification or live data access. Permission and audit matrix remains incomplete.
+
+
+## 40. Event and workflow execution invariants — additional source trace (2026-11-22)
+
+- EventService source trace confirms transition target resolution depends on tenant-owned workflow, active step-department assignments, and matching workflow-step records; strict paths reject invalid/missing mappings rather than silently advancing. Events for Draft projects do not apply configured project lifecycle changes in the examined transition helper.
+- Event ordering/void safety uses occurrence/creation timestamps, tenant/project scoping and excludes VOID records when evaluating later events in another department. Event void restoration checks expected current-state/snapshot conditions before restoring, rather than blindly overwriting a project state.
+- WorkflowService management bootstrap and management-data reads filter workflow, department, active event-type and information-type data by tenant and workflow version. The trace reinforces that workflow versioning and assignment scope must be explicit in V2 contracts and queries.
+- These are selected source traces; comprehensive event mutation, sequencing, repeat-project, and route/service authorization reconciliation remains pending. No runtime tests were executed.
+
+## 41. Discovery audit scope and limitations — current checkpoint (2026-11-22)
+
+- Audit is a source-code review of selected legacy repository files and declared schemas/routes; it has not queried live Google Sheets/Drive, user records, production telemetry, or deployed configuration.
+- Findings are therefore design and migration evidence, not performance measurements, operational guarantees, or confirmed exploitability. A complete route-to-service authorization matrix, external integration inventory, test coverage/run status, data-volume and performance baseline, and migration anomaly assessment remain outstanding.
+- Major V2 migration requirements emerging from source: tenant-scoped relational constraints; preserved legacy identifiers, version/snapshot and idempotency semantics; transactional multi-record operations; secure authentication and authorization; append-only/redacted audit; independently managed files; repeatable migration with reconciliation; and test evidence before cutover.
