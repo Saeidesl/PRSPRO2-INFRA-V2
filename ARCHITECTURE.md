@@ -1427,3 +1427,7 @@ Task 2.7 is a read-only discovery and traceability effort covering event/form hi
 ### Task 2.7 Increment 6 — Tenant relationship integrity
 - Source evidence indicates service-layer tenant validation is the dominant legacy safeguard; generic repositories frequently expose ID/global-sheet accessors without tenant isolation in their contract. Procurement reads are tenant-filtered, graph validation remains service-side.
 - Polymorphic attachment ownership, nullable independent events, history and procurement cross-links are physical-schema challenges. Evidence does not establish relational enforcement or readiness.
+
+
+### Task 2.7 Increment 7 — Event/form history
+- Legacy event/form paths persist form response payloads and definition snapshots, with amendment replay/optimistic checks and void state restoration in sampled services. Writes are multi-step; atomicity, immutable lineage, full reporting parity and retention remain unproven.
