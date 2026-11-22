@@ -355,3 +355,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 G-10 Increment 10 (2026-11-22)
 - Recorded targeted service-level tenant/visibility evidence for workflow progress and selected procurement/project helpers in `TASK-2.8-TARGETED-TENANT-SERVICE-VALIDATION-INCREMENT-10.md`.
 - Inspected paths include tenant ID checks and project availability checks. This is not exhaustive method/relation coverage. G-10 and G-01 remain OPEN; schema readiness NOT APPROVED. No tests, live data or production changes.
+
+
+## Phase 2 — Task 2.8 G-01 Increment 11 (2026-11-22)
+- Recursive read-only test-path inventory from legacy frontend/backend recorded in `TASK-2.8-TEST-SURFACE-INVENTORY-INCREMENT-11.md`.
+- Test filenames do not establish execution, pass status or comprehensive assertion coverage; source/test traceability remains open. G-01 remains OPEN; schema readiness NOT APPROVED. No tests or production changes.
