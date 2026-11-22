@@ -1401,3 +1401,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Read-only AuditService/AuditRepository and ProcurementService batch receipt/order failure-boundary trace recorded in `TASK-2.8-PROCUREMENT-RECEIPT-BATCH-AUDIT-FAILURE-BOUNDARY-INCREMENT-21.md`.
 - Batch receipts validate and normalize before one receipt-sheet insertMany, then update order status sequentially and write audits separately. No cross-sheet transaction is demonstrated; replay keys do not prove payload-equivalence or uniqueness enforcement. Audit rows are tenant-filtered at service reads but immutable/transactional durability not established.
 - G-01/G-02/G-10 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+## Phase 2 — Task 2.8 Increment 22 (2026-11-22)
+- Read-only trace of Audit GET route permission gates, tenant filtering, validator/service distinction and test-tree inventory documented in `TASK-2.8-AUDIT-ROUTE-PERMISSION-TEST-TRACE-INCREMENT-22.md`.
+- Router gates `/audit`, `/audit/entity/*`, `/audit/user/*` with REPORT_VIEW; service tenant-filters results and validates same-tenant target user. AuditRepository scans broad sheet then filtering occurs in service. No dedicated audit test filename was identified in test tree; filename absence is not assertion coverage proof.
+- G-01/G-02/G-10 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
