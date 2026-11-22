@@ -107,3 +107,61 @@ Additional exact header arrays verified in this retrieval:
 - `36_PrintTemplates`: ID,TenantID,Code,Name,Description,Status,Version,DefinitionJSON,CreatedBy,CreatedAt,UpdatedBy,UpdatedAt
 
 Source file SHA observed: `DatabaseSetup.js` blob `f8e341a5c220105792eab030ea5de920c9921320`. Read-only fetch only. This retrieval supports exact header evidence; behavioral validation for each header remains incomplete.
+
+
+## Task 2.2 — Final audit consolidation and review package (2026-11-22)
+
+### Mapping coverage review
+This deliverable consolidates the header inventory with source-supported behavior and a field-family mapping/constraint assessment. It is a design/review package, not a claim that every legacy row or live sheet has been inspected.
+
+| Domain / field families | Logical target mapping | Evidence level | Mapping / constraint conclusions |
+|---|---|---|---|
+| Tenant and identity (TenantID, username, account status, department) | Tenant, User, Department | Registry headers + selected auth/access source paths | Tenant boundary is essential. Username may repeat across tenants in the source model; login path fails closed if lookup returns ambiguous matches. V2 uniqueness should be tenant-scoped, and password migration/reset policy must be decided separately. |
+| Role / permission associations | Role, Permission, UserRole, RolePermission | Headers + permission resolution and route excerpts | Tenant-aware role assignment/resolution observed. Association uniqueness, global permission catalog scope, effective dates and complete authorization matrix remain to be confirmed. |
+| Projects and workflow binding | Project, Workflow, WorkflowVersion, WorkflowStep | Headers + selected project/workflow creation, draft and reference-copy paths | Project code uniqueness scope is not established. Preserve workflow version and project-state snapshots. Draft ownership exceptions must be modeled explicitly. |
+| Event type and dynamic field configuration | EventType, EventField, EventTypeForm, Form, FormField | Headers + selected event/form validation/amendment paths | Dynamic configuration needs versioned definitions/snapshots. Field-code uniqueness and full required/nullability rules are not fully source-proven. |
+| Event lifecycle and payload | Event, EventData, EventFormResponse | Headers + event validation, sequencing, void, amendment and idempotency paths | Project association is optional for independent event types. Preserve occurred-at vs created-at, performer/creator, workflow/type version, prior-state snapshot, payload, idempotency status. Voids/restoration are guarded and not equivalent to deletion. |
+| Project information | InformationType, Column, ProjectInformation, History | Headers + revision, validation, locking, conflict and history paths | Values are revisioned; type/cardinality/column validation and source-event linkage apply. History must be retained separately. Exact relational/unique scopes are not fully proven. |
+| Reference project copy/sync | Project reference relation and SyncLog | Headers + LIVE_SYNC / INITIAL_COPY / INDEPENDENT and conflict paths | Policies and operation identity must survive; stale/conflict detection and idempotent replay matter. Failed-copy recovery semantics remain partly open. |
+| Material specifications, needs and calculations | Spec, Need, Calculation ledger | Headers + selected planning/reconciliation paths | Preserve calculation provenance, source event/version, basis quantity, revisions, variance/reconciliation. Exact precision, units, keys and lifecycle constraints require explicit V2 policy. |
+| Procurement order and item | PurchaseOrder, OrderItem | Headers + procurement service validation/idempotency/recovery | Order graphs validated before writes; partial failure recovery context is observed. Number uniqueness, cancellation, returns and durable transaction semantics remain policy gaps. |
+| Allocation and receipt | Allocation, Receipt | Headers + allocation and receipt paths | Allocation and receipt limits, project/need relationship and tenant checks observed; batch/single receipt pathways differ in some validation/replay details. Harmonize in V2. Returns/corrections are unresolved. |
+| Attachment metadata | Attachment, entity association, storage object | Headers + attachment validation, authorization, association and delete paths | Entity pointer is polymorphic; source uses Drive provider. Storage cleanup, retention, recoverability, provider-independent keys and transactional outbox need explicit design. |
+| Audit | Audit record | Headers + selected audit paths | Old/new payloads, action, entity pointer, reason and actor are represented. Coverage is not exhaustive; immutable storage, redaction, retention and completeness policy are open. |
+| Print templates | Template/version/definition | Headers + selected template service/validator/resolver paths | Tenant-scoped code duplicate checks observed in create/update paths; version increment and definition validation observed. Resolver sources are allow-listed but rendered data is not persisted as a project snapshot. |
+| Workflow-step rules/departments | Workflow rule and step-department association | Headers + selected workflow rules | Version and sequence/group/order/require-repeat fields exist. Exact uniqueness and publication invariants require verification. |
+| Procurement event configuration | Event type procurement mapping | Headers + selected integration path | Limited central-information-type mapping is observed; independent procurement orders/receipts remain outside this event linkage. |
+| Notifications / external integration | Notification delivery / integration config (candidate) | Partial source audit only | Telegram integration uses Script Properties and tenant-chat registration; secrets/configuration were not accessed. Persistence, retry, idempotency and outbox contracts are not adequately evidenced for mapping. Deferred to explicit discovery, not inferred. |
+
+### Constraint and relationship audit summary
+- **Tenant scope:** the source commonly validates tenant/resource ownership through services and parent-resource lookups. V2 should use tenant-inclusive foreign keys/unique constraints where applicable and enforce tenant isolation at API/service boundaries. This is a design requirement, not a finalized constraint list.
+- **Logical links:** project→events/information/material; event→payload/forms; event-type→forms; form→fields/information types; information→history; workflow/version→steps/rules/departments; procurement→items→allocations/receipts; project/spec→needs/calculations; attachment/audit polymorphic entity pointers. These source relationships do not imply enforced SQL foreign keys in the legacy store.
+- **Snapshot/version retention:** project workflow version, event type version, form response definition/version, material calculation provenance, and project-information revision are identified as history-sensitive. V2 must not collapse them into mutable current definitions.
+- **Idempotency:** event submission, reference-copy operations, procurement order creation and receipt operations have source-level replay/locking mechanisms in reviewed paths. V2 should move these to durable DB uniqueness and transaction semantics, with clear replay responses.
+- **Deletion/void/reversal:** project deletion is dependency-aware and can partially fail in Sheets; event void attempts guarded state restoration; attachment storage deletion is a side effect. V2 should use archive/soft-delete where appropriate, transactional domain state changes and asynchronous durable cleanup. Exact retention policy is still a PO/business decision.
+- **Uniqueness:** source checks are often service-level (e.g., print-template code per tenant and active/non-deleted rows) rather than globally enforced. For each candidate uniqueness rule, V2 must define active/deleted semantics and scope before DDL.
+- **Authorization:** inspected route/service checks are not a full permission audit. The generic route hook relies on route-specific/service checks; V2 should centralize authorization, resource scope checks and fail-closed behavior. No penetration/runtime test is claimed.
+- **Query/workload:** only source query/read patterns were sampled. No live data, query timing, row-count distribution or production workload metrics were accessed; index selection and performance sizing are explicitly deferred.
+
+### Comprehensive review checklist
+- [x] Registry headers compared to source registry definition; distinction from live-sheet validation documented.
+- [x] Major domain families and their logical target mappings consolidated.
+- [x] Source-supported lifecycle and validation evidence incorporated from prior read-only audit.
+- [x] Tenant scope, logical relationships, polymorphic references, snapshots and idempotency flagged.
+- [x] Known divergent paths (batch vs single receipt) and partial-failure boundaries documented.
+- [x] Security review scope/caveats, storage side effects and unresolved business decisions documented.
+- [x] Explicitly prohibited unsafe assumptions: inferred SQL FK/unique/nullable rules, migrations, real-data inspection or testing.
+- [ ] Exhaustive field-level SQL type/nullability/precision mapping: intentionally deferred until schema-design validation; legacy headers do not establish SQL types.
+- [ ] Live deployed-sheet drift/real-data validation: excluded by safety boundary and not needed for this read-only source mapping checkpoint.
+- [ ] Full permission/penetration audit and performance/workload measurements: not claimed; separate QA/security tasks.
+
+### Review findings and required design gates
+1. Do not translate legacy sheet column types mechanically; JSON payloads, date representations, boolean encodings and numeric precision must be validated with sanitized fixtures or business rules before DDL.
+2. Never infer a foreign key from a column name. Relationship integrity needs tenant-aware design, explicit orphan handling and migration validation.
+3. Keep history/snapshot tables and source-event references; do not overwrite historical configuration/response/calculation context.
+4. Use DB transactions for graph operations (event submission, information revisions, procurement order/allocation, receipt accounting, project/reference-copy updates where atomicity is needed); external storage/notifications require durable outbox or compensating cleanup.
+5. Avoid destructive cascade on shared procurement or cross-project allocations; define archive, cancellation, receipt return, correction and recovery policies before schema implementation.
+6. User/password migration cannot simply preserve legacy SHA-256. Establish reset/rehash plan, session invalidation and secure credential transport before authentication implementation.
+7. No SQL, executable migration, production data, secret/configuration access, tests, deployment or production repository writes occurred in this task.
+
+**Task 2.2 audit package status:** IMPLEMENTED — ready for Product Owner review and acceptance. It is not marked COMPLETE until the Product Owner accepts this package.
