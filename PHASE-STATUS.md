@@ -119,3 +119,10 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 - Added bounded source evidence for user validation and password hashing paths, tenant-safe role assignment/removal, audit fields/read filters, project-report/dashboard consumers and print-template definition/PDF/image metadata and selected route gates.
 - Task 2.5 remains IN PROGRESS; G-01 and G-10 remain blockers. G-08, G-09, G-11 and G-12 remain open/high. No readiness approval for schema implementation.
 - No tests, SQL/DDL, migrations, live data, DB provisioning, production modifications, deployment or VPS action.
+
+
+## Phase 2 — Task 2.5 checkpoint (2026-11-22, Increment 20)
+- Read-only cross-check of procurement lifecycle, dependency-aware project deletion, shared procurement-order preservation and attachment/storage lifecycle.
+- Source evidence highlights non-transactional multi-record cascade and storage operations, partial failure reporting, tenant/parent visibility checks and Drive file dependency. Target transaction/compensation and recovery design remain pending discovery.
+- Task 2.5 remains IN PROGRESS. G-01/G-02/G-04/G-10 remain blockers; G-06/G-09/G-11 remain open/high. No schema implementation readiness established.
+- No tests, SQL/DDL, migrations, live data, DB provisioning, production modification, deployment or VPS action.
