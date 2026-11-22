@@ -656,3 +656,13 @@
 - Rechecked Telegram notification and attachment reference-copy source paths read-only; findings and V2 outbox/retry/idempotency, file metadata/storage reconciliation requirements are recorded in ARCHITECTURE.md.
 - Telegram update offset persistence is not a durable notification delivery ledger; sampled attachment copy path has best-effort cleanup that can fail silently. Treat these as resilience/recovery requirements, not proof of a production incident.
 - No secrets, live integrations, files, production data, runtime tests or writes to legacy repos were accessed.
+
+
+## Phase 0 — Discovery & Repository Preparation
+### Task 0.2 — READ-ONLY legacy PMS audit
+- **Status:** AUDIT WORK CONCLUDED — awaiting Product Owner acceptance (not marked COMPLETE under protocol until acceptance).
+- Reviewed and consolidated source findings covering architecture/repository relationships, workflow/event/form and snapshots, procurement/material planning, attachment and Drive lifecycle, Telegram integration, audit/logging, sessions/authentication/permissions, Router/API transport, service mutation paths, CI/test inventory and migration/recovery constraints.
+- Consolidated route families and permission categories from Router.js; this is a coverage catalogue, not an exhaustively runtime-verified permission matrix.
+- Documented risks/requirements and unknowns in ARCHITECTURE.md. Audit was read-only; no production data, secrets or live settings accessed; no production repository modified; no runtime tests or migration executed.
+- Outstanding discovery items for later design/validation (not blockers to closing source-audit task): actual data-volume/capacity baseline; complete runtime authorization matrix; full integration credential/operations inventory; recovery objectives; migration rehearsal and validation.
+- **Next:** present consolidated audit for PO acceptance. Do not proceed to implementation/schema/migration/deployment until the PO accepts the audit and roadmap step.
