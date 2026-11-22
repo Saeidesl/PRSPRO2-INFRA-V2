@@ -1532,3 +1532,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 46 (2026-11-22)
 - Assertion-source crosswalk for event idempotency/recovery, schema contract and workflow enforcement/rules tests recorded in `TASK-2.8-EVENT-IDEMPOTENCY-SCHEMA-WORKFLOW-ASSERTION-CROSSWALK-INCREMENT-46.md`.
 - E2 source inspection only; harness and source-text assertion boundaries documented. Runtime behavior, concurrency, cross-tenant constraints and lifecycle integrity remain unverified. G-01/G-03/G-10 remain open. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+### Task 2.8 Increment 47 (2026-11-22)
+- Frontend assertion-source crosswalk for router base path, draft project flow, procurement receipt loading, reference conflict resolution and project dossier documented in `TASK-2.8-FRONTEND-ASSERTION-CROSSWALK-INCREMENT-47.md`.
+- E2 only; source-pattern assertion limitations noted. No runtime tests or browser execution claimed. G-01 remains OPEN. No live data/DDL/migrations/provisioning/deployment/production changes.
