@@ -1028,3 +1028,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Read-only sampling of ID conventions, authentication/session, project validation, event validation, registry and project deletion dependency collection.
 - Recorded mixed ID-generation evidence, username ambiguity/login fail-closed behavior, tenant-scoped entity/association registry and application-side dependency deletion observations in the readiness register.
 - G-05 remains HIGH; G-10 and G-01 remain BLOCKERS; G-08 remains HIGH. No schema, SQL, migration, live data, tests or production writes.
+
+
+### Task 2.5 incremental audit — numeric and temporal semantics increment 8 (2026-11-22)
+- Read-only sampling of project quantity validation, procurement/material numeric validation, event occurrence-date parsing and timestamp handling.
+- Recorded bounded integer-vs-number observations and unresolved precision/unit/timezone policy in the readiness register.
+- G-06/G-07 remain HIGH; G-01 remains BLOCKER. No schema, SQL, migration, live data, tests or production writes.
