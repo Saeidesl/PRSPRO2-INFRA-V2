@@ -140,3 +140,10 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 - Recorded revision/provenance, status mutability, NEEDS_REVIEW behavior and precision observations/limitations in readiness register.
 - Task 2.5 remains IN PROGRESS. G-01/G-02/G-03/G-10 remain blockers; G-06/G-09 remain open/high. No readiness approval.
 - No tests, live data, SQL/DDL, migrations, DB provisioning, production modifications, deployment or VPS action.
+
+
+## Phase 2 — Task 2.5 checkpoint (2026-11-22, Increment 23)
+- Read-only audit of event dynamic data parent linkage, project information/history/reference-sync collections and workflow step relationship repositories.
+- Identified dependency-policy gap: project deletion collector sampled does not enumerate project-information, history or reference-sync collections; intentional retention vs cascade remains unresolved. Documented PostgreSQL tenant/relationship constraints in readiness register.
+- Task 2.5 remains IN PROGRESS; G-01/G-03/G-10 blockers; G-09/G-12 open/high. No approval or migration readiness conclusion.
+- No tests, live data, SQL/DDL, migration, DB provisioning, production modifications, deployment or VPS action.
