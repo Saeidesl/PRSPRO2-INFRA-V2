@@ -433,3 +433,9 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Actual assertions in procurement-service, procurement-event-integration and material-planning test files were read and mapped in `TASK-2.8-PROCUREMENT-MATERIAL-PLANNING-ASSERTION-COVERAGE-INCREMENT-24.md`.
 - Source assertions cover allocation cap/surplus, request-level read reuse, event-source-bound confirmed quantity, event integration restrictions, replay, source void history, revision and cross-tenant/invisible project rejection. They were not executed.
 - G-01/G-02/G-10 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+## Phase 2 — Task 2.8 Increment 25 (2026-11-22)
+- Actual assertion crosswalk for project deletion, event idempotency and workflow enforcement tests documented in `TASK-2.8-PROJECT-DELETION-EVENT-IDEMPOTENCY-WORKFLOW-ASSERTION-CROSSWALK-INCREMENT-25.md`.
+- Assertions observed include shared-order dependency preservation, tenant/project scoped deletion collection, event replay/PROCESSING/COMPLETED safeguards and workflow rule revalidation under lock. Tests were not executed; production behavior and complete recovery coverage remain unverified.
+- G-01/G-02/G-10 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
