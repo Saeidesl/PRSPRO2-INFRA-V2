@@ -1298,3 +1298,7 @@ Read-only review observed legacy EventData JSON object validation, separate lega
 
 ## Task 2.5 — Information-type/column/report evidence increment 6 (2026-11-22)
 Read-only audit sampled type/column validators and services, revision and structural-change restrictions, cache invalidation, attachment upload validation contract, and report/dashboard aggregation paths. Data-type and validation evidence recorded, but complete field semantics/report query inventory is not closed. G-03/G-04/G-10 remain blockers; G-06 high; G-12 open. See TASK-2.5-READINESS-GAP-REGISTER.md. No tests executed, SQL/DDL, migration, live data, DB provisioning, production change or deployment.
+
+
+## Task 2.5 evidence increment 7 — identifiers and tenant relationship integrity (2026-11-22)
+A read-only sample reviewed core ID prefix constants, UUID-derived procurement identifiers, authentication lookup and fail-closed username behavior, UUID session token and tenant metadata, project/event validators, tenant-bearing database registry and project deletion dependency collection. This bounded evidence shows mixed identifier conventions and application-level relationship checks but does not establish universal uniqueness or relational tenant enforcement. G-05/G-08 remain HIGH and G-01/G-10 remain blockers. Evidence is recorded in TASK-2.5-READINESS-GAP-REGISTER.md. No executable SQL/DDL, migrations, database provisioning, live data, tests, production changes or deployment.
