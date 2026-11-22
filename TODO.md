@@ -1205,3 +1205,10 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Recorded projection divergence: status filtering, allocation proportional receipt distribution, surplus handling, quantity caps and whole-order project visibility in TASK-2.6-BLOCKER-RESOLUTION.md.
 - Recommended a canonical net receipt projection, explicit lifecycle/reconciliation, allocation accounting and shared report/dashboard projection. G-02 remains BLOCKER; no schema/migration readiness.
 - No tests, live data, SQL/DDL, migration, DB provisioning, production changes or deployment.
+
+
+### Task 2.6 Increment 13 — single/batch receipt parity and replay audit
+- Read-only audit of single/batch receipt service implementations and Router dispatch.
+- Documented validation differences, source-event/idempotency replay divergence, broad receipt aggregation, multi-write partial completion and absence of a verified reversal/correction API in the sampled public method inventory.
+- Recommended unified receipt command, tenant-scoped idempotency constraint, explicit postings/reversals, allocation/general-stock parity and transactional writes with reconciliation. G-02 remains BLOCKER.
+- No tests, live data, SQL/DDL, migration, DB provisioning, production changes or deployment.
