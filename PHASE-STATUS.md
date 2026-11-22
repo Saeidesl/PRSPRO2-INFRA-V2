@@ -211,3 +211,9 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 ### Task 2.6 — Increment 11
 - Cross-cutting technical baseline for numeric/unit, chronology, tenant integrity and deletion semantics documented.
 - G-06/G-07/G-10 remain unresolved; physical schema is still not authorized/readiness-approved.
+
+
+## Phase 2 — Task 2.6 Increment 12 checkpoint (2026-11-22)
+- Read-only review of procurement need/order/workspace/report/dashboard projections; documented divergent status filters, allocation receipt distribution, surplus and display caps, and project visibility handling.
+- Recommended canonical receipt net projection and shared reporting/workspace accounting semantics; G-02 remains BLOCKER.
+- No tests, live data, SQL/DDL, migration, DB provisioning or production modifications.
