@@ -1285,3 +1285,7 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 — Remaining Blocker Policy & Evidence Decision Pack (2026-11-22)
 - IN PROGRESS. Drafted policy recommendations for G-01/G-02/G-03/G-04/G-10, separating technical proposals from business decisions and evidence requirements.
 - Document: TASK-2.8-BLOCKER-POLICY-DECISION-PACK.md. No schema readiness, SQL/DDL, migration, provisioning, live data, production write or deployment.
+### Task 2.8 — Recommended Policy Defaults Register (2026-11-22)
+- Continued Task 2.8 by translating open G-02/G-03/G-04/G-10/G-01 questions into a concrete, conservative defaults decision register.
+- New document: TASK-2.8-RECOMMENDED-POLICY-DEFAULTS.md. Defaults remain proposals requiring Product Owner acceptance; they are not implementation authorization.
+- No tests, SQL/DDL, migrations, live data, DB provisioning, deployment or production changes.
