@@ -1407,3 +1407,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Read-only trace of Audit GET route permission gates, tenant filtering, validator/service distinction and test-tree inventory documented in `TASK-2.8-AUDIT-ROUTE-PERMISSION-TEST-TRACE-INCREMENT-22.md`.
 - Router gates `/audit`, `/audit/entity/*`, `/audit/user/*` with REPORT_VIEW; service tenant-filters results and validates same-tenant target user. AuditRepository scans broad sheet then filtering occurs in service. No dedicated audit test filename was identified in test tree; filename absence is not assertion coverage proof.
 - G-01/G-02/G-10 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+## Phase 2 — Task 2.8 Increment 23 (2026-11-22)
+- Read-only crosswalk of procurement mutation POST routes, permission gates, service defense and test-tree evidence recorded in `TASK-2.8-PROCUREMENT-MUTATION-ROUTE-PERMISSION-TEST-CROSSWALK-INCREMENT-23.md`.
+- Order, single receipt and batch receipt POST routes require PROCUREMENT_MANAGE; relevant service checks/locks/validation are documented, while multi-sheet transaction boundaries remain unresolved. Procurement test filenames found but assertion mapping and execution are not yet proven.
+- G-01/G-02/G-10 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
