@@ -1131,3 +1131,10 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Documented parent-event access enforcement, potentially omitted ProjectInformation/history/reference-sync dependencies in deletion collector, cross-project reference-sync links and workflow version relationship constraints in readiness register.
 - G-01/G-03/G-09/G-10/G-12 remain open at blocker/high levels. No comprehensive dependency or retention policy claim.
 - No tests, live data, SQL/DDL, migration, DB provisioning, production modification, deployment or VPS action.
+
+
+### Task 2.5 — READ-ONLY discovery/readiness audit package closure (2026-11-22)
+- Completed and documented Increment 24 bounded audit of authentication/session, tenant boundary, notification secrets/integration and legacy repository/config/storage semantics.
+- Closed Task 2.5 as a discovery deliverable only; comprehensive source coverage is not claimed and schema implementation is NOT READY.
+- Blockers G-01/G-02/G-03/G-04/G-10 and remaining high/open gaps are retained in TASK-2.5-READINESS-GAP-REGISTER.md; next task must resolve blockers before schema design.
+- No tests, live data, SQL/DDL, migration, DB provisioning, production modification, deployment or VPS action.
