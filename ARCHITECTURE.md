@@ -1339,3 +1339,26 @@ Router.js sampled directly in the read-only production-reference repository:
 Coverage: CONFIRMED for the specific route/permission/dispatch snippets above; PARTIAL for endpoint families and mutation lifecycle; UNVERIFIED for exhaustive route coverage, indirect tenant enforcement, transaction/constraint semantics, delete/restore, and caller graph. G-01 and G-10 remain blockers; G-12 remains open/high.
 
 No SQL/DDL, migration, DB provisioning, live data, tests, production changes or deployment.
+
+
+## Increment 14 — Procurement Lifecycle Evidence Audit (bounded read-only, 2026-11-22)
+
+### Source inspected
+ProcurementService.js, ProcurementRepository.js, MaterialPlanningService.js, ProcurementEventIntegrationService.js. Repository is a tenant-filtered sheet adapter for NEEDS, ORDERS, ITEMS, ALLOCATIONS and RECEIPTS; this is not DB-enforced integrity.
+
+### Evidence findings
+- Order creation: script lock; tenant context; optional IdempotencyKey replay lookup; item list required; existing active allocations considered when calculating need ordering; status exclusions include CANCELLED/VOID/DELETED/NEEDS_REVIEW; per-item allocations are normalized and inserted alongside order/items. Audit entry observed.
+- Allocation: records connect purchase-order item to project and optional material need; quantities validated and tenant-scoped project/need checks in inspected create path. General orders/items can exist without one project, with allocations potentially linking multiple projects/needs. Constraints on duplicate allocations, atomic write failures and FK integrity remain unproven.
+- Single receipt: script lock and IdempotencyKey replay; SourceEventID + item replay check excluding VOID receipts; project allocation checks and remaining allocation quantity validation; receipt includes item, project, quantity, ReceivedAt, warehouse department, SourceEventID, notes, received-by and key. Writes receipt and recalculates order status from receipt totals. Write + status update are separate sheet operations, consistency gap possible.
+- Batch receipt: script lock; validates entries; replay by receipt IdempotencyKey, duplicate keys within request rejected; checks item/order/allocations and project-specific received/planned amounts; insertMany receipt rows and order status recalculation. Not proven transactionally atomic with Sheets.
+- Quantity aggregation: receipt totals are summed by item and project; order status can become ACTIVE, PARTIALLY_RECEIVED or RECEIVED, with NEEDS_REVIEW protected from status overwrite in inspected code. VOID/cancelled receipt handling in aggregate/report consumers needs exhaustive verification; a VOID marker exclusion in one replay path is not a full reversal contract.
+- Cancellation/reversal: no confirmed dedicated purchase-order cancellation, receipt correction/reversal or receipt-void workflow in this increment. Status exclusions are evidence of filtering, not proof of operation semantics.
+- Event integration: receipt APIs appear independent from event integration; SourceEventID validation/linkage exists. Procurement event integration and material calculations remain adjacent pathways and need contract alignment.
+
+### Readiness conclusions
+CONFIRMED (bounded): order and single/batch receipt creation, replay/idempotency checks, allocation linkage, quantity/status calculation pathways and audit writes.
+PARTIAL: multi-project allocations, general orders, replay behavior, batch/single parity and tenant validation.
+UNVERIFIED/BLOCKER: correction/reversal/void semantics, cancellation operations, transactional atomicity, duplicate allocation contract, precision/rounding, full historical receipts inventory, concurrency beyond script lock, reconciliation/recovery after partial writes.
+G-02 remains BLOCKER. G-01/G-10 remain BLOCKERS. This is evidence only; it does not define V2 business rules.
+
+No SQL/DDL, migration, DB provisioning, live data, tests, production changes or deployment.
