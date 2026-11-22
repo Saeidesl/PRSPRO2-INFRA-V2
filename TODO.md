@@ -532,3 +532,10 @@
 ### Task 0.2 incremental notes (2026-11-22 — mutation route inventory)
 - Source inventory of Router POST/PUT/DELETE branches was expanded and categorized in ARCHITECTURE.md: print templates, project/status, departments, roles/permissions, procurement/orders/receipts, materials/specifications, workflows/steps/department assignments/rules, forms/information types, event types/events/event void/form responses, attachments, users/user-role assignments, project information and admin-only project/session actions.
 - The inventory records guard categories but is explicitly partial reconciliation: resource/service authorization and audit coverage remain to be checked; it is not runtime/security proof. No production changes or tests.
+
+
+### Task 0.2 incremental notes (2026-11-22 — audit-log consistency and mutation write patterns)
+- Read-only AuditService review: stores tenant/user/action/entity/reason/time and JSON OldData/NewData; list paths tenant-filter results. Append-only enforcement, redaction and retention are not established.
+- Selected department, event-type and project-status CRUD traces show business writes followed by audit writes, without transaction coupling in Sheets. Audit-write failure may leave unaudited mutation; broader audit coverage remains unverified.
+- Read-then-write duplicate checks for tenant-scoped codes/names remain race-prone without database unique constraints. V2 should enforce constraints and transactions.
+- Documented requirements: append-only audit, explicit sensitive-field redaction, retention/access policy, transaction coupling, correlation IDs and outbox/reconciliation for external side effects. Source-only; tests not run and production untouched.
