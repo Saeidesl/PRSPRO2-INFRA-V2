@@ -711,3 +711,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Task 1.4 — Domain boundaries and database migration strategy: COMPLETE and accepted. Draft accepted as planning baseline only; no schema/migration implementation.
 - Task 1.5 — Testing strategy and quality gates: IN PROGRESS. TESTING-STRATEGY.md draft created and pending review/acceptance.
 - No application implementation, schema, live data access/export, migration, deployment, VPS acquisition or production-system change.
+
+
+## PHASE 1 CLOSURE / PHASE 2 STATUS — 2026-11-22 (authoritative)
+- Tasks 1.1–1.5: COMPLETE and accepted. Phase 1 Foundation & Architecture is closed as a planning/documentation phase; implementation of CI or architecture is not implied.
+- Phase 2 Task 2.1 — Conceptual entity inventory and relationship consolidation: IN PROGRESS. DATA-MODEL-DRAFT.md created for review.
+- This task is conceptual only. No SQL/schema, migration scripts, live data, deployment, VPS or production-system change.
