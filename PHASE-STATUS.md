@@ -32,3 +32,9 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 - Added focused conceptual notes for tenant identity/membership, roles/permissions, session lifecycle, procurement/allocation/receipt quantity integrity, file metadata/associations and audit-trail requirements to DATA-MODEL-DRAFT.md.
 - These are provisional models and source-supported rules, with explicit unknowns. No SQL, executable schema, tests, runtime access or migration has started.
 - Task 2.1 remains IN PROGRESS pending final conceptual consolidation and Product Owner acceptance.
+
+
+## Phase 2 — Task 2.1 consolidation checkpoint (2026-11-22)
+- Consolidated conceptual domain dependency sequence, candidate transaction/side-effect boundaries, cross-domain invariants and schema design validation gates in DATA-MODEL-DRAFT.md.
+- Conceptual inventory now covers identity/tenant/security, project/workflow/event/forms, materials/procurement, files/audit, notifications/outbox and reporting/printing.
+- Source-to-target mapping, cardinality/unique-scope validation, business policy decisions and workload baseline remain pending. Task 2.1 remains IN PROGRESS; no schema or migration is implemented.
