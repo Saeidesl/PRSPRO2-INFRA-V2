@@ -1377,3 +1377,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Bounded read-only relationship edge and tenant enforcement matrix recorded in `TASK-2.8-RELATIONSHIP-TENANT-ENFORCEMENT-MATRIX-INCREMENT-17.md`, covering tenant/project/event/form/information/workflow/attachment/audit/procurement and deletion dependencies.
 - Identified repository-level broad reads vs service-level tenant checks, polymorphic owner edges, and candidate tenant-qualified relational constraint strategy. These are recommendations, not approved schema decisions.
 - G-01/G-10 remain OPEN; G-02/G-03/G-04 remain OPEN. Schema readiness NOT APPROVED. No tests, live data, SQL/DDL, migration, provisioning or production changes.
+
+
+## Phase 2 — Task 2.8 Increment 18 (2026-11-22)
+- Header-grounded inventory of nullable, polymorphic and versioned relationship edges documented in `TASK-2.8-NULLABLE-POLYMORPHIC-VERSIONED-EDGE-INVENTORY-INCREMENT-18.md`.
+- Recorded tenant derivation for EventData, repeated parent references in history/sync, optional procurement edge combinations, attachment/audit polymorphism and version-sensitive rule relationships. Nullability remains unconfirmed without full source/data validation.
+- G-01/G-10/G-02/G-03/G-04 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
