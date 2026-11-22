@@ -1046,3 +1046,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Read-only review of workflow/step-department, department, project-status, print-template and legacy event-field pathways.
 - Recorded bounded relationship graph additions and lifecycle/constraint gaps in the readiness register.
 - G-01/G-10 remain BLOCKERS; G-12 remains open; historical payload and file/template lifecycle gaps persist. No SQL/DDL, migration, DB provisioning, live data, tests or production writes.
+
+
+### Task 2.5 incremental audit — registry entity coverage baseline increment 11 (2026-11-22)
+- Extracted and grouped the 38 configuration registry definitions from DatabaseSetup.js (read-only source; no live sheet/data access).
+- Recorded a baseline inventory and highlighted the need for per-entity caller/lifecycle/constraint mapping. The inventory is not yet a completed mutation matrix.
+- G-01/G-10 remain BLOCKERS; G-12 remains open. No SQL/DDL, migration, DB provisioning, live data, tests or production writes.
