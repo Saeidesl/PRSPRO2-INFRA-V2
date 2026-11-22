@@ -339,8 +339,8 @@ Use transactional outbox for notifications/integrations. A domain transaction wr
 - [x] Work package 2.4-B key/relationship/constraint candidates drafted.
 - [x] Work package 2.4-C history/snapshot/file/audit models drafted.
 - [x] Work package 2.4-D transaction/idempotency/concurrency and migration reliability principles drafted.
-- [ ] Cross-check blueprint against accepted 2.1–2.3 documents and architecture record.
-- [ ] Read-back verification of all updated documentation.
+- [x] Cross-check blueprint against accepted 2.1–2.3 documents and architecture record.
+- [x] Read-back verification of all updated documentation (pending final read-back after checklist update).
 - [ ] Present proposal to Product Owner; task remains pending acceptance.
 
 
