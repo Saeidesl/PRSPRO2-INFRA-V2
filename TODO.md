@@ -539,3 +539,12 @@
 - Selected department, event-type and project-status CRUD traces show business writes followed by audit writes, without transaction coupling in Sheets. Audit-write failure may leave unaudited mutation; broader audit coverage remains unverified.
 - Read-then-write duplicate checks for tenant-scoped codes/names remain race-prone without database unique constraints. V2 should enforce constraints and transactions.
 - Documented requirements: append-only audit, explicit sensitive-field redaction, retention/access policy, transaction coupling, correlation IDs and outbox/reconciliation for external side effects. Source-only; tests not run and production untouched.
+
+
+### Task 0.2 incremental notes (2026-11-22 — configuration, workflow assignment and multi-record service review)
+- FormService and InformationTypeService: tenant context/resource checks and sampled CRUD audit calls; form field/mapping mutations update related version/cache metadata and are multi-write sequences. Information-type structure changes/deactivation are guarded against active use. Permission reconciliation remains route-dependent/incomplete.
+- WorkflowStepDepartmentService: assignment validates tenant/workflow/active steps/departments and batch size/duplicates; remove soft-deactivates. Explicit service-level permission and audit calls were not evident in inspected methods (route guards may apply); batch fallback inserts can partially succeed.
+- UserRoleService: tenant alignment, active-role and duplicate checks; write-then-audit pattern, not atomic in Sheets.
+- ProjectInformationService: revisions/history/audit and reference sync conflict logs; multi-row sync/resolution needs transactions/idempotency/recovery.
+- MaterialPlanningService and ProcurementService: version/idempotency patterns, project/tenant visibility and multi-record mutation/reconciliation needs documented; order creation uses a script lock but does not provide transactional guarantees.
+- Source-only, sampled inspection; no tests or production changes. Route-level permissions, exhaustive audit coverage and runtime verification remain pending.
