@@ -26,3 +26,9 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 ## Safety boundaries
 - Existing production repositories remain READ-ONLY.
 - No production data access/export, migration, dual-writing, deployment, VPS purchase or production changes.
+
+
+## Phase 2 — Task 2.1 checkpoint (2026-11-22)
+- Added focused conceptual notes for tenant identity/membership, roles/permissions, session lifecycle, procurement/allocation/receipt quantity integrity, file metadata/associations and audit-trail requirements to DATA-MODEL-DRAFT.md.
+- These are provisional models and source-supported rules, with explicit unknowns. No SQL, executable schema, tests, runtime access or migration has started.
+- Task 2.1 remains IN PROGRESS pending final conceptual consolidation and Product Owner acceptance.
