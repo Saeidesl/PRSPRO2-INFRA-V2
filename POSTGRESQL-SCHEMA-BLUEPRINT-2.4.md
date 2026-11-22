@@ -371,3 +371,7 @@ Use transactional outbox for notifications/integrations. A domain transaction wr
 
 ### Task 2.4 review conclusion
 Work packages A–D are drafted and the evidence consistency pass is recorded. The logical blueprint is **READY FOR PRODUCT OWNER REVIEW**, not complete/accepted. It remains design-only and must not be treated as approved schema or migration specification until the Product Owner accepts it and the subsequent detailed source/constraint design tasks are authorized.
+
+
+## Product Owner acceptance (2026-11-22)
+Task 2.4 blueprint and cross-review package accepted by the Product Owner. Acceptance closes this design task only; it does not authorize executable schema, migrations, provisioning, live data access or production changes.
