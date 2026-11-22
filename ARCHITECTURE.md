@@ -1144,3 +1144,8 @@ Selected GET Router branches were traced against permission gates and service de
 - The provisional dependency map, transaction boundary hypotheses and integrity invariants are maintained in DATA-MODEL-DRAFT.md in the Infra V2 repository.
 - Treat this as design documentation, not a final schema. Domain field mapping, policy decisions, workload baseline and PO review remain required.
 - No implementation, SQL migration, live-data access, dual-writing, deployment or production changes are authorized.
+
+
+## Phase 2 source-to-target mapping checkpoint (2026-11-22)
+- Legacy header-level source mapping for Project, Workflow, Event and Form domains is recorded in DATA-MODEL-DRAFT.md. The inventory is preliminary and does not validate record-level data or complete semantics.
+- Production repositories remain read-only; no data extraction or schema implementation is authorized.
