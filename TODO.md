@@ -1562,3 +1562,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 52 (2026-11-22)
 - Header-derived tenant-qualified relationship crosswalk recorded in `TASK-2.8-TENANT-QUALIFIED-RELATIONSHIP-HEADER-CROSSWALK-INCREMENT-52.md`, mapping candidate tenant-consistent FK edges and special cases (EventData, global-looking Permissions, polymorphic Attachments/AuditLogs, nullable/independent events).
 - E1 structural evidence only; this is not live schema or runtime integrity proof. G-10 remains OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+### Task 2.8 Increment 53 (2026-11-22)
+- Bounded read-only EventService/AttachmentService trace documented in `TASK-2.8-INDEPENDENT-EVENT-ATTACHMENT-OWNERSHIP-TRACE-INCREMENT-53.md`: independent-event listing/retrieval behavior, parent-project checks for project-linked events and attachment ownership/visibility/copy checks.
+- Source evidence only; no runtime tests. G-10/G-04/G-01 remain open; schema readiness NOT APPROVED. No live data/DDL/migrations/provisioning/deployment/production changes.
