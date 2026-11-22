@@ -598,3 +598,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ### Task 2.8 Increment 56 (2026-11-22)
 - Bounded UserRoleService/RolePermissionService/PermissionService trace documented in `TASK-2.8-USER-ROLE-MUTATION-AUDIT-BOUNDARY-TRACE-INCREMENT-56.md`: assignment tenant/role checks, duplicate guard and separate audit write sequence; tenant-based active-role resolution and global permission-catalog read sampled.
 - E1 only; runtime behavior and complete mutation coverage unverified. G-01/G-10 remain OPEN; schema readiness NOT APPROVED. No live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+### Task 2.8 Increment 57 (2026-11-22)
+- Bounded procurement/material-planning lifecycle trace recorded in `TASK-2.8-PROCUREMENT-MATERIAL-PLANNING-LIFECYCLE-TRACE-INCREMENT-57.md`: tenant-scoped repository reads, locked/idempotent order and receipt paths, compensating NEEDS_REVIEW behavior for partial order writes, calculation/spec revision lifecycle, source-event void handling and separate audit writes.
+- E1 source review only; no runtime testing. G-02/G-03/G-10 remain OPEN; schema readiness NOT APPROVED. No live data/DDL/migrations/provisioning/deployment/production changes.
