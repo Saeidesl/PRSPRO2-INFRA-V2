@@ -22,4 +22,4 @@ Build an independent PMS for garment manufacturing, replacing the current Google
 - ARCHITECTURE.md: architecture decisions, discovery findings, and pending questions
 
 ## Status
-Phase 0 — Discovery & Repository Preparation. Repository established; Phase 0 Task 0.2 read-only source audit is IN PROGRESS. Source schema, entity lifecycle, selected route/service authorization, persistence, HTTP ingress, mutation-route categories and migration risks have been documented. No production changes, live data inspection, or runtime tests.
+Phase 0 — Discovery & Repository Preparation. Task 0.2 READ-ONLY audit is COMPLETE and accepted. Task 0.3 discovery report and target boundaries are IN PROGRESS and drafted in ARCHITECTURE.md section 47 for Product Owner review. The remaining three V2 repositories are not confirmed accessible/created. No implementation, live data access, migration, deployment or production changes.
