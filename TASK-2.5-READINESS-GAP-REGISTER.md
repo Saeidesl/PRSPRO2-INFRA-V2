@@ -148,3 +148,23 @@ G-10 remains BLOCKER pending relational constraint matrix across these indirect 
 G-12 remains OPEN pending comprehensive configuration/field/column revision and lifecycle rules.
 
 No tests were run; no SQL/DDL, migration, DB provisioning, live data, production changes or deployment occurred.
+
+
+## Increment 7 — Identifier strategy, tenant key evidence and relationship constraint sampling (2026-11-22)
+
+### Evidence (bounded, source-only)
+- The legacy ID convention is mixed by domain: Constants.js defines prefix tokens for core entities, while ProcurementService generates UUID-derived short identifiers for procurement records and material item codes. This does not establish a universal, collision-proof or externally stable identifier contract.
+- Session tokens are generated from UUIDs, stored in Script Properties and session records carry user ID and tenant ID. This is session-storage behavior, not proof of identity migration strategy or DB uniqueness constraints.
+- Authentication lookup allows usernames to repeat across tenants but the sampled login path fails closed unless username resolves to exactly one user. This implies tenant selection/login disambiguation needs an explicit V2 contract rather than assuming username uniqueness globally or tenant-locally.
+- DatabaseSetup registry shows tenant columns on many operational records and association tables (e.g., UserRoles, RolePermissions, Projects, Workflows and WorkflowSteps), but sheet header presence does not establish relational enforcement.
+- Sampled ProjectValidator validates workflow ID and user/department arrays structurally; EventValidator permits nullable ProjectID but requires EventTypeID and PerformedBy. These validators alone do not prove same-tenant integrity for all indirect relationships.
+- Project deletion collects tenant-scoped events and associated event data, attachments, needs, purchase orders/items, allocations, receipts, specifications and calculations; preservation of shared purchasing records with other allocations is a critical relationship rule already evidenced in earlier increment. Deletion dependency collection remains application-side and is not equivalent to database FK/transaction guarantees.
+- Access checks and tenant filtering exist in sampled service pathways, but the exhaustive cross-domain tenant constraint matrix (including association tables, references through event/type/form/workflow/department/user and shared procurement) is still not complete.
+
+### Gap implications / recommendations
+- G-05 remains HIGH: ID generation and legacy-to-V2 mapping should be domain-by-domain, with a retained legacy ID/source mapping record and uniqueness policy; UUID-based V2 identity may be considered but requires a design decision and data reconciliation evidence.
+- G-10 remains BLOCKER: create an exhaustive relationship graph and tenant-safe FK/unique/check constraint matrix, including indirect and shared entities. DB constraints should enforce tenant alignment where relational design permits; application authorization remains separate.
+- G-01 remains BLOCKER: mutation paths, lifecycle dependencies and delete/restore/reversal paths need coverage for all registered entities, not only sampled services.
+- G-08 remains HIGH: authentication lookup and session observations do not close user, password, tenant membership, role and permission migration semantics.
+
+No SQL/DDL, migration, DB provisioning, live data access, test execution, production changes or deployment occurred.
