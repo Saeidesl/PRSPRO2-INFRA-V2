@@ -951,3 +951,15 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - [ ] Cross-review consistency against accepted discovery artifacts and target architecture.
 - [ ] Read back and verify document updates.
 - Stop for Product Owner review/acceptance before schema implementation.
+
+
+## Task 2.4 progress checkpoint — 2026-11-22
+- Work packages 2.4-A through 2.4-D have been drafted in POSTGRESQL-SCHEMA-BLUEPRINT-2.4.md: logical domain/table inventory; key/FK/tenant isolation and uniqueness candidates; lifecycle/history/snapshot/file/audit; transactions/idempotency/concurrency/outbox and migration reliability.
+- This remains a design proposal; no executable SQL/DDL, migrations, database setup, live-data access, production changes or deployment.
+- [x] Draft A: domain inventory and ownership boundaries.
+- [x] Draft B: tenant-aware key/FK and constraint candidates.
+- [x] Draft C: history, snapshots, deletion, file and audit lifecycle.
+- [x] Draft D: transaction boundaries, idempotency, concurrency and reliability.
+- [ ] Cross-review against accepted Task 2.1–2.3 source evidence and architecture.
+- [ ] Verify read-back of documentation changes.
+- [ ] Product Owner review and acceptance (required to close Task 2.4).
