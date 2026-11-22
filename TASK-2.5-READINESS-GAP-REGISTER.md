@@ -602,3 +602,7 @@ Workflow publication and draft/version semantics, logical deactivation of inform
 
 ### Task 2.6 Increment 8 evidence
 User-role and role-permission service paths apply tenant validations but repository adapters do not independently enforce tenant-safe relational integrity. V2 requires tenant-compatible FKs, unique association constraints and deny-by-default centralized authorization with explicit domain checks. G-01/G-10 remain BLOCKERS.
+
+
+### Task 2.6 Increment 9 evidence
+Attachment ownership is metadata/parent-based and storage is Google Drive behind an adapter. Upload/delete writes are multi-step; recovery/transactional guarantees not proven. V2 recommends metadata/object storage separation, staged upload/recovery, tenant-compatible parent constraints and retention-aware purge. G-04/G-11/G-10 remain BLOCKERS.
