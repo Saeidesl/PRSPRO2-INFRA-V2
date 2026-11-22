@@ -237,3 +237,9 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 - Prior Task 2.6 is closed as a bounded audit deliverable, not blocker closure or schema-readiness approval.
 - Planned review focuses on G-03 event/form history contract, G-04 attachment lifecycle, G-10 tenant-safe relational integrity and G-01 coverage reconciliation. G-02 remains open and is tracked.
 - No SQL/DDL, migrations, live data, tests, DB provisioning, production modifications, deployment or VPS action.
+
+
+## Task 2.7 Increment 1 checkpoint (2026-11-22)
+- Bounded read-only event/form and attachment lifecycle cross-check recorded in TASK-2.7-BLOCKER-CLOSURE.md.
+- Evidence notes include void policy, form amendment/snapshot behavior, EventData access, polymorphic attachment owner and visibility, deletion ordering, project-image copy linkage and candidate tenant relationship graph.
+- G-03/G-04/G-10/G-01 remain unresolved. No tests, live data, SQL/DDL, migration, DB provisioning or production modifications.
