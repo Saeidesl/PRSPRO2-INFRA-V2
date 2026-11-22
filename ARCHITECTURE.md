@@ -1058,3 +1058,19 @@ Selected GET Router branches were traced against permission gates and service de
 - Sections 49 and earlier repository notes describe the initial state and are historical.
 - Current verified state: the three implementation repositories are Private; access is confirmed.
 - Infra repo remains public, with no code/secrets/production data added in this task.
+
+
+## 52. Task 0.2 audit increment — frontend/backend authentication transport and shared API contract (2026-11-22)
+
+### Source evidence (READ-ONLY)
+- Re-read production `Router.js` and frontend `js/core/api.js`. The shared frontend client places the session token in the query string (`token`) for requests, and uses `_method` parameters with POST override for PUT/DELETE. Backend route/parser support was previously confirmed for query-token transport and method overrides.
+- This confirms the transport behavior is an end-to-end legacy compatibility contract. V2 should not reproduce it by default: use an Authorization-header or secure HttpOnly/SameSite cookie approach selected during architecture design. If cookie-based auth is chosen, define CSRF protections; ensure URL secrets are absent from logs, analytics and browser history.
+- Legacy API client has centralized GET/HEAD retry (limited attempts), request deduplication, sync status signaling and optional performance diagnostics. Preserve useful UX capabilities selectively; retries should remain limited to safe/idempotent operations and diagnostics must not reveal secrets or sensitive payloads.
+
+### V2 design implications
+- Define an explicit API transport contract and request/response/error envelope, with authentication transport, method semantics, CSRF policy, pagination/filtering, idempotency and correlation IDs before frontend integration.
+- Replace legacy method override unless compatibility or deployment constraints justify it; native HTTP method semantics should be preferred.
+- Keep client caching/deduplication separate from authorization and integrity; cache keys must be tenant/user scoped and mutation invalidation must be explicit.
+
+### Verification limitations
+- Source inspection only; no runtime tests, token/session data, production data or secrets accessed. No production repository was modified. This increment does not close the exhaustive route/resource permission audit or Task 0.2.
