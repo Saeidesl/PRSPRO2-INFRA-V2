@@ -115,3 +115,49 @@ The following links were identified during source audit; implementation cardinal
 
 ## 7. Safety boundary
 No live data extraction, production DB access, schema deployment, migration, dual-writing, VPS acquisition, deployment or legacy repository modification.
+
+
+## 8. Relationship matrix (conceptual, evidence-aware)
+
+Legend: **Observed link** means the source audit identified the link or key reference; exact FK/cardinality are not yet schema-verified. **Design candidate** means the relationship is a modeling proposal requiring validation.
+
+| Parent/owner | Related object | Link/evidence | Status / modeling caution |
+|---|---|---|---|
+| Tenant | User/membership/roles and tenant-owned records | Tenant scope observed in service/auth paths | Candidate tenant FK and compound constraints; cross-tenant access must fail closed |
+| Project | Event | Project.ID -> Events.ProjectID observed | Event may be project-independent; do not make Project mandatory |
+| Event | EventData | Event.ID -> EventData.EventID observed | Preserve field/value structure and any revision semantics |
+| Event | EventFormData / response | Event.ID reference observed | Validate whether this is separate response storage or snapshot |
+| EventType | Form and fields | Conceptual links identified | Cardinality, selection rules and historical snapshot need verification |
+| Workflow definition | Version | Versioning observed/documented | Decide immutable version semantics and active-version rules |
+| Workflow version | Step | Conceptual/implementation references identified | Step ordering, uniqueness and transition rules must be validated |
+| Step | Department assignment | Assignment references reviewed | Model multiple assignments/ownership without assuming cardinality |
+| Project | Workflow state/history | Lifecycle and workflow execution traced | Preserve history, not merely current step |
+| Project information | Revision/history | Revision/history reviewed | Establish immutable revision vs mutable current record semantics |
+| Procurement order | Order item | Structure audited | General and project-related orders must both be supported |
+| Requirement/material item | Procurement/allocation/receipt | Relationship graph reviewed | Validate quantity accounting, reversals and allocation rules |
+| File metadata | Business resource association | Attachment visibility/lifecycle reviewed | Use association strategy only after source relationship and access rules verified |
+| Actor/user | Audit record | Attribution observed where available | Actor may be unavailable for system actions; preserve safe attribution |
+| Notification config/event | Delivery/outbox record | Integration path reviewed; durable outbox is V2 design | Outbox/delivery tracking are design candidates, not legacy entities |
+| Print template | Template element/binding | Print/template paths reviewed | Verify direct binding and permissions; don't treat as source-of-truth business data |
+
+## 9. Candidate transaction boundaries (not final)
+These are hypotheses for later validation and design, not commitments:
+- Project identity + initial central-information record/revision.
+- Event submission + event data + form response/snapshot + project/workflow effect + audit attribution, where applicable.
+- Procurement order/item changes + allocation/quantity accounting + audit.
+- Receipt/reversal and allocation reconciliation.
+- File metadata/association changes coordinated with storage operations through outbox/reconciliation.
+- Notification generation recorded transactionally with business mutation; provider delivery occurs asynchronously.
+
+Avoid bundling unrelated domains into long transactions. External storage/provider calls must not be held inside database transactions.
+
+## 10. Relationship validation checklist for subsequent source-to-target mapping
+- Verify every source identifier, its uniqueness scope and legacy mapping.
+- Confirm nullable vs required links from actual mutation and read paths.
+- Confirm deletion, reversal, void and amendment semantics for each edge.
+- Identify historical/snapshot links that must remain immutable.
+- Verify tenant scoping on both parent and child and authorization checks.
+- Verify cross-domain references, orphan handling and repair/reconciliation paths.
+- Confirm whether relations are direct, join-table-based or inferred from payloads.
+- Validate multi-row forms and procurement quantity relationships.
+- Capture read/write paths and query patterns before choosing indexes.
