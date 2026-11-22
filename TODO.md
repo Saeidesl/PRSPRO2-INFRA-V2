@@ -807,3 +807,13 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - [x] Record observations in PROJECT-WORKFLOW-FORM-MATERIAL-CHECKPOINT-2.1.md.
 - [ ] Complete source paths for copy recovery, form snapshot guarantees and material reconciliation resolution.
 - Status: IN PROGRESS; no executable schema or migration.
+
+
+### Phase 2 / Task 2.1 — Procurement, attachment, and reference-sync checkpoint (2026-11-22)
+- [x] Inspect purchase-order creation, allocation validation, idempotency and partial-operation recovery.
+- [x] Inspect receipt/batch receipt lock and idempotency behavior.
+- [x] Inspect attachment validation, metadata, storage key abstraction and copy/delete paths.
+- [x] Inspect project-information revisions, approval history, LIVE_SYNC conflict/idempotency logic.
+- [x] Record evidence in PROCUREMENT-ATTACHMENT-REFERENCE-SYNC-CHECKPOINT-2.1.md.
+- [ ] Continue source audit of remaining transitions/recovery and permission/data constraints.
+- Status: IN PROGRESS; conceptual model still not presented for approval.
