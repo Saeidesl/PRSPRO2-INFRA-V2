@@ -1016,3 +1016,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Reviewed read-only legacy EventData JSON parsing and reusable-form definition/snapshot logic, field ordering/visibility/requiredness/cardinality helper behavior and separate central-information history/sync repositories.
 - Evidence recorded in `TASK-2.5-READINESS-GAP-REGISTER.md`; G-03 remains blocker and G-01/G-10/G-12 remain open.
 - No SQL/DDL, migration, live data, tests, database provisioning, production change or deployment.
+
+
+### Task 2.5 increment 6 — information type, columns and reports (2026-11-22)
+- Read-only validator/service review confirmed supported data-type list, SINGLE/MULTIPLE, column metadata, validation-rule shapes, revision and structural-change restrictions, logical column deletion/cache invalidation, bounded attachment validator contract and report/dashboard aggregation needs.
+- Evidence and gap implications recorded in TASK-2.5-READINESS-GAP-REGISTER.md; G-03/G-04/G-10 remain blockers; G-06 high; G-12 open.
+- No tests executed; no SQL/DDL, migration, DB provisioning, live data, production changes or deployment.
