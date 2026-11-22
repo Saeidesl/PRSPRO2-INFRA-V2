@@ -1512,3 +1512,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 42 (2026-11-22)
 - Focused tenant header/repository boundary trace documented in `TASK-2.8-TENANT-INTEGRITY-HEADER-REPOSITORY-BOUNDARY-TRACE-INCREMENT-42.md`. Source observations: tenant-qualified User/Department/Role/UserRole/RolePermission/Project headers, global-looking Permission header, tenant/user cache keying in AccessControlService, and ID-only generic repository wrappers requiring service-layer ownership enforcement.
 - This source-only increment does not close G-10/G-01; uniqueness and global/shared policy decisions remain open. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+### Task 2.8 Increment 43 (2026-11-22)
+- Authenticated tenant-context/RBAC resolution trace documented in `TASK-2.8-AUTHENTICATED-TENANT-CONTEXT-RBAC-RESOLUTION-TRACE-INCREMENT-43.md`. Source observations include session-user TenantID match, tenant-filtered role and permission associations, tenant-scoped admin resolution, global permission catalog reads and Router-specific authorization reliance.
+- E1 only; route coverage, runtime security, and database enforcement unverified. G-10/G-01 remain OPEN; no tests/live data/DDL/migrations/provisioning/deployment/production changes.
