@@ -535,3 +535,47 @@ No credential values, token values or user data were extracted. No executable sc
 - Workload/volume estimates, retention, storage provider choice and performance targets.
 
 No schema, SQL, migration, live data, secret/config value, file content or production modification was performed.
+
+
+## 20. Task 2.1 — Consolidated review package (2026-11-22)
+
+### Model boundary and relationship summary
+Dependency clusters: (1) Tenant/account/membership/role/permission/department/session; (2) configuration catalogs including workflow versions/steps/rules, event types/fields, information types/columns and form definitions/fields; (3) Project identity/status/workflow execution, central-information values/revisions and reference-project synchronization; (4) Events with optional project link, event payloads, form responses/snapshots, amendment/void lifecycle and workflow effects; (5) material specifications, calculation provenance and material needs; (6) purchase-order header/items, project/need allocations and receipts/reversal history; (7) attachment metadata/association/lifecycle separate from storage bytes; (8) audit and notification/outbox; and (9) print templates, resolver bindings and reporting projections.
+
+### Relationship rules supported by source audit
+- Tenant/resource scope must be validated across parent and child references. Preserve global case-insensitive username uniqueness as the observed current policy.
+- Project selects a workflow context; project-linked events reference ProjectID, but project-independent event types and procurement must remain possible.
+- Event payload and form response are separate structures; responses retain form/version/definition snapshots. Amendment is tied to a same-project amendment event, version checks, stale-write rejection and idempotent replay/conflict behavior.
+- Workflow rules are version-specific; event completion/transition depends on rule configuration and step context, not event-name heuristics.
+- Project information has revision/history, approval and sync behavior. LIVE_SYNC, INITIAL_COPY and INDEPENDENT policies are configured from workflow repeat-project policy; source/target conflict resolution is revision-aware. Copy operations use operation identity/state for replay/recovery.
+- Material spec revisions feed calculation ledger records with source event/version, basis quantity, variance and replay keys; generated needs are reconciled, not overwritten blindly.
+- Procurement header, items, allocations and receipts are separate. Shared order items can be allocated across projects. Preserve surplus/unallocated quantities and prevent quantity over-allocation/over-receipt. Cancellation and receipt corrections/returns remain policy gaps.
+- File metadata and associations are permission-filtered; current legacy storage is Drive. Project deletion attempts metadata deletion then storage trash, but recovery retention is not established.
+- Audit records have tenant/user/action/entity/time and old/new data in source, but exhaustive coverage and retention/immutability are not verified.
+- Print-template resolver derives values on demand from project, central-information, event and event-form sources; it is not an authoritative project snapshot.
+
+### Proposed V2 transaction and reliability boundaries (recommendations)
+1. Project create: identity, workflow context, initial info/revision and audit; external file-copy/notification effects through durable jobs/outbox.
+2. Event submit/transition: event, payload, response snapshots, workflow/project changes, audit and notification intent atomically where applicable.
+3. Amendment: amendment identity, response revision, central-information synchronization, audit and idempotency state atomically.
+4. Void: validated state restoration/recalculation, void record and audit; material reconciliation durable and retryable.
+5. Procurement order: header/items/allocations/audit/idempotency in one transaction with tenant and quantity constraints.
+6. Receipt/return/adjustment: append-only quantity records and reconciliation; never silently overwrite history.
+7. File lifecycle: DB metadata intent and association with durable storage job, checksum/reconciliation, retries and cleanup; storage calls outside DB transaction.
+8. Delete/archive: recoverable soft-delete/retention first, dependency preview and authorization, durable cleanup; hard purge only after policy-defined retention and checks.
+9. Notifications: transactional outbox, deduplication, retry/backoff, dead-letter/review and safe observability.
+
+### Risks and policy gates
+- Legacy sheets do not provide FK/atomic transaction guarantees. Several operations are progressive and may leave partial state; V2 must use relational transactions and durable orchestration.
+- Route permission audit is source-level sampling/inventory, not exhaustive method-by-method testing. V2 requires deny-by-default route policy, service-level authorization, tenant/resource scope and automated tests.
+- Legacy password hashing is SHA-256 without observed salt/work factor; it is unsuitable as V2 storage design. Use modern hashing and controlled migration/reset. Login throttling was not observed in reviewed paths; add rate limiting and monitoring. Do not carry forward URL-token transport.
+- Purchase order cancellation, receipt returns/corrections, attachment retention/recovery, cascade-delete recovery, audit coverage/retention, repeat-copy partial recovery and exact template binding contracts remain unresolved.
+- No real-data/workload analysis has been done; indexes and performance targets need sanitized workload and baseline.
+- IDs are legacy-prefixed strings; preserve mapping, but uniqueness scope/internal key strategy requires field-level mapping.
+- Auxiliary backup sheet and deployed-sheet drift remain unverified.
+
+### Recommended next task after acceptance
+Task 2.2 — Detailed source-to-target field mapping and constraint matrix (still read-only): table/header inventory, normalized data types, nullable/required rules, uniqueness scope, tenant-composite keys, cardinality, snapshot policy, deletion/reversal behavior and legacy ID mapping. Only after this mapping and policy decisions are approved should executable schema/migration work begin.
+
+### Acceptance gate
+Ready for Product Owner review, not yet accepted or marked COMPLETE. Policies listed above must be decided or explicitly deferred with documented defaults before schema implementation. No SQL or migration was created.
