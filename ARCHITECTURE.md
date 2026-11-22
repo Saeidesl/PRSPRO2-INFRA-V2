@@ -1302,3 +1302,7 @@ Read-only audit sampled type/column validators and services, revision and struct
 
 ## Task 2.5 evidence increment 7 — identifiers and tenant relationship integrity (2026-11-22)
 A read-only sample reviewed core ID prefix constants, UUID-derived procurement identifiers, authentication lookup and fail-closed username behavior, UUID session token and tenant metadata, project/event validators, tenant-bearing database registry and project deletion dependency collection. This bounded evidence shows mixed identifier conventions and application-level relationship checks but does not establish universal uniqueness or relational tenant enforcement. G-05/G-08 remain HIGH and G-01/G-10 remain blockers. Evidence is recorded in TASK-2.5-READINESS-GAP-REGISTER.md. No executable SQL/DDL, migrations, database provisioning, live data, tests, production changes or deployment.
+
+
+## Task 2.5 evidence increment 8 — quantity and temporal semantics (2026-11-22)
+Bounded source review observed positive-integer project quantity validation, JavaScript numeric validation in procurement/material planning, and parseable OccurredAt plus ISO timestamp patterns in sampled event/session pathways. This does not establish decimal precision, rounding, unit conversion, timezone storage/display or Jalali policy. G-06/G-07 remain HIGH and G-01 remains a blocker pending exhaustive field and consumer inventory. See TASK-2.5-READINESS-GAP-REGISTER.md. No executable SQL/DDL, migration, DB provisioning, live data, tests, production changes or deployment.
