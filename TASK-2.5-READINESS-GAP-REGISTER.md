@@ -570,3 +570,7 @@ The audit work package is closed as a READ-ONLY discovery/readiness deliverable,
 - Blockers G-01 (exhaustive entity/lifecycle/dependency coverage), G-02 (procurement correction/reversal contract), G-03 (event/form payload/history contract), G-04 (attachment ownership/history/storage coverage), and G-10 (tenant-safe relational integrity) remain open.
 - High/open G-05 through G-09 and G-11/G-12 remain tracked as in the gap register; they are not waived by closing the audit task.
 - Next roadmap step must resolve blockers in a separately tracked discovery/decision task before physical PostgreSQL schema/migrations. This closure does not authorize schema creation, migration, live-data access, deployment or cutover.
+
+
+## Task 2.6 — G-02 procurement correction/reversal discovery, Increment 1 (2026-11-22)
+Reviewed order create, receipt create/batch, allocation projection and event integration paths. Evidence and proposed V2 contract are recorded in TASK-2.6-BLOCKER-RESOLUTION.md. No general correction/reversal contract is proven. Proposed design favors immutable posted receipts with linked correction/reversal operations, explicit order lifecycle and transaction-enforced quantity invariants, but remains pending broader source coverage and business policy validation. G-02 remains BLOCKER until coverage and contract are complete.
