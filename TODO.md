@@ -1425,3 +1425,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Actual assertion crosswalk for project deletion, event idempotency and workflow enforcement tests documented in `TASK-2.8-PROJECT-DELETION-EVENT-IDEMPOTENCY-WORKFLOW-ASSERTION-CROSSWALK-INCREMENT-25.md`.
 - Assertions observed include shared-order dependency preservation, tenant/project scoped deletion collection, event replay/PROCESSING/COMPLETED safeguards and workflow rule revalidation under lock. Tests were not executed; production behavior and complete recovery coverage remain unverified.
 - G-01/G-02/G-10 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+## Phase 2 — Task 2.8 Increment 26 (2026-11-22)
+- Assertion crosswalk for attachment visibility, repeat-reference copy and schema-contract tests documented in `TASK-2.8-ATTACHMENT-REFERENCE-COPY-SCHEMA-CONTRACT-ASSERTION-CROSSWALK-INCREMENT-26.md`.
+- Positive assertions cover attachment event/project visibility, reference copy operation plan/history/live-sync/idempotency/policy and source-level schema/deploy guard contracts. Attachment storage failure recovery, runtime execution and PostgreSQL migration correctness remain unverified.
+- G-01/G-04/G-10 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
