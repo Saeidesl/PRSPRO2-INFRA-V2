@@ -1146,3 +1146,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - G-02 remains BLOCKER pending further source coverage and explicit contract closure; do not implement physical schema yet.
 - Next increment: inspect receipt void/adjustment, allocation mutation, order status-transition and deletion/report dependency paths; document lifecycle matrix and evidence.
 - Read-only reference review only. No tests, live data, SQL/DDL, migration, DB provisioning, production changes or deployment.
+
+
+### Task 2.6 Increment 2 — Procurement projections, reports and deletion dependencies
+- Reviewed workspace/dashboard/report calculations and project-deletion procurement dependency logic.
+- Recorded receipt eligibility/status semantics, shared order visibility, shared allocation/receipt dependencies and project-delete retention implications in TASK-2.6-BLOCKER-RESOLUTION.md.
+- G-02 remains BLOCKER. Further increment must inspect the remaining receipt batch write logic, order/line normalization and source API/router exposure, then produce lifecycle matrix.
