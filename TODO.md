@@ -787,3 +787,13 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - [x] Record source mapping observations and unresolved semantics in SOURCE-MAPPING-CHECKPOINT-2.1.md.
 - [ ] Complete audit of event mutation/amendment/void, form snapshots, workflow publish/version, and project-information revision semantics.
 - Status: IN PROGRESS; no schema or migrations.
+
+
+### Phase 2 / Task 2.1 — Lifecycle semantics checkpoint (2026-11-22)
+- [x] Review targeted event-void lifecycle and conditional project restoration.
+- [x] Review project-information logical deactivation, revision history and reference-sync logging excerpts.
+- [x] Review form-amendment replay/conflict handling and project-information synchronization excerpts.
+- [x] Review workflow publication validation/version state and audit excerpts.
+- [x] Record evidence and design implications in LIFECYCLE-SEMANTICS-CHECKPOINT-2.1.md.
+- [ ] Validate complete registration/void/amendment/publish paths and recovery semantics.
+- Status: IN PROGRESS; no schema/migration or tests.
