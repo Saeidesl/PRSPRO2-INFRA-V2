@@ -83,3 +83,25 @@ Read-only method/body sampling was extended across ProcurementService, MaterialP
 - General/shared order preservation and allocation linkage are source-supported and must be represented explicitly.
 
 No executable schema, SQL, migration, database provisioning, live data, tests, production changes or deployment occurred.
+
+## Increment 4 — Event/Form payload, snapshots, amendments, voids and central-information history (2026-11-22)
+Read-only source sampling across EventService, EventDataService, FormService, EventTypeService, ProjectInformationService, and associated repositories.
+
+### Evidence-backed observations
+- Event creation includes request idempotency handling scoped in the inspected path by tenant and user, including an explicit PROCESSING/recovery guard. This is a distinct contract from procurement idempotency.
+- Event void is a dedicated pathway with tenant/project visibility checks and event-type permission/configuration validation. The downstream consequences across all related data still require a complete dependency map.
+- Form responses are stored separately from generic central project-information values. In the inspected FormService, response persistence stores ResponseJSON and DefinitionSnapshotJSON, with form version and form definition snapshot. This supports historical event context and must not be collapsed into a live-form-only model.
+- Form response validation checks mappings, active forms, submitted form versions, requiredness, uniqueness of submitted FormIDs, allowed information types and values; there is a bounded cap of 30 forms per event in the inspected path.
+- Form responses may also update current central project information, but empty/omitted values are not treated as erasing previously saved values in the observed path. The central projection and event snapshot are distinct persistence concepts.
+- Event form response amendment uses an AmendmentEventID tied to the same project and validates amendment event type configuration/allowed forms. The source contains a legacy marker heuristic alongside explicit configuration; V2 design should not rely on name-based markers as the primary authorization contract.
+- EventType storage normalizes configured array/boolean fields; amendable-form references are validated against active tenant forms and project-connection constraints.
+- Project information has separate history and approval records, revision numbers and conflict resolution for live reference synchronization. This history is distinct from event response snapshots and audit log records.
+- Project-information save uses a script lock wrapper; in V2 concurrency must be handled at the database transaction/version level.
+
+### Remaining gaps
+G-03 remains BLOCKER: full response/value data types, field cardinality, file references, reporting/search/filter workload, snapshot compatibility, amendments/corrections and void dependency effects are not yet exhaustively traced.
+G-01 remains BLOCKER: routes and all write paths still need a complete cross-reference.
+G-10 remains BLOCKER: tenant integrity across form/event/project-information/approval/history/attachments and indirect relationships needs exhaustive constraint matrix.
+G-12 remains open: full configuration/form/field revision publication and compatibility semantics remain to be mapped.
+
+No executable SQL/DDL, migration, DB setup, live data, tests, production changes or deployment performed.
