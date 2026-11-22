@@ -58,3 +58,10 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 - Targeted read-only review of AuthService, AccessControlService, PermissionService, selected repositories and Router excerpts documented observed authentication, role filtering, admin recognition, permission checks and potential gaps.
 - Added provisional mapping, V2 security requirements and open policy decisions to DATA-MODEL-DRAFT.md.
 - This is not a full security audit and no live data/credentials were accessed.
+
+
+## Phase 2 — Task 2.1 Attachment/Audit/Print/Integration checkpoint (2026-11-22)
+- Extracted header-level source mappings for attachments, audit logs and print templates, and configured attachment entity/provider values from DatabaseSetup.js.
+- Documented provisional V2 requirements and unresolved service/policy questions in DATA-MODEL-DRAFT.md section 19.
+- Dedicated service paths and behavior remain unverified; Task 2.1 remains IN PROGRESS.
+- No live data, secrets, file content, schema, SQL, migration or production modifications.
