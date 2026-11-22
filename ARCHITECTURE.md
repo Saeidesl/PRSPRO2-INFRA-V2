@@ -1529,3 +1529,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 61 — Router/API permission boundary trace
 - Sampled Router.js permission route trace recorded in `TASK-2.8-ROUTER-API-PERMISSION-BOUNDARY-TRACE-INCREMENT-61.md` for procurement, project material planning, information/history, attachment and audit endpoints.
 - E1 only; full endpoint coverage/tests remain pending. G-01/G-10 remain OPEN.
+
+
+## Task 2.8 Increment 62 — Workflow version/event rule lifecycle
+- Bounded trace recorded in `TASK-2.8-WORKFLOW-VERSION-EVENT-RULE-LIFECYCLE-TRACE-INCREMENT-62.md`: versioned workflow rules, clone/replace operations and lifecycle/integrity implications.
+- E1 only; runtime/full publish testing not done. G-01/G-03/G-10 remain OPEN.
