@@ -582,3 +582,7 @@ Procurement workspace/report/dashboard and project deletion collector were sampl
 
 ### Task 2.6 Increment 3 evidence
 Batch receipt path prevalidates, checks idempotency and order/allocation limits, insertMany writes receipt records, recalculates order state and then audits records; transaction atomicity is not demonstrated. NEEDS_REVIEW orders skip status recalculation. Existing tests were reviewed but not executed. Single/batch parity and correction paths remain open.
+
+
+### Task 2.6 Increment 4 evidence
+Order header/item/allocation writes are sequential; failures attempt to mark the header NEEDS_REVIEW, but this is not atomic recovery. Single receipt inserts then updates order state and audit sequentially; receipt aggregation/status eligibility needs unified policy with batch. V2 transaction and reconciliation requirements recorded. G-02 remains BLOCKER.
