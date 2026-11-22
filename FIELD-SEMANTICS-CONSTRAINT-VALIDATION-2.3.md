@@ -269,3 +269,17 @@ These are selected validator excerpts. Service-level authorization, tenant const
 - MaterialSpecKey/SpecKey revision numbering and latest-active semantics require transaction/locking and a unique revision constraint per scope.
 - Voiding a source event does not, in the observed method, automatically reverse existing purchase orders or receipts; reconciliation policy must be a documented business decision. The legacy path puts affected confirmed needs into NEEDS_REVIEW.
 - Authorization rules need to be modeled consistently in API middleware/service guards and tenant scoping, not assumed from route permissions alone.
+
+
+## Receipt VOID status handling: additional evidence (2026-11-22)
+
+### Confirmed from inspected receipt write/aggregate code
+- `_createReceiptUnlocked_` uses a SourceEventID + PurchaseOrderItemID replay lookup that explicitly ignores receipts with Status `VOID`.
+- However, the reviewed project-specific receipt aggregate (`projectReceived`) and item-level aggregate (`prior`) sum QuantityReceived across matching receipt rows without an explicit VOID exclusion.
+- The batch receipt path's initial aggregates (`receivedByItem`, `receivedByItemProject`) also include receipt rows as shown, without explicit VOID filtering in the inspected excerpt.
+- `listNeeds` receipt aggregation similarly sums receipt QuantityReceived values without explicit status exclusion in the inspected path.
+- New receipt rows shown in this path do not set a Status field by default.
+
+### Integrity risk (source-level finding)
+If a receipt row is later marked VOID elsewhere, the VOID record may still consume order-level/project-level receiving limits and affect reporting/need aggregation unless those paths normalize or filter it elsewhere. This is a conditional source finding: no VOID mutation path has yet been found, so current operational impact cannot be asserted.
+- V2 should define active-receipt predicate explicitly and reuse it across receipt ceilings, project ceilings, order status, need reporting, idempotency, and reconciliation. Reversal audit history should remain retained while void quantity is excluded from operational totals.
