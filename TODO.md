@@ -755,3 +755,11 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - [ ] Validate complete Event headers and service semantics, including snapshots, amendments and project-info history.
 - [ ] Map procurement/material, identity/security, files/audit and print-template domains.
 - Status: IN PROGRESS. Header-level mapping only; no live data or executable schema.
+
+
+### Phase 2 / Task 2.1 — Material Planning & Procurement mapping (2026-11-22)
+- [x] Extract source headers for material needs/specifications/calculations, procurement settings, purchase orders/items, allocations and receipts.
+- [x] Targeted read-only review of ProcurementService paths for create-order, single/batch receipt and needs accounting.
+- [x] Document provisional mappings, transaction/integrity candidates and unresolved policy questions.
+- [ ] Confirm precision/unit conversion, surplus, returns, corrections, reallocation, status rules and uniqueness scopes.
+- Status: IN PROGRESS. No executable schema/migration.
