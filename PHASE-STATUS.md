@@ -310,3 +310,8 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 ### Phase 2 — Task 2.8 G-01 evidence increment (2026-11-22)
 - Verified recursive trees of read-only production frontend (187 entries) and backend (153 entries); recorded surface inventory and partial reconciliation matrix in TASK-2.8-G01-SOURCE-COVERAGE-INCREMENT-1.md.
 - G-01 remains OPEN; operation-level route/caller/permission mapping is still pending. Task 2.8 remains IN PROGRESS; schema readiness NOT APPROVED. No runtime tests, DDL, migration or production writes.
+
+
+### Task 2.8 G-01 Router evidence increment (2026-11-22)
+- Full backend Router.js and frontend router/API core retrieved read-only. Route families across HTTP method branches and frontend page/permission map documented in TASK-2.8-G01-ROUTER-SURFACE-INCREMENT-2.md.
+- Handler/caller/permission/tenant-scope/test reconciliation remains incomplete; G-01 OPEN. Schema Readiness NOT APPROVED. No runtime tests or production modifications.
