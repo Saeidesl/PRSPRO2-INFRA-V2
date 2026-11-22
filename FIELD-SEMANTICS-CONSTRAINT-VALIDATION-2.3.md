@@ -249,3 +249,23 @@ These are selected validator excerpts. Service-level authorization, tenant const
 - Receipt totals in the reviewed logic include rows from the receipt collection without a comprehensive VOID exclusion in the batch aggregate excerpts; a dedicated VOID lifecycle and reversal policy is not evidenced in the inspected service. V2 must define whether VOID is excluded, how reversals are audited, and whether order status recalculates atomically.
 - Legacy allocation and receipt aggregate rules are service-calculated; PostgreSQL transaction locking and constraints must protect aggregate ceilings. A simple row CHECK alone cannot enforce sums across related rows.
 - Task 2.3 remains incomplete: route-level auth, all allocation/receipt mutation paths, uniqueness scopes, exhaustive state transitions, and tests for idempotency replay, duplicate batch keys, void/reversal, over-receipt races, and allocation races remain to discover/specify.
+
+
+## Router authorization and material-planning void/revision checkpoint (2026-11-22)
+
+### Procurement route authorization observed
+- Read routes `/procurement/workspace`, `/reports`, `/dashboard`, `/needs`, `/orders` use `requireAny` for procurement/report view permissions as appropriate.
+- Write routes observed: POST-like `/procurement/orders`, `/procurement/receipts/batch`, `/procurement/receipts` each require `PROCUREMENT_MANAGE` before service dispatch.
+- Route review confirms order creation and receipt registration/batch registration entry points; no receipt void or allocation edit/delete route was identified in the inspected procurement route segment. Scope remains bounded; additional routes may exist elsewhere.
+
+### Material planning revision and event-void behavior
+- `reviseSpecification` tenant-scopes current specification, project-checks it, refuses DELETED, and rejects a stale/superseded revision; creates revision logic rather than editing stale revision. SpecKey and latest revision calculations appear service-level, therefore race/uniqueness protection must be database-backed in V2.
+- `recalculateProjectNeeds` acquires script lock and validates project, source event tenant/project match, and quantity; uses latest revision per SpecKey and active status.
+- `markEventVoided` acquires script lock, marks matching calculation history as `SOURCE_EVENT_VOIDED`, and marks active confirmed material needs from the source event `NEEDS_REVIEW`, adding explanatory notes. This indicates a review/reconciliation state rather than automatic deletion or cancellation of related procurement records.
+- `recordCalculation` performs tenant-scoped CalculationKey lookup and returns an idempotent replay if found; however lookup-then-insert remains susceptible to concurrent duplicate creation absent a database unique constraint and atomic write.
+
+### V2 constraints/transaction implications
+- Unique key for calculations should be tenant-scoped and enforced in DB, not only lookup logic.
+- MaterialSpecKey/SpecKey revision numbering and latest-active semantics require transaction/locking and a unique revision constraint per scope.
+- Voiding a source event does not, in the observed method, automatically reverse existing purchase orders or receipts; reconciliation policy must be a documented business decision. The legacy path puts affected confirmed needs into NEEDS_REVIEW.
+- Authorization rules need to be modeled consistently in API middleware/service guards and tenant scoping, not assumed from route permissions alone.
