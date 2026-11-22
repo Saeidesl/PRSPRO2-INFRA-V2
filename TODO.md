@@ -527,3 +527,8 @@
 - Read-only review of RequestParser.js and WebApp.js: request cache reset, parser/dispatch flow, opt-in admin GET diagnostics, event-creation diagnostic response behavior, token query/body handling, method override, path normalization, JSON object validation, and unsupported-method handling documented in ARCHITECTURE.md.
 - Error response source currently exposes error.message even for unknown exceptions (with INTERNAL_ERROR code); V2 must sanitize unknown errors and retain secure structured logs. Parser-level size/content-type enforcement not established from inspected files and remains pending verification.
 - No runtime tests, live records, secrets, or production changes. Route matrix and test coverage remain incomplete.
+
+
+### Task 0.2 incremental notes (2026-11-22 — mutation route inventory)
+- Source inventory of Router POST/PUT/DELETE branches was expanded and categorized in ARCHITECTURE.md: print templates, project/status, departments, roles/permissions, procurement/orders/receipts, materials/specifications, workflows/steps/department assignments/rules, forms/information types, event types/events/event void/form responses, attachments, users/user-role assignments, project information and admin-only project/session actions.
+- The inventory records guard categories but is explicitly partial reconciliation: resource/service authorization and audit coverage remain to be checked; it is not runtime/security proof. No production changes or tests.
