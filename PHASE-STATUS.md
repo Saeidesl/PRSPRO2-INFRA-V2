@@ -328,3 +328,9 @@ Read-only inspection of project deletion, attachment delete and procurement rece
 
 ### Task 2.8 — Increment 5 evidence
 Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconciliation, mutable form response representation, definition snapshots, and amendment governance documented. No tests/implementation; G-01 coverage reconciliation remains open.
+
+
+## Phase 2 — Task 2.8 G-01 Increment 6 (2026-11-22)
+- Recorded bounded source evidence for registry/header semantics, reused sheet-number prefixes, JSON/list and polymorphic fields, and destructive legacy reset routine in `TASK-2.8-SCHEMA-REGISTRY-AUXILIARY-EVIDENCE-INCREMENT-6.md`.
+- The reset routine was not executed; no live data or configuration accessed. G-01/G-10 remain open; schema readiness remains NOT APPROVED.
+- No tests, SQL/DDL, migration, provisioning, production modifications, deployment or VPS action.
