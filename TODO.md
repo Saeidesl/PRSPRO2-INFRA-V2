@@ -1413,3 +1413,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Read-only crosswalk of procurement mutation POST routes, permission gates, service defense and test-tree evidence recorded in `TASK-2.8-PROCUREMENT-MUTATION-ROUTE-PERMISSION-TEST-CROSSWALK-INCREMENT-23.md`.
 - Order, single receipt and batch receipt POST routes require PROCUREMENT_MANAGE; relevant service checks/locks/validation are documented, while multi-sheet transaction boundaries remain unresolved. Procurement test filenames found but assertion mapping and execution are not yet proven.
 - G-01/G-02/G-10 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+## Phase 2 — Task 2.8 Increment 24 (2026-11-22)
+- Actual assertions in procurement-service, procurement-event-integration and material-planning test files were read and mapped in `TASK-2.8-PROCUREMENT-MATERIAL-PLANNING-ASSERTION-COVERAGE-INCREMENT-24.md`.
+- Source assertions cover allocation cap/surplus, request-level read reuse, event-source-bound confirmed quantity, event integration restrictions, replay, source void history, revision and cross-tenant/invisible project rejection. They were not executed.
+- G-01/G-02/G-10 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
