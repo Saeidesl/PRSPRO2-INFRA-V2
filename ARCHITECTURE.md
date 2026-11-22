@@ -973,3 +973,65 @@ Selected GET Router branches were traced against permission gates and service de
 - READ-ONLY discovery and source audit findings have been consolidated to the best available source/document/CI evidence.
 - No legacy production repo was modified, no production data was accessed, no secrets were retrieved, no VPS was purchased/configured and no migration was executed.
 - Task is READY FOR PRODUCT OWNER REVIEW; under project protocol it is not marked COMPLETE until explicit acceptance.
+
+
+## 47. Phase 0 — Task 0.3 discovery report and target boundaries (draft, 2026-11-22)
+
+### Status
+- Task 0.3 is IN PROGRESS. This is a source-informed draft for Product Owner review; it is not accepted and does not authorize implementation, migration, or changes to the legacy system.
+
+### Verified current-system map (high-level)
+- Frontend: HTML/CSS/JavaScript SPA hosted via GitHub Pages/deployment workflow; consumes the legacy GAS API and uses browser-side caching.
+- Backend: Google Apps Script V8 web-app, with Router, service/repository layers, authorization and validation, and platform-bound runtime services.
+- Persistence: Google Sheets tables/headers and logical relationships; tenant and domain scoping are generally implemented in code rather than database-enforced foreign keys.
+- Files: Google Drive-based storage and attachment metadata/lifecycle paths.
+- Integration/configuration: Telegram Bot API integration is documented; tenant mappings and sensitive configuration are held in platform configuration mechanisms. No secret values were accessed.
+- Cross-domain dependencies: project/workflow/event/form snapshots, central information/reference synchronization, material planning, procurement/allocation/receipts, print-template binding, attachment and audit lifecycle.
+- Existing frontend/backend production repositories and deployed systems remain READ-ONLY.
+
+### Candidate migration scope (subject to PO review and detailed validation)
+- Tenant/user/role/permission model and authentication/session replacement.
+- Project and lifecycle/status management; workflow definitions, versions, steps, departments and event rules.
+- Event records, event-form submissions and definition/version snapshots, amendments and void history.
+- Central project information, revisions/history, approval/reference-sync/conflict behavior.
+- Material specifications, calculations, material needs, procurement orders/items/allocations/receipts.
+- Attachments/files and metadata, audit history, print-template definitions/bindings.
+- Confirmed integrations and configuration, with secrets re-provisioned rather than copied.
+
+### Candidate exclusions or replacement handling (not finalized)
+- Google Apps Script runtime, Google Sheets storage, GAS deployment URLs, Apps Script locks/cache, Script Properties, and Google Drive storage are platform components to replace, not target V2 dependencies.
+- Legacy authentication/session tokens and secret values are not presumed portable; security review and user re-authentication/reset strategy are required.
+- Operational data, files, and configuration migration are deferred until a sanitized migration rehearsal and explicit approval.
+
+### Target domain boundaries — provisional
+1. Identity & tenancy: tenant, user, role, permission, session/authentication, tenant-scoped policy enforcement.
+2. Production projects: project identity, status/lifecycle, project information and revision history.
+3. Workflow configuration: versioned workflow, steps, department assignments, event rules and publication.
+4. Events & forms: event records, event type, form definitions/versions, snapshots, responses, amendment and void semantics.
+5. Materials & planning: specifications, calculations, needs, revision/basis snapshots.
+6. Procurement & stock receipt: orders, items, allocations, receipts, cumulative limits and reconciliation.
+7. Files & media: storage abstraction, attachment associations, access policies, upload/download lifecycle.
+8. Reporting & templates: report queries, print templates, resolved project/event/form data and rendering.
+9. Audit & operations: append-only audit design, observability, correlation, reconciliation and retention.
+10. Integration adapters: notification and external-service adapters (initial inventory is incomplete).
+
+### Compatibility and migration requirements
+- Preserve legacy IDs where feasible and map all identities explicitly; never rely on inferred relationships during migration.
+- Preserve historical workflow/form definition snapshots and revision context.
+- Enforce tenant-scoped FK/unique constraints and resource authorization at API/service boundaries.
+- Use database transactions for multi-record operations; idempotency constraints for retry-sensitive operations; transactional audit and outbox/reconciliation for side effects.
+- Define file migration checksums, metadata, visibility and access-control validation.
+- Migration must be repeatable, report discrepancies, support recovery/rollback, and be rehearsed with sanitized/test data.
+- No dual-writing and no cutover before explicit PO approval.
+
+### Outstanding discovery questions
+- Exhaustive route-to-service/resource authorization matrix and security test strategy.
+- Full integration inventory and operational dependency details.
+- Data volumes, tenant counts, identifier/duplicate anomalies and performance baseline (not available from source audit).
+- File inventory, sizes, orphan/duplicate candidates and Drive permission behavior (no live inspection).
+- Complete audit/event history retention and business rules requiring confirmation.
+- Final storage provider, deployment topology and authentication design decisions.
+
+### Phase 0.3 deliverable status
+- High-level current-system map, provisional migration scope/exclusions, domain boundaries, compatibility requirements and unknowns drafted.
+- Awaiting Product Owner review; this draft does not approve or implement a schema.
