@@ -610,3 +610,10 @@
 - Draft discovery report added to ARCHITECTURE.md section 47.
 - Report includes high-level system map, candidate scope, platform exclusions, provisional domain boundaries, compatibility/migration guardrails and pending discovery questions.
 - This is a draft, not an accepted architecture or migration decision.
+
+### Repository-preparation blocker update (2026-11-22)
+- Rechecked repository availability; the three V2 repos remain unconfirmed.
+- Available GitHub integration does not expose a repository-creation action in this session.
+- Created Issue #1 to track the required user-side creation of private independent repositories: https://github.com/Saeidesl/PRSPRO2-INFRA-V2/issues/1
+- Required names: PRSPRO2-V2, PRSPRO2BACKEND-V2, PRSPRO2DATABASE-V2. No forks of production repos; no secrets or production data.
+- Phase 0.1 remains blocked pending creation/access confirmation.
