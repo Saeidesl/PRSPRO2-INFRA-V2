@@ -403,3 +403,50 @@ Table is a design hypothesis; detailed source mapping and Product Owner decision
 - Identity/role/permission sheets and service authorization paths.
 - Attachments and audit details, plus print templates.
 - Full event headers and exact service paths for project information/history and form response amendment.
+
+
+## 17. Source-to-target mapping checkpoint — Material Planning & Procurement
+
+**Evidence:** Read-only inventory of legacy `DatabaseSetup.js` headers and targeted review of `ProcurementService.js` in `PRSPRO2BACKEND-PRODUCTION` on 2026-11-22. This records source structure and limited observed service behavior; it is not a record-level data audit.
+
+### Source inventory
+| Legacy sheet | Header fields | Provisional V2 target and validation concerns |
+|---|---|---|
+| 23_EventTypeProcurementSettings | ID, TenantID, EventTypeID, Action, FieldMapJSON, Status, CreatedBy, CreatedAt, UpdatedAt, ConfirmedQuantityInformationTypeID | Event-type procurement action/configuration mapping; field mapping and quantity confirmation semantics pending |
+| 18_MaterialNeeds | ID, TenantID, ProjectID, SourceEventID, ItemName, ItemCode, Unit, RequestedQuantity, NeededBy, Status, Notes, CreatedBy, CreatedAt, UpdatedAt, MaterialSpecID, MaterialSpecKey, SpecificationRevision, CalculationID, BasisQuantity, NeedType, CalculationKey | Material need/request, source and calculation linkage; determine whether source event optional, key scope and lifecycle |
+| 24_ProjectMaterialSpecs | ID, TenantID, ProjectID, SpecKey, ItemName, ItemCode, Unit, ConsumptionPerUnit, WastagePercent, EarlyOrderPolicy, EarlyOrderQuantity, Status, Revision, Notes, CreatedBy, CreatedAt, UpdatedAt | Project material specification/revision; precision, policy values, revision history and key uniqueness pending |
+| 25_MaterialNeedCalculations | ID, TenantID, ProjectID, MaterialSpecID, MaterialNeedID, SourceEventID, SourceEventVersion, CalculationKey, BasisQuantity, ConsumptionPerUnit, WastagePercent, CalculatedQuantity, PreviousCalculatedQuantity, VarianceQuantity, CalculationType, Status, CreatedBy, CreatedAt | Calculation provenance; repeat/recalculation rules and immutable history need validation |
+| 19_PurchaseOrders | ID, TenantID, OrderNumber, SupplierName, OrderDate, ExpectedDeliveryDate, Status, Notes, CreatedBy, CreatedAt, UpdatedAt, IdempotencyKey | Purchase order header, supplier/date/state and idempotency; order-number scope and state transitions pending |
+| 20_PurchaseOrderItems | ID, TenantID, PurchaseOrderID, MaterialNeedID, ItemName, ItemCode, Unit, OrderedQuantity, UnitPrice, Notes, CreatedAt, UpdatedAt, SurplusQuantity, SurplusCost | Order item and possibly surplus accounting; unit/price precision, item-level need linkage and surplus rules pending |
+| 21_PurchaseAllocations | ID, TenantID, PurchaseOrderItemID, ProjectID, MaterialNeedID, AllocatedQuantity, CreatedAt | Item-to-project/need allocation; allocation totals, multi-project/general order eligibility and reallocation policy pending |
+| 22_MaterialReceipts | ID, TenantID, PurchaseOrderItemID, ProjectID, QuantityReceived, ReceivedAt, WarehouseDepartmentID, SourceEventID, Notes, ReceivedBy, CreatedAt, IdempotencyKey | Receipt ledger entry, optionally project/event/dept associated; correction/return semantics and limits pending |
+
+### Limited observed service behavior
+- `ProcurementService` exposes order creation, single receipt, batch receipt, needs listing, orders listing, workspace/report/dashboard paths.
+- Order creation and single receipt use a Script Lock in the inspected code; batch receipt also uses a lock. V2 needs database transactions and appropriate locking/constraints instead of a process-global lock.
+- Order creation checks for an existing order by tenant and idempotency key and returns an idempotent replay result when found.
+- Single receipt checks idempotency key for existing receipts before proceeding.
+- Receipt batch logic builds accounting views by item/project from existing receipt and allocation rows; the complete batch validation logic and all quantity semantics still require further inspection.
+- Project and source-event validation in the inspected helper checks tenant and project visibility; project may be omitted in relevant contexts. V2 authorization should be explicit at service/API level and validated against trusted context.
+- Needs listing combines needs, order items/orders, allocations and receipts; cancelled/void/deleted/needs-review order states are excluded from a countable-item calculation in the inspected excerpt. Full status accounting is pending.
+
+### Integrity and transaction candidates
+1. Need/spec/calculation provenance consistency and tenant consistency.
+2. Ordered quantity and unit/precision validation.
+3. Allocation quantity cannot exceed eligible quantity under a confirmed business policy; no assumption made yet about whether surplus is allocatable.
+4. Receipts must reconcile against item quantities and project allocations, while preserving partial receipts and any approved surplus path.
+5. Concurrent order/allocation/receipt writes require DB transactions, constraints, locks appropriate to isolation, and idempotency.
+6. Corrections, returns, cancellations and reallocation should be modeled explicitly; no destructive rewriting of receipt history presumed.
+7. General orders and multi-project allocation capability are noted from prior read-only audit; exact rules remain to be confirmed.
+
+### Open business and technical questions (not decided)
+- Units, decimal precision and conversion rules.
+- Whether receipt quantity is limited to ordered, allocated, or separate surplus allowance for each path.
+- Surplus ownership and project allocation eligibility.
+- Returns, correction and reversal representation.
+- Allocation changes after order or receipt and status recalculation rules.
+- Need recalculation, superseding calculations and history retention.
+- Order/need/receipt status definitions and transitions.
+- Uniqueness scopes for item codes, calculation keys, order numbers and idempotency keys.
+
+No schema, SQL, migration, live-data extraction or production modification was performed.
