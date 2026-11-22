@@ -853,3 +853,6 @@ This update supersedes earlier conflicting task-status notes in this historical 
 
 - [x] Audit print-template resolver source bindings, tenant-scoped resolution, asset lifecycle, and Router route families (partial mutation/API inventory); checkpoint PRINT-RESOLVER-API-CHECKPOINT-2.1.md.
 - [ ] Complete remaining resolver source/output assembly and full HTTP route/mutation contract matrix.
+
+- [x] Read-only audit of reference-project copy plan/replay semantics, dependency-safe project deletion, attachment access and audit-record shape; checkpoint REFERENCE-COPY-DELETION-AUDIT-CHECKPOINT-2.1.md.
+- [ ] Complete reference-copy retry/rollback and attachment recovery/retention paths, audit coverage, auxiliary sheet, and API mutation matrix.
