@@ -300,3 +300,8 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 - Created TASK-2.8-RECOMMENDED-POLICY-DEFAULTS.md, a structured proposal register covering procurement, event/form history, attachments, tenant integrity and coverage-reconciliation gates.
 - Recommended defaults include immutable posted receipt facts with reversal lineage; transaction-safe/idempotent operations; sequential amendment lineage; logical deletion and controlled purge for attachments; tenant-qualified relationships; and explicit 100% dispositioned source coverage.
 - These remain proposed policies pending Product Owner acceptance. Schema readiness remains NOT APPROVED. No tests, SQL/DDL, migrations, live data, DB provisioning, production changes or deployment.
+
+
+## Task 2.8 — Lifecycle/transaction contract checkpoint (2026-11-22)
+- Added proposed state/lifecycle contracts, invariants, DB transaction/concurrency pattern and design-level acceptance test cases for procurement, event/form history, attachments and tenant integrity.
+- Deliverable: TASK-2.8-LIFECYCLE-TRANSACTION-CONTRACTS.md. This is design-only; no executable tests or implementation performed. Task 2.8 remains IN PROGRESS and schema readiness NOT APPROVED.
