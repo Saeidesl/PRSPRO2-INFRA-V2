@@ -827,3 +827,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - [x] Record findings in IDENTITY-PERMISSIONS-TENANT-CHECKPOINT-2.1.md.
 - [ ] Complete route-by-route permission coverage and remaining table/relationship audit.
 - Status: IN PROGRESS.
+
+
+- [x] Inspect GoogleSheetsRepository abstraction and core project/event/workflow/form/project-information/delete service paths at function-level.
+- [x] Record repository/lifecycle findings in REPOSITORY-LIFECYCLE-AUDIT-CHECKPOINT-2.1.md.
+- [ ] Exhaustively verify relation cardinalities, mutation idempotency, project copy recovery, delete/retention semantics and remaining table mapping.
