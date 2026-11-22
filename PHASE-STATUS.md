@@ -155,3 +155,9 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 - Schema design readiness: NOT READY. G-01/G-02/G-03/G-04/G-10 remain BLOCKERS; high/open gap items remain tracked.
 - Task closure does not authorize SQL/DDL, migrations, live data access, DB provisioning, production changes, deployment, VPS or cutover.
 - Next: prepare a blocker-resolution/discovery decision task, prioritizing exhaustive lifecycle/dependency coverage, reversal/history/attachment contracts and tenant-safe relationship enforcement. Do not start physical schema work until blockers are resolved and readiness is reviewed.
+
+
+## Phase 2 — Task 2.6 kickoff (2026-11-22)
+- Task 2.6: IN PROGRESS — Resolve Discovery Blockers before Schema Design.
+- Increment 1 completed: bounded review of Procurement order/receipt and event integration paths; proposed G-02 contract documented, not finalized.
+- G-02 remains BLOCKER pending further source coverage. No physical schema or migration work.
