@@ -506,3 +506,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 Increment 38 (2026-11-22)
 - POST mutation route crosswalk recorded in `TASK-2.8-POST-ROUTE-MUTATION-PERMISSION-CROSSWALK-INCREMENT-38.md`, covering project/draft fallback, reference copy, workflow, config/forms, events/attachments and RBAC.
 - Special same-tenant own-DRAFT fallback and route-bound attachment ownership highlighted for test coverage; runtime tests and exhaustive service validation remain unverified. G-01/G-10 OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+## Phase 2 — Task 2.8 Increment 39 (2026-11-22)
+- PUT/DELETE route crosswalk recorded in `TASK-2.8-PUT-DELETE-ROUTE-CROSSWALK-INCREMENT-39.md`, covering update/deactivate/remove, admin delete/session, attachment and workflow/form/RBAC families.
+- Dispatch gates documented; service-level tenant guards, atomicity, retention/recovery and runtime test evidence remain unverified. G-01/G-03/G-04/G-10 OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
