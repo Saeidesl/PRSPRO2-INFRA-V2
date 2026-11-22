@@ -1103,3 +1103,10 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Documented bounded tenant checks, user/password and role-assignment paths, audit record shape, report/dashboard consumers, print-template definition/asset metadata and selected dispatch/permission gates in TASK-2.5-READINESS-GAP-REGISTER.md.
 - G-01/G-10 remain blockers; G-08/G-09/G-11/G-12 remain open/high. This is not a complete lifecycle, security or relational-constraint audit.
 - No live data, tests, SQL/DDL, migration, DB provisioning, production changes, deployment or VPS action.
+
+
+### Task 2.5 increment 20 — Procurement, project cascade-delete and attachment/storage audit (2026-11-22)
+- Read-only sampling of ProcurementService/Repository, ProjectDeletionService, AttachmentService/Repository and relevant route evidence.
+- Documented tenant-scoped procurement datasets, idempotency and receipt paths, project cascade dependency graph, shared order preservation, partial-failure behavior, attachment ownership/access checks and Drive storage operations in TASK-2.5-READINESS-GAP-REGISTER.md.
+- G-01/G-02/G-04/G-10 remain blockers; G-06/G-09/G-11 remain open/high. No exhaustive coverage claim.
+- No live data, tests, SQL/DDL, migration, DB provisioning, production changes, deployment or VPS action.
