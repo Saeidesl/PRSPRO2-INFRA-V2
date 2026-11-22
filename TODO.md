@@ -919,3 +919,5 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - [x] Inspect procurement route authorization and material-planning revision, recalculation, source-event-void, and CalculationKey replay behavior; record concurrency and reconciliation implications. (2026-11-22)
 
 - [x] Reinspect receipt aggregate paths in ProcurementService: record the conditional VOID exclusion inconsistency across single receipt, batch receipt and needs-report aggregation (no VOID mutation path yet found). (2026-11-22)
+
+- [x] Audit material-spec revision write ordering/partial-failure risk, calculation record fields/idempotency race, and event integration validation/apply boundaries (receipt integration remains inert). (2026-11-22)
