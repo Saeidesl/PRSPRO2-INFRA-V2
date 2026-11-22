@@ -911,3 +911,5 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - [x] Inspect dependency-aware project deletion, event workflow/status transition logic and user-role assignment/removal semantics; record shared-dependency, fail-closed, draft transition and association-race evidence. (2026-11-22)
 
 - [x] Inspect selected ProcurementService project visibility/numeric helper, ProjectInformationService attachment-reference and approval-revision logic, AttachmentService visibility/copy checks, and EventDataService historical read validation; document caveats and unresolved integrity boundaries. (2026-11-22)
+
+- [x] Inspect procurement order and receipt write paths (locking, idempotency, allocation/receipt ceilings, batch normalization, status updates and partial-write recovery); record V2 transactional requirements and unresolved edge cases. (2026-11-22)
