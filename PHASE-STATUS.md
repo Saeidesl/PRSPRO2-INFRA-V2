@@ -294,3 +294,9 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 ## Task 2.8 — Remaining Blocker Policy & Evidence Decision Pack (2026-11-22)
 - IN PROGRESS: prepared provisional recommendations and decision/evidence gates for G-01/G-02/G-03/G-04/G-10 following Task 2.7 audit closure. This is policy preparation, not approval or schema readiness.
 - Document: TASK-2.8-BLOCKER-POLICY-DECISION-PACK.md. No SQL/DDL, migration, live data, DB provisioning, production changes or deployment.
+
+
+## Phase 2 — Task 2.8 checkpoint (2026-11-22, continued)
+- Created TASK-2.8-RECOMMENDED-POLICY-DEFAULTS.md, a structured proposal register covering procurement, event/form history, attachments, tenant integrity and coverage-reconciliation gates.
+- Recommended defaults include immutable posted receipt facts with reversal lineage; transaction-safe/idempotent operations; sequential amendment lineage; logical deletion and controlled purge for attachments; tenant-qualified relationships; and explicit 100% dispositioned source coverage.
+- These remain proposed policies pending Product Owner acceptance. Schema readiness remains NOT APPROVED. No tests, SQL/DDL, migrations, live data, DB provisioning, production changes or deployment.
