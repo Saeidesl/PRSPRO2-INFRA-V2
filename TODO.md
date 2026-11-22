@@ -1458,3 +1458,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ## Phase 2 — Task 2.8 Increment 31 (2026-11-22)
 - Dynamic/prefix Router.js pattern inventory recorded in `TASK-2.8-DYNAMIC-ROUTER-PATH-PATTERN-INVENTORY-INCREMENT-31.md`, including GET, POST, update/delete and admin/destructive families.
 - Inventory remains a dispatch-pattern extraction; route-method combinations, permissions, payload validation and service effects are not exhaustively traced. G-01/G-10 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+## Phase 2 — Task 2.8 Increment 32 (2026-11-22)
+- Focused read-only Router.js trace for admin project deletion preview/remove, admin session listing/revocation and attachment list/download/upload gates recorded in `TASK-2.8-HIGH-RISK-ADMIN-DELETION-ATTACHMENT-ROUTE-TRACE-INCREMENT-32.md`.
+- Explicit admin checks and ATTACHMENT_VIEW/ATTACHMENT_UPLOAD gates observed in sampled routes; project attachment ownership is path-bound. Runtime authorization, exhaustive variants and tests remain unverified.
+- G-01/G-04/G-10 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
