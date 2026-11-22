@@ -606,3 +606,7 @@ User-role and role-permission service paths apply tenant validations but reposit
 
 ### Task 2.6 Increment 9 evidence
 Attachment ownership is metadata/parent-based and storage is Google Drive behind an adapter. Upload/delete writes are multi-step; recovery/transactional guarantees not proven. V2 recommends metadata/object storage separation, staged upload/recovery, tenant-compatible parent constraints and retention-aware purge. G-04/G-11/G-10 remain BLOCKERS.
+
+
+### Task 2.6 Increment 10 evidence
+Audit append-only/tamper guarantees and domain-write coupling not proven; reports aggregate across tenant-scoped entities; EventData and project-information history/reference-sync require distinct retention. Legacy ID mapping and orphan/duplicate coverage incomplete. V2 recommendations recorded; G-01/G-05/G-09/G-10 remain open/blockers.
