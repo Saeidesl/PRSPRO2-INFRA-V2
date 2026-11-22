@@ -578,3 +578,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 Increment 52 (2026-11-22)
 - Header-derived tenant-qualified relationship crosswalk recorded in `TASK-2.8-TENANT-QUALIFIED-RELATIONSHIP-HEADER-CROSSWALK-INCREMENT-52.md`.
 - Candidate tenant-consistent FK edges mapped from declarations; special cases noted. E1 only; G-10 remains OPEN, schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+### Task 2.8 Increment 53 (2026-11-22)
+- Bounded read-only EventService/AttachmentService trace documented in `TASK-2.8-INDEPENDENT-EVENT-ATTACHMENT-OWNERSHIP-TRACE-INCREMENT-53.md`: independent-event listing/retrieval behavior, parent-project checks for project-linked events and attachment ownership/visibility/copy checks.
+- Source evidence only; no runtime tests. G-10/G-04/G-01 remain open; schema readiness NOT APPROVED. No live data/DDL/migrations/provisioning/deployment/production changes.
