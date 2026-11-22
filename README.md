@@ -24,4 +24,4 @@ Build an independent PMS for garment manufacturing, replacing the current Google
 - PHASE-STATUS.md: authoritative reconciled status for accepted milestones and current task
 
 ## Status
-Phase 0 — Discovery & Repository Preparation is COMPLETE and accepted (Tasks 0.1, 0.2 and 0.3). Phase 1 Task 1.1 — Repository collaboration conventions is COMPLETE following Product Owner acceptance on 2026-11-22. The CI baseline remains pending as a separate task. No implementation, live data access, migration, deployment or production changes.
+Phase 0 — Discovery & Repository Preparation is COMPLETE and accepted (Tasks 0.1, 0.2 and 0.3). Phase 1 Task 1.1 — Repository collaboration conventions is COMPLETE following Product Owner acceptance on 2026-11-22. Task 1.2 — CI baseline inventory and readiness is IN PROGRESS; its inventory is documented in CI-BASELINE.md. No implementation, live data access, migration, deployment or production changes.
