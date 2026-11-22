@@ -1293,3 +1293,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 — Lifecycle & Transaction Contracts (2026-11-22)
 - Added draft lifecycle/state transition, invariant, transaction/concurrency and candidate acceptance-test contracts for procurement, event/form history, attachment lifecycle and tenant integrity.
 - Document: TASK-2.8-LIFECYCLE-TRANSACTION-CONTRACTS.md. Design only; not implementation or test evidence. Business-policy decisions and exhaustive source coverage remain open.
+
+
+### Task 2.8 — G-01 Coverage Increment 1 (2026-11-22)
+- Retrieved recursive read-only trees: frontend reference 187 entries; backend reference 153 entries.
+- Added TASK-2.8-G01-SOURCE-COVERAGE-INCREMENT-1.md with verified tree-level page/service/repository surfaces and explicit PARTIAL classifications.
+- G-01 remains OPEN; tree inventory is not exhaustive route, caller, permission or dependency reconciliation. No tests/runtime execution or production modifications.
