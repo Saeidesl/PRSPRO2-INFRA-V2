@@ -1464,3 +1464,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Focused read-only Router.js trace for admin project deletion preview/remove, admin session listing/revocation and attachment list/download/upload gates recorded in `TASK-2.8-HIGH-RISK-ADMIN-DELETION-ATTACHMENT-ROUTE-TRACE-INCREMENT-32.md`.
 - Explicit admin checks and ATTACHMENT_VIEW/ATTACHMENT_UPLOAD gates observed in sampled routes; project attachment ownership is path-bound. Runtime authorization, exhaustive variants and tests remain unverified.
 - G-01/G-04/G-10 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+## Phase 2 — Task 2.8 Increment 33 (2026-11-22)
+- Read-only Router crosswalk for central project information save/resolve/approve/deactivate, reusable form definition/assignment, event form amendment, event void, workflow update and workflow event-rule mutation recorded in `TASK-2.8-PROJECT-INFORMATION-FORM-EVENT-WORKFLOW-MUTATION-PERMISSION-TRACE-INCREMENT-33.md`.
+- Explicit gates observed: PROJECT_EDIT, SYSTEM_SETTINGS, EVENT_TYPE_MANAGE (or SYSTEM_SETTINGS for assignment), EVENT_EDIT, EVENT_CREATE and WORKFLOW_MANAGE. Exhaustive service/runtime/tenant test coverage remains unverified.
+- G-01/G-03/G-10 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
