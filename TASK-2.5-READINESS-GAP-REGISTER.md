@@ -61,3 +61,25 @@ New sub-findings to carry into design:
 - Thin repository adapters mean application-only relationship validation cannot be treated as sufficient FK evidence for V2.
 
 No executable schema, SQL, migrations, database setup, live data access, tests, production changes or deployment performed.
+
+## Increment 3 — Procurement, material calculation, event integration and attachment owner evidence (2026-11-22)
+Read-only method/body sampling was extended across ProcurementService, MaterialPlanningService, ProcurementEventIntegrationService, AttachmentService and ProjectDeletionService.
+
+### Evidence
+- Order creation includes an optional IdempotencyKey replay check scoped to the current tenant before processing items; this must be considered in V2 idempotency design, including uniqueness scope and replay response.
+- Single receipt creation checks replay using SourceEventID and PurchaseOrderItemID for non-void receipts in the inspected path; tenant and item/order validation are present.
+- Batch receipt processing has a distinct locked pathway, tenant-scoped receipt inventory and item/order/allocation quantity maps. The source evidence supports separate pathway semantics; parity and transactional guarantees require detailed full-path review.
+- Material planning recalculation validates the source event tenant/project association, selects active latest specification revisions and stores calculation provenance. Source-event void handling updates calculations and affected needs to a voided-source state. This requires append/history and correction semantics in V2.
+- Procurement event integration supports a configuration action for recalculation of confirmed needs, validates configured information type and source-event linkage, and calls material recalculation. Event-to-material calculation is an indirect relationship that must be modeled and tenant-constrained.
+- Attachment visibility in the inspected code currently recognizes PROJECT and EVENT owners, validates tenant ownership, and applies project visibility checks. Upload rejects other owner types in the inspected pathway. This is a concrete observed owner-type set for the sampled code, but it is not necessarily exhaustive of all attachment callers or historical data.
+- Project deletion dependency collection preserves general/shared procurement orders and order items where other-project allocations remain. This relationship model should be explicit in V2; project deletion must not imply deleting shared purchasing records.
+- Attachment deletion calls storage deletion and then updates metadata status in the inspected path; this ordering presents a failure-recovery/consistency question for V2 (storage and DB operation atomicity cannot be assumed).
+
+### Updated gap assessment
+- G-02 remains BLOCKER: receipt correction/return, order cancellation, adjustment, state transitions, quantity reconciliation and idempotency scopes are not fully specified.
+- G-04 reduced from unknown owner set to observed PROJECT/EVENT in sampled upload/visibility paths; exhaustive caller and historical owner inventory still pending.
+- G-03 remains BLOCKER: Event/Form payload and revision/snapshot/reporting behavior remains to be mapped.
+- G-09 and G-11 remain HIGH: storage failure recovery, retention, orphan cleanup and deleted-file lifecycle need explicit policy.
+- General/shared order preservation and allocation linkage are source-supported and must be represented explicitly.
+
+No executable schema, SQL, migration, database provisioning, live data, tests, production changes or deployment occurred.
