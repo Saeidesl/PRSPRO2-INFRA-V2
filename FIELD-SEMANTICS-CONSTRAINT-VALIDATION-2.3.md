@@ -298,3 +298,12 @@ If a receipt row is later marked VOID elsewhere, the VOID record may still consu
 
 ### VOID confirmation
 - `markEventVoided` updates calculations to `SOURCE_EVENT_VOIDED`, updates active CONFIRMED needs sourced by the event to `NEEDS_REVIEW`, and logs affected counts. It is a review/reconciliation path, not an automatic purchase-order or receipt reversal.
+
+
+## Procurement lifecycle and repository constraints checkpoint (2026-11-22)
+
+- Inspected ProcurementService method inventory: createOrder, createReceipt, createReceiptsBatch, listNeeds, listOrders, workspace, reports, dashboard; no order update/cancel, receipt void, allocation edit/delete methods observed in this service. This is a bounded source observation, not proof no external mutation exists.
+- Router exposes read paths for dashboard/needs/orders and write paths for order creation and receipt single/batch creation guarded by PROCUREMENT_MANAGE. No route for order cancel/update, receipt void, or allocation mutation was observed in the searched Router sections.
+- DatabaseSetup headers: PurchaseOrders includes Status and IdempotencyKey; PurchaseOrderItems includes quantities/prices/surplus; allocations include item/project/need/quantity; MaterialReceipts headers omit Status and include IdempotencyKey, SourceEventID and ReceivedAt. Therefore the receipt VOID status previously observed in aggregate filters may be legacy/injected/other-path data rather than a formally declared column; mutation path and schema usage remain unverified.
+- MaterialNeed and Calculation rows are scoped by TenantID and associated IDs in inspected methods, but Google Sheets provides no demonstrated relational FK/unique enforcement. V2 should use FK constraints and tenant-aware uniqueness where domain invariants require it.
+- No database-level unique constraints were evidenced in inspected DatabaseSetup (sheet headers only). Important candidates for V2 include tenant-scoped order idempotency, receipt idempotency/source-event-item replay keys, calculation keys, material spec revision and active spec-key semantics, and association uniqueness/ceilings. These need discovery and business validation before schema design.
