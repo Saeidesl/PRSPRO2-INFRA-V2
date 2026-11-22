@@ -1444,3 +1444,9 @@ Task 2.7 is a read-only discovery and traceability effort covering event/form hi
 
 ## Task 2.8 — Remaining blocker policy preparation
 - Prepared provisional policy recommendations and explicit evidence/decision gates for G-01/G-02/G-03/G-04/G-10. Recommendations are not approved business rules. Task 2.8 is in progress; Schema Readiness NOT APPROVED.
+
+
+## Task 2.8 — Proposed policy defaults (2026-11-22)
+- Companion register: TASK-2.8-RECOMMENDED-POLICY-DEFAULTS.md.
+- It proposes default business/technical policy for procurement, history/amendment/void, attachment lifecycle, tenant integrity and exhaustive legacy coverage.
+- Status: proposals only. PO approval and evidence closure are required before these become policy or are translated into executable schema. No schema/migrations, tests, live-data work, provisioning, deployment or production modifications.
