@@ -201,3 +201,8 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 ### Task 2.6 — Increment 9
 - Bounded attachment ownership/storage lifecycle review; provisional V2 storage decisions documented.
 - G-04/G-11/G-10 remain unresolved.
+
+
+### Task 2.6 — Increment 10
+- Bounded audit/report/history/legacy-ID relationship review and provisional V2 decisions recorded.
+- G-01/G-05/G-09/G-10 remain unresolved.
