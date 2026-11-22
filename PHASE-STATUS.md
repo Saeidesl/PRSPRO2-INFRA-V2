@@ -161,3 +161,8 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 - Task 2.6: IN PROGRESS — Resolve Discovery Blockers before Schema Design.
 - Increment 1 completed: bounded review of Procurement order/receipt and event integration paths; proposed G-02 contract documented, not finalized.
 - G-02 remains BLOCKER pending further source coverage. No physical schema or migration work.
+
+
+### Task 2.6 — Increment 2
+- Completed bounded review of procurement projection/report/workspace and project deletion dependency semantics.
+- G-02 remains unresolved and IN PROGRESS. No schema implementation.
