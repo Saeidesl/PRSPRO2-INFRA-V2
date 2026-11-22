@@ -214,3 +214,22 @@ These are selected validator excerpts. Service-level authorization, tenant const
 
 ### Confidence boundary
 - These are source observations from selected service excerpts, not comprehensive proof of every branch, and they do not authorize finalized schema constraints. Concurrency, transactional consistency and all status paths remain open audit areas.
+
+
+## Procurement write-path integrity review (2026-11-22)
+
+### Purchase order creation
+- createOrder uses a ScriptLock and checks an optional IdempotencyKey within the tenant before proceeding. It validates the nonempty Items array and normalizes all line items/allocation relationships before the initial write.
+- Line quantity must be positive; optional unit price is validated nonnegative. Project and material-need tenant/visibility relationships are checked. Per-line allocation sum is bounded by ordered quantity and project/need relationship consistency is validated in inspected path.
+- The implementation explicitly notes Google Sheets has no multi-sheet transaction. It writes the order header, then item and allocation records. If downstream writes fail, it marks the order NEEDS_REVIEW and retains partial history rather than deleting it.
+- V2 implication: transactionally persist header/items/allocations; retain recoverable status for failures only where an external side effect prevents rollback. Avoid legacy partial-write repair states when a PostgreSQL transaction can roll back the graph.
+- Idempotency check is application-level; tenant-scoped uniqueness constraint and transactional insert/upsert semantics are candidates to prevent race duplicates.
+
+### Receipt creation and batch receipts
+- Single receipt path uses a ScriptLock, optional IdempotencyKey replay, and an additional SourceEventID + item replay check. It validates tenant/order/item, allocation-to-project, and total received quantity against ordered quantity.
+- Batch receipt path takes a ScriptLock, preloads receipt/allocation totals, validates each entry including per-item ordered limits and per-project allocation/unallocated surplus rules, and normalizes the batch before write. It inserts the batch in one Sheets repository call and updates order status based on aggregate received quantities (ACTIVE/PARTIALLY_RECEIVED/RECEIVED), skipping NEEDS_REVIEW orders.
+- Receipt creation audits each receipt. These paths implement both overall order-item ceiling and project-allocation ceiling; these invariants should be transactionally enforced in V2, with concurrency-safe locking/serialization where aggregate constraints are involved.
+- IdempotencyKey handling is application lookup in inspected paths; uniqueness, key scope, replay semantics and status filters need to be formally specified for V2. Batch path's replay handling and receipt accumulation also need tests for duplicate keys, repeated entries, VOID receipts and project-allocation boundaries.
+
+### Evidence limitation
+- This excerpt review does not establish complete procurement status transitions, receipt VOID lifecycle, allocation mutation/delete path, repository uniqueness or all error recovery behavior. These remain pending.
