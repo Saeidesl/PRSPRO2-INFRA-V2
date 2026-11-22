@@ -1612,3 +1612,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 62 (2026-11-22)
 - Workflow version/event rule lifecycle trace recorded in `TASK-2.8-WORKFLOW-VERSION-EVENT-RULE-LIFECYCLE-TRACE-INCREMENT-62.md`: versioned rule fields, clone/replace behavior under lock and bounded workflow/event type version validation.
 - E1 only; runtime tests and full aggregate publish path review pending. G-01/G-03/G-10 remain OPEN; schema readiness NOT APPROVED. No live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+### Task 2.8 Increment 63 (2026-11-22)
+- Legacy test inventory and V2 verification gap map recorded in `TASK-2.8-LEGACY-TEST-INVENTORY-VERIFICATION-GAP-MAP-INCREMENT-63.md`. Verified 40 test files in the reference backend tests tree; read representative test names for attachment access, project deletion, procurement, workflow rules, event idempotency and material planning.
+- Test execution/pass status is not claimed. PostgreSQL/transaction/RLS/route matrix/storage recovery coverage remains unverified. G-01/G-10 remain OPEN; schema readiness NOT APPROVED. No production changes.
