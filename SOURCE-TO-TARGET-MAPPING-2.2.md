@@ -76,3 +76,34 @@ This task is field-level source mapping, constraints and lifecycle validation ag
 
 ## Safety
 Read-only. No live data extraction, production changes, SQL/schema, migrations, VPS/deployment, dual-writing or secrets.
+
+
+## Registry source verification (2026-11-22)
+Fetched and read-only inspected the full `APP_CONFIG.SHEETS` registry from `DatabaseSetup.js` in `PRSPRO2BACKEND-PRODUCTION`. This confirms all defined table names and exact header arrays for the registry, rather than relying only on earlier summaries. The registry is still not proof of deployed-sheet contents or drift.
+
+Additional exact header arrays verified in this retrieval:
+- `01_Tenants`: ID,Name,Code,Timezone,Status,CreatedAt,UpdatedAt
+- `02_Users`: ID,TenantID,Name,Username,PasswordHash,DepartmentID,Status,CreatedAt,UpdatedAt
+- `03_Departments`: ID,TenantID,Name,Code,Status,CreatedAt,UpdatedAt
+- `04_Roles`: ID,TenantID,Name,Code,Status,CreatedAt,UpdatedAt
+- `05_Permissions`: ID,Code,Name,Module,Description,Status
+- `06_UserRoles`: ID,TenantID,UserID,RoleID,CreatedAt
+- `07_RolePermissions`: ID,TenantID,RoleID,PermissionID,CreatedAt
+- `08_Projects`: ID,TenantID,ProjectCode,Title,Description,WorkflowID,WorkflowVersion,CurrentStepID,Status,CreatedBy,CreatedAt,UpdatedAt,Quantity,AvailableDepartmentIDs,AllowedUserIDs,NotifyEnabled,CurrentStepStatus,SourceProjectID,RecordState,ReferencePolicyJSON,ReferenceCopyStatusJSON,ReferenceCopyCompletedAt,ReferenceCopyOperationID
+- `09_Workflows`: ID,TenantID,Name,Code,Version,Status,CreatedAt,UpdatedAt,WorkflowType,LifecycleState,PublishedVersion,DraftVersion,RepeatReferencePolicyJSON,PublishedRepeatReferencePolicyJSON
+- `10_WorkflowSteps`: ID,TenantID,WorkflowID,Name,Code,StepOrder,Status,CreatedAt,UpdatedAt,WorkflowVersion
+- `11_EventTypes`: ID,TenantID,Name,Code,Version,Description,DepartmentID,Category,WorkflowStepID,MovesProjectToStep,AllowAttachments,Status,CreatedAt,UpdatedAt,ConnectionType,TargetDepartmentID,TargetProjectStatus,AllowedDepartmentIDs,AllowedUserIDs,AvailableDepartmentIDs,AllowVoid,TrackVariantQuantity,TargetStepStatus,IsWorkCompletion,AllowOnDraft,IsFormAmendment,AmendableFormIDs
+- `12_EventFields`: ID,TenantID,EventTypeID,Name,Code,FieldType,IsRequired,DefaultValue,Options,ValidationRule,FieldOrder,Status,CreatedAt,UpdatedAt
+- `13_Events`: ID,TenantID,ProjectID,WorkflowID,WorkflowVersion,WorkflowStepID,EventTypeID,EventTypeVersion,PerformedBy,CreatedBy,DepartmentID,OccurredAt,CreatedAt,Description,Status,Color,Size,VariantQuantity,PreviousStepID,PreviousProjectStatus,PreviousAvailableDepartmentIDs,PreviousSnapshotCaptured,VariantDetailsJSON,PreviousCurrentStepStatus,IdempotencyKey,IdempotencyStatus
+- `14_EventData`: ID,EventID,DataJSON,CreatedAt
+- `17_WorkflowStepDepartments`: ID,TenantID,WorkflowID,WorkflowStepID,DepartmentID,Status,CreatedAt,UpdatedAt
+- `23_EventTypeProcurementSettings`: ID,TenantID,EventTypeID,Action,FieldMapJSON,Status,CreatedBy,CreatedAt,UpdatedAt,ConfirmedQuantityInformationTypeID
+- `18_ProjectStatuses`: ID,TenantID,Code,Name,Status,CreatedAt,UpdatedAt
+- `28_InformationTypes`: ID,TenantID,Code,Name,Description,Cardinality,DataType,ValidationRuleJSON,OptionsJSON,Status,Revision,CreatedBy,CreatedAt,UpdatedAt,ShowOnCard
+- `29_InformationTypeColumns`: ID,TenantID,InformationTypeID,Code,Name,DataType,IsRequired,OptionsJSON,ValidationRuleJSON,ColumnOrder,Status,CreatedAt,UpdatedAt
+- `32_Forms`: ID,TenantID,Code,Name,Description,Version,Status,CreatedBy,CreatedAt,UpdatedAt
+- `33_FormFields`: ID,TenantID,FormID,InformationTypeID,FieldOrder,GroupName,LabelOverride,HelpText,IsRequired,VisibilityRuleJSON,Status,CreatedAt,UpdatedAt
+- `34_EventTypeForms`: ID,TenantID,EventTypeID,FormID,IsRequired,FieldOrder,Status,CreatedBy,CreatedAt,UpdatedAt
+- `36_PrintTemplates`: ID,TenantID,Code,Name,Description,Status,Version,DefinitionJSON,CreatedBy,CreatedAt,UpdatedBy,UpdatedAt
+
+Source file SHA observed: `DatabaseSetup.js` blob `f8e341a5c220105792eab030ea5de920c9921320`. Read-only fetch only. This retrieval supports exact header evidence; behavioral validation for each header remains incomplete.
