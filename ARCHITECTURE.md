@@ -1318,3 +1318,7 @@ Read-only sampling observed tenant-scoped workflows and active step-department a
 
 ## Task 2.5 evidence increment 11 — registry inventory baseline
 A read-only extraction of the APP_CONFIG.SHEETS registry in DatabaseSetup.js identified 38 named registry definitions, grouped into identity/access, project/workflow, event/form/configuration, material/procurement, and file/template/audit domains. This is an inventory baseline only; exhaustive mutation/read/report/constraint coverage is pending. Registry naming includes two definitions with `18_` sheet-name prefix (MATERIAL_NEEDS and PROJECT_STATUSES), recorded as an observation to validate, not a defect assertion. G-01/G-10 remain blockers and G-12 open. No live data, SQL/DDL, migration, DB provisioning, tests, production changes or deployment.
+
+
+## Task 2.5 evidence increment 12 — partial service/repository mapping
+Read-only sampling recorded selected tenant-aware service/repository pathways for user-role assignment, role and permission catalog access, workflow-step event-rule versioned repository/validator, workflow-step-department association persistence and project-status lifecycle. Coverage states remain bounded; route callers, delete/restore, published configuration immutability, atomicity, indirect tenant constraints and consumer graph require further mapping. G-01/G-10 remain blockers and G-12 open. No SQL/DDL, migration, DB provisioning, live data, tests, production changes or deployment.
