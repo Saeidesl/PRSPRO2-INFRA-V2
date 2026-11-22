@@ -1164,3 +1164,11 @@ Selected GET Router branches were traced against permission gates and service de
 - Observed legacy attachment entity types are PROJECT/EVENT and configured provider GOOGLE_DRIVE; these are not V2 provider restrictions.
 - Dedicated service behavior was not fully validated in this checkpoint. Lifecycle, authorization, audit coverage/redaction, template payload/version semantics, and Telegram delivery remain discovery items.
 - No production data, file contents, credentials, secret values, schema, SQL, migration or production changes were accessed/performed.
+
+
+## 12. Source audit checkpoints — 2026-11-22
+- Read-only audit continued across project creation/reference-copy policies, workflow draft-version cloning and publishing, form definition/version validation and material-planning revisions/reconciliation.
+- Evidence checkpoint documents are maintained separately: SOURCE-MAPPING-CHECKPOINT-2.1.md, LIFECYCLE-SEMANTICS-CHECKPOINT-2.1.md, and PROJECT-WORKFLOW-FORM-MATERIAL-CHECKPOINT-2.1.md.
+- Provisional implications: preserve source/reference project policy and provenance; version workflows and forms; capture stable definition snapshots for historical records; preserve material specification/calculation revisions and reconciliation state; make multi-record mutations transactional, replay-safe and observable.
+- These implications are discovery notes only, not approved relational schema decisions. Further source audit and PO review are pending.
+- No production repository was modified. No tests, schema, migration, deployment or live data access occurred.
