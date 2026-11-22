@@ -583,3 +583,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ### Task 2.8 Increment 53 (2026-11-22)
 - Bounded read-only EventService/AttachmentService trace documented in `TASK-2.8-INDEPENDENT-EVENT-ATTACHMENT-OWNERSHIP-TRACE-INCREMENT-53.md`: independent-event listing/retrieval behavior, parent-project checks for project-linked events and attachment ownership/visibility/copy checks.
 - Source evidence only; no runtime tests. G-10/G-04/G-01 remain open; schema readiness NOT APPROVED. No live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+### Task 2.8 Increment 54 (2026-11-22)
+- Bounded repository lookup/filter boundary review documented in `TASK-2.8-REPOSITORY-LOOKUP-TENANT-FILTER-BOUNDARY-TRACE-INCREMENT-54.md`: generic ID lookup and selected relation repository filters are not themselves tenant-qualified; sampled service callers apply additional tenant/access checks.
+- E1 source inspection only; exhaustive caller review/runtime negative tests remain pending. G-01/G-10 remain OPEN; schema readiness NOT APPROVED. No live data/DDL/migrations/provisioning/deployment/production changes.
