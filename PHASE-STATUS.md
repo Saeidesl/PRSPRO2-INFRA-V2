@@ -15,7 +15,7 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 
 ## Phase 2 — Data Model & Migration Design
 - Task 2.1 — Consolidate conceptual entity inventory and relationships: IN PROGRESS.
-- Draft in DATA-MODEL-DRAFT.md; pending Product Owner review/acceptance.
+- Draft in DATA-MODEL-DRAFT.md; relationship matrix and candidate transaction boundaries added; pending Product Owner review/acceptance.
 - Task 2.1 is conceptual only; executable schema and migration tooling are not started.
 
 ## Evidence / current repo state
