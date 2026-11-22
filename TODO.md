@@ -1355,3 +1355,7 @@ This update supersedes earlier conflicting task-status notes in this historical 
 
 ### Task 2.8 — Source-to-test assertion trace sampling Increment 12 (2026-11-22)
 - Read-only sampled assertion trace across workflow enforcement, procurement, attachment, project deletion, schema contract and event idempotency test files recorded in `TASK-2.8-SOURCE-TO-TEST-ASSERTION-TRACE-INCREMENT-12.md`. Not exhaustive and tests not executed; G-01/G-10 remain OPEN.
+
+
+### Task 2.8 — Consolidated Gap Register Increment 13 (2026-11-22)
+- Consolidated increments 1–12 into domain-level evidence/gap register in `TASK-2.8-CONSOLIDATED-GAP-REGISTER-INCREMENT-13.md`, separating partial evidence from closure. G-01 through G-04 and G-10 remain OPEN; schema readiness NOT APPROVED. No tests or production changes.
