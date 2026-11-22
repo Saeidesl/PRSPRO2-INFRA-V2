@@ -548,3 +548,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 Increment 46 (2026-11-22)
 - Assertion source crosswalk covering event idempotency, schema-contract and workflow event tests recorded in `TASK-2.8-EVENT-IDEMPOTENCY-SCHEMA-WORKFLOW-ASSERTION-CROSSWALK-INCREMENT-46.md`.
 - E2 only; no runtime tests claimed. G-01/G-03/G-10 remain OPEN; schema readiness NOT APPROVED. No live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+## Phase 2 — Task 2.8 Increment 47 (2026-11-22)
+- Frontend assertion-source crosswalk recorded in `TASK-2.8-FRONTEND-ASSERTION-CROSSWALK-INCREMENT-47.md` for five selected tests.
+- E2 only; no runtime tests/browser execution claimed. G-01 remains OPEN; schema readiness NOT APPROVED. No live data/DDL/migrations/provisioning/deployment/production changes.
