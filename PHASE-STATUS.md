@@ -380,3 +380,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 Increment 15: registry-to-code crosswalk (2026-11-22)
 - Read-only path-level crosswalk of registry domains against backend service/repository candidates and frontend module candidates documented in `TASK-2.8-REGISTRY-CODE-SURFACE-CROSSWALK-INCREMENT-15.md`.
 - Path matching is not complete source-consumer evidence. G-01 remains OPEN; no tests or production changes.
+
+
+## Phase 2 — Task 2.8 Increment 16: high-risk lifecycle trace (2026-11-22)
+- Recorded targeted read-only source trace for event/form amendment, tenant-aware attachments, procurement idempotency/batch receipts, project dependency collection and reference-copy replay in `TASK-2.8-HIGH-RISK-LIFECYCLE-TRACE-INCREMENT-16.md`.
+- Findings are partial source evidence only; G-01/G-02/G-03/G-04/G-10 remain OPEN. No tests, live data or production changes.
