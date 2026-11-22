@@ -1383,3 +1383,7 @@ UNVERIFIED/BLOCKER: full historic owner types, attachment-to-form or other entit
 G-04 remains BLOCKER; G-10 tenant-safe polymorphic linkage remains BLOCKER; G-11 storage migration remains OPEN/HIGH.
 
 No SQL/DDL, migration, DB provisioning, live data, tests, production changes or deployment.
+
+
+### Task 2.5 — Increment 16 evidence checkpoint (2026-11-22)
+EventDataService and FormService were re-read in the read-only production reference. Bounded evidence confirms tenant/parent-project visibility checks, independent-event handling, DataJSON parsing/rejection of malformed or non-object payloads, and form-response records containing ResponseJSON and DefinitionSnapshotJSON with update-or-insert behavior. This does not establish immutable response history, comprehensive payload query/report/search requirements, exhaustive amendment lifecycle, or transactional sync with central information. G-03 remains BLOCKER; G-01/G-10 remain BLOCKERS. No tests or implementation work.
