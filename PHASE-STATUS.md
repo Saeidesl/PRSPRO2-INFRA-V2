@@ -51,3 +51,10 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 - Targeted ProcurementService review observed locks, order and receipt idempotency checks, tenant/project/event visibility helpers, and combined accounting reads. These observations are provisional and do not certify every branch/path.
 - Added provisional source mapping, transaction/integrity candidates and open business rules to DATA-MODEL-DRAFT.md.
 - No live data, schema, SQL or migrations were used.
+
+
+## Phase 2 — Identity/Authorization mapping checkpoint (2026-11-22)
+- Extracted source headers for Tenant, User, Department, Role, Permission, UserRoles and RolePermissions.
+- Targeted read-only review of AuthService, AccessControlService, PermissionService, selected repositories and Router excerpts documented observed authentication, role filtering, admin recognition, permission checks and potential gaps.
+- Added provisional mapping, V2 security requirements and open policy decisions to DATA-MODEL-DRAFT.md.
+- This is not a full security audit and no live data/credentials were accessed.
