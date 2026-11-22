@@ -166,3 +166,8 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 ### Task 2.6 — Increment 2
 - Completed bounded review of procurement projection/report/workspace and project deletion dependency semantics.
 - G-02 remains unresolved and IN PROGRESS. No schema implementation.
+
+
+### Task 2.6 — Increment 3
+- Bounded review of receipt batch invariants and API read surface; test source files reviewed but not executed.
+- G-02 remains unresolved.
