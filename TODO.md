@@ -998,3 +998,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Expanded read-only review to Router, Project, User, Workflow, EventType, InformationType, ProjectDeletion, Storage/Attachment/Event repositories and EventData service.
 - Evidence and bounded observations recorded in `TASK-2.5-READINESS-GAP-REGISTER.md`; G-01/G-10 remain blockers. Service validation, router authorization and DB relational enforcement are distinct layers.
 - No live data, tests, executable schema, SQL, migration, provisioning, production modification or deployment.
+
+
+### Task 2.5 increment 3 — procurement/material and attachment evidence (2026-11-22)
+- Sampled single/batch receipt and order idempotency paths, material calculation/source-event void, procurement event integration, attachment owner/visibility/upload/delete, and project deletion preservation of shared procurement records.
+- Evidence is recorded in `TASK-2.5-READINESS-GAP-REGISTER.md`. G-02 remains blocker; G-04 has bounded observed owners PROJECT/EVENT but exhaustive coverage is still pending; G-03/G-09/G-11 remain open.
+- Read-only only: no DB/DDL, migration, live data, test, production write or deployment.
