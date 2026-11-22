@@ -191,3 +191,26 @@ These are selected validator excerpts. Service-level authorization, tenant const
 
 ### Caveats
 - Excerpts are not a complete audit of every service branch, router authorization, repository write implementation or concurrency scenario. No DB constraint is finalized or approved based on these observations alone.
+
+
+## Additional integrity review: procurement, project information, attachments, event data (2026-11-22)
+
+### Procurement visibility and numeric handling
+- ProcurementService includes tenant-scoped user context and validates project linkage/visibility when a project ID is supplied; a missing project ID is treated as independent/shared context in the inspected helper.
+- Numeric helper converts values with JavaScript Number and checks finite values plus nonnegative/positive rules. This coercion is broader than strict numeric DTO validation and should be evaluated when designing API compatibility; persisted quantities should use explicit precision/scale and reject unsafe coercions.
+- The inspected excerpt was not a full write-path audit; receiving, allocations, status transitions, and aggregate invariants remain pending detailed inspection.
+
+### Project information and approval
+- ProjectInformationService validates project visibility within tenant, and information types within tenant. For file/image values, it validates AttachmentID against tenant, project, entity type, attachment type, active status, and MIME policy, returning structured attachment metadata rather than raw file payload.
+- Latest approval is selected by approved history and revision order. This indicates approval history is a distinct relationship from current information record. V2 should preserve history, revision and approved snapshot selection rather than overwrite history, subject to further full-path validation.
+
+### Attachment access and copying
+- Attachment visibility is checked against tenant, associated project/event and project availability; standalone events may follow separate visibility behavior in the inspected code.
+- Project image copy checks source/target tenant, source project visibility, project attachment entity type, image MIME and non-deleted/void status. Copy lifecycle and storage cleanup transaction boundaries remain unverified.
+- Attachment's polymorphic entity link (PROJECT/EVENT) and external storage object lifecycle require an explicit V2 integrity model; a conventional single FK cannot directly enforce both entity types.
+
+### Event data historical read path
+- EventDataService tenant-checks the event, checks project availability for project-linked events, returns null when event data absent, and rejects malformed/non-object JSON at read time. JSON object validation and optional absence are observed API semantics; database uniqueness/one-to-one remains to verify.
+
+### Confidence boundary
+- These are source observations from selected service excerpts, not comprehensive proof of every branch, and they do not authorize finalized schema constraints. Concurrency, transactional consistency and all status paths remain open audit areas.
