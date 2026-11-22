@@ -211,3 +211,83 @@ Avoid bundling unrelated domains into long transactions. External storage/provid
 - Which event states are represented explicitly vs inferred from records?
 - What are the actual deletion/reversal policies for projects, events, forms and workflow history?
 - Which associations are direct FK references vs service-level payload links?
+
+
+## 12. Focused conceptual notes — Tenant, identity and authorization (source-backed; provisional)
+
+### Tenant and identity boundaries
+- Treat Tenant as the top-level isolation boundary for memberships, role assignments, departments and business records, subject to confirmation of legacy ownership for every entity.
+- Conceptually separate a global/identity User record from tenant-specific Membership, status, role assignments and organizational context. This is a V2 design proposal, not a claim that legacy source has a fully separate membership entity.
+- User-to-tenant access should be explicit and revocable; requests must resolve tenant context from trusted server-side membership/session state, not accept arbitrary tenant IDs as authority.
+- Candidate constraints: unique membership per tenant/user; tenant-scoped role assignment; membership and role must belong to the same tenant; disabled membership must not authorize requests. Exact unique scopes and lifecycle states need discovery.
+
+### Roles and permissions
+- Legacy source shows tenant-bound active role resolution and role-permission mapping; SYS_ADMIN/ADMIN bypass behavior is derived from active roles within tenant scope.
+- Conceptual model: Tenant -> Roles; Permission catalog (whether global or tenant-specific pending validation); Role-Permission association; User-Membership -> Role assignment; Department assignment/context separately from role-based permission.
+- Do not encode admin bypass as a broad unchecked shortcut. V2 should have an explicit, testable policy for privileged roles and tenant scope.
+- Permission grants should be reconciled with resource-level visibility, department/project scope and special exceptions; role-level grants alone are not sufficient.
+- Candidate constraints: association uniqueness; inactive/disabled role or membership blocks authorization; tenant-consistent assignment paths; audit role/permission changes.
+
+### Sessions / credential lifecycle (V2 design)
+- Legacy sessions are held in Script Properties using token-keyed records. V2 must not replicate raw bearer secrets as enumerable database keys or expose them in URLs/logs.
+- Model session/token metadata, expiry, revocation, rotation and safe lookup; exact persistence strategy and concurrent-session policy remain open.
+- Security requirements: secure token storage/verification, revocation checks, rate limits, audit attribution, redaction and explicit CSRF strategy if cookie-based transport is selected.
+
+### Open identity questions
+- Is the User identity globally unique or tenant-specific in legacy behavior?
+- Can a user have simultaneous active memberships in multiple tenants?
+- Are roles and permissions tenant-specific, globally catalogued, or mixed?
+- How are department assignments represented and combined with permissions?
+- What are account/membership/role disablement, session revocation and transfer semantics?
+- Which privileged role codes are configurable and what is their exact policy scope?
+
+## 13. Focused conceptual notes — Materials, procurement, allocation and receipts
+
+### Domain concepts and relationship graph
+- Project/material specification or calculated material requirement -> requirement/need lines (the exact legacy entity distinction must be preserved after source-to-target mapping).
+- Purchase order -> order items; order items may link to a requirement and may be general/unallocated.
+- Purchase-order item -> allocations to project/need context, plus receipt records; receipt records track quantities and source/replay context where present.
+- Orders may contain shared/general items and allocations to multiple projects; do not model every order as belonging to exactly one project.
+
+### Quantity integrity rules evidenced in source
+- Order creation validates positive quantities, requirement visibility, tenant/project scope and allocation totals against order-item quantity; project-specific needs cannot be allocated to unrelated projects.
+- Outstanding needs consider active allocations and unallocated order items; surplus/unallocated quantity is separately tracked.
+- Receipt validation prevents cumulative receipt quantities exceeding ordered quantities; project-bound receipt quantity must stay within allocation limits. General/unallocated surplus is handled separately.
+- Batch and single-receipt paths have differing validation/replay behavior in legacy code; V2 must define one unified contract and test it.
+- Legacy order creation/receipt mutations use locking and idempotency patterns, but multiple sheet writes are not atomic. V2 should enforce transactionally quantity and allocation invariants, durable idempotency and reconciliation.
+
+### Candidate database invariants (subject to detailed mapping)
+- Tenant consistency for order, item, need, allocation, receipt and project references.
+- Allocated quantity cannot exceed eligible order-item quantity; received quantity cannot exceed ordered quantity or valid project allocation; rules for reversals, returned materials, adjustments and unit conversion are not yet confirmed.
+- General procurement must remain possible without a project FK; allocations create project associations as appropriate.
+- Preserve audit trail and immutable receipt/reversal evidence rather than silently overwriting quantities.
+
+### Open procurement questions
+- Exact quantity/unit precision, conversion and rounding rules.
+- Whether receipts can be edited, reversed, returned or corrected and how history is stored.
+- Allocation lifecycle, deallocation and surplus-stock policy.
+- Need recalculation semantics and what happens to outstanding allocations when project specs/events change.
+- Purchase-order state transitions and recovery/NEEDS_REVIEW semantics.
+- Whether legacy IDs need globally unique mapping or tenant-scoped keys.
+
+## 14. Focused conceptual notes — File storage and audit
+
+### File metadata and associations
+- Separate relational metadata/association/lifecycle from file bytes in independent storage.
+- Associations are polymorphic in legacy paths (project/event and potentially other resource types); V2 should replace unrestricted polymorphic pointers with explicit association tables or validated resource types, whichever best preserves the verified domain.
+- Candidate metadata includes stable legacy mapping, tenant, object key/provider, filename/type/size, checksum, lifecycle state, timestamps and uploader; exact fields/retention policy require validation.
+- Every upload/download/thumbnail/delete operation needs tenant/resource permission and validation. Object IDs or signed links alone must not grant broad access.
+- Storage mutation and DB metadata must be coordinated via transactional intent/outbox and reconciliation; orphan and partial cleanup paths are required.
+
+### Audit trail
+- Conceptually preserve actor, tenant, action, resource reference, timestamp and safe contextual details. Do not store tokens, credentials or unnecessary sensitive payloads.
+- Define append-only policy, redaction, retention, query indexes, access restrictions and export policy.
+- Audit linkage for deleted/voided/amended records must remain stable; soft deletion or archival cannot silently erase audit evidence.
+- Exact source audit fields, target polymorphism and retention are still pending detailed schema mapping.
+
+### Open file/audit questions
+- Supported association types and whether any are currently indirect or embedded in payloads.
+- Legacy file identifiers, duplicate/orphan patterns, lifecycle and retention.
+- Maximum size/type constraints, thumbnail generation and provider failure recovery.
+- Audit detail payload, redaction policy, retention and administrative access policy.
+- Required checksums and migration integrity strategy for file bytes.
