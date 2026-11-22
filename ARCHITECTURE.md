@@ -1499,3 +1499,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 55 — Identity/RBAC repository tenant boundary
 - Read-only trace recorded in `TASK-2.8-IDENTITY-RBAC-REPOSITORY-TENANT-BOUNDARY-TRACE-INCREMENT-55.md`. Selected User/Role/Department ID lookups and UserRole association queries are not tenant-qualified at repository level; service-level tenant validation/filtering is observed in sampled paths.
 - Bounded E1 evidence only. G-01/G-10 remain OPEN; no schema readiness approval.
+
+
+## Task 2.8 Increment 56 — User-role mutation/audit boundary
+- Bounded source trace recorded in `TASK-2.8-USER-ROLE-MUTATION-AUDIT-BOUNDARY-TRACE-INCREMENT-56.md`: assignment checks tenant and active role, duplicate association and user-role match, then separately writes audit; sampled permissions resolution is tenant-role scoped with global catalog read.
+- E1 only; runtime/exhaustive mutation testing not performed. G-01/G-10 remain OPEN.
