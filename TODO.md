@@ -1064,3 +1064,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Read-only Router.js evidence for selected user-role, role, permissions, workflow, project-status and permission introspection paths added to readiness register.
 - Confirmed only bounded route/permission/dispatch snippets; full endpoint family lifecycle coverage remains incomplete. G-01/G-10 blockers and G-12 open/high.
 - No SQL/DDL, migration, DB provisioning, live data, tests, production changes or deployment.
+
+
+### Task 2.5 — Increment 14 (2026-11-22)
+- Bounded read-only Procurement Lifecycle Evidence Audit: order creation, allocations, single/batch receipt creation, idempotency/replay, quantity totals and status recomputation documented.
+- Cancellation, correction/reversal, atomicity, precision, reconciliation and full VOID semantics remain unresolved; G-02 blocker.
+- No SQL/DDL, migration, DB provisioning, live data, tests, production changes or deployment.
