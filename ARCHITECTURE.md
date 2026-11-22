@@ -1258,3 +1258,7 @@ The Product Owner explicitly accepted the Task 2.3 field semantics and constrain
 
 ## Phase 2 — Task 2.4 schema blueprint initiation (2026-11-22)
 Task 2.3 has been accepted. Task 2.4 is now IN PROGRESS and design-only. Its scope is a logical PostgreSQL schema blueprint, tenant-aware keys/relationships, uniqueness/cardinality candidates, lifecycle/history/snapshot/polymorphic storage modeling, transaction/idempotency/concurrency design, and a decision register. No SQL/DDL/migration, DB provisioning, live legacy data, production changes, deployment or VPS work is authorized. The deliverable will be reviewed against accepted Task 2.1–2.3 evidence and presented for Product Owner acceptance before implementation.
+
+
+## 2026-11-22 — Phase 2 Task 2.4 blueprint progress
+Work packages 2.4-A through 2.4-D have been drafted in POSTGRESQL-SCHEMA-BLUEPRINT-2.4.md. The design covers logical domain inventory, tenant-aware keys and relationship constraints, history/snapshot and deletion policy candidates, external file-storage lifecycle, audit/outbox, transactions, idempotency, concurrency and future migration-run reliability. This is design-only and remains pending cross-review and Product Owner acceptance. No executable schema, SQL/DDL, migrations, DB provisioning, production/live-data access, production changes or deployment has occurred.
