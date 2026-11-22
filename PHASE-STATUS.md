@@ -65,3 +65,9 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 - Documented provisional V2 requirements and unresolved service/policy questions in DATA-MODEL-DRAFT.md section 19.
 - Dedicated service paths and behavior remain unverified; Task 2.1 remains IN PROGRESS.
 - No live data, secrets, file content, schema, SQL, migration or production modifications.
+
+
+## Phase 2 — Task 2.1 final consolidation (2026-11-22)
+- Conceptual entity and relationship package consolidated in DATA-MODEL-DRAFT.md, including source-supported lifecycle/transaction notes and explicit unresolved policies.
+- Ready for Product Owner review. Task remains IN PROGRESS until acceptance. Task 2.2 field-level source-to-target mapping is recommended next.
+- No SQL, migration scripts, tests, live data, production changes or deployment.
