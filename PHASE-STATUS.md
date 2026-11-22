@@ -543,3 +543,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 Increment 45 (2026-11-22)
 - Assertion source inspection across five backend tests documented in `TASK-2.8-SELECTED-LEGACY-TEST-ASSERTION-CROSSWALK-INCREMENT-45.md`, identifying tested assertion scope and mocked boundaries.
 - E2 only; test execution not claimed. G-01/G-10 remain OPEN; schema readiness NOT APPROVED. No live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+## Phase 2 — Task 2.8 Increment 46 (2026-11-22)
+- Assertion source crosswalk covering event idempotency, schema-contract and workflow event tests recorded in `TASK-2.8-EVENT-IDEMPOTENCY-SCHEMA-WORKFLOW-ASSERTION-CROSSWALK-INCREMENT-46.md`.
+- E2 only; no runtime tests claimed. G-01/G-03/G-10 remain OPEN; schema readiness NOT APPROVED. No live data/DDL/migrations/provisioning/deployment/production changes.
