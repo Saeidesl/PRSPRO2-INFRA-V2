@@ -76,3 +76,9 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 ## Phase 2 — Task 2.1
 - Status: COMPLETE — Product Owner acceptance recorded on 2026-11-22.
 - Next: Task 2.2 detailed source-to-target field mapping and constraints matrix (read-only audit). Schema/migrations remain gated on subsequent review and approval.
+
+
+## Phase 2 — Task 2.2
+- Status: IN PROGRESS — read-only detailed source-to-target mapping and constraints audit.
+- Partial header-evidence matrix checkpoint recorded in SOURCE-TO-TARGET-MAPPING-2.2.md; complete field, type, uniqueness, nullability, FK and lifecycle mapping remains pending.
+- No schema/migrations.
