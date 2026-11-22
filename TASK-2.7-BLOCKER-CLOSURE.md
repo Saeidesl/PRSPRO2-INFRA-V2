@@ -146,3 +146,31 @@ WorkflowService.js; WorkflowRepository.js; EventTypeService.js; InformationTypeS
 
 ### Assessment
 This adds mutation/deletion evidence but is still not an exhaustive dependency matrix. No schema constraints or behavior beyond inspected source paths is inferred. G-01, G-03, G-04 and G-10 remain OPEN; G-02 remains OPEN. Task is an audit deliverable only; no tests, live data, SQL/DDL, migration, provisioning, deployment or production writes.
+
+
+## Task 2.7 Increment 6 — Tenant relationship integrity evidence (2026-11-22)
+
+### Read-only source evidence
+Inspected repository/service excerpts in production backend (read-only): ProjectRepository, EventRepository, EventDataRepository, AttachmentRepository, ProcurementRepository, FormRepository, ProjectInformationRepository, ProjectService, EventService, EventDataService, ProcurementService, AttachmentService, FormService and AccessControlService.
+
+### Tenant-scope pattern findings
+- Generic legacy repositories expose ID- and relationship-based accessors that are not inherently tenant-scoped. Tenant filtering and parent validation are implemented at service call sites, not enforced by repository contracts or a relational database.
+- Service-level checks observed for project visibility; event tenant and parent-project validation; event-data retrieval via tenant-validated event/project; event-type/form and information-type/field tenant checks; attachment tenant/owner/project visibility; procurement tenant-filtered row sets and cross-link validation; role/dept checks.
+- ProcurementRepository filters each procurement table by TenantID; service-level validations also check associated projects, needs, items/orders, allocations and source events where sampled.
+- Polymorphic attachment owner (EntityType/EntityID) and nullable independent events require application resolution; no DB FK evidence available in Sheets implementation.
+- ProjectInformationRepository helpers filter by project/type but are not generally tenant-isolated at repository-contract level.
+
+### Relationship/constraint evidence matrix
+| relationship area | observed tenant protection | integrity/constraint evidence gap |
+| project references | service tenant checks, visibility and workflow/dept filters in sampled paths | no physical FK, tenant-qualified FK, uniqueness or DB-enforced isolation proof |
+| event → project (nullable) | event service validates tenant and parent project where linked; independent events exist | no FK/tenant composite constraint or exhaustive caller proof |
+| event → event type/user/department/workflow | enrichment and service checks compare tenant in sampled paths | not exhaustively reconciled across mutation, deletion and historical paths |
+| event data → event | EventDataService validates event tenant and linked project before access | no DB FK, composite tenant constraint or transaction proof |
+| form response → event/form; form fields → form/information type | FormService checks tenant for form/type/fields and event context in sampled paths | history/snapshot retention, cross-tenant FK and all mutation paths unknown |
+| project information/history → project/type | service tenant checks, history/audit hooks observed | no DB constraint/complete dependency or deletion policy evidence |
+| attachment → project/event (polymorphic) | AttachmentService resolves owner, tenant and linked-project visibility | polymorphic referential integrity, storage transaction/repair/retention/purge guarantees absent |
+| procurement graph | tenant-filtered repositories and sampled checks for parent/item/need/project/source event | receipt/cancel parity, cross-link completeness, atomicity and relational constraints incomplete |
+| users/roles/departments | AccessControlService tenant-scopes roles and validates department tenant in sampled code | DB-level composite constraints and exhaustive association coverage not demonstrated |
+
+### Assessment
+Legacy safeguards rely primarily on service-layer tenant validation, while many generic repositories remain ID/global-sheet based. This does not establish tenant-safe physical-schema enforcement. G-10 remains OPEN; G-01/G-03/G-04 and G-02 remain OPEN. No live data, runtime tests, SQL/DDL, migrations, DB provisioning, deployment or production modification.
