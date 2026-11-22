@@ -832,3 +832,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - [x] Inspect GoogleSheetsRepository abstraction and core project/event/workflow/form/project-information/delete service paths at function-level.
 - [x] Record repository/lifecycle findings in REPOSITORY-LIFECYCLE-AUDIT-CHECKPOINT-2.1.md.
 - [ ] Exhaustively verify relation cardinalities, mutation idempotency, project copy recovery, delete/retention semantics and remaining table mapping.
+
+
+- [x] Extract table registry from DatabaseSetup source and document structural naming/numbering concerns.
+- [ ] Verify exact entity relationships and tenant/global ownership from service behavior, not just table headers.
+- [ ] Investigate auxiliary backup sheet semantics before migration scope decisions.
