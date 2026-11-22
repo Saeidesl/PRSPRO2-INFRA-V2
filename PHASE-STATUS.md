@@ -105,3 +105,10 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 - Increment 17 added bounded route-to-service mutation/permission evidence for selected project, project-information, event and form pathways to TASK-2.5-READINESS-GAP-REGISTER.md.
 - G-01 (exhaustive mutation/dependency coverage) and G-10 (tenant-safe relational constraints) remain BLOCKERS; G-02/G-03/G-04 also remain blockers as recorded in the gap register.
 - No schema, SQL/DDL, migration, live-data access, database provisioning, tests, production modification, deployment or VPS action authorized or performed.
+
+
+## Phase 2 — Task 2.5 checkpoint (2026-11-22, Increment 18)
+- Continued bounded read-only mutation/route sampling for configuration and workflow-related domains; evidence appended to TASK-2.5-READINESS-GAP-REGISTER.md.
+- Workflow, workflow-step-department, event-type, department, project-status and information-type operation families and selected permission gates are documented.
+- G-01 and G-10 remain blockers; G-12 remains open/high. Task 2.5 remains IN PROGRESS and schema/migration readiness is not established.
+- No SQL/DDL, migrations, live data access, tests, production modifications, deployment or VPS action.
