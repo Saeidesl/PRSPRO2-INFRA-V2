@@ -1124,3 +1124,10 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Documented multi-write partial completion, revision and calculation provenance, status mutation (not strictly immutable ledger), NEEDS_REVIEW on void, and observed four-decimal ceiling rounding in TASK-2.5-READINESS-GAP-REGISTER.md.
 - G-01/G-02/G-03/G-10 remain blockers; G-06/G-09 remain open/high. No exhaustive audit or transaction guarantee claimed.
 - No tests, live data, SQL/DDL, migration, DB provisioning, production modifications, deployment or VPS action.
+
+
+### Task 2.5 increment 23 — Event data and project-information reference dependencies (2026-11-22)
+- Read-only sampled EventData service/repository, ProjectInformation repository, project deletion collector, and workflow relationship repositories.
+- Documented parent-event access enforcement, potentially omitted ProjectInformation/history/reference-sync dependencies in deletion collector, cross-project reference-sync links and workflow version relationship constraints in readiness register.
+- G-01/G-03/G-09/G-10/G-12 remain open at blocker/high levels. No comprehensive dependency or retention policy claim.
+- No tests, live data, SQL/DDL, migration, DB provisioning, production modification, deployment or VPS action.
