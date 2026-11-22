@@ -391,3 +391,9 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Relationship edge and tenant enforcement matrix added as read-only source evidence across selected domain/service/repository paths.
 - Candidate tenant-qualified integrity design recorded; not yet approved. G-01/G-10 and lifecycle blockers remain open; schema readiness NOT APPROVED.
 - No tests/live data/DDL/migrations/provisioning/deployment/production modifications.
+
+
+## Phase 2 — Task 2.8 Increment 18 (2026-11-22)
+- Header-grounded inventory of nullable, polymorphic and versioned relationship edges documented in `TASK-2.8-NULLABLE-POLYMORPHIC-VERSIONED-EDGE-INVENTORY-INCREMENT-18.md`.
+- Recorded tenant derivation for EventData, repeated parent references in history/sync, optional procurement edge combinations, attachment/audit polymorphism and version-sensitive rule relationships. Nullability remains unconfirmed without full source/data validation.
+- G-01/G-10/G-02/G-03/G-04 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
