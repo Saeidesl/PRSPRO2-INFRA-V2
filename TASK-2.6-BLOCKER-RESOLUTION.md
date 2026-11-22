@@ -28,3 +28,23 @@ Evidence:
 Open questions requiring additional source coverage before finalizing: exact receipt void/deletion paths, allocation creation/reassignment/adjustment, order status transitions, over-receipt/surplus policy, procurement event dependencies, reports/dashboard formulas, and project deletion behavior for all procurement states.
 
 No tests, live data, SQL/DDL, migration, DB provisioning, production modification or deployment.
+
+
+### Increment 2 — projection/report/deletion semantics (2026-11-22)
+
+Additional bounded source review of ProcurementService dashboard/reports/listOrders/workspace, ProcurementRepository, and ProjectDeletionService dependency collection.
+
+Evidence:
+- Procurement workspace composes needs, visible orders and dashboard. Report dataset includes needs, orders, projects, material specs and calculations.
+- Dashboard aggregates receipt quantities by PurchaseOrderItemID, then caps displayed received quantity at ordered quantity and computes pending as max(ordered-received,0). Surplus is separately aggregated. In the sampled dashboard path, receipt aggregation does not visibly filter receipt status; this requires explicit confirmation against status conventions and other consumers before V2 semantic equivalence is defined.
+- Report/workspace and visibility logic can omit orders associated with inaccessible projects; order visibility is evaluated across linked projects. Shared order/item allocations therefore have cross-project visibility and dependency consequences.
+- Project deletion collector links procurement to project material needs and allocations. Shared order lines are preserved where another project's allocation remains. Orders are cascade candidates only when all active lines are project-linked and no other allocation remains. Receipt collection also includes links via item, project or order. Soft-delete/cascade writes and Drive trash operations are multi-step, not a demonstrated transaction.
+- The sampled service exposes create-order, receipt create and batch receipt, list/workspace/reports/dashboard. No explicit order-cancel, receipt-void, allocation-adjustment or reversal API appears in the sampled ProcurementService function inventory. This is bounded negative evidence, not proof no such path exists elsewhere.
+
+### Increment 2 decisions and unresolved G-02 items
+- V2 projections must define receipt-status eligibility centrally, with one shared calculation rule used by dashboard, workspace and reports.
+- Receipts, allocation changes and cancellations must not be physically removed when they affect shared orders or reports; reversals/corrections should be linked records and the projection should derive net eligible quantities.
+- Project deletion should be a policy-driven archive/retention operation with a dependency preview that includes shared orders, allocations, receipts and retained audit/history. A project delete must not erase fulfillment history belonging to another project.
+- G-02 still BLOCKER: over-receipt, surplus, item/order state transitions, receipt correction and allocation rebalancing require further coverage and policy decisions.
+
+No tests, live data, SQL/DDL, migration, DB provisioning, production modifications or deployment.
