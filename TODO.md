@@ -1315,3 +1315,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Source-level evidence recorded for ProjectDeletion, AttachmentService.delete and procurement receipt single/batch paths: TASK-2.8-MUTATION-RISK-EVIDENCE-INCREMENT-4.md.
 - Key migration incompatibilities/risks: multi-sheet deletion is non-transactional; receipt records included in project cascade; attachment storage bytes deleted before metadata/audit; receipt insertion/order-status/audit not atomic; replay payload equivalence not evidenced.
 - G-01 and blockers remain open. No tests executed.
+
+
+### Task 2.8 — Event/Form Lifecycle Evidence Increment 5 (2026-11-22)
+- Read-only source review of EventService and FormService event creation, void, metadata edits, response snapshots and amendment flows recorded in TASK-2.8-EVENT-FORM-LIFECYCLE-EVIDENCE-INCREMENT-5.md.
+- Findings: void and project restoration/material-planning reconciliation are multi-operation; form response stores definition snapshot but direct edits/amendments update the current response record; immutable revision chain not demonstrated; concurrency/version checks and amendment event governance exist in inspected paths.
+- V2 design implications recorded; G-01 remains open; tests not executed.
