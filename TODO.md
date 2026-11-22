@@ -1096,3 +1096,10 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Recorded bounded mutation methods, selected route permission gates, and remaining lifecycle/tenant/constraint gaps in TASK-2.5-READINESS-GAP-REGISTER.md.
 - G-01/G-10 remain blockers; G-12 remains open/high. No exhaustive coverage claim.
 - No live data, tests, SQL/DDL, migration, database provisioning, production changes, deployment or VPS action.
+
+
+### Task 2.5 increment 19 — Identity, role, audit, report and print-template cross-check (2026-11-22)
+- Read-only sampled UserService, UserRoleService, RoleService, RolePermissionService (fetched implementation content), AuditService, ReportService, PrintTemplateService, PrintTemplateRepository and selected Router branches.
+- Documented bounded tenant checks, user/password and role-assignment paths, audit record shape, report/dashboard consumers, print-template definition/asset metadata and selected dispatch/permission gates in TASK-2.5-READINESS-GAP-REGISTER.md.
+- G-01/G-10 remain blockers; G-08/G-09/G-11/G-12 remain open/high. This is not a complete lifecycle, security or relational-constraint audit.
+- No live data, tests, SQL/DDL, migration, DB provisioning, production changes, deployment or VPS action.
