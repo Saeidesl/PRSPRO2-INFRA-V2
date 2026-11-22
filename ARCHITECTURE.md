@@ -1471,3 +1471,7 @@ Task 2.7 is a read-only discovery and traceability effort covering event/form hi
 ### Task 2.8 — G-01 service/test evidence sampling
 - Sampled core access-control, event, procurement, attachment, project-deletion, workflow and project-information services read-only; catalogued test file themes.
 - Evidence document: TASK-2.8-G01-SERVICE-TEST-SAMPLING-INCREMENT-3.md. This remains partial evidence, not verification of runtime behavior. G-01 stays open.
+
+
+### Mutation Risk Evidence — Increment 4
+Read-only review recorded for project cascade removal, attachment deletion and procurement receipt operations. Important V2 incompatibilities include preserving receipt facts, separating metadata from physical attachment deletion, transactional domain/audit/outbox writes, and payload-bound idempotency. Evidence is limited and source-based.
