@@ -1519,3 +1519,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 59 — Attachment storage/delete lifecycle
 - Bounded source trace recorded in `TASK-2.8-ATTACHMENT-STORAGE-DELETE-LIFECYCLE-TRACE-INCREMENT-59.md`: storage and metadata/audit writes are sequential; delete trashes the file before metadata/audit; retention/backup/recovery evidence remains pending.
 - E1 only; no runtime testing. G-04/G-10 remain OPEN.
+
+
+## Task 2.8 Increment 60 — Audit and project cascade deletion integrity
+- Trace recorded in `TASK-2.8-AUDIT-PROJECT-CASCADE-DELETION-INTEGRITY-TRACE-INCREMENT-60.md`: audit query boundary and sequential cascade deletion/storage trashing, culminating in project physical deletion and partial-failure reporting.
+- E1 only; no runtime tests. G-04/G-10/G-01 remain OPEN.
