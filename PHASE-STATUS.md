@@ -315,3 +315,8 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 ### Task 2.8 G-01 Router evidence increment (2026-11-22)
 - Full backend Router.js and frontend router/API core retrieved read-only. Route families across HTTP method branches and frontend page/permission map documented in TASK-2.8-G01-ROUTER-SURFACE-INCREMENT-2.md.
 - Handler/caller/permission/tenant-scope/test reconciliation remains incomplete; G-01 OPEN. Schema Readiness NOT APPROVED. No runtime tests or production modifications.
+
+
+### Task 2.8 G-01 increment 3
+- Read-only service sampling and test-tree inventory recorded in TASK-2.8-G01-SERVICE-TEST-SAMPLING-INCREMENT-3.md. Source observations and test-name coverage are explicitly not execution evidence.
+- G-01 remains OPEN. No runtime test execution, schema work, migration, deployment or production modifications.
