@@ -1403,3 +1403,9 @@ Task 2.7 is a read-only discovery and traceability effort covering event/form hi
 - Recorded DatabaseSetup.js header inventory and bounded Router.js route dispatch inventory.
 - Covered security, project/workflow, event/form, information/template, attachment/audit and procurement structures; noted duplicate/legacy numbering/backup artifacts as reconciliation hazards.
 - G-01/G-10 remain open. No tests, live data, SQL/DDL, migrations, provisioning or production changes.
+
+
+### Task 2.7 Increment 3 — service-operation inventory (2026-11-22)
+- Read-only method inventory reconciled across ProjectService, EventService, FormService, AttachmentService, ProcurementService, AuditService and Router.
+- Recorded lifecycle/projection cross-dependencies and high-risk delete/void/amend/copy paths; bounded coverage only, no exhaustive handler/dependency matrix or runtime tests.
+- G-01/G-03/G-04/G-10 remain open; G-02 remains unresolved. Schema readiness NOT APPROVED; no SQL/DDL, live data, migrations, provisioning, deployment or production modification.
