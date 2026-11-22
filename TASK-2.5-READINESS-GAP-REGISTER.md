@@ -337,3 +337,21 @@ UNVERIFIED/BLOCKER: full historic owner types, attachment-to-form or other entit
 G-04 remains BLOCKER; G-10 tenant-safe polymorphic linkage remains BLOCKER; G-11 storage migration remains OPEN/HIGH.
 
 No SQL/DDL, migration, DB provisioning, live data, tests, production changes or deployment.
+
+
+## Increment 16 — Event data and form-response persistence cross-check (read-only, 2026-11-22)
+
+### Source files re-read
+- `EventDataService.js` (read-only reference backend)
+- `FormService.js` (read-only reference backend)
+
+### Bounded findings
+- EventDataService resolves the event, enforces tenant equality and parent-project visibility for project-linked events; independent events follow a separate visibility path. Missing stored event data returns null-success. Stored DataJSON is parsed; malformed JSON or non-object/array payloads are rejected. The observed read path is event-ID scoped and does not itself demonstrate broader payload query/search/filter capabilities.
+- FormService sampled persistence stores EventID, FormID, FormVersion, serialized ResponseJSON, serialized DefinitionSnapshotJSON, creator and timestamp in a form-response record; the inspected write path updates an existing record when found, otherwise inserts. Thus this bounded evidence shows snapshot-bearing response persistence but does not establish immutable response history, amendment/version retention, full event/form payload query indexes, complete report/search requirements, or transactional synchronization with central project information.
+- A bounded amendment validation snippet links the amendment event to the same project and recognizes explicit configuration plus legacy name-marker fallback; the V2 design should not treat event-name heuristics as the authoritative contract.
+
+### Gap implications
+- G-03 remains BLOCKER: complete payload/query/report/search workload, response revision and historical immutability contract, event/form lifecycle matrix and amendment behavior are not established.
+- G-01/G-10 remain BLOCKERS: this cross-check does not provide exhaustive mutation or tenant-safe relational coverage.
+
+No tests were executed. No SQL/DDL, migration, DB provisioning, live production data, production writes, deployment or VPS action occurred.
