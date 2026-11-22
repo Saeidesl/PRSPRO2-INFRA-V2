@@ -467,3 +467,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 Increment 30 (2026-11-22)
 - Read-only literal route-family inventory from backend Router.js recorded in `TASK-2.8-ROUTER-ROUTE-FAMILY-INVENTORY-INCREMENT-30.md` (51 dispatch literal matches in source extraction; duplicates represent method-specific route occurrences). Dynamic path families explicitly flagged as requiring separate trace.
 - Route inventory is a checklist, not an exhaustive authorization or tenant audit. G-01/G-10 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+## Phase 2 — Task 2.8 Increment 31 (2026-11-22)
+- Dynamic/prefix Router.js pattern inventory recorded in `TASK-2.8-DYNAMIC-ROUTER-PATH-PATTERN-INVENTORY-INCREMENT-31.md`, including GET, POST, update/delete and admin/destructive families.
+- Inventory remains a dispatch-pattern extraction; route-method combinations, permissions, payload validation and service effects are not exhaustively traced. G-01/G-10 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
