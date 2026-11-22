@@ -537,3 +537,36 @@ EventDataService.js, EventDataRepository.js, ProjectInformationRepository.js, Pr
 G-01 BLOCKER; G-03 BLOCKER; G-09 HIGH/open; G-10 BLOCKER; G-12 HIGH/open.
 
 Read-only audit only. No tests, live data, SQL/DDL, migration, DB provisioning, production modifications, deployment or VPS action.
+
+
+## Increment 24 — Authentication, session, tenant-boundary and notification/storage configuration audit (read-only, 2026-11-22)
+
+### Source sampled
+AuthService.js, SessionManager.js, AccessControlService.js, TelegramBotService.js, AppConfig.gs.js/Constants.js and storage/configuration/repository excerpts. The sample is bounded; no exhaustive security review.
+
+### Evidence
+- Login matches usernames across tenants and fails closed unless exactly one matching user is found; active status and password hash are checked before session creation. Legacy password hashing is SHA-256 without demonstrated salt or password-work-factor policy in this sampled code. V2 migration must not assume compatibility is equivalent to modern password security.
+- Session records contain user, tenant, created/last-seen, expiry and status and are stored in Script Properties keyed by token. Session expiry and tenant comparison are enforced in sampled paths; admin list/revoke is tenant scoped. Token hashing is used for admin-visible session identifiers. Storage, revocation, expiry and device-session semantics need explicit V2 contracts.
+- AccessControlService request caches reset per request and resolve tenant-scoped roles; route-level enforcement and service-level checks remain distributed. The sampled enforceRouteAccess itself does not provide a general permission gate beyond authentication/admin, with permission enforcement delegated to Router/services. V2 should centralize route authorization and retain domain-level tenant checks.
+- Telegram integration uses Script Properties for bot token/webhook secret and tenant-chat mapping; webhook secret comparison and polling offset behavior are present in sampled code. Telegram is an external notification channel and should be modeled as opt-in, tenant-isolated, retryable delivery with secret rotation and delivery-state/error observability. No token or secret values were accessed or recorded.
+- Configuration uses environment/script-property-style settings and Google-specific runtime/storage integrations. Exact full config inventory and secret rotation/access policies remain incomplete.
+- GoogleSheetsRepository provides per-request caching, locking for selected writes and soft-delete behavior, but this is legacy implementation evidence only; PostgreSQL V2 must rely on DB transactions/constraints and not reproduce sheet locking/cache semantics as correctness mechanisms.
+
+### Target architecture implications
+- G-08: design credential migration with secure password hashing, forced reset or secure rehash on first login; preserve identity mapping without copying legacy weak hashes as final credentials.
+- G-09: session lifecycle, revocation, expiry, audit, and recovery should be documented and tested.
+- G-10: tenant scope should be represented in authorization and database constraints; cross-tenant isolation needs automated tests.
+- G-12/G-11: secrets/configuration and external integrations/storage providers must be inventoried and migrated deliberately.
+- Notifications: outbox or equivalent durable queue, idempotent retries, tenant-scoped recipient resolution, failure visibility and opt-out policy are recommended; no legacy behavior is silently treated as approved product policy.
+
+No live data, tests, SQL/DDL, migration, DB provisioning, production modifications, deployment or VPS action.
+
+## Task 2.5 audit closure assessment (2026-11-22)
+
+The audit work package is closed as a READ-ONLY discovery/readiness deliverable, not as a declaration that V2 is ready for schema implementation. Source sampling and cross-checks have produced a consolidated set of evidence and unresolved blockers. Coverage is still bounded and should be revisited if new legacy sources or business rules are discovered during later approved design.
+
+### Final gate decision
+- Schema design/implementation readiness: NOT READY.
+- Blockers G-01 (exhaustive entity/lifecycle/dependency coverage), G-02 (procurement correction/reversal contract), G-03 (event/form payload/history contract), G-04 (attachment ownership/history/storage coverage), and G-10 (tenant-safe relational integrity) remain open.
+- High/open G-05 through G-09 and G-11/G-12 remain tracked as in the gap register; they are not waived by closing the audit task.
+- Next roadmap step must resolve blockers in a separately tracked discovery/decision task before physical PostgreSQL schema/migrations. This closure does not authorize schema creation, migration, live-data access, deployment or cutover.
