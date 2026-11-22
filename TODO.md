@@ -650,3 +650,9 @@
 - Source inspection verified tenant-bound role resolution, admin derivation from active tenant roles (SYS_ADMIN/ADMIN), request-scoped permission caching and service/Router permission checks. Generic route-access hook authenticates but intentionally does not itself enforce domain permissions; fail-closed centralized policies and resource-level scope validation remain a V2 requirement.
 - Session source inspection verified Script Properties token-keyed storage, expiry/status checks, tenant/user consistency, and tenant-scoped admin listing/revocation (including protection from revoking the current session through that path). No tokens or live session records were accessed.
 - Added V2 requirements for secure session storage, revocation/rotation, tenant-bound policies, cache invalidation and automated route authorization matrix tests. No runtime test or production change. Task 0.2 remains IN PROGRESS.
+
+
+### Task 0.2 incremental notes (2026-11-22 — notification and storage recovery)
+- Rechecked Telegram notification and attachment reference-copy source paths read-only; findings and V2 outbox/retry/idempotency, file metadata/storage reconciliation requirements are recorded in ARCHITECTURE.md.
+- Telegram update offset persistence is not a durable notification delivery ledger; sampled attachment copy path has best-effort cleanup that can fail silently. Treat these as resilience/recovery requirements, not proof of a production incident.
+- No secrets, live integrations, files, production data, runtime tests or writes to legacy repos were accessed.
