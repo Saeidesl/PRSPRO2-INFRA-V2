@@ -229,3 +229,28 @@ No SQL/DDL, migration, DB provisioning, live data, tests, production changes or 
 - G-03 and G-11 remain unresolved regarding historical payload interpretation and template/file asset lifecycle.
 
 No SQL/DDL, migration, DB provisioning, live data, tests, production changes or deployment occurred.
+
+
+## Increment 11 — Registry-based entity inventory and coverage baseline (2026-11-22)
+
+### Evidence source
+Read-only inspection of the production backend `DatabaseSetup.js` APP_CONFIG.SHEETS registry (definitions and header arrays only; no live spreadsheet or data access). The registry enumerates 38 configuration keys/sheet definitions, including separate entries `MATERIAL_NEEDS` and `PROJECT_STATUSES` both mapped to the `18_` prefix, and supplemental domain tables. Registry names are a baseline, not proof of active deployment, completeness of actual data, relationships, or constraints.
+
+### Registry inventory baseline (grouped)
+- Identity/access: TENANTS, USERS, DEPARTMENTS, ROLES, PERMISSIONS, USER_ROLES, ROLE_PERMISSIONS.
+- Projects/workflows: PROJECTS, WORKFLOWS, WORKFLOW_STEPS, WORKFLOW_STEP_DEPARTMENTS, WORKFLOW_STEP_EVENT_RULES, PROJECT_STATUSES, PROJECT_REFERENCE_SYNC_LOG.
+- Events/forms/configuration: EVENT_TYPES, EVENT_FIELDS, EVENTS, EVENT_DATA, EVENT_TYPE_FORMS, EVENT_FORM_DATA, FORMS, FORM_FIELDS, INFORMATION_TYPES, INFORMATION_TYPE_COLUMNS, PROJECT_INFORMATION, PROJECT_INFORMATION_HISTORY.
+- Materials/procurement: MATERIAL_NEEDS, PROJECT_MATERIAL_SPECS, MATERIAL_NEED_CALCULATIONS, PURCHASE_ORDERS, PURCHASE_ORDER_ITEMS, PURCHASE_ALLOCATIONS, MATERIAL_RECEIPTS, EVENT_TYPE_PROCUREMENT_SETTINGS.
+- Files/templates/operations: ATTACHMENTS, AUDIT_LOGS, PRINT_TEMPLATES.
+
+### Coverage interpretation
+- Registry inventory was extracted and grouped, but exhaustive service/router/repository mutation and read/report consumer coverage per entity remains pending; therefore this is a coverage baseline, not a complete CRUD/dependency matrix.
+- Some domain entries may have distinct creation/setup/seed paths, logical deletion or lifecycle states, and may not be reachable from every public route. Those distinctions require individual source tracing.
+- An observed naming anomaly/overlapping sheet prefix (`MATERIAL_NEEDS` and `PROJECT_STATUSES` both reference `18_...`) is recorded as a registry observation to validate against actual deployed setup behavior and source history; it is not treated as a production defect or schema decision.
+
+### Gap implications
+- G-01 remains BLOCKER until all inventory entries are mapped to confirmed lifecycle/read/report/caller paths and coverage gaps are explicitly resolved or accepted.
+- G-10 remains BLOCKER until all direct/indirect links and tenant-safe constraint candidates are traced.
+- G-12 remains OPEN/HIGH for configuration scope, revision, lifecycle and dependency evidence.
+
+No live data, SQL/DDL, migration, DB provisioning, tests, production changes or deployment occurred.
