@@ -845,3 +845,7 @@ This update supersedes earlier conflicting task-status notes in this historical 
 
 - [x] Inspect procurement state transitions, cancellation checks, receipt aggregate recalculation, and project-delete protection for shared procurement items; record missing explicit cancellation/adjustment paths as discovery items.
 - [ ] Finish domain dependency and API contract inventory; prepare conceptual model and unresolved decision list.
+
+
+- [x] Document provisional entity relationship map and API audit scope/permissions spot-check; capture remaining endpoint-contract and cardinality questions.
+- [ ] Complete API endpoint and data-contract inventory, print-template resolver mapping and remaining relationship constraints before preparing the conceptual model review.
