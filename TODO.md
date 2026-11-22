@@ -1347,3 +1347,7 @@ This update supersedes earlier conflicting task-status notes in this historical 
 
 ### Task 2.8 — Targeted tenant service validation Increment 10 (2026-11-22)
 - Read-only inspection of EventService.workflowProgress and selected ProjectService/ProcurementService tenant-visibility helpers recorded in `TASK-2.8-TARGETED-TENANT-SERVICE-VALIDATION-INCREMENT-10.md`. Observed project tenant and availability validation in these inspected paths; coverage is bounded, not exhaustive. G-10/G-01 remain OPEN; no tests/live data/production changes.
+
+
+### Task 2.8 — Test surface inventory Increment 11 (2026-11-22)
+- Read-only recursive test path inventory from legacy frontend/backend recorded in `TASK-2.8-TEST-SURFACE-INVENTORY-INCREMENT-11.md`. Test names provide surface inventory only, not execution or coverage proof; test-to-source traceability remains unresolved. G-01 OPEN; no tests executed or production changes.
