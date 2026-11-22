@@ -18,11 +18,10 @@ Build an independent PMS for garment manufacturing, replacing the current Google
 - Secrets and real user data must never be committed.
 
 ## Project Documents
-- TODO.md: roadmap and task status
+- TODO.md: roadmap and historical task status
 - ARCHITECTURE.md: architecture decisions, discovery findings, and pending questions
 - CONTRIBUTING.md: repository collaboration, branch/PR, quality, security and documentation conventions
+- PHASE-STATUS.md: authoritative reconciled status for accepted milestones and current task
 
 ## Status
-Phase 0 — Discovery & Repository Preparation is COMPLETE (Tasks 0.1, 0.2 and 0.3 accepted/closed). Phase 1 Task 1.1 — Repository collaboration conventions is IN PROGRESS. CONTRIBUTING.md has been added. No implementation, live data access, migration, deployment or production changes.
-
-Repository availability and privacy checks are verified.
+Phase 0 — Discovery & Repository Preparation is COMPLETE and accepted (Tasks 0.1, 0.2 and 0.3). Phase 1 Task 1.1 — Repository collaboration conventions is COMPLETE following Product Owner acceptance on 2026-11-22. The CI baseline remains pending as a separate task. No implementation, live data access, migration, deployment or production changes.
