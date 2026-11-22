@@ -873,3 +873,14 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Began read-only field/constraint mapping using source registry and previously audited service behavior.
 - Added a partial header-evidence matrix and explicitly marked unknowns in SOURCE-TO-TARGET-MAPPING-2.2.md. Further source verification is required; this is not final mapping or schema design.
 - No SQL/migrations or production data access.
+
+
+## Phase 2 — Task 2.2 final review checkpoint (2026-11-22)
+- [x] Consolidate mapping by major domain/field families and source evidence.
+- [x] Review logical relationships, tenant isolation, snapshots/versioning, idempotency and mutation boundaries.
+- [x] Document source-supported constraints and explicit unknowns/policy gates.
+- [x] Review receipt-path divergence, partial failure, attachment cleanup, deletion/reversal and authorization limitations.
+- [x] Perform comprehensive consistency/safety review and add checklist/findings to SOURCE-TO-TARGET-MAPPING-2.2.md.
+- [x] Keep SQL types/nullability/precision, exact DDL uniqueness/FK decisions, live-sheet drift, full permission audit and workload measurements gated for later validated design/QA.
+- Status: IMPLEMENTED — READY FOR PRODUCT OWNER REVIEW. Task is not COMPLETE until acceptance.
+- No schema, SQL, migrations, production data, secrets, tests, production modifications, deployment or VPS action.
