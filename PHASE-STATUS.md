@@ -385,3 +385,9 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 Increment 16: high-risk lifecycle trace (2026-11-22)
 - Recorded targeted read-only source trace for event/form amendment, tenant-aware attachments, procurement idempotency/batch receipts, project dependency collection and reference-copy replay in `TASK-2.8-HIGH-RISK-LIFECYCLE-TRACE-INCREMENT-16.md`.
 - Findings are partial source evidence only; G-01/G-02/G-03/G-04/G-10 remain OPEN. No tests, live data or production changes.
+
+
+## Phase 2 — Task 2.8 Increment 17 (2026-11-22)
+- Relationship edge and tenant enforcement matrix added as read-only source evidence across selected domain/service/repository paths.
+- Candidate tenant-qualified integrity design recorded; not yet approved. G-01/G-10 and lifecycle blockers remain open; schema readiness NOT APPROVED.
+- No tests/live data/DDL/migrations/provisioning/deployment/production modifications.
