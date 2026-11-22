@@ -324,3 +324,7 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 
 ### Task 2.8 — Increment 4 evidence
 Read-only inspection of project deletion, attachment delete and procurement receipt mutations recorded in TASK-2.8-MUTATION-RISK-EVIDENCE-INCREMENT-4.md. It identifies bounded source risks and V2 design implications, without declaring legacy behavior unsafe in general or claiming tests. G-01 remains open.
+
+
+### Task 2.8 — Increment 5 evidence
+Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconciliation, mutable form response representation, definition snapshots, and amendment governance documented. No tests/implementation; G-01 coverage reconciliation remains open.
