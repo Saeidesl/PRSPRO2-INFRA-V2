@@ -1257,3 +1257,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Read-only sampled WorkflowService/Repository, EventTypeService, InformationTypeService, ProjectInformationService and FormService/Repository.
 - Evidence recorded: tenant-scoped lookup/management, soft-delete and audit paths for information types/columns, project information history, form field/mapping deletion, and workflow/event type update/version/configuration.
 - Dependent effect enforcement, complete version lineage, retention and all mutation paths remain unproven; bounded review only. G-01/G-03/G-04/G-10 open; G-02 open. No live data/tests/DDL/migrations/provisioning/deployment/production write.
+
+
+### Task 2.7 Increment 6 — Tenant relationship integrity evidence (2026-11-22)
+- Read-only cross-check of generic repositories and tenant validation patterns in project/event/event-data/form/information/attachment/procurement/access-control services.
+- Generic repository contracts often remain global-sheet/ID based; tenant scoping is largely service-layer, while procurement read helpers filter by tenant. Polymorphic attachment ownership and nullable independent events remain physical integrity cases.
+- Recorded relationship matrix and constraint gaps. G-10 remains OPEN; G-01/G-03/G-04/G-02 open. No live data, runtime tests, DDL/migrations, provisioning/deployment or production writes.
