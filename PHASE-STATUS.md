@@ -623,3 +623,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ### Task 2.8 Increment 61 (2026-11-22)
 - Bounded Router/API permission boundary trace recorded in `TASK-2.8-ROUTER-API-PERMISSION-BOUNDARY-TRACE-INCREMENT-61.md`: sampled procurement, project material planning, information/history, attachment and audit routes with route permission layers.
 - E1 only; full endpoint matrix and route tests pending. G-01/G-10 remain OPEN; schema readiness NOT APPROVED. No live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+### Task 2.8 Increment 62 (2026-11-22)
+- Workflow version/event rule lifecycle trace recorded in `TASK-2.8-WORKFLOW-VERSION-EVENT-RULE-LIFECYCLE-TRACE-INCREMENT-62.md`: versioned rule fields, clone/replace behavior under lock and bounded workflow/event type version validation.
+- E1 only; runtime tests and full aggregate publish path review pending. G-01/G-03/G-10 remain OPEN; schema readiness NOT APPROVED. No live data/DDL/migrations/provisioning/deployment/production changes.
