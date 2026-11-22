@@ -147,3 +147,11 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 - Identified dependency-policy gap: project deletion collector sampled does not enumerate project-information, history or reference-sync collections; intentional retention vs cascade remains unresolved. Documented PostgreSQL tenant/relationship constraints in readiness register.
 - Task 2.5 remains IN PROGRESS; G-01/G-03/G-10 blockers; G-09/G-12 open/high. No approval or migration readiness conclusion.
 - No tests, live data, SQL/DDL, migration, DB provisioning, production modifications, deployment or VPS action.
+
+
+## Phase 2 — Task 2.5 closure checkpoint (2026-11-22)
+- Task 2.5 READ-ONLY discovery/readiness audit package: COMPLETE as an audit deliverable; NOT a schema-readiness approval.
+- Increment 24 sampled authentication/session, tenant-boundary, Telegram notification and legacy configuration/storage evidence. Consolidated readiness register remains the source of unresolved decisions and blockers.
+- Schema design readiness: NOT READY. G-01/G-02/G-03/G-04/G-10 remain BLOCKERS; high/open gap items remain tracked.
+- Task closure does not authorize SQL/DDL, migrations, live data access, DB provisioning, production changes, deployment, VPS or cutover.
+- Next: prepare a blocker-resolution/discovery decision task, prioritizing exhaustive lifecycle/dependency coverage, reversal/history/attachment contracts and tenant-safe relationship enforcement. Do not start physical schema work until blockers are resolved and readiness is reviewed.
