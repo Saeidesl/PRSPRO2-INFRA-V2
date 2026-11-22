@@ -574,3 +574,7 @@ The audit work package is closed as a READ-ONLY discovery/readiness deliverable,
 
 ## Task 2.6 — G-02 procurement correction/reversal discovery, Increment 1 (2026-11-22)
 Reviewed order create, receipt create/batch, allocation projection and event integration paths. Evidence and proposed V2 contract are recorded in TASK-2.6-BLOCKER-RESOLUTION.md. No general correction/reversal contract is proven. Proposed design favors immutable posted receipts with linked correction/reversal operations, explicit order lifecycle and transaction-enforced quantity invariants, but remains pending broader source coverage and business policy validation. G-02 remains BLOCKER until coverage and contract are complete.
+
+
+### Task 2.6 Increment 2 evidence
+Procurement workspace/report/dashboard and project deletion collector were sampled. Dashboard aggregates receipt records by item and caps received quantity at ordered quantity; status eligibility needs confirmation. Project deletion is allocation-aware and preserves shared order lines and cross-project receipt/order dependencies. V2 needs consistent net-quantity projection semantics and retention-safe deletion. G-02 remains BLOCKER.
