@@ -124,3 +124,27 @@ G-01/G-10 remain BLOCKERS: repository and service relationship coverage and tena
 G-12 remains open: configuration/form/field revision compatibility and publishing semantics are not fully evidenced.
 
 No SQL/DDL, migration, DB provisioning, live data, tests, production changes or deployment occurred.
+
+
+## Increment 6 — Information-type/column validation and report query evidence (2026-11-22)
+Read-only review of InformationTypeValidator, InformationTypeService, AttachmentValidator and ReportService/ReportRepository, plus a focused test fixture for cardinality.
+
+### Evidence
+- Source validator lists nine data types: text, number, date, datetime, boolean, select, textarea, image and file; cardinality is SINGLE/MULTIPLE.
+- Information type definition validation includes code/name, cardinality, data type, options JSON (array capped at 500 in the inspected validator), validation-rule JSON and ShowOnCard; PROJECT_CODE is constrained to text/SINGLE.
+- Validation-rule keys observed include min/max/minLength/maxLength and pattern (length bounded and regex checked). This is partial evidence, not a full semantic contract for every type.
+- Column definitions include name/code/data type, requiredness, options, validation rules, ordering and status. Column type allow-list matches the observed base type list; options array limit and rule checks apply.
+- Type update increments a revision field and blocks structural DataType/Cardinality change if already used in project information or active form fields. Deactivation is also restricted when referenced in active forms. This indicates structural immutability/change policy in the source, but complete revision lifecycle and compatibility contract remain unresolved.
+- Information type columns have their own create/update/soft-delete pathways and trigger form-definition cache invalidation. Column deletion is logical (DELETED) in the sampled method.
+- Attachment validation in the sampled upload contract limits EntityType to PROJECT/EVENT, validates MIME+extension allowlist, filename and size bounds, and permits AttachmentType only for PROJECT with a constrained token. It shows a finite upload-owner contract for this validator, not a complete historical inventory.
+- ReportService project report includes project data, non-void/cancelled events, and project-associated procurement needs/orders/calculations; report dashboard aggregates tenant-visible projects, events (including independent events), attachments and other reference datasets. These paths indicate distinct reporting query/aggregation needs, not necessarily suitable direct table layouts.
+- The existing test fixture tests/information-cardinality.test.js uses column-based SINGLE and MULTIPLE examples and project-information storage, supporting that tabular cardinality has functional test coverage in the legacy repository. No test was executed in this audit.
+
+### Gap implications
+G-03 remains BLOCKER pending full field-value validation matrix, all reports/search/filter consumers, payload/file association inventory, and snapshot lifecycle.
+G-04 remains BLOCKER pending exhaustive historical attachment-owner and reference inventory, though sampled upload validator supports PROJECT/EVENT.
+G-06 remains HIGH pending quantitative precision, unit and rounding contract.
+G-10 remains BLOCKER pending relational constraint matrix across these indirect references.
+G-12 remains OPEN pending comprehensive configuration/field/column revision and lifecycle rules.
+
+No tests were run; no SQL/DDL, migration, DB provisioning, live data, production changes or deployment occurred.
