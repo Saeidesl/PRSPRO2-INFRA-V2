@@ -490,3 +490,9 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Read-only Router trace for user/role/permission, department and workflow GET route gates documented in `TASK-2.8-RBAC-DEPARTMENT-WORKFLOW-ROUTE-PERMISSION-TRACE-INCREMENT-34.md`.
 - Explicit gates observed, including broad requireAny permission lists for department and workflow read routes. Least-privilege business suitability, service tenant checks and runtime tests remain unverified.
 - G-01/G-10 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+## Phase 2 — Task 2.8 Increments 35–36 (2026-11-22)
+- Core project read/mutation route crosswalk documented in `TASK-2.8-CORE-PROJECT-READ-MUTATION-ROUTE-CROSSWALK-INCREMENT-35.md`; route families and sampled gates catalogued.
+- Follow-up on PUT print-template project-data binding documented in `TASK-2.8-PRINT-TEMPLATE-PROJECT-BINDING-GATE-VERIFICATION-INCREMENT-36.md`. Router branch lacks visible explicit gate, but PrintTemplateService enforces source-specific PROJECT_EDIT/EVENT_EDIT, tenant-scoped template lookup, active template, latest-binding and stale-source checks; no vulnerability conclusion.
+- G-01/G-10 remain OPEN; schema readiness NOT APPROVED. Tests not executed; no live data/DDL/migrations/provisioning/deployment/production changes.
