@@ -171,3 +171,8 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 ### Task 2.6 — Increment 3
 - Bounded review of receipt batch invariants and API read surface; test source files reviewed but not executed.
 - G-02 remains unresolved.
+
+
+### Task 2.6 — Increment 4
+- Bounded review of order creation recovery, single receipt and route service inventory; provisional contract consolidated.
+- G-02 remains unresolved. No schema work.
