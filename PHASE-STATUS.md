@@ -38,3 +38,9 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 - Consolidated conceptual domain dependency sequence, candidate transaction/side-effect boundaries, cross-domain invariants and schema design validation gates in DATA-MODEL-DRAFT.md.
 - Conceptual inventory now covers identity/tenant/security, project/workflow/event/forms, materials/procurement, files/audit, notifications/outbox and reporting/printing.
 - Source-to-target mapping, cardinality/unique-scope validation, business policy decisions and workload baseline remain pending. Task 2.1 remains IN PROGRESS; no schema or migration is implemented.
+
+
+## Phase 2 — Task 2.1 source mapping checkpoint (2026-11-22)
+- Read-only DatabaseSetup.js sheet-header inventory was extracted for Project, Project Information/History, reference-copy logs, Workflow/Steps/Departments/EventRules, EventTypes/Fields/Events/EventData and Forms/Fields/Associations/Responses.
+- Source-to-target mapping notes and cautions were appended to DATA-MODEL-DRAFT.md. This is header-level evidence only; data, full event header and semantic paths remain to be validated.
+- No production repository was modified. No production data, schema or migration accessed.
