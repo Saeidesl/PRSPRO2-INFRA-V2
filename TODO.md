@@ -747,3 +747,11 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - [ ] Resolve business policy questions and confirm workload/query baseline.
 - [ ] Present consolidated draft to Product Owner for acceptance.
 - Status: IN PROGRESS; executable schema is not started or authorized.
+
+
+### Phase 2 / Task 2.1 — Source mapping checkpoint (2026-11-22)
+- [x] Extract read-only legacy sheet headers for Project/Workflow/Event/Form domains from DatabaseSetup.js.
+- [x] Add provisional source-to-target mapping and caveats to DATA-MODEL-DRAFT.md.
+- [ ] Validate complete Event headers and service semantics, including snapshots, amendments and project-info history.
+- [ ] Map procurement/material, identity/security, files/audit and print-template domains.
+- Status: IN PROGRESS. Header-level mapping only; no live data or executable schema.
