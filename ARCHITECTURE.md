@@ -1461,3 +1461,8 @@ Task 2.7 is a read-only discovery and traceability effort covering event/form hi
 - Recursive tree inventories verified for production reference frontend (187 entries) and backend (153 entries). Tree counts are not coverage metrics.
 - New evidence record: TASK-2.8-G01-SOURCE-COVERAGE-INCREMENT-1.md. Frontend page surface, backend component surface and reconciliation rows are explicitly PARTIAL.
 - Next evidence: exhaustive Router.js operation inventory and cross-check with frontend route/navigation and test files. G-01 remains open.
+
+
+### Task 2.8 — G-01 Router surface increment 2
+- Fetched backend Router.js and frontend router/API core; documented GET/POST/PUT/DELETE surface families and client route-permission registry.
+- Evidence: TASK-2.8-G01-ROUTER-SURFACE-INCREMENT-2.md. Dynamic route branches, exact handlers, permissions, tenant checks, callers and tests remain to reconcile. G-01 remains open.
