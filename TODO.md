@@ -29,14 +29,18 @@
 **Status:** IN PROGRESS
 
 ### Task 0.3 — Discovery report and target boundaries
-- [ ] Produce a verified current-system map.
-- [ ] Identify migration candidates, exclusions, and compatibility requirements.
-- [ ] Draft V2 domain boundaries and migration strategy (no schema implementation yet).
-- [ ] Present findings for Product Owner review.
+- [x] Draft high-level current-system map from read-only source audit evidence.
+- [x] Draft candidate migration scope, platform exclusions/replacement handling, domain boundaries and compatibility requirements.
+- [x] Record unknowns and items requiring live-data discovery or business confirmation.
+- [x] Product Owner review and acceptance.
 
-**Status:** NOT STARTED
+**Status:** COMPLETE — Product Owner accepted on 2026-11-22. This closes Task 0.3 only; Phase 0 repository preparation remains IN PROGRESS.
 
-**Phase 0 exit criteria:** Repository access verified; audit and architecture baseline documented with unknowns clearly identified; Product Owner accepts the discovery report.
+### Task 0.3 acceptance (2026-11-22)
+- Product Owner accepted discovery report and provisional domain boundaries.
+- No schema implementation, migration or legacy-system changes authorized by this acceptance.
+- Remaining Phase 0 work: verify/create the three independent V2 repositories and continue any approved preparation tasks.
+
 
 ---
 
