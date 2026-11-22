@@ -1332,3 +1332,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 — G-01 Increment 7: Frontend/API caller sampling (2026-11-22)
 - Read-only sampled production frontend API callers in core API/router/permission files and event, form, procurement, project and attachment modules; endpoint-family observations and reconciliation gaps documented in `TASK-2.8-FRONTEND-API-CALLER-SAMPLING-INCREMENT-7.md`.
 - Observed compatibility/fallback procurement caller surface and cross-domain endpoint families; client permission gates are not server enforcement evidence. Coverage is sampled only; G-01 remains OPEN. No tests, live data or production writes.
+
+
+### Task 2.8 — G-01 Increment 8: sampled frontend/backend Router cross-check (2026-11-22)
+- Targeted read-only route-string cross-check of sampled caller families against legacy backend Router.js recorded in `TASK-2.8-BACKEND-ROUTER-CROSSCHECK-INCREMENT-8.md`.
+- Most sampled route-family strings were found; literal `workflow-progress` was not found in Router.js, recorded as an unresolved discrepancy (not a confirmed missing route). Literal search is not proof of handler/permission coverage. G-01 remains OPEN.
+- No tests, live data, DDL/migration, provisioning, production writes or deployment.
