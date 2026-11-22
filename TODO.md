@@ -986,3 +986,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Deliverable: readiness-gap register, evidence-backed updates, prioritized resolution plan and review package.
 - Guardrail: no executable SQL/DDL, migrations, DB provisioning, live production data access, production changes, deployment or VPS action during this task.
 - Task remains IN PROGRESS; no acceptance/completion claim until review and Product Owner acceptance.
+
+
+### Task 2.5 incremental evidence audit (2026-11-22 — increment 1)
+- Re-read source-only backend files DatabaseSetup.js, ProcurementService.js, AttachmentService.js, EventService.js, ProjectInformationService.js and FormService.js; registry, lifecycle operation families and key evidence gaps recorded in `TASK-2.5-READINESS-GAP-REGISTER.md`.
+- Confirmed this increment remains read-only and limited: no live data, tests, SQL/DDL, migration, provisioning, production modification or deployment.
+- Task 2.5 remains IN PROGRESS; next focus is exhaustive mutation-path/tenant relationship trace, followed by procurement and event/form payload semantics.
