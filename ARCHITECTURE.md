@@ -1475,3 +1475,7 @@ Task 2.7 is a read-only discovery and traceability effort covering event/form hi
 
 ### Mutation Risk Evidence — Increment 4
 Read-only review recorded for project cascade removal, attachment deletion and procurement receipt operations. Important V2 incompatibilities include preserving receipt facts, separating metadata from physical attachment deletion, transactional domain/audit/outbox writes, and payload-bound idempotency. Evidence is limited and source-based.
+
+
+### Event/Form Lifecycle Evidence — Increment 5
+Read-only source review documents event creation/void, project-state restoration, direct metadata edits, form response definition snapshots and correction flows. V2 should preserve immutable revision history, transactional DB-local changes, and reconciled projections/outbox. Evidence is bounded; tests not run.
