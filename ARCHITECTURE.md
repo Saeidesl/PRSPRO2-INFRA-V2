@@ -1286,3 +1286,7 @@ A bounded read-only sample across Router, Project/User/Workflow/EventType/Inform
 
 ## Task 2.5 — procurement/material/attachment evidence increment 3 (2026-11-22)
 Source sampling observed tenant-scoped order idempotency, receipt replay checks, a separate locked batch-receipt pathway, source-event-driven material recalculation and void propagation, confirmed-quantity event integration, PROJECT/EVENT attachment owner validation, and preservation of shared procurement records during project deletion. These findings are bounded evidence, not a complete lifecycle contract. G-02 remains a blocker; G-04 is partially evidenced but not exhaustive. Storage deletion ordering and recovery are unresolved. See `TASK-2.5-READINESS-GAP-REGISTER.md`. No SQL/DDL, migration, live data, DB setup, tests, production change or deployment.
+
+
+## Task 2.5 — Event/Form and central-information evidence increment 4 (2026-11-22)
+Read-only source sampling confirmed distinct event request idempotency, event void controls, versioned event-form response and definition snapshots, amendment-event linkage, current central-information projection, separate revision/history/approval and reference-sync conflict resolution. G-03 remains a blocker pending exhaustive payload, reporting and dependency mapping; G-01/G-10 remain blockers; G-12 remains open. Evidence in `TASK-2.5-READINESS-GAP-REGISTER.md`. No SQL/DDL, migration, live data, database setup, tests, production change or deployment.
