@@ -1289,3 +1289,7 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Continued Task 2.8 by translating open G-02/G-03/G-04/G-10/G-01 questions into a concrete, conservative defaults decision register.
 - New document: TASK-2.8-RECOMMENDED-POLICY-DEFAULTS.md. Defaults remain proposals requiring Product Owner acceptance; they are not implementation authorization.
 - No tests, SQL/DDL, migrations, live data, DB provisioning, deployment or production changes.
+
+### Task 2.8 — Lifecycle & Transaction Contracts (2026-11-22)
+- Added draft lifecycle/state transition, invariant, transaction/concurrency and candidate acceptance-test contracts for procurement, event/form history, attachment lifecycle and tenant integrity.
+- Document: TASK-2.8-LIFECYCLE-TRANSACTION-CONTRACTS.md. Design only; not implementation or test evidence. Business-policy decisions and exhaustive source coverage remain open.
