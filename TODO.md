@@ -963,3 +963,10 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - [ ] Cross-review against accepted Task 2.1–2.3 source evidence and architecture.
 - [ ] Verify read-back of documentation changes.
 - [ ] Product Owner review and acceptance (required to close Task 2.4).
+
+
+## Task 2.4 — Cross-review checkpoint
+- [x] Cross-reviewed blueprint against accepted conceptual model, mapping and field-semantic evidence (2.1–2.3).
+- [x] Recorded alignment matrix and limitations in POSTGRESQL-SCHEMA-BLUEPRINT-2.4.md.
+- [x] Work packages A–D drafted; documentation read-back verification underway.
+- Status: READY FOR PRODUCT OWNER REVIEW; not closed until explicit acceptance. No schema implementation authorized.
