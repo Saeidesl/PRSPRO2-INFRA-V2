@@ -122,3 +122,27 @@ ProjectDeletionService._collect(project) identifies active tenant-scoped rows ac
 G-01 remains OPEN because the dependency collector coverage is bounded and other entities/mutations remain to map. G-10 remains OPEN: service-level tenant checks do not prove tenant-safe relational constraints. G-04 remains OPEN because attachment metadata/file deletion ordering in this cascade and recovery/retention behavior remain risk areas. G-02 remains OPEN; the collector's cross-project allocation preservation is evidence but does not close receipt/cancellation/accounting semantics.
 
 No live data, runtime tests, SQL/DDL, migrations, provisioning, deployment or production writes were performed.
+
+
+## Increment 5 — Workflow/Form/Information mutation and deletion evidence (2026-11-22)
+
+### Source paths inspected (read-only)
+WorkflowService.js; WorkflowRepository.js; EventTypeService.js; InformationTypeService.js; ProjectInformationService.js; FormService.js; FormRepository.js. Review was focused on tenant-scoped reads, soft-delete/status changes, revisions and history hooks.
+
+### Observations
+- InformationTypeService uses tenant-scoped lookup for type/column operations; sampled type and column deletion operations set Status=DELETED and increment/update revision where applicable, and write Audit logs. Deleting type/column does not, from sampled excerpts, prove comprehensive dependency enforcement against ProjectInformation, historical values, templates, form mappings, or downstream references.
+- ProjectInformationService sampled path marks an existing project-information record deleted, increments revision, records a history row with Action=DELETED, and logs audit. Tenant/project/type access helpers are sampled; complete attachment handling and all deletion/update paths not reconciled.
+- FormService sampled removal paths for fields and event-type-form mappings mark records DELETED and audit. Form definitions/response snapshots and amendment flows remain sensitive; hard-delete/cascade and retention constraints not proven.
+- WorkflowService sampled management/bootstrap paths scope workflows, departments, event types and information types by TenantID. Workflow updates and version handling are present in source, but full versioning/dependency/reassignment effects and delete policy were not exhaustively reviewed.
+- EventTypeService normalizes fields and includes connection type, attachment/void/amendment controls and arrays of allowed departments/users; sampled file has normalization/validation/update behavior, but cross-entity dependency enforcement for changes/deactivation remains unproven.
+
+### Dependency matrix refinement (evidence vs unknown)
+| Parent/definition | sampled mutation behavior | unresolved dependent effects |
+| InformationType / Column | tenant-scoped soft-delete and audit; type revision | project information values/history, forms, templates, attachments, retention |
+| ProjectInformation | soft-delete/revision/history/audit | file purge/recovery, approval history, source event constraints |
+| Form / Field / EventType mapping | field/mapping soft-delete/audit in sampled paths | responses/snapshots/amendment lineage, orphan prevention, definition revision |
+| Workflow / Steps / Rules | tenant-scoped management and update/version evidence | projects in active workflow, event types/rules, step departments, historical event consistency |
+| EventType | configuration normalization/validation and permission fields | event history immutability, deactivation behavior, amendments/attachments/independent events |
+
+### Assessment
+This adds mutation/deletion evidence but is still not an exhaustive dependency matrix. No schema constraints or behavior beyond inspected source paths is inferred. G-01, G-03, G-04 and G-10 remain OPEN; G-02 remains OPEN. Task is an audit deliverable only; no tests, live data, SQL/DDL, migration, provisioning, deployment or production writes.
