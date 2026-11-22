@@ -1435,3 +1435,8 @@ Task 2.7 is a read-only discovery and traceability effort covering event/form hi
 
 ### Task 2.7 Increment 8 — Attachment lifecycle
 - Legacy upload and delete paths sequence storage and metadata/audit writes; compensation, restore, orphan reconciliation, retention/purge and transactional guarantees are not established. Attachment owner remains polymorphic PROJECT/EVENT.
+
+
+## Task 2.7 closure assessment
+- Audit package is deliverable-complete pending Product Owner acceptance, with nine bounded evidence increments and explicit closure conditions for G-01/G-02/G-03/G-04/G-10.
+- Underlying readiness blockers remain open; schema readiness is NOT APPROVED. No schema/DDL/migration/provisioning/live-data/test/deployment or production write authorized/performed.
