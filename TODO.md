@@ -1168,3 +1168,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Inspected ProcurementService public-method inventory, Repository API, Event integration service and relevant test-source assertions (not executed).
 - Provisional order/receipt/allocation/surplus/NEEDS_REVIEW lifecycle matrix recorded. No dedicated allocation mutation, order cancellation, receipt reversal or adjustment public API was found in the sampled service inventory.
 - G-02 remains BLOCKER; matrix is provisional and pending cross-service/report/business-rule coverage.
+
+
+### Task 2.6 Increment 6 — cross-service and project-retention semantics
+- Reviewed MaterialPlanningService, ProcurementEventIntegrationService and project deletion collector dependencies.
+- Recorded separation of need recalculation from receipts and retention-safe project archive/deletion implications. G-02 remains BLOCKER pending final cross-consumer/source coverage.
