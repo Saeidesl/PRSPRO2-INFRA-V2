@@ -157,3 +157,24 @@ Evidence:
 G-01 and G-10 remain BLOCKERS; this increment is bounded and does not prove exhaustive dependency coverage or DB-level relationship integrity.
 
 No tests executed, no live data, SQL/DDL, migration, DB provisioning, production modifications or deployment.
+
+
+### Increment 8 — identity/role/permission relationship constraints (2026-11-22)
+
+Read-only review of UserRoleService, RolePermissionService, RoleService, PermissionService, AccessControlService and related repositories.
+
+Evidence:
+- User-role assignment validates user and role tenant match, active role status and duplicate association in sampled service path; association repository lookups are by UserID/RoleID and tenant filtering is largely applied in service.
+- Role-permission assignment validates role tenant and permission reference, with tenant-aware association creation in sampled service. Repository-level lookup uniqueness is based on role/permission identifiers; a DB constraint is required to prevent duplicates and cross-tenant association races.
+- User, Role and UserRole repositories are simple sheet access adapters; they do not independently enforce tenant-compatible relationship integrity. Role-permission repository/service contains batched locking paths, but these are legacy implementation mechanisms.
+- AccessControlService resolves user/roles/permissions and request-scoped caches; cache reset is part of request handling. Permission resolution is distributed through route/service code, so V2 authorization must have a single policy contract while retaining service-level domain validation.
+
+### V2 relational/security decision
+- Composite tenant-compatible foreign keys/constraints should prevent associations across tenants, e.g. user-role, role-permission and domain-owner relations.
+- Unique constraints should prevent duplicate role assignment and role-permission links, including normalized codes/user identifiers where policy permits.
+- Permission cache invalidation should be event-driven or request-scoped only; database state remains authoritative.
+- Authorization must deny by default, be centrally evaluated at route boundary, and retain explicit domain/tenant checks inside critical services. Admin bypass must be explicit, auditable and tenant-safe.
+
+G-10 remains BLOCKER until complete entity relationship inventory and composite tenant integrity design are established; G-01 remains BLOCKER pending source coverage.
+
+No tests executed, no live data, SQL/DDL, migration, DB provisioning, production modifications or deployment.
