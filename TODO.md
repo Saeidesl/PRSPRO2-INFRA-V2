@@ -1338,3 +1338,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Targeted read-only route-string cross-check of sampled caller families against legacy backend Router.js recorded in `TASK-2.8-BACKEND-ROUTER-CROSSCHECK-INCREMENT-8.md`.
 - Most sampled route-family strings were found; literal `workflow-progress` was not found in Router.js, recorded as an unresolved discrepancy (not a confirmed missing route). Literal search is not proof of handler/permission coverage. G-01 remains OPEN.
 - No tests, live data, DDL/migration, provisioning, production writes or deployment.
+
+
+### Task 2.8 — Route dispatch/caller method evidence Increment 9 (2026-11-22)
+- Reconciled frontend API wrapper verb helpers with verb-specific Router.js branches for sampled route families; resolved prior workflow-progress literal-search discrepancy: the GET project-prefix dispatch exists and calls EventService.workflowProgress behind PROJECT_VIEW.
+- Evidence recorded in `TASK-2.8-ROUTE-DISPATCH-CALLER-METHOD-EVIDENCE-INCREMENT-9.md`. Bounded source comparison only; not exhaustive handler, tenant, permission or test coverage. G-01 remains OPEN; no tests or production changes.
