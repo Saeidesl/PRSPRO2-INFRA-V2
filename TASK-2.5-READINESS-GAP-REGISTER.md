@@ -316,3 +316,24 @@ UNVERIFIED/BLOCKER: correction/reversal/void semantics, cancellation operations,
 G-02 remains BLOCKER. G-01/G-10 remain BLOCKERS. This is evidence only; it does not define V2 business rules.
 
 No SQL/DDL, migration, DB provisioning, live data, tests, production changes or deployment.
+
+
+## Increment 15 — Attachment & File Ownership Audit (bounded read-only, 2026-11-22)
+
+### Direct source evidence
+- Attachment validator accepts EntityType PROJECT/EVENT only; EntityID required; validates filename, MIME, extension, allowed MIME list, base64 size ceiling and AttachmentType format. PROJECT image type can default to PROFILE; AttachmentType is constrained to PROJECT attachment path.
+- AttachmentService upload resolves Project or Event, validates tenant and project visibility. Project-linked events additionally require parent-project visibility. Metadata records TenantID, EntityType, EntityID, FileName, MimeType, FileSize, StorageProvider=GOOGLE_DRIVE, StorageKey, UploadedBy, UploadedAt, AttachmentType (PROJECT only) and ACTIVE status.
+- Attachment visibility is resolved through owner entity: PROJECT or EVENT. Event with ProjectID requires parent project access; independent event visibility pathway exists. No other owner types confirmed in inspected upload/validator path.
+- AttachmentRepository list/get/update uses sheet-backed metadata; no relational FK evidence.
+- StorageRepository delegates upload/get/copy/delete to GoogleDriveStorage. Provider metadata indicates GOOGLE_DRIVE; tenant folder path exists in storage service, but audited upload path was observed calling uploadBase64 (not proof of consistent tenant-folder usage across all paths).
+- Delete pathway validates tenant and visibility, then deletes physical storage first and updates metadata to DELETED, then logs audit. This sequence has potential consistency gap if metadata update/audit fails after physical delete or storage deletion fails.
+- ProjectDeletionService is dependency-aware and includes attachments in project-related deletion context; exact full caller/recovery semantics are not established here. Project/event owner records are polymorphic EntityType/EntityID.
+- SourceAttachmentID exists for copied project images (schema column ensure path); copy image only allows PROFILE/INFORMATION project images in inspected pathway.
+
+### Readiness assessment
+CONFIRMED (bounded): PROJECT/EVENT attachment ownership in sampled upload/validation/visibility paths; storage metadata contract; MIME/extension/size validation; copy-image lineage field.
+PARTIAL: historical owner inventory, all routes/callers, tenant-folder behavior, deletion cascade and file metadata status transitions.
+UNVERIFIED/BLOCKER: full historic owner types, attachment-to-form or other entities, typed relational FK model, orphan detection/reconciliation, recovery after partial storage/metadata writes, checksums, malware scanning, retention, restore/purge, migration completeness and object-storage provider contract.
+G-04 remains BLOCKER; G-10 tenant-safe polymorphic linkage remains BLOCKER; G-11 storage migration remains OPEN/HIGH.
+
+No SQL/DDL, migration, DB provisioning, live data, tests, production changes or deployment.
