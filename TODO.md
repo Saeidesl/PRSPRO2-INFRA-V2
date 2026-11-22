@@ -1076,3 +1076,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Read-only Attachment/File Ownership audit documented: PROJECT/EVENT owner types, validator limits, metadata, visibility, storage delegation, copy-image lineage and deletion sequence.
 - Owner inventory, polymorphic FK design, orphan/reconciliation/recovery, storage migration, retention and full historical completeness remain unresolved; G-04 blocker, G-10 blocker and G-11 open/high.
 - No SQL/DDL, migration, DB provisioning, live data, tests, production changes or deployment.
+
+
+### Task 2.5 — Increment 16 (2026-11-22)
+- Re-read EventDataService.js and FormService.js read-only: tenant/parent visibility, independent-event access path, DataJSON parsing and response-record upsert with serialized ResponseJSON/DefinitionSnapshotJSON were cross-checked.
+- This is bounded evidence only; full immutable response history, query/report/search workload and amendment semantics remain unresolved (G-03 blocker). G-01/G-10 remain blockers.
+- No tests, SQL/DDL, migration, DB provisioning, live data or production changes/deployment.
