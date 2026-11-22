@@ -159,3 +159,13 @@ These are selected validator excerpts. Service-level authorization, tenant const
 
 ### Evidence limitations
 - This is repository/service excerpt review only. Not all write paths, concurrency behavior, service transactions, constraints or tests were inspected. The items above are constraint/design candidates, not approved database decisions.
+
+
+## Material-planning specification lifecycle evidence (2026-11-22)
+
+- MaterialPlanningService maintains versioned project material specifications keyed by SpecKey and Revision; list resolution selects the latest revision for a key and filters deleted status.
+- Create-spec validation requires ItemName and Unit, bounds their length, validates ConsumptionPerUnit as positive (minimum 0.0000001) and WastagePercent in [0,100], with default wastage 0. Initial EarlyOrderPolicy is DISABLED in the inspected create path.
+- Create rejects an existing SpecKey within the inspected project/tenant selection; revise requires the supplied record to be the latest revision and rejects deleted/superseded records, indicating revision append semantics rather than in-place mutation for key specification values.
+- IDs, generated item codes and timestamps are source-generated; generated ID format should not be copied blindly into PostgreSQL. Uniqueness scopes and revision race protection need service-path review.
+- Material calculation history is described as immutable in service header, but its exact full write-path and invariants remain to be audited. No precision/rounding or calculation algorithm assumptions are finalized here.
+- These findings support evaluation of decimal precision, immutable revision records, tenant/project-scoped key uniqueness, optimistic/concurrency-safe revision creation, and audit trail requirements, but are not approved constraints.
