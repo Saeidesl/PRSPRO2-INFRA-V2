@@ -1310,3 +1310,7 @@ Bounded source review observed positive-integer project quantity validation, Jav
 
 ## Task 2.5 evidence increment 9 — identity and lifecycle recovery (2026-11-22)
 Read-only sampling observed user status/update/audit paths, repository physical-delete capability, role-permission association bulk deletion, dependency-aware project deletion, shared procurement preservation and Drive trash behavior. This does not establish identity migration, audit completeness/retention, restore/purge or cross-system recovery contracts. G-08/G-09/G-11 remain HIGH and G-01 remains a blocker pending complete mutation/lifecycle coverage. See TASK-2.5-READINESS-GAP-REGISTER.md. No SQL/DDL, migration, DB provisioning, live data, tests, production changes or deployment.
+
+
+## Task 2.5 evidence increment 10 — configuration relationship graph
+Read-only sampling observed tenant-scoped workflows and active step-department associations, department access, permission-gated project status management, tenant-scoped versioned print templates with PDF/image asset metadata, and read-only historical EventField context. Candidate dependencies recorded (workflow/steps/departments/event types; project/status; print template/version/assets; historical event data/field context) are not schema declarations and require exhaustive constraint/lifecycle validation. G-01/G-10 remain blockers and G-12 open. See TASK-2.5-READINESS-GAP-REGISTER.md. No SQL/DDL, migrations, DB provisioning, live data, tests, production changes or deployment.
