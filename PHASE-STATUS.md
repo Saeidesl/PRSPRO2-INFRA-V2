@@ -451,3 +451,9 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Read-only assertion crosswalk for access-control caches, user validation, reusable forms and form API contract documented in `TASK-2.8-ACCESS-CONTROL-USER-VALIDATION-REUSABLE-FORM-ASSERTION-CROSSWALK-INCREMENT-27.md`.
 - Assertions cover request-scoped caches, password validation, reusable form snapshots/visibility/requiredness/idempotency and amendment permission/concurrency/replay. Runtime route authorization, auth/session security and DB-level tenant constraints remain unverified. Tests not run.
 - G-01/G-03/G-10 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+## Phase 2 — Task 2.8 Increment 28 (2026-11-22)
+- Read-only selected frontend assertion crosswalk documented in `TASK-2.8-FRONTEND-BACKEND-CONTRACT-ASSERTION-CROSSWALK-INCREMENT-28.md`; production frontend repo remains unmodified.
+- Tests assert dossier/revision history, event submit progress/retry/accessibility, five-second success close, repeat-reference sync/conflict/retry and receipt form loading/error behavior. Tests not executed and are not API/database integrity evidence.
+- G-01 remains OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
