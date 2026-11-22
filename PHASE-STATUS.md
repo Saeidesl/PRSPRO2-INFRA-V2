@@ -229,3 +229,11 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 - Increment 14 read-only review of order lifecycle/cancellation status handling and receipt eligibility/partial-write recovery recorded.
 - Task 2.6 audit is marked AUDIT COMPLETE / DESIGN READINESS NOT APPROVED; blockers remain open. Physical schema/SQL/migration are not authorized.
 - No tests, live data, SQL/DDL, migration, DB provisioning or production changes.
+
+
+## Phase 2 — Task 2.7 kickoff (2026-11-22)
+- Task 2.7 — Blocker Resolution & Evidence Closure: IN PROGRESS, read-only discovery and evidence work.
+- Work package and scope/guardrails documented in TASK-2.7-BLOCKER-CLOSURE.md.
+- Prior Task 2.6 is closed as a bounded audit deliverable, not blocker closure or schema-readiness approval.
+- Planned review focuses on G-03 event/form history contract, G-04 attachment lifecycle, G-10 tenant-safe relational integrity and G-01 coverage reconciliation. G-02 remains open and is tracked.
+- No SQL/DDL, migrations, live data, tests, DB provisioning, production modifications, deployment or VPS action.
