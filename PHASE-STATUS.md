@@ -375,3 +375,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 Increment 14: structured entity manifest (2026-11-22)
 - Parsed the declared DatabaseSetup.js sheet registry into 37 entries, domain grouping and candidate relationship notes in `TASK-2.8-STRUCTURED-ENTITY-MANIFEST-INCREMENT-14.md`.
 - Explicitly distinguished registry facts from inferred relationships and live-data/runtime unknowns. G-01 remains OPEN; no tests or production changes.
+
+
+## Phase 2 — Task 2.8 Increment 15: registry-to-code crosswalk (2026-11-22)
+- Read-only path-level crosswalk of registry domains against backend service/repository candidates and frontend module candidates documented in `TASK-2.8-REGISTRY-CODE-SURFACE-CROSSWALK-INCREMENT-15.md`.
+- Path matching is not complete source-consumer evidence. G-01 remains OPEN; no tests or production changes.
