@@ -1422,3 +1422,8 @@ Task 2.7 is a read-only discovery and traceability effort covering event/form hi
 - Read-only sampled WorkflowService/Repository, EventTypeService, InformationTypeService, ProjectInformationService and FormService/Repository.
 - Evidence recorded: tenant-scoped lookup/management, soft-delete and audit paths for information types/columns, project information history, form field/mapping deletion, and workflow/event type update/version/configuration.
 - Dependent effect enforcement, complete version lineage, retention and all mutation paths remain unproven; bounded review only. G-01/G-03/G-04/G-10 open; G-02 open. No live data/tests/DDL/migrations/provisioning/deployment/production write.
+
+
+### Task 2.7 Increment 6 — Tenant relationship integrity
+- Source evidence indicates service-layer tenant validation is the dominant legacy safeguard; generic repositories frequently expose ID/global-sheet accessors without tenant isolation in their contract. Procurement reads are tenant-filtered, graph validation remains service-side.
+- Polymorphic attachment ownership, nullable independent events, history and procurement cross-links are physical-schema challenges. Evidence does not establish relational enforcement or readiness.
