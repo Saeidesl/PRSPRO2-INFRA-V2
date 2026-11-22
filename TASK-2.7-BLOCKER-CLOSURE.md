@@ -174,3 +174,20 @@ Inspected repository/service excerpts in production backend (read-only): Project
 
 ### Assessment
 Legacy safeguards rely primarily on service-layer tenant validation, while many generic repositories remain ID/global-sheet based. This does not establish tenant-safe physical-schema enforcement. G-10 remains OPEN; G-01/G-03/G-04 and G-02 remain OPEN. No live data, runtime tests, SQL/DDL, migrations, DB provisioning, deployment or production modification.
+
+
+## Increment 7 — Event/form history, amendment and void effects (2026-11-22)
+
+### Read-only source paths
+Reviewed relevant EventService, FormService, AuditService and ReportService excerpts in the production backend. This remains bounded source review; no execution or production data.
+
+### Evidence
+- Event creation prepares reusable form responses and definition snapshots, invokes procurement integration validation, persists event, then persists form responses, project-information/code synchronization, and audit/projection-related writes in a multi-step flow. A source comment acknowledges failure handling after event/project/audit-related writes; atomic rollback is not proven.
+- Form responses persist EventID, FormID, FormVersion, ResponseJSON and DefinitionSnapshotJSON; response read path filters by tenant and parses response/snapshot.
+- Form amendments use same-project amendment events and event-type configuration/legacy markers, allowed form IDs when configured, idempotent replay checks and optimistic UpdatedAt comparison. The amendment path also synchronizes project information and project code; atomicity across response and sync writes remains unproven.
+- Event void path checks tenant/project visibility, duplicate void, event-type policy, department/admin constraints and later-event restrictions. It conditionally restores project state based on previous snapshot/expected-state checks, updates event status and audit, and invokes material-planning review. This is multiple service writes and not proof of transaction/rollback across all effects.
+- Event/report read projections exclude void/cancelled event statuses in sampled paths. Full consistency of all dashboards/reports/export consumers, historical snapshots and retention is not established.
+- Audit service provides tenant-filtered audit list/entity/user reads in sampled paths; completeness, tamper-resistance, retention and atomicity with domain writes are not demonstrated.
+
+### G-03 assessment
+History/snapshot and amendment/void policies have meaningful service-level evidence, but immutable event/history contract, transaction boundary, revision lineage, complete reporting parity, correction/reversal policy and retention remain open. G-03 remains OPEN. No runtime tests, live data, SQL/DDL, migration, provisioning, deployment or production modification.
