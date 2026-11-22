@@ -1209,3 +1209,7 @@ Selected GET Router branches were traced against permission gates and service de
 - Project deletion collects dependencies under admin access and lock, protects shared procurement items/orders, soft deletes dependent rows, trashes attachment storage after metadata deletion, and physically removes project only when dependency handling has no failure. Partial failures are surfaced; not atomic.
 - Audit rows are tenant-scoped and store action/entity/actor, old/new JSON, reason and timestamp; coverage is service-call-based, not proven exhaustive.
 - Attachment access is tenant and parent-project visibility scoped; retention/recovery remains pending.
+
+
+## 2026-11-22 — Phase 2 Task 2.1 conceptual consolidation
+The consolidated conceptual model and review gate are documented in DATA-MODEL-DRAFT.md. It separates source-evidenced relationships from recommendations and unresolved questions, including tenant isolation, project/event/form snapshots and amendment/void, reference-project sync/copy, material calculation provenance, procurement allocations/receipts, attachment retention, audit policy, print resolver and transaction/outbox boundaries. It also records security migration concerns (legacy SHA-256 password hashing, observed URL token transport, missing rate-limiting evidence) and limitations of the route audit. The next recommended task is detailed field-level source-to-target mapping and constraint validation. This package awaits Product Owner acceptance; no schema or migration was implemented.
