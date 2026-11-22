@@ -1270,3 +1270,7 @@ A cross-review was performed against accepted Task 2.1 conceptual model, Task 2.
 
 ## Task 2.4 Product Owner acceptance (2026-11-22)
 The Product Owner accepted the PostgreSQL logical schema blueprint and cross-review package. Task 2.4 is closed as a design artifact only. This acceptance does not approve executable SQL/DDL, migrations, database provisioning or real-data access. Detailed source mapping and unresolved decisions remain dependencies for migration-ready schema work.
+
+
+## Task 2.5 — Schema implementation readiness & evidence gap closure (2026-11-22)
+Task 2.5 started following acceptance of the Task 2.4 blueprint. It is read-only discovery and readiness assessment to close evidence gaps before executable schema work. Scope includes source mapping completeness, lifecycle/mutation evidence, constraints, payload/reporting needs, procurement correction/reversal semantics, attachment owners, identity/ID mapping, numeric precision/timezone and retention. No SQL/DDL, migration, database provisioning, live data, production change or deployment is authorized in this task. A readiness-gap register and prioritized review package will be produced.
