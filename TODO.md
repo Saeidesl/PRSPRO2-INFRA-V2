@@ -1487,3 +1487,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ## Phase 2 — Task 2.8 Increment 37 (2026-11-22)
 - GET route permission/domain crosswalk for project nested reads, event/form/data, workflow, reusable forms/information types/event types, procurement read and reporting routes recorded in `TASK-2.8-GET-ROUTE-PERMISSION-DOMAIN-CROSSWALK-INCREMENT-37.md`.
 - Source gates and dispatch are recorded; exhaustive callers, service tenant validation and runtime test evidence remain unverified. G-01/G-10 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+## Phase 2 — Task 2.8 Increment 38 (2026-11-22)
+- POST mutation route crosswalk recorded in `TASK-2.8-POST-ROUTE-MUTATION-PERMISSION-CROSSWALK-INCREMENT-38.md`, covering project/draft fallback, reference copy, workflow, config/forms, events/attachments and RBAC.
+- Special same-tenant own-DRAFT fallback and route-bound attachment ownership highlighted for test coverage; runtime tests and exhaustive service validation remain unverified. G-01/G-10 OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
