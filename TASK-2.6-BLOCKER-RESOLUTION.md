@@ -134,3 +134,26 @@ Evidence:
 G-02 remains BLOCKER. The lifecycle contract is now sufficiently drafted for internal technical design but requires remaining discovery (write routes/other consumers and report calculations) and final consistency review before this gap can be marked resolved.
 
 No tests executed, no live data, SQL/DDL, migration, DB provisioning, production modifications or deployment.
+
+
+### Increment 7 — configuration entity lifecycle and version semantics (2026-11-22)
+
+Read-only sample of WorkflowService, InformationTypeService, EventTypeService, ProjectStatusService and PermissionService method/lifecycle paths.
+
+Evidence:
+- Workflow service supports management bootstrap/data, create/update, steps, step-event rules and publish. Publishing validates active step/rule/event references and records a published version; editing rules can clone published configuration into draft version. Workflow versions and published references must be preserved rather than overwritten.
+- Information types have logical-deactivation paths; type deactivation checks active form field usage. Column deactivation is logical but sampled path does not demonstrate comprehensive historical form-response or project-information usage guard. Revisions increment on type deactivation.
+- Event types are tenant scoped and validate references, amendable forms and effective partial configuration before update. The sampled update mutates configuration, but a comprehensive immutable event-type revision snapshot policy is not established.
+- Project statuses support ACTIVE/INACTIVE and tenant-scoped updates; status naming uniqueness applies among active entries. Code/ID/tenant/creation timestamp are preserved on update.
+- PermissionService supports request cache reset, listing, lookup, user permissions, permission checks and requirePermission. Permission policy dependencies need relational integrity and audit/versioning in V2.
+
+### V2 configuration decisions
+- Workflow: immutable published versions; drafts may change, publish produces a new version. Event/workflow execution references the exact version used. Historical published versions cannot be cascaded away while referenced.
+- Forms/Information types/columns: logical deactivation only; preserve definition snapshots with event/form response and project information. Deactivation must prevent new use but not invalidate historical payload interpretation.
+- Event types and statuses: tenant-scoped IDs, controlled code/name changes, explicit active/inactive/deleted states and effective-version snapshots where event behavior depends on configuration.
+- Permission: relational role-permission associations with tenant-compatible uniqueness and audit trail; cache invalidation tied to permission/config changes.
+- Configuration deletion policy defaults to RESTRICT when history or active dependent references exist, unless an explicit retention/archive workflow is defined.
+
+G-01 and G-10 remain BLOCKERS; this increment is bounded and does not prove exhaustive dependency coverage or DB-level relationship integrity.
+
+No tests executed, no live data, SQL/DDL, migration, DB provisioning, production modifications or deployment.
