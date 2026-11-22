@@ -586,3 +586,7 @@ Batch receipt path prevalidates, checks idempotency and order/allocation limits,
 
 ### Task 2.6 Increment 4 evidence
 Order header/item/allocation writes are sequential; failures attempt to mark the header NEEDS_REVIEW, but this is not atomic recovery. Single receipt inserts then updates order state and audit sequentially; receipt aggregation/status eligibility needs unified policy with batch. V2 transaction and reconciliation requirements recorded. G-02 remains BLOCKER.
+
+
+### Task 2.6 Increment 5 evidence
+Bounded service/repository inventory and test-source review. No dedicated allocation mutation, order cancellation, receipt reversal or adjustment method surfaced in ProcurementService sampled public inventory. Allocation cap/surplus behavior and shared estimated/confirmed allocation-key semantics observed in test source. Provisional lifecycle matrix recorded in Task 2.6 document. G-02 remains BLOCKER.
