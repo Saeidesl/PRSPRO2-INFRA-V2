@@ -1517,3 +1517,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 43 (2026-11-22)
 - Authenticated tenant-context/RBAC resolution trace documented in `TASK-2.8-AUTHENTICATED-TENANT-CONTEXT-RBAC-RESOLUTION-TRACE-INCREMENT-43.md`. Source observations include session-user TenantID match, tenant-filtered role and permission associations, tenant-scoped admin resolution, global permission catalog reads and Router-specific authorization reliance.
 - E1 only; route coverage, runtime security, and database enforcement unverified. G-10/G-01 remain OPEN; no tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+### Task 2.8 Increment 44 (2026-11-22)
+- Reconciled exact frontend/backend test-tree inventories (43 test files each) with thematic mapping recorded in `TASK-2.8-G01-FRONTEND-BACKEND-TEST-TREE-RECONCILIATION-INCREMENT-44.md`. Tree counts are filename-level only and do not prove execution/assertion coverage.
+- G-01 remains OPEN pending operation-to-assertion mapping and test execution; other blockers remain open. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
