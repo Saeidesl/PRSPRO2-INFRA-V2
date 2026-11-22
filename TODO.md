@@ -867,3 +867,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ## Phase 2 — Task 2.1 acceptance (2026-11-22)
 - Product Owner explicitly accepted the consolidated conceptual model and review package.
 - Task 2.1 is accepted/closed. Proceed to Task 2.2: detailed source-to-target field mapping and constraint matrix; this next task is read-only discovery and must not create schema/migrations until its review/approval gate.
+
+
+## Phase 2 — Task 2.2 IN PROGRESS (2026-11-22)
+- Began read-only field/constraint mapping using source registry and previously audited service behavior.
+- Added a partial header-evidence matrix and explicitly marked unknowns in SOURCE-TO-TARGET-MAPPING-2.2.md. Further source verification is required; this is not final mapping or schema design.
+- No SQL/migrations or production data access.
