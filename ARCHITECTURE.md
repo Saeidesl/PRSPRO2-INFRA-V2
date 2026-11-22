@@ -1494,3 +1494,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 54 — Repository lookup/tenant-filter boundary
 - Read-only inspection of EventRepository, AttachmentRepository, ProjectRepository and generic ID lookup recorded in `TASK-2.8-REPOSITORY-LOOKUP-TENANT-FILTER-BOUNDARY-TRACE-INCREMENT-54.md`. Generic repository ID lookup and selected relation filters do not themselves enforce tenant ownership; service-level checks are relied upon in sampled callers.
 - Bounded evidence only; exhaustive caller/runtime negative testing not done. G-01/G-10 remain OPEN.
+
+
+## Task 2.8 Increment 55 — Identity/RBAC repository tenant boundary
+- Read-only trace recorded in `TASK-2.8-IDENTITY-RBAC-REPOSITORY-TENANT-BOUNDARY-TRACE-INCREMENT-55.md`. Selected User/Role/Department ID lookups and UserRole association queries are not tenant-qualified at repository level; service-level tenant validation/filtering is observed in sampled paths.
+- Bounded E1 evidence only. G-01/G-10 remain OPEN; no schema readiness approval.
