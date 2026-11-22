@@ -771,3 +771,11 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - [x] Document V2 security design candidates, risks and unresolved tenant/identity policies.
 - [ ] Resolve tenant membership, department scope, session migration, privilege model and resource authorization matrix.
 - Status: IN PROGRESS. Mapping and security design are provisional; no implementation/schema.
+
+
+### Phase 2 / Task 2.1 — Attachments, Audit, Print and Integration mapping (2026-11-22)
+- [x] Extract header-level source mapping for Attachments, Audit Logs and Print Templates from DatabaseSetup.js.
+- [x] Record configured legacy attachment entity/provider values and relevant permission catalog excerpts.
+- [x] Document V2 candidate requirements and explicit unresolved behavior/policy questions.
+- [ ] Validate dedicated service paths, attachment lifecycle and access, audit coverage/redaction, template definition semantics and integration delivery behavior.
+- Status: IN PROGRESS. Mapping is header/config-level; no SQL, schema implementation, live data, secrets or migration.
