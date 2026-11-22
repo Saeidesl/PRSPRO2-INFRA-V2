@@ -1537,3 +1537,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 47 (2026-11-22)
 - Frontend assertion-source crosswalk for router base path, draft project flow, procurement receipt loading, reference conflict resolution and project dossier documented in `TASK-2.8-FRONTEND-ASSERTION-CROSSWALK-INCREMENT-47.md`.
 - E2 only; source-pattern assertion limitations noted. No runtime tests or browser execution claimed. G-01 remains OPEN. No live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+### Task 2.8 Increment 48 (2026-11-22)
+- Assertion-source crosswalk for form API contract, material planning, procurement integration, draft project lifecycle and reusable forms recorded in `TASK-2.8-FORM-MATERIAL-PROCUREMENT-DRAFT-ASSERTION-CROSSWALK-INCREMENT-48.md`.
+- E2 only; mocked repository and source-pattern boundaries noted. G-01/G-02/G-03 remain open. No runtime tests/live data/DDL/migrations/provisioning/deployment/production changes.
