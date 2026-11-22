@@ -1440,3 +1440,7 @@ Task 2.7 is a read-only discovery and traceability effort covering event/form hi
 ## Task 2.7 closure assessment
 - Audit package is deliverable-complete pending Product Owner acceptance, with nine bounded evidence increments and explicit closure conditions for G-01/G-02/G-03/G-04/G-10.
 - Underlying readiness blockers remain open; schema readiness is NOT APPROVED. No schema/DDL/migration/provisioning/live-data/test/deployment or production write authorized/performed.
+
+
+## Task 2.8 — Remaining blocker policy preparation
+- Prepared provisional policy recommendations and explicit evidence/decision gates for G-01/G-02/G-03/G-04/G-10. Recommendations are not approved business rules. Task 2.8 is in progress; Schema Readiness NOT APPROVED.
