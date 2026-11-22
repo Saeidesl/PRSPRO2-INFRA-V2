@@ -1371,3 +1371,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 
 ### Task 2.8 — High-Risk Lifecycle Relationship Trace Increment 16 (2026-11-22)
 - Targeted read-only trace across event/form, attachment, procurement, project deletion and reference-copy source paths recorded in `TASK-2.8-HIGH-RISK-LIFECYCLE-TRACE-INCREMENT-16.md`. Partial positive evidence and open gaps separated; all blockers remain open. No tests or production changes.
+
+
+## Phase 2 — Task 2.8 Increment 17 (2026-11-22)
+- Bounded read-only relationship edge and tenant enforcement matrix recorded in `TASK-2.8-RELATIONSHIP-TENANT-ENFORCEMENT-MATRIX-INCREMENT-17.md`, covering tenant/project/event/form/information/workflow/attachment/audit/procurement and deletion dependencies.
+- Identified repository-level broad reads vs service-level tenant checks, polymorphic owner edges, and candidate tenant-qualified relational constraint strategy. These are recommendations, not approved schema decisions.
+- G-01/G-10 remain OPEN; G-02/G-03/G-04 remain OPEN. Schema readiness NOT APPROVED. No tests, live data, SQL/DDL, migration, provisioning or production changes.
