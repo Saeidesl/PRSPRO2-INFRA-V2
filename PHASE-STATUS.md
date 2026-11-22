@@ -527,3 +527,9 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Read-only tenant header/repository boundary trace added in `TASK-2.8-TENANT-INTEGRITY-HEADER-REPOSITORY-BOUNDARY-TRACE-INCREMENT-42.md`.
 - Source observations: tenant-qualified headers in key tenant-owned entities and relation tables; global-looking Permission registry; AccessControlService tenant/user cache filtering; selected repository wrappers delegate ID-only operations without tenant predicate, so caller/service validation is a critical boundary.
 - G-10/G-01 remain OPEN; source evidence is E1 only. Schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+## Phase 2 — Task 2.8 Increment 43 (2026-11-22)
+- Read-only authenticated tenant-context/RBAC resolution trace added in `TASK-2.8-AUTHENTICATED-TENANT-CONTEXT-RBAC-RESOLUTION-TRACE-INCREMENT-43.md`.
+- Source evidence records session tenant/user binding, tenant-scoped role and RolePermission resolution, tenant-specific admin check and global permission catalog read. Router/service-specific authorization is relied upon beyond generic authenticated hook.
+- G-10/G-01 remain OPEN; E1 only. Schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
