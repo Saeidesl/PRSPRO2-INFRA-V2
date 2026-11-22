@@ -320,3 +320,7 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 ### Task 2.8 G-01 increment 3
 - Read-only service sampling and test-tree inventory recorded in TASK-2.8-G01-SERVICE-TEST-SAMPLING-INCREMENT-3.md. Source observations and test-name coverage are explicitly not execution evidence.
 - G-01 remains OPEN. No runtime test execution, schema work, migration, deployment or production modifications.
+
+
+### Task 2.8 — Increment 4 evidence
+Read-only inspection of project deletion, attachment delete and procurement receipt mutations recorded in TASK-2.8-MUTATION-RISK-EVIDENCE-INCREMENT-4.md. It identifies bounded source risks and V2 design implications, without declaring legacy behavior unsafe in general or claiming tests. G-01 remains open.
