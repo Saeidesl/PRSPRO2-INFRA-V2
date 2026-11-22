@@ -431,3 +431,28 @@ PARTIAL/UNVERIFIED: full user disable/delete/session effects; username uniquenes
 - G-12 remains HIGH/open (configuration lifecycle/versioning; template semantics included).
 
 Source-only review. No live data, credentials, tests, SQL/DDL, migration, database provisioning, production modification, deployment or VPS action occurred.
+
+
+## Increment 20 — Procurement lifecycle, project cascade deletion and attachment/storage cross-check (read-only, 2026-11-22)
+
+### Reference files sampled
+ProcurementService.js, ProcurementRepository.js, ProjectDeletionService.js, AttachmentService.js, AttachmentRepository.js and relevant route-dispatch references previously sampled.
+
+### Bounded evidence
+- Procurement data collections are tenant-scoped across material needs, purchase orders, order items, allocations and receipts (repository collection names 18_MaterialNeeds, 19_PurchaseOrders, 20_PurchaseOrderItems, 21_PurchaseAllocations, 22_MaterialReceipts).
+- ProcurementService sampled methods include createOrder (script-lock wrapper and internal creation flow), createReceipt, batch receipt creation, needs/orders listing, workspace, dashboard and reports. Order creation supports an idempotency key and project/event validation helpers. Numerical validation is based on Number conversion and positive/nonnegative bounds in sampled helper; exact precision policy and atomicity across records still unresolved.
+- Receipt/quantity aggregation is computed from receipt records; dashboards cap received quantity at ordered quantity while surplus and pending delivery are separately computed. This projection must not be confused with ledger/accounting semantics.
+- ProjectDeletionService implements an admin-only dependency-aware cascade. Its preview collects events/event data, material needs, order items, allocations, receipts, material specs/calculations and attachments. Shared orders/items allocated to other projects are selectively preserved. Delete operations acquire a script lock, soft-delete selected children, void events, trash files after attachment record updates, then physically remove the project row when no earlier failures occur. Audit logs outcome counts and partial failures. This is not a database transaction and the physical project delete plus child processing may be partially completed on failure.
+- AttachmentService supports PROJECT and EVENT entity attachments, tenant and parent-project visibility checks, upload/download/thumbnail/delete and image-gallery paths. Attachment rows carry tenant/entity type/entity ID, storage provider/key, uploader, timestamps, status and attachment type; project-image copying retains source-attachment linkage. Upload stores file before record/audit; delete removes storage before updating row/audit, so failure/compensation and transaction ordering are important target design issues. Storage observed as Google Drive in sampled paths.
+- AttachmentRepository supports entity lookup and update/insert; sampled entity lookup excludes DELETED but status handling and VOID consistency need full audit.
+
+### Readiness and limitations
+- G-01 remains BLOCKER: complete mutation/consumer and deletion/restoration lifecycle matrix is still not complete.
+- G-02 remains BLOCKER: procurement receipt correction/reversal, allocation and shared-order lifecycle semantics, uniqueness/idempotency concurrency and transaction design remain unresolved.
+- G-04 remains BLOCKER: complete attachment ownership and relationship coverage, including orphan detection, not established.
+- G-06 remains HIGH: precision, unit conversion, rounding and numerical field policy not established.
+- G-09 remains HIGH: retention/recovery and project cascade restoration strategy remain unresolved.
+- G-10 remains BLOCKER: tenant and FK enforcement, shared-order association semantics and constraints remain incomplete.
+- G-11 remains HIGH: storage provider/key migration, compensating failure strategy and object lifecycle remain open.
+
+Source-only inspection. No live data, test execution, SQL/DDL, migration, database provisioning, production modification, deployment or VPS action.
