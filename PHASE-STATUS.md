@@ -191,3 +191,8 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 ### Task 2.6 — Increment 7
 - Bounded configuration lifecycle/versioning review and provisional decisions documented.
 - G-01/G-10 remain unresolved; no schema implementation.
+
+
+### Task 2.6 — Increment 8
+- Bounded identity/role/permission relationship review; provisional tenant integrity and authorization design recorded.
+- G-01/G-10 remain unresolved.
