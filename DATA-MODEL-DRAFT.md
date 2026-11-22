@@ -350,3 +350,56 @@ Table is a design hypothesis; detailed source mapping and Product Owner decision
 - Conceptual entity clusters, relationship matrix, focused domain notes, candidate transaction boundaries and validation checklist are consolidated.
 - Still pending detailed source-to-target field/ID mapping, exhaustive cardinality/uniqueness validation, data-volume/query baseline, business decisions listed above and Product Owner review.
 - Task 2.1 is not complete and no SQL schema is authorized by this draft.
+
+
+## 16. Source-to-target mapping checkpoint — Project, Workflow, Event and Forms
+
+**Evidence source:** read-only fetch of legacy backend `DatabaseSetup.js` from `PRSPRO2BACKEND-PRODUCTION` on 2026-11-22. This is a sheet-header inventory, not validation of data contents or all service semantics. Existing repository remains read-only.
+
+### Project and lifecycle source tables
+| Legacy sheet | Header inventory | V2 conceptual target / cautions |
+|---|---|---|
+| 08_Projects | ID, TenantID, ProjectCode, Title, Description, WorkflowID, WorkflowVersion, CurrentStepID, Status, CreatedBy, CreatedAt, UpdatedAt, Quantity, AvailableDepartmentIDs, AllowedUserIDs, NotifyEnabled, CurrentStepStatus, SourceProjectID, RecordState, ReferencePolicyJSON, ReferenceCopyStatusJSON, ReferenceCopyCompletedAt, ReferenceCopyOperationID | Project + lifecycle/workflow context + access/availability policy + reference-copy tracking; JSON/policy normalization and historical semantics pending |
+| 18_ProjectStatuses | ID, TenantID, Code, Name, Status, CreatedAt, UpdatedAt | Tenant-scoped status catalog; uniqueness and transition rules pending |
+| 28_InformationTypes | ID, TenantID, Code, Name, Description, Cardinality, DataType, ValidationRuleJSON, OptionsJSON, Status, Revision, CreatedBy, CreatedAt, UpdatedAt, ShowOnCard | Information-type definition/versioning; immutable revision semantics and cardinality meaning need validation |
+| 29_InformationTypeColumns | ID, TenantID, InformationTypeID, Code, Name, DataType, IsRequired, OptionsJSON, ValidationRuleJSON, ColumnOrder, Status, CreatedAt, UpdatedAt | Definition columns/fields; identify constraints and snapshot behavior |
+| 30_ProjectInformation | ID, TenantID, ProjectID, InformationTypeID, ValueJSON, Revision, Status, SourceEventID, CreatedBy, UpdatedBy, CreatedAt, UpdatedAt | Current/project information values, revision, provenance; JSON shape and concurrency policy pending |
+| 31_ProjectInformationHistory | ID, TenantID, ProjectInformationID, ProjectID, InformationTypeID, Revision, Action, OldValueJSON, NewValueJSON, SourceEventID, Reason, ActorUserID, CreatedAt | Historical changes; preserve provenance, actor and revision ordering |
+| 38_ProjectReferenceSyncLog | ID, TenantID, SourceProjectID, TargetProjectID, InformationTypeID, Policy, SourceRevision, TargetRevision, Action, ConflictJSON, IdempotencyKey, ActorUserID, CreatedAt | Reference-copy/sync operations and conflict/idempotency history; mapping and ownership semantics pending |
+
+### Workflow source tables
+| Legacy sheet | Header inventory | V2 conceptual target / cautions |
+|---|---|---|
+| 09_Workflows | ID, TenantID, Name, Code, Version, Status, CreatedAt, UpdatedAt, WorkflowType, LifecycleState, PublishedVersion, DraftVersion, RepeatReferencePolicyJSON, PublishedRepeatReferencePolicyJSON | Workflow definition and draft/published version state; decide immutable published versions and active references |
+| 10_WorkflowSteps | ID, TenantID, WorkflowID, Name, Code, StepOrder, Status, CreatedAt, UpdatedAt, WorkflowVersion | Version-bound step definitions; verify ordering uniqueness and version FK |
+| 17_WorkflowStepDepartments | ID, TenantID, WorkflowID, WorkflowStepID, DepartmentID, Status, CreatedAt, UpdatedAt | Step/department assignment; validate version relationship and tenant integrity |
+| 37_WorkflowStepEventRules | ID, TenantID, WorkflowID, WorkflowVersion, WorkflowStepID, EventTypeID, RequirementMode, DataSource, SequenceMode, GroupKey, GroupOrder, EventOrder, DisplayOrder, Status, CreatedAt, UpdatedAt, AllowRepeat | Event-driven step rules; rule semantics and sequence/group behavior need detailed source mapping |
+
+### Event source tables
+| Legacy sheet | Header inventory | V2 conceptual target / cautions |
+|---|---|---|
+| 11_EventTypes | ID, TenantID, Name, Code, Version, Description, DepartmentID, Category, WorkflowStepID, MovesProjectToStep, AllowAttachments, Status, CreatedAt, UpdatedAt, ConnectionType, TargetDepartmentID, TargetProjectStatus, AllowedDepartmentIDs, AllowedUserIDs, AvailableDepartmentIDs, AllowVoid, TrackVariantQuantity, TargetStepStatus, IsWorkCompletion, AllowOnDraft, IsFormAmendment | Event type definition/version and workflow/permission effects; JSON/list fields and historical snapshot policy pending |
+| 12_EventFields | ID, TenantID, EventTypeID, Name, Code, FieldType, IsRequired, DefaultValue, Options, ValidationRule, FieldOrder, Status, CreatedAt, UpdatedAt | Event type field definitions; confirm definition version/snapshot behavior and field typing |
+| 13_Events | ID, TenantID, ProjectID, WorkflowID, WorkflowVersion, WorkflowStepID, EventTypeID, EventTypeVersion, PerformedBy, CreatedBy, DepartmentID, OccurredAt, CreatedAt, Description, Status, Color, Size, VariantQuantity, PreviousStepID, PreviousProjectStatus, PreviousAvailableDepartmentIDs, PreviousSnapshotCaptured, VariantDetailsJSON, PreviousCurrentStepStatus, IdempotencyKey, additional trailing headers pending full review | Event plus workflow context, state restoration snapshots, idempotency, variant details; confirm exact complete header list, lifecycle and semantics. ProjectID may be nullable |
+| 14_EventData | ID, EventID, DataJSON, CreatedAt | Event payload/value storage; shape, multiple rows vs JSON and immutability need mapping |
+
+### Form and response source tables
+| Legacy sheet | Header inventory | V2 conceptual target / cautions |
+|---|---|---|
+| 32_Forms | ID, TenantID, Code, Name, Description, Version, Status, CreatedBy, CreatedAt, UpdatedAt | Form definition/version; determine publication and historical immutability |
+| 33_FormFields | ID, TenantID, FormID, InformationTypeID, FieldOrder, GroupName, LabelOverride, HelpText, IsRequired, VisibilityRuleJSON, Status, CreatedAt, UpdatedAt | Form-field association and presentation/visibility rules; avoid duplicating shared information-type definitions unnecessarily |
+| 34_EventTypeForms | ID, TenantID, EventTypeID, FormID, IsRequired, FieldOrder, Status, CreatedBy, CreatedAt, UpdatedAt | Event type/form association; verify selection/ordering and effective version behavior |
+| 35_EventFormData | ID, TenantID, EventID, FormID, FormVersion, ResponseJSON, DefinitionSnapshotJSON, CreatedBy, CreatedAt | Submitted form response and definition snapshot; preserve frozen historical interpretation and amendment policy |
+
+### Read-only mapping observations and cautions
+- Headers indicate JSON-bearing columns for configuration, policy, value payloads and snapshots; the relational target should not blindly flatten or blindly preserve every JSON column. Use normalized relations where integrity/query behavior requires them and JSON for bounded snapshot/payload structures when justified.
+- Several project/event access policy fields are serialized lists or JSON; access semantics must be reconstructed from service logic, not guessed from headers.
+- Workflow draft/published fields, versions and event snapshots suggest that historic configuration interpretation must be preserved. Confirm source semantics before selecting version tables and constraints.
+- `13_Events` header extraction was truncated at a trailing field in this inventory pass. The complete header list and relevant mutation/read paths must be verified in a subsequent read-only pass; no field-level mapping is claimed complete.
+- This checkpoint does not extract actual records, sample production data, passwords, secrets or credentials.
+
+### Pending next source mapping areas
+- Material planning and procurement, including exact quantity/reversal semantics.
+- Identity/role/permission sheets and service authorization paths.
+- Attachments and audit details, plus print templates.
+- Full event headers and exact service paths for project information/history and form response amendment.
