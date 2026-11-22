@@ -563,3 +563,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 Increment 49 (2026-11-22)
 - Assertion-source crosswalk for report, print template, reference copy, image gallery and thumbnail test sources recorded in `TASK-2.8-REPORT-PRINT-REFERENCE-ATTACHMENT-ASSERTION-CROSSWALK-INCREMENT-49.md`.
 - E2 only; mocked/storage boundaries noted. G-01/G-04/G-10 remain OPEN; schema readiness NOT APPROVED. No runtime tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+## Phase 2 — Task 2.8 Increment 50 (2026-11-22)
+- Consolidated evidence matrix and closure dependencies documented in `TASK-2.8-CONSOLIDATED-EVIDENCE-MATRIX-CLOSURE-DEPENDENCIES-INCREMENT-50.md`.
+- G-01/G-02/G-03/G-04/G-10 remain OPEN. E1/E2 evidence only; E3 runtime testing unavailable via current GitHub-only access and prohibited against production. Seven business policy items remain unconfirmed. Schema readiness NOT APPROVED.
