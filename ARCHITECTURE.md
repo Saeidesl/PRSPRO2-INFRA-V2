@@ -1108,3 +1108,11 @@ Selected GET Router branches were traced against permission gates and service de
 
 ### Limitations
 - This does not constitute a full route/service/resource permission matrix or security testing. Task 0.2 remains in progress.
+
+
+### Task 0.2 incremental notes (2026-11-22 — notification delivery reliability and attachment-storage reconciliation)
+- Read-only source recheck of TelegramBotService and AttachmentService confirmed the Telegram integration supports tenant chat mapping, tenant notification gating, message formatting with event/form/project context and attachment delivery; polling is scheduled every minute and update offset is persisted in Script Properties.
+- Polling advances and persists update offset after _processUpdate_ returns; handlers may perform registration and messaging side effects. Delivery outcomes are not represented by a durable queue/retry ledger. V2 notifications should use a transactional outbox, durable attempt state, deduplication keys, bounded retries/backoff, dead-letter/review state, and avoid duplicate notification delivery. Separate notification preferences/recipient policy from domain mutations.
+- Attachment paths continue to reveal a split between Drive storage operations and attachment metadata/audit writes. Selected reference-image copy path attempts storage cleanup if metadata/audit work throws; cleanup itself can fail and is swallowed, so an orphan-storage reconciliation mechanism is required. This is a sampled path, not a claim that all attachment mutations share identical behavior.
+- V2 file lifecycle should use durable metadata plus storage abstraction, scoped authorization on every access, upload validation and checksum, quarantine/scan policy if applicable, lifecycle state machine, transactional metadata changes, outbox-driven storage cleanup/copy/move, orphan detection and recovery. File migration must preserve source IDs/mappings where useful, metadata, associations, access policy and integrity hashes.
+- Audit is source-only. No live Telegram settings, credentials, chats, Drive files, or production data were accessed; no tests or production writes were performed. Task 0.2 remains IN PROGRESS.
