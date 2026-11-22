@@ -191,3 +191,20 @@ Reviewed relevant EventService, FormService, AuditService and ReportService exce
 
 ### G-03 assessment
 History/snapshot and amendment/void policies have meaningful service-level evidence, but immutable event/history contract, transaction boundary, revision lineage, complete reporting parity, correction/reversal policy and retention remain open. G-03 remains OPEN. No runtime tests, live data, SQL/DDL, migration, provisioning, deployment or production modification.
+
+
+## Increment 8 — Attachment storage/metadata failure boundaries (2026-11-22)
+
+### Source evidence
+Focused read-only review of AttachmentService upload/list/get/delete/copy paths, including exact upload and delete ordering, and StorageRepository use.
+
+### Findings
+- Upload resolves and tenant/visibility-validates project/event owner, validates linked-project visibility for project events, generates server-controlled filename where applicable, then uploads to storage, creates attachment metadata, and writes audit. This is a sequential storage→metadata→audit flow; compensating deletion/rollback on metadata/audit failure is not evidenced in the inspected upload excerpt.
+- Download/get/list resolve attachment tenant and owner visibility; event attachments inherit linked project visibility. Metadata and authorization are checked, but no comprehensive storage object existence/integrity reconciliation evidence.
+- Delete checks attachment tenant and visibility/status, calls storage delete, then updates metadata to DELETED, then audit. Storage-first ordering creates a metadata inconsistency/recovery risk if later writes fail. No transactional or durable retry/reconciliation guarantee evidenced.
+- CopyProjectImage path creates a separate stored object and metadata, with SourceAttachmentID linkage and duplicate lookup in sampled path. The broader attachment-copy contract, object lifecycle and failed-copy recovery are not proven.
+- Storage provider field is recorded as GOOGLE_DRIVE in upload path. Migration target is independent storage, but provider-neutral migration/recovery contract and retention/purge/restore policy are not demonstrated in legacy sources.
+- The current attachment entity pointer is polymorphic PROJECT/EVENT; service resolution protects access, but no DB referential constraint or owner-type integrity proof exists.
+
+### G-04 closure assessment
+Evidence improves failure ordering and ownership visibility but leaves object/metadata reconciliation, transactional compensation, restore/retention/purge, immutable audit coupling and complete lifecycle coverage unresolved. G-04 remains OPEN. No tests, live data, SQL/DDL, migrations, provisioning, deployment or production changes.
