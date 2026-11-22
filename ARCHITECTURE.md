@@ -1189,3 +1189,10 @@ Selected GET Router branches were traced against permission gates and service de
 - Endpoint-specific authorization is implemented across Router handlers; a route-by-route coverage audit remains open. V2 should use explicit deny-by-default authorization policies with tests.
 - Many legacy repository reads are broad and then tenant-filtered. V2 should make tenant scoping and relationship integrity enforceable at the database/API layer.
 - Evidence is documented in IDENTITY-PERMISSIONS-TENANT-CHECKPOINT-2.1.md. This remains discovery evidence, not approved schema design.
+
+
+## 15. Repository and lifecycle semantics — source audit checkpoint
+- GoogleSheetsRepository provides row-oriented CRUD, bulk insert, request caches and cache invalidation. Sheets do not provide relational transactional guarantees; V2 will require PostgreSQL transactions and integrity constraints.
+- Project, Event, Workflow, Form and Project Information service paths were inspected at function-level. Their distinct lifecycle/versioning/snapshot/history semantics must be preserved rather than collapsed into generic records.
+- ProjectDeletionService collects project dependencies across events, event data, attachments, material needs, procurement records, receipts, material specifications and calculations. Deletion/retention semantics must be explicitly designed and validated.
+- Findings and unresolved questions are recorded in REPOSITORY-LIFECYCLE-AUDIT-CHECKPOINT-2.1.md; discovery remains open and no schema design is approved.
