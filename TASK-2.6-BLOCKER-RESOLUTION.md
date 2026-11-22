@@ -225,3 +225,27 @@ Evidence:
 G-01/G-05/G-09/G-10 remain open. Full source/ID coverage and retention decisions still require completion.
 
 No tests executed, no live data, SQL/DDL, migration, DB provisioning, production modifications or deployment.
+
+
+### Increment 11 — cross-cutting technical baseline (2026-11-22)
+
+Consolidated the recurring source-audit findings into a baseline for the next discovery/design gate.
+
+#### Numeric and unit integrity
+- V2 must store quantities/consumption/costs using exact decimal types, never binary floating-point as authoritative persisted values.
+- Each material need, order item, allocation, receipt and adjustment must carry or reference a normalized unit; conversions require versioned conversion definitions and explicit precision/rounding rules.
+- Rounding is applied only at documented calculation/display boundaries. Persist calculation inputs, algorithm/version, unit, precision and result so history can be reproduced.
+- Legacy ceiling-to-four-decimals observation is not adopted as universal business policy; different quantities/costs require distinct policies.
+
+#### Time and chronology
+- Store instants in UTC; retain local date/time intent separately for date-only business fields, planned dates and timezone-sensitive schedules.
+- Use tenant/system timezone configuration for display and operational dates, not implicit server timezone.
+- Migration must parse legacy timestamp formats, report invalid/ambiguous values, and preserve source values in mapping/validation evidence.
+
+#### Tenant and reference integrity
+- For all tenant-owned entities, use tenant-compatible relational constraints for references wherever feasible (composite FK/unique keys), and query-layer tenant isolation as defense in depth.
+- Polymorphic relationships (attachments/audit/reference-sync) require explicit validated relation models rather than unconstrained entity-type/entity-id pairs where a relational FK cannot apply.
+- Soft-delete/deactivation semantics must be consistent; history-bearing records use restrictive/retention-aware deletion.
+
+#### Readiness status
+This baseline is a technical recommendation and does not close G-06/G-07/G-10. Actual legacy data format coverage, business unit conversion policy, timezone field inventory, precision requirements and relation coverage remain discovery items.
