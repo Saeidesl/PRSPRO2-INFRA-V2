@@ -445,3 +445,9 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Assertion crosswalk for attachment visibility, repeat-reference copy and schema-contract tests documented in `TASK-2.8-ATTACHMENT-REFERENCE-COPY-SCHEMA-CONTRACT-ASSERTION-CROSSWALK-INCREMENT-26.md`.
 - Positive assertions cover attachment event/project visibility, reference copy operation plan/history/live-sync/idempotency/policy and source-level schema/deploy guard contracts. Attachment storage failure recovery, runtime execution and PostgreSQL migration correctness remain unverified.
 - G-01/G-04/G-10 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+## Phase 2 — Task 2.8 Increment 27 (2026-11-22)
+- Read-only assertion crosswalk for access-control caches, user validation, reusable forms and form API contract documented in `TASK-2.8-ACCESS-CONTROL-USER-VALIDATION-REUSABLE-FORM-ASSERTION-CROSSWALK-INCREMENT-27.md`.
+- Assertions cover request-scoped caches, password validation, reusable form snapshots/visibility/requiredness/idempotency and amendment permission/concurrency/replay. Runtime route authorization, auth/session security and DB-level tenant constraints remain unverified. Tests not run.
+- G-01/G-03/G-10 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
