@@ -936,3 +936,40 @@ Selected GET Router branches were traced against permission gates and service de
 
 ### Verification status
 - Source inspection only. No runtime, concurrency, failure-injection, security, or integration tests were run. Audit completeness and service-level resource authorization remain pending.
+
+
+## 46. Discovery audit consolidation — Phase 0 Task 0.2 (2026-11-22)
+
+### Repository readiness
+- Infra V2 repository exists and is accessible.
+- The three other planned repositories (frontend, backend, database V2) were not found in the GitHub repository checks at this review; creation/access remains a separate prerequisite and is not claimed complete.
+- Legacy production frontend/backend repositories remain read-only throughout this audit.
+
+### Test infrastructure and recent verification evidence
+- Backend tests directory enumerated: 41 test files (scope includes access control/request cache, attachment, performance contracts/diagnostics, event idempotency and form/cache/prefetch, schema recovery, material planning, procurement, projects/drafts/deletion/gallery, print templates, reusable forms, Telegram, validators, workflow enforcement/rules and related contracts).
+- Frontend tests directory enumerated: 45 test files (scope includes event form/cache/performance, project picker/history/cards/gallery/report/print, accessibility, reusable forms, workflow, procurement loading, Jalali calendar, router base-path, cache and related UI contracts).
+- Latest inspected backend source-check run: 2026-11-19, commit 4a131ae, job validate SUCCESS. Other backend suite/performance workflows on same push were previously observed successful in the runs list.
+- Latest inspected frontend-check run: 2026-11-19, commit f1b667f, job frontend-check SUCCESS. Associated frontend QA/performance/deployment runs were successful in the runs list.
+- These are repository CI evidence, not a freshly executed local suite, exhaustive feature verification, or production smoke test. The deployment workflow success observed is historical evidence only.
+
+### Integration/dependency inventory
+- Backend is Apps Script V8 and depends directly on Google Sheets persistence, Google Drive/file storage, Script Properties for secrets/session/integration configuration, Apps Script web-app ingress and deployment. Telegram is a documented integration via Bot API webhook/polling, tenant-chat mapping and notifications.
+- Frontend is a GitHub repository SPA served via GitHub Pages/deployment workflow, API integration with legacy GAS endpoint, browser local/cache mechanisms and assets/fonts; no direct V2 database dependency.
+- Procurement/material planning, project-information reference synchronization, workflow enforcement, print-template resolution and file/attachment storage are internal cross-service dependencies and migration-sensitive.
+- Google Apps Script runtime/services, spreadsheet identity/headers, Drive file IDs/permissions, Properties, deployment URL and Telegram credentials/configuration are platform-specific dependencies requiring replacement or migration plan in V2.
+- Exact secret values, production data, live integrations and operational counts were not accessed.
+
+### Discovery risks and migration guardrails (consolidated)
+1. Sheets lacks relational transactions/constraints: preserve IDs/history and validate tenant/FK/unique rules; use PostgreSQL constraints and transactional command handling.
+2. Multi-step mutation, audit, file storage and cache/reference side effects can partially fail: transaction + outbox/idempotency + reconciliation.
+3. Authorization is distributed between Router/service; map and test policies including tenant/resource scope, admin and draft exceptions.
+4. Legacy password/session mechanics and token transport need secure migration/reset; no credential transfer assumption.
+5. File migration must preserve metadata, links, visibility and access control; reconcile object migration and orphan/duplicate handling.
+6. Telegram/configuration and other Apps Script integrations need independent adapters and secret management.
+7. No source audit can establish actual data volumes, runtime behavior, concurrency limits, security posture, performance baselines or complete route/test coverage; these are pending discovery/test/deployment phases.
+8. Migration must be staged, repeatable, validated, backed up, rollbackable and approved; legacy system stays operational and read-only at cutover. Avoid dual-write.
+
+### Task 0.2 readiness conclusion
+- READ-ONLY discovery and source audit findings have been consolidated to the best available source/document/CI evidence.
+- No legacy production repo was modified, no production data was accessed, no secrets were retrieved, no VPS was purchased/configured and no migration was executed.
+- Task is READY FOR PRODUCT OWNER REVIEW; under project protocol it is not marked COMPLETE until explicit acceptance.
