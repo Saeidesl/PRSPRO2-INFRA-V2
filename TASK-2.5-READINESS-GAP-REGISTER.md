@@ -578,3 +578,7 @@ Reviewed order create, receipt create/batch, allocation projection and event int
 
 ### Task 2.6 Increment 2 evidence
 Procurement workspace/report/dashboard and project deletion collector were sampled. Dashboard aggregates receipt records by item and caps received quantity at ordered quantity; status eligibility needs confirmation. Project deletion is allocation-aware and preserves shared order lines and cross-project receipt/order dependencies. V2 needs consistent net-quantity projection semantics and retention-safe deletion. G-02 remains BLOCKER.
+
+
+### Task 2.6 Increment 3 evidence
+Batch receipt path prevalidates, checks idempotency and order/allocation limits, insertMany writes receipt records, recalculates order state and then audits records; transaction atomicity is not demonstrated. NEEDS_REVIEW orders skip status recalculation. Existing tests were reviewed but not executed. Single/batch parity and correction paths remain open.
