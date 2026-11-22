@@ -1572,3 +1572,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 54 (2026-11-22)
 - Bounded repository lookup/filter boundary review documented in `TASK-2.8-REPOSITORY-LOOKUP-TENANT-FILTER-BOUNDARY-TRACE-INCREMENT-54.md`: generic ID lookup and selected relation repository filters are not themselves tenant-qualified; sampled service callers apply additional tenant/access checks.
 - E1 source inspection only; exhaustive caller review/runtime negative tests remain pending. G-01/G-10 remain OPEN; schema readiness NOT APPROVED. No live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+### Task 2.8 Increment 55 (2026-11-22)
+- Bounded identity/RBAC repository tenant-boundary trace recorded in `TASK-2.8-IDENTITY-RBAC-REPOSITORY-TENANT-BOUNDARY-TRACE-INCREMENT-55.md`: selected ID lookup and association repository methods are not tenant-qualified themselves; sampled service-level role validation/filtering is layered above.
+- E1 only; uniqueness scopes and exhaustive mutation/caller/runtime testing remain unresolved. G-01/G-10 remain OPEN; schema readiness NOT APPROVED. No live data/DDL/migrations/provisioning/deployment/production changes.
