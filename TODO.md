@@ -6,12 +6,12 @@
 
 ### Task 0.1 — Verify V2 repositories and establish project governance
 - [x] Verify Infra repository availability and access.
-- [x] Search for the three remaining V2 repositories; not found, creation pending.
+- [x] Verify all four V2 repositories and access permissions.
 - [x] Establish initial README, TODO, and ARCHITECTURE documents.
 - [x] Verify initial documentation files by reading them back from GitHub.
 
-**Status:** IN PROGRESS  
-**Notes:** Infra repository and documentation verified. Searches did not find PRSPRO2-V2, PRSPRO2BACKEND-V2, or PRSPRO2DATABASE-V2; creation/access remains pending.
+**Status:** COMPLETE  
+**Notes:** All four repositories are verified accessible with admin/push permissions. The three implementation repositories have been confirmed Private.
 
 ### Task 0.2 — READ-ONLY audit of current PMS
 - [x] Preliminary frontend repository structure and selected modules retrieved.
@@ -21,10 +21,10 @@
 - [x] Extract selected workflow-event sequencing, repeat-project/reference copy behavior, and file lifecycle rules (selected paths).
 - [ ] Extract relationship/business rules in detail; audit workflows and role/permission enforcement.
 - [x] Preliminary inventory of Drive storage and attachment lifecycle.
-- [ ] Inventory integrations (Telegram and other external services) in detail.
+- [x] Inventory integrations (Telegram and other external services) at source level; live configuration remains undiscovered.
 - [x] Inventory frontend and backend test-file names and CI workflow files (inventory only; tests not run).
-- [ ] Identify critical risks, performance constraints, migration dependencies, and test/deployment coverage.
-- [ ] Record detailed findings and unknowns in ARCHITECTURE.md.
+- [x] Consolidate critical risks, performance constraints, migration dependencies, and test/deployment coverage caveats.
+- [x] Record detailed findings and unknowns in ARCHITECTURE.md.
 
 **Status:** IN PROGRESS
 
@@ -623,3 +623,11 @@
 - [x] Access confirmed for PRSPRO2-V2, PRSPRO2BACKEND-V2, PRSPRO2DATABASE-V2 and PRSPRO2-INFRA-V2 under Saeidesl; authenticated GitHub permissions include admin/push.
 - The three newly created repositories are currently empty (size 0; no README was retrievable) and their GitHub metadata reports visibility `public`. This conflicts with the project's private-repository requirement and is a security/configuration risk. No secrets or production data are present/introduced by this work. Product Owner should change all three to Private before implementation or sensitive documentation/code is added.
 - Repository access prerequisite is satisfied; repository privacy correction is outstanding.
+
+
+### Repository privacy verification (2026-11-22)
+- [x] Rechecked GitHub metadata for PRSPRO2-V2 — Private.
+- [x] Rechecked GitHub metadata for PRSPRO2BACKEND-V2 — Private.
+- [x] Rechecked GitHub metadata for PRSPRO2DATABASE-V2 — Private.
+- Infra repository remains public; it contains governance documentation only at this stage.
+- Verified metadata, no source or secrets inspected/added in the privacy-check action.
