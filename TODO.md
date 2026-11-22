@@ -1527,3 +1527,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 45 (2026-11-22)
 - Assertion-level source inspection for five selected backend test files documented in `TASK-2.8-SELECTED-LEGACY-TEST-ASSERTION-CROSSWALK-INCREMENT-45.md`. Identified bounded assertions/mock boundaries for request cache, user validation, deletion dependency collection, procurement read reuse and attachment project access.
 - E2 source assertion inspection only; no test execution. Cross-tenant runtime coverage, atomicity and exhaustive G-01/G-10 remain open. No live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+### Task 2.8 Increment 46 (2026-11-22)
+- Assertion-source crosswalk for event idempotency/recovery, schema contract and workflow enforcement/rules tests recorded in `TASK-2.8-EVENT-IDEMPOTENCY-SCHEMA-WORKFLOW-ASSERTION-CROSSWALK-INCREMENT-46.md`.
+- E2 source inspection only; harness and source-text assertion boundaries documented. Runtime behavior, concurrency, cross-tenant constraints and lifecycle integrity remain unverified. G-01/G-03/G-10 remain open. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
