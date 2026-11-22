@@ -1327,3 +1327,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Read-only review of DatabaseSetup.js registry/header definitions plus selected frontend API and feature-module excerpts recorded in `TASK-2.8-SCHEMA-REGISTRY-AUXILIARY-EVIDENCE-INCREMENT-6.md`.
 - Confirmed numeric prefix reuse across distinct sheet names (`18_MaterialNeeds` and `18_ProjectStatuses`), JSON/list and polymorphic source-field categories, and presence of a destructive legacy reset utility (not executed).
 - V2 implications and bounded limitations recorded; G-01/G-10 remain open. No tests, live data, SQL/DDL, migration, provisioning, production writes or deployment.
+
+
+### Task 2.8 — G-01 Increment 7: Frontend/API caller sampling (2026-11-22)
+- Read-only sampled production frontend API callers in core API/router/permission files and event, form, procurement, project and attachment modules; endpoint-family observations and reconciliation gaps documented in `TASK-2.8-FRONTEND-API-CALLER-SAMPLING-INCREMENT-7.md`.
+- Observed compatibility/fallback procurement caller surface and cross-domain endpoint families; client permission gates are not server enforcement evidence. Coverage is sampled only; G-01 remains OPEN. No tests, live data or production writes.
