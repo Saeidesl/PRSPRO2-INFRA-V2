@@ -1225,3 +1225,7 @@ The Task 2.2 review package is recorded in SOURCE-TO-TARGET-MAPPING-2.2.md. It c
 
 ## 2026-11-22 — Task 2.2 Product Owner acceptance
 The consolidated source-to-target mapping and comprehensive review package was explicitly accepted by the Product Owner. Task 2.2 is closed. This acceptance does not approve schema/migration implementation, production data access or changes, deployment, or VPS configuration.
+
+
+## Phase 2 / Task 2.3 checkpoint — field semantics & constraint validation (2026-11-22)
+Task 2.3 is in progress. Read-only source excerpts validate selected API-level semantics, including optional Event.ProjectID, EventTypeID/PerformedBy required at event creation, parseable optional OccurredAt, configured information-type values/cardinality, form field visibility rules, and PROJECT/INDEPENDENT event-type restrictions. These validator findings do not establish database nullability, FK or uniqueness rules. JSON payload boundaries, boolean normalization, timestamps, numeric precision and complete constraints require further validation. Evidence and scope are recorded in FIELD-SEMANTICS-CONSTRAINT-VALIDATION-2.3.md. No schema, SQL, migration, live-data access, tests, production changes or deployment occurred.
