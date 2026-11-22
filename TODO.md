@@ -666,3 +666,23 @@
 - Documented risks/requirements and unknowns in ARCHITECTURE.md. Audit was read-only; no production data, secrets or live settings accessed; no production repository modified; no runtime tests or migration executed.
 - Outstanding discovery items for later design/validation (not blockers to closing source-audit task): actual data-volume/capacity baseline; complete runtime authorization matrix; full integration credential/operations inventory; recovery objectives; migration rehearsal and validation.
 - **Next:** present consolidated audit for PO acceptance. Do not proceed to implementation/schema/migration/deployment until the PO accepts the audit and roadmap step.
+
+
+## STATUS RECONCILIATION — authoritative update (2026-11-22)
+
+This section supersedes conflicting older checkpoint notes above and below it.
+
+- **Task 0.1 — COMPLETE:** all four repositories verified accessible; three implementation repositories verified Private.
+- **Task 0.2 — COMPLETE and accepted:** READ-ONLY source audit concluded to the documented scope; audit limitations remain follow-up QA/discovery items, not blockers to closure.
+- **Task 0.3 — COMPLETE and accepted:** discovery report and provisional boundaries accepted by Product Owner.
+- **Phase 0 — COMPLETE:** repository preparation, audit and discovery boundary tasks are closed. This does not authorize production modification, migration, deployment or real-data access.
+
+### Phase 1 — Foundation & Architecture
+
+#### Task 1.1 — Repository collaboration conventions
+- **Status: IN PROGRESS** (work started 2026-11-22).
+- Define repository separation, branching/PR, commit, review, CI, security and change-scope conventions in CONTRIBUTING.md.
+- Establish CI baseline remains subject to actual repository/workflow inspection and validation; no tests are claimed here.
+- **Acceptance required:** Product Owner review after document is verified on GitHub.
+
+No application code, schema, migration, deployment or production system changes have been made.
