@@ -223,3 +223,9 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 - Bounded read-only audit of single/batch receipt commands and Router dispatch: differences in general-stock receipt validation, source-event replay/idempotency, receipt aggregation and post-insert status/audit write sequence recorded.
 - Recommended unified receipt command, durable idempotency constraints, explicit reversal lineage, consistent allocation rules, transactional persistence and reconciliation.
 - G-02 remains BLOCKER. No tests, live data, SQL/DDL, migration, DB provisioning or production modifications.
+
+
+## Phase 2 — Task 2.6 closure assessment (2026-11-22)
+- Increment 14 read-only review of order lifecycle/cancellation status handling and receipt eligibility/partial-write recovery recorded.
+- Task 2.6 audit is marked AUDIT COMPLETE / DESIGN READINESS NOT APPROVED; blockers remain open. Physical schema/SQL/migration are not authorized.
+- No tests, live data, SQL/DDL, migration, DB provisioning or production changes.
