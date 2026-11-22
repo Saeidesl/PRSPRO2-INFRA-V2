@@ -102,3 +102,23 @@ Router.js contains route dispatch patterns for auth/session, project status, dep
 
 ### Gate
 No schema readiness approval. No SQL/DDL, migrations, live data, DB provisioning, tests, deployment or production modifications.
+
+
+## Increment 4 — Project deletion dependency matrix evidence (2026-11-22)
+
+### Source inspected
+Read-only inspection of ProjectDeletionService.js and ProjectRepository.js, EventRepository.js, AttachmentRepository.js and StorageRepository.js, plus the Router DELETE preview/removal dispatch.
+
+### Verified sampled dependency collector
+ProjectDeletionService._collect(project) identifies active tenant-scoped rows across: project events and their event data; project material needs; allocations linked by project or need; items associated by need or allocations (excluding lines with other-project active allocations); orders only when all active lines qualify and no cross-project allocations remain; receipts linked by qualifying item/project/order; project material specs and calculations; and project/event-owned attachments. It protects shared/general procurement rows via allocation/line checks. Preview returns dependency counts and confirmation code.
+
+### Deletion sequence/risk
+- Admin-only project deletion with tenant scope, confirmation-code check and script lock is evidenced in sampled service/router path.
+- Deletion is a multi-step soft-delete/void process with per-row failure collection, not a single atomic transaction. It adds Status columns for some child sheets, soft-deletes/voids selected records, then trashes attachment files, and physically deletes the project row if no prior failures. Audit logging follows; failures are reported after partial operations.
+- Project row physical deletion and multi-step cascading means V2 must deliberately choose archival/tombstone policy, retention, referential restrictions, transaction boundary, durable job/reconciliation, and rollback strategy. This legacy behavior is evidence of current policy/implementation, not a recommendation to copy it.
+- This collector is important dependency evidence, but is only one project-delete path; other mutation/delete operations and all entity-wide dependency collectors remain unreconciled.
+
+### Closure implications
+G-01 remains OPEN because the dependency collector coverage is bounded and other entities/mutations remain to map. G-10 remains OPEN: service-level tenant checks do not prove tenant-safe relational constraints. G-04 remains OPEN because attachment metadata/file deletion ordering in this cascade and recovery/retention behavior remain risk areas. G-02 remains OPEN; the collector's cross-project allocation preservation is evidence but does not close receipt/cancellation/accounting semantics.
+
+No live data, runtime tests, SQL/DDL, migrations, provisioning, deployment or production writes were performed.
