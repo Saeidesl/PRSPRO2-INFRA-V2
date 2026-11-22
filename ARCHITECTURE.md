@@ -1314,3 +1314,7 @@ Read-only sampling observed user status/update/audit paths, repository physical-
 
 ## Task 2.5 evidence increment 10 — configuration relationship graph
 Read-only sampling observed tenant-scoped workflows and active step-department associations, department access, permission-gated project status management, tenant-scoped versioned print templates with PDF/image asset metadata, and read-only historical EventField context. Candidate dependencies recorded (workflow/steps/departments/event types; project/status; print template/version/assets; historical event data/field context) are not schema declarations and require exhaustive constraint/lifecycle validation. G-01/G-10 remain blockers and G-12 open. See TASK-2.5-READINESS-GAP-REGISTER.md. No SQL/DDL, migrations, DB provisioning, live data, tests, production changes or deployment.
+
+
+## Task 2.5 evidence increment 11 — registry inventory baseline
+A read-only extraction of the APP_CONFIG.SHEETS registry in DatabaseSetup.js identified 38 named registry definitions, grouped into identity/access, project/workflow, event/form/configuration, material/procurement, and file/template/audit domains. This is an inventory baseline only; exhaustive mutation/read/report/constraint coverage is pending. Registry naming includes two definitions with `18_` sheet-name prefix (MATERIAL_NEEDS and PROJECT_STATUSES), recorded as an observation to validate, not a defect assertion. G-01/G-10 remain blockers and G-12 open. No live data, SQL/DDL, migration, DB provisioning, tests, production changes or deployment.
