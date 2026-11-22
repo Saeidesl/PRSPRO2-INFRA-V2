@@ -538,3 +538,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 Increment 44 (2026-11-22)
 - Exact recursive-tree test inventories reconciled: 43 frontend test files and 43 backend test files, documented in `TASK-2.8-G01-FRONTEND-BACKEND-TEST-TREE-RECONCILIATION-INCREMENT-44.md`.
 - Filename-level thematic mapping is preliminary and not test execution or coverage proof. G-01 remains OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+## Phase 2 — Task 2.8 Increment 45 (2026-11-22)
+- Assertion source inspection across five backend tests documented in `TASK-2.8-SELECTED-LEGACY-TEST-ASSERTION-CROSSWALK-INCREMENT-45.md`, identifying tested assertion scope and mocked boundaries.
+- E2 only; test execution not claimed. G-01/G-10 remain OPEN; schema readiness NOT APPROVED. No live data/DDL/migrations/provisioning/deployment/production changes.
