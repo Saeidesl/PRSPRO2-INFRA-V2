@@ -283,3 +283,18 @@ These are selected validator excerpts. Service-level authorization, tenant const
 ### Integrity risk (source-level finding)
 If a receipt row is later marked VOID elsewhere, the VOID record may still consume order-level/project-level receiving limits and affect reporting/need aggregation unless those paths normalize or filter it elsewhere. This is a conditional source finding: no VOID mutation path has yet been found, so current operational impact cannot be asserted.
 - V2 should define active-receipt predicate explicitly and reuse it across receipt ceilings, project ceilings, order status, need reporting, idempotency, and reconciliation. Reversal audit history should remain retained while void quantity is excluded from operational totals.
+
+
+## Material specification revision atomicity and event integration boundaries (2026-11-22)
+
+### Revision write order and partial failure
+- `reviseSpecification` inserts the new ACTIVE revision first, then updates the previous revision to SUPERSEDED. The comment indicates the new highest revision is authoritative even if marking the old row fails. This is intentionally recoverable in Sheets but can leave multiple rows apparently ACTIVE if the supersede update fails. V2 should transact both changes and enforce unique revision number and one authoritative current revision per scoped SpecKey.
+- Revision calculation is read-then-write and not atomic against concurrent requests in the inspected path.
+
+### Calculation record and event integration
+- `recordCalculation` performs tenant+CalculationKey lookup then insert, records calculation basis, consumption, wastage, calculated quantity, previous quantity, variance, type and status; lookup+insert has concurrency risk absent DB uniqueness.
+- Event integration settings are tenant/event-type scoped and only permit `NONE` or `RECALCULATE_CONFIRMED_NEEDS`; legacy receipt mapping is inert. Quantity must come from one connected central numeric SINGLE information type, with no active columns; event response validation is performed before event insertion in the inspected EventService ordering.
+- Event integration's `apply` calls MaterialPlanning recalculation, while receipt APIs remain separate; no automated receipt creation via this integration was evidenced.
+
+### VOID confirmation
+- `markEventVoided` updates calculations to `SOURCE_EVENT_VOIDED`, updates active CONFIRMED needs sourced by the event to `NEEDS_REVIEW`, and logs affected counts. It is a review/reconciliation path, not an automatic purchase-order or receipt reversal.
