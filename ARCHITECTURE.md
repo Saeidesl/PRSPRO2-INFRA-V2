@@ -1278,3 +1278,7 @@ Task 2.5 started following acceptance of the Task 2.4 blueprint. It is read-only
 
 ## Task 2.5 — source evidence audit increment 1 (2026-11-22)
 A source-only review of DatabaseSetup.js, ProcurementService.js, AttachmentService.js, EventService.js, ProjectInformationService.js and FormService.js confirmed registry and operation-family evidence while keeping implementation-readiness gaps open. The prioritized register is in `TASK-2.5-READINESS-GAP-REGISTER.md`. Priority blockers remain exhaustive mutation/relationship mapping, procurement correction/reversal contract, event/form payload semantics and attachment owner inventory. IDs, precision/units, timezone, identity and retention are high-priority unresolved. No live data, executable schema, SQL, migration, DB setup, production changes, deployment or tests were performed.
+
+
+## Task 2.5 — mutation and tenant-boundary evidence increment 2 (2026-11-22)
+A bounded read-only sample across Router, Project/User/Workflow/EventType/InformationType services, ProjectDeletionService and related repositories confirmed tenant-aware service checks in several pathways, but not exhaustive indirect relationship integrity. Router authorization, service validation and relational constraints are separate layers to assess. G-01 and G-10 remain blockers. Evidence is in `TASK-2.5-READINESS-GAP-REGISTER.md`. No live data, schema, SQL, migrations, tests, production change or deployment.
