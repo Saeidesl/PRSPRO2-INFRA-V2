@@ -1268,3 +1268,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.7 Increment 7 — Event/form history evidence (2026-11-22)
 - Reviewed bounded event-create, form-response persistence/snapshot, amendment, void, audit and report projection paths. Evidence includes multi-step writes and service-level replay/optimistic checks; atomicity, immutable history, complete projection parity and retention remain unproven.
 - G-03 remains OPEN. No tests/live data/SQL/DDL/migrations/provisioning/deployment or production changes.
+
+
+### Task 2.7 Increment 8 — Attachment lifecycle failure boundaries (2026-11-22)
+- Reviewed upload/storage/metadata/audit sequencing, access/download, delete storage-first ordering, copy linkage and polymorphic ownership. Compensation, restore, reconciliation, retention and purge remain unproven; G-04 OPEN.
+- No tests/live data/DDL/migrations/provisioning/deployment/production changes.
