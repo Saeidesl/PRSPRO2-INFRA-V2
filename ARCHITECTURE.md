@@ -1484,3 +1484,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 52 — Tenant-qualified relationship header crosswalk
 - Added `TASK-2.8-TENANT-QUALIFIED-RELATIONSHIP-HEADER-CROSSWALK-INCREMENT-52.md`: header-derived candidate tenant-qualified relationship edges and special-case notes for parent-derived EventData, global-looking Permissions, polymorphic attachment/audit ownership, and nullable event scope.
 - This is structural E1 evidence only; no live schema, runtime validation, SQL, migration or production write. G-10 remains OPEN.
+
+
+## Task 2.8 Increment 53 — Independent event and attachment ownership trace
+- Read-only EventService/AttachmentService trace recorded in `TASK-2.8-INDEPENDENT-EVENT-ATTACHMENT-OWNERSHIP-TRACE-INCREMENT-53.md`. Sampled independent events are tenant-filtered; project-linked events and attachments require parent-project tenant/access validation; polymorphic attachment ownership remains a DB integrity challenge.
+- Bounded evidence only; no runtime tests or readiness approval. G-10/G-04/G-01 remain open.
