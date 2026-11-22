@@ -879,3 +879,22 @@ The frontend tree includes tests for event filtering/history/forms/image preview
 - Audit is a source-code review of selected legacy repository files and declared schemas/routes; it has not queried live Google Sheets/Drive, user records, production telemetry, or deployed configuration.
 - Findings are therefore design and migration evidence, not performance measurements, operational guarantees, or confirmed exploitability. A complete route-to-service authorization matrix, external integration inventory, test coverage/run status, data-volume and performance baseline, and migration anomaly assessment remain outstanding.
 - Major V2 migration requirements emerging from source: tenant-scoped relational constraints; preserved legacy identifiers, version/snapshot and idempotency semantics; transactional multi-record operations; secure authentication and authorization; append-only/redacted audit; independently managed files; repeatable migration with reconciliation; and test evidence before cutover.
+
+
+## 42. Additional Router read-route authorization matrix trace (2026-11-22)
+
+Selected GET Router branches were traced against permission gates and service destinations:
+- Projects and project detail: list permits PROJECT_VIEW or PROJECT_CREATE; detail requires PROJECT_VIEW with narrow creator-owned tenant Draft fallback to PROJECT_CREATE. Project-information/history reads require PROJECT_VIEW. Project event/details paths additionally require EVENT_VIEW. Project attachments additionally require ATTACHMENT_VIEW. Material specifications/calculations permit PROJECT_VIEW or PROJECT_EDIT at the router branch.
+- Workflow reads: list allows WORKFLOW_MANAGE, PROJECT_CREATE or SYSTEM_SETTINGS; steps allow WORKFLOW_MANAGE or PROJECT_VIEW; management bootstrap/data and event rules require WORKFLOW_MANAGE.
+- Forms/information types: list permits SYSTEM_SETTINGS or EVENT_TYPE_MANAGE; detail and nested paths require SYSTEM_SETTINGS. Event type list permits EVENT_TYPE_MANAGE, EVENT_CREATE or SYSTEM_SETTINGS; event-type details/forms read branches permit EVENT_TYPE_MANAGE or EVENT_CREATE.
+- Event reads: list/detail require EVENT_VIEW; form responses/data remain under EVENT_VIEW; event attachments additionally require ATTACHMENT_VIEW.
+- Roles/users: user list USER_VIEW; user role list USER_EDIT; role list ROLE_MANAGE or USER_EDIT; role permissions and available permissions ROLE_MANAGE; permission catalogue PERMISSION_MANAGE.
+- Audit/report reads: audit list/entity/user and dashboard/project reports require REPORT_VIEW.
+- Procurement workspace, dashboard, needs and orders permit PROCUREMENT_VIEW or PROCUREMENT_MANAGE; procurement reports permit REPORT_VIEW or procurement permissions.
+- These router gates do not alone establish service-level resource authorization or complete route coverage. The matrix remains sampled and must be reconciled across all methods and nested paths.
+
+## 43. Authorization audit — caveats and design requirements
+
+- Router branch gates differ in purpose and are not a substitute for resource-level tenant/ownership checks. V2 should use consistent authentication, permission policy and resource-scope enforcement in middleware/service boundaries, with no UI trust.
+- Any-of permission gates and admin bypasses should be explicit policy constructs and tested. Draft creator exceptions should be narrowly defined and covered by tests.
+- No security test or runtime validation was performed in this source trace.
