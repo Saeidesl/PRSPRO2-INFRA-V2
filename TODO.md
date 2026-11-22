@@ -631,3 +631,10 @@
 - [x] Rechecked GitHub metadata for PRSPRO2DATABASE-V2 — Private.
 - Infra repository remains public; it contains governance documentation only at this stage.
 - Verified metadata, no source or secrets inspected/added in the privacy-check action.
+
+
+### Repository privacy verification (2026-11-22)
+- [x] PRSPRO2-V2 — Private.
+- [x] PRSPRO2BACKEND-V2 — Private.
+- [x] PRSPRO2DATABASE-V2 — Private.
+- Infra repository remains public; it currently contains governance documentation only.
