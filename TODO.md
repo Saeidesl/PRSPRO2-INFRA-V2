@@ -1162,3 +1162,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.6 Increment 4 — order recovery and receipt parity
 - Reviewed order write sequence/partial recovery marker, single receipt sequence and Router procurement write service inventory.
 - Documented NEEDS_REVIEW compensation semantics, multi-write non-atomicity and single/batch receipt policy parity needs. G-02 remains BLOCKER.
+
+
+### Task 2.6 Increment 5 — Procurement lifecycle inventory
+- Inspected ProcurementService public-method inventory, Repository API, Event integration service and relevant test-source assertions (not executed).
+- Provisional order/receipt/allocation/surplus/NEEDS_REVIEW lifecycle matrix recorded. No dedicated allocation mutation, order cancellation, receipt reversal or adjustment public API was found in the sampled service inventory.
+- G-02 remains BLOCKER; matrix is provisional and pending cross-service/report/business-rule coverage.
