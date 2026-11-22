@@ -222,3 +222,123 @@ Decision awaits final owner inventory/query needs.
 
 ### B.6 Open decisions
 Global vs tenant-local user identity; tenant/legacy ID mapping; tenant-local code uniqueness scopes; temporal vs immutable revision entities; event/form response and amendment model; receipt allocations/reversals; file-owner typing; RLS and tenant-context mechanism; ID generation.
+
+
+## Work package 2.4-C — History, snapshots, deletion, files and audit
+
+### C.1 Versioned configuration and snapshot policy
+**Proposal:** Configuration used to interpret a business record should be versioned or captured in a bounded snapshot when later edits could change its meaning. Candidate snapshot/version references include workflow version/step rules, event-type configuration, form versions and response context, material specification revision, project-information revision, and print-template version. This avoids retroactively reinterpreting historic records. Exact legacy semantics and retention remain validation gates.
+
+- Prefer immutable published configuration versions and explicit activation/deactivation rather than mutating in-use definitions.
+- Store snapshot payloads as versioned, validated JSONB only where schema variability justifies it; keep searchable/high-integrity relationships as relational columns/tables.
+- Snapshot payloads must be bounded, redact sensitive fields and carry a format/schema version.
+- Do not indiscriminately duplicate every source value; document which snapshot is authoritative and which is a reference.
+
+### C.2 Current-state and historical records
+Candidate patterns:
+- Current project information values plus append-only revisions/history.
+- Specification revision rows with stable specification key and explicit revision number; calculations retain source spec/revision and event provenance.
+- Workflow definition versions separated from mutable draft editing; project execution history records transition context.
+- Event amendment/void lifecycle modeled explicitly, with original-event context and audit; exact model pending semantics.
+- Procurement quantities/allocations/receipts are not overwritten blindly; quantity changes and reversals require a validated history/transaction model.
+- User, membership, role and department changes may require audit/effective dates; whether temporal tables are needed remains open.
+
+### C.3 Deletion, retention and recovery
+- Do not apply a universal soft-delete policy without domain review. Current source deletion behavior varies and project deletion is dependency-aware.
+- Candidate state-based deletion/archive for recoverable business objects; preserve immutable audit and essential historical provenance according to retention policy.
+- Shared procurement objects and cross-project allocations must not be deleted as a side effect of one project lifecycle.
+- File object deletion is a coordinated lifecycle: metadata/association state, object-storage action, retries, reconciliation and recovery window. Avoid irreversible storage deletion before relational references and policy checks.
+- Retention durations, purge approvals and restore procedures remain open business/operational decisions.
+
+### C.4 Files and external object storage
+- PostgreSQL stores file metadata, provider/storage namespace, object key, MIME/extension validation outcome, size, checksum, owner associations, uploader and lifecycle state; actual bytes remain external.
+- Use upload state transitions and an operation record to reconcile failed uploads or orphaned objects.
+- Prefer typed associations with FKs, or controlled owner registry if the owner type count/operations justify it.
+- Store secrets and signed access tokens outside database records where feasible; URLs should be generated at access time, not persisted as permanent access grants.
+- Storage provider, multipart/resumable approach, malware scanning, checksum policy and retention are pending design decisions.
+
+### C.5 Audit, outbox and operational history
+- Audit records should be append-only by policy, with tenant, actor, action, target reference, timestamp, reason and bounded before/after snapshots where justified. Redaction and access controls apply.
+- Audit is not a substitute for domain history or event records. Coverage must be defined for consequential operations.
+- Outbox entries should be created in the same DB transaction as the business state change that triggers notification/integration, then dispatched asynchronously with retry and deduplication.
+- Outbox payloads should contain minimal necessary data and reference authoritative records; delivery attempts/status/error summaries should be bounded and sanitized.
+- Idempotency records protect request replay and should be scoped, time-retained and designed not to expose sensitive response content.
+
+### C.6 Polymorphic audit/file references
+For finite owner types, typed association tables are preferred. For audit target references, a controlled entity registry may be evaluated, but it can add coupling. If polymorphic references remain, validate owner/tenant in the service and provide integrity reconciliation tooling; explicitly document that FK enforcement is not native.
+
+### C.7 Snapshot and lifecycle decision register
+- Which event/form values are immutable snapshots vs live references?
+- How event amendment and VOID relate to prior events and form responses?
+- Which project-information revisions are retained and which become active?
+- Are procurement receipts corrected by reversal records or mutable updates?
+- Which entities require soft deletion, archive or hard purge, and retention period?
+- File owner types, storage provider, scanning, orphan reconciliation and recovery window?
+- Audit coverage, redaction, retention, immutability and access roles?
+- Which notification/integration messages require outbox delivery and retry?
+
+
+## Work package 2.4-D — Transaction, idempotency, concurrency and consistency
+
+### D.1 Transaction boundaries (candidate operations)
+Transactions should group related DB changes so partial state is not visible. Candidate boundaries:
+- Create project and initial workflow/context plus initial information rows where source operation requires atomicity.
+- Publish workflow/config version and its steps/rules/assignments.
+- Register/complete an event, persist event payload/form response/attachments associations, apply workflow state transition and audit/outbox records, when the source lifecycle semantics confirm these are one operation.
+- Create/update material specifications, calculation provenance, generated needs and reconciliation status.
+- Create purchase order/items and allocations; receipt registration and allocation/remaining-quantity reconciliation.
+- Project reference-copy/sync operation and per-item state, including replay/recovery markers.
+- File association state changes, metadata and outbox/reconciliation operation (object storage itself cannot be transactionally joined; use saga/outbox-style recovery).
+- User-role and permission assignment changes with audit.
+
+Transaction boundaries are proposals; workflows and partial-failure semantics require final validation.
+
+### D.2 Concurrency and race protection
+- DB unique constraints should protect duplicate assignment, version, revision, code or idempotency keys where scope is confirmed.
+- Use transaction isolation and explicit row locks/optimistic version checks for contested aggregate operations (e.g. receipt quantities, allocation balances, workflow transitions, material-spec revision updates). Choose lock granularity from workload and correctness needs.
+- Avoid relying solely on application pre-checks; concurrent requests can race.
+- Include optimistic concurrency tokens (e.g. revision/version column) where stale edits must be rejected.
+- Keep transactions short; avoid external network/storage calls while DB locks are held.
+- For cross-service/file/integration effects, use outbox/saga and compensating/reconciliation steps rather than pretending external effects are transactional.
+
+### D.3 Idempotency/replay design
+Candidate idempotency record fields conceptually: tenant scope, operation namespace, key, request fingerprint, result/resource reference, lifecycle/status and timestamps. Requirements:
+- same key + same fingerprint should return/resolve the same completed operation;
+- same key + different fingerprint should be rejected;
+- in-progress operations need safe recovery and bounded ownership/lease policy if required;
+- keys and response data must not retain sensitive information unnecessarily;
+- durable uniqueness should be DB-enforced.
+
+### D.4 Proposed integration reliability pattern
+Use transactional outbox for notifications/integrations. A domain transaction writes outbox row; dispatcher claims safely, sends outside the transaction, records outcome and retries with backoff. Consumers/provider endpoints should support deduplication where available. Delivery ordering, retry limits, dead-letter handling and manual replay policy remain to be designed.
+
+### D.5 Migration-run architecture (future phase, not implemented)
+- Migration tooling separate from application schema and operational tables where possible.
+- Reproducible runs with run ID, source checkpoint, mapping version, counts, validation errors and reconciliation results.
+- Never expose production data in logs/repositories. Sanitized fixtures only in development/test.
+- Migration should be repeatable and idempotent, with explicit checkpoint/resume, dry-run and rollback/recovery plan. A data rollback strategy must account for writes and not rely on reverse SQL alone.
+- Real migration remains gated on UAT, backup/restore validation and explicit approval.
+
+### D.6 Performance considerations without premature tuning
+- Index candidate patterns: tenant + lifecycle/status + common query key; FK columns; temporal/revision lookups; idempotency; allocation/receipt links; file owner association. Final index list requires workload/query review.
+- Avoid indiscriminate indexes; each adds write and storage overhead.
+- Reporting may use reviewed read models/materialized views later, with explicit freshness and invalidation rules.
+- Partitioning is deferred until measured row volume, query patterns and operational cost justify it.
+- Performance acceptance targets must be measured after representative synthetic data and APIs exist; no latency claims made now.
+
+### D.7 Consistency review of work packages A–D
+- The model preserves independent events (nullable project association), general procurement (no fabricated project link), versioned workflow/spec context and tenant-scoped relationships.
+- Flexible JSON is limited to bounded configuration/snapshots/payloads, while core relationships remain relational.
+- File bytes are outside DB; relational metadata/association integrity and asynchronous storage lifecycle are accounted for.
+- Transaction, idempotency, concurrency and outbox recommendations address observed legacy lock/replay/partial-side-effect patterns without claiming their implementation.
+- Exact field types, nullability, code scopes, event response cardinality, receipt reversals, RLS, deletion/retention and migration identity mapping remain open.
+- No executable SQL/DDL, schema migrations, DB setup or data access was performed.
+
+## Task 2.4 preliminary completion criteria
+- [x] Work package 2.4-A logical inventory drafted.
+- [x] Work package 2.4-B key/relationship/constraint candidates drafted.
+- [x] Work package 2.4-C history/snapshot/file/audit models drafted.
+- [x] Work package 2.4-D transaction/idempotency/concurrency and migration reliability principles drafted.
+- [ ] Cross-check blueprint against accepted 2.1–2.3 documents and architecture record.
+- [ ] Read-back verification of all updated documentation.
+- [ ] Present proposal to Product Owner; task remains pending acceptance.
