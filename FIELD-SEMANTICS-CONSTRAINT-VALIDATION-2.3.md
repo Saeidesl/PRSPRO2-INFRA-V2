@@ -1,7 +1,7 @@
 # Phase 2 — Task 2.3: Field Semantics & Constraint Validation (Read-only)
 
 **Started:** 2026-11-22  
-**Status:** IN PROGRESS  
+**Status:** IMPLEMENTED — READY FOR PRODUCT OWNER REVIEW  
 **Scope:** Validate source-supported field semantics, data representations, nullability/optional behavior, enumerations, relationship rules, mutation invariants and constraint candidates against legacy source code. Record evidence and unresolved items to prevent unsupported SQL decisions.  
 **Safety:** Production repositories are READ-ONLY. This task does not inspect live Sheets data, create SQL/schema/migrations, test against production, deploy, or alter operational systems.
 
@@ -307,3 +307,36 @@ If a receipt row is later marked VOID elsewhere, the VOID record may still consu
 - DatabaseSetup headers: PurchaseOrders includes Status and IdempotencyKey; PurchaseOrderItems includes quantities/prices/surplus; allocations include item/project/need/quantity; MaterialReceipts headers omit Status and include IdempotencyKey, SourceEventID and ReceivedAt. Therefore the receipt VOID status previously observed in aggregate filters may be legacy/injected/other-path data rather than a formally declared column; mutation path and schema usage remain unverified.
 - MaterialNeed and Calculation rows are scoped by TenantID and associated IDs in inspected methods, but Google Sheets provides no demonstrated relational FK/unique enforcement. V2 should use FK constraints and tenant-aware uniqueness where domain invariants require it.
 - No database-level unique constraints were evidenced in inspected DatabaseSetup (sheet headers only). Important candidates for V2 include tenant-scoped order idempotency, receipt idempotency/source-event-item replay keys, calculation keys, material spec revision and active spec-key semantics, and association uniqueness/ceilings. These need discovery and business validation before schema design.
+
+
+## Task 2.3 comprehensive consistency review and acceptance gate (2026-11-22)
+
+### Review checklist
+- [x] Validate source representation/field semantics by domain and record evidence.
+- [x] Distinguish API-required, optional, nullable, defaulted, derived and historical behavior from inferred DB constraints.
+- [x] Record status/state families and observed transition context, while marking incomplete lifecycle paths.
+- [x] Validate tenant-aware relationship and association candidates, including polymorphic links and shared-resource deletion concerns.
+- [x] Record JSON, snapshots, numeric/date precision, normalization and persistence-boundary risks.
+- [x] Consolidate evidence, confidence boundaries, candidate constraints and policy gates.
+- [x] Cross-check the audit package against accepted Task 2.2 mapping and conceptual draft; avoid reopening accepted work or prematurely creating schema.
+- [x] Confirm repository strategy/safety: no production writes, live-data inspection, schema/SQL/migrations, test execution, deployment or VPS work.
+
+### Consolidated constraint candidates for later schema design
+1. Tenant-consistent relationships: tenant-aware FK/composite relationship strategy across project, event, form/configuration, material needs/spec/calculation, order/item/allocation/receipt, role associations, attachment references and project-information history.
+2. Scoped uniqueness: ProjectCode/workflow/form/type codes as confirmed per-domain scopes; tenant idempotency keys; CalculationKey; SpecKey+Revision; event response cardinality where intended; association uniqueness; receipt replay/source-event/item rules. Exact scopes must be reconciled with legacy and business rules before DDL.
+3. Atomic graph writes: event/form/project-information side effects, material specification revision supersession, calculation replay, order/item/allocation graph, receipt/batch totals and status updates.
+4. Numeric policy: PostgreSQL precision/scale, rounding, quantity unit/conversion, price/cost currency precision and integer-vs-decimal policy remain decisions; legacy Number/coercion/rounding evidence is insufficient to finalize.
+5. Status and reversals: explicit state machines and active predicates; receipt VOID schema/path remains unverified; order cancel/update and allocation mutation routes were not found in inspected source. Do not invent these workflows.
+6. JSON and temporal policy: validation and canonical representation, versioned snapshots, timezone and timestamp precision; no direct mapping from raw Sheets strings to SQL types without migration normalization.
+7. Polymorphic/soft-delete/history: attachments, audit snapshots, ProjectInformation revisions, material-spec revisions, event void reconciliation and shared procurement dependencies need explicit retention and integrity rules.
+8. Authentication migration: password/session strategy, ID preservation and secure migration are policy/security gates, not established by this audit.
+
+### Explicit unresolved items / scope limits
+- No live Sheets inspection; source header drift and actual data anomalies remain unknown.
+- This is a bounded source audit; absence of methods/routes in inspected files is not proof of absence across all deployed versions or external callers.
+- No database-enforced constraints were evidenced in the inspected Sheets repository/setup layer; candidate PostgreSQL constraints are not yet approved DDL.
+- Precision, conversion, timezone, credential migration, audit retention, cancellation/reversal policies, attachment cleanup, and exact uniqueness scopes require separate decisions/validation.
+- Tests in source repositories were inspected but not run; this audit did not execute tests.
+
+### Task status
+**IMPLEMENTED — READY FOR PRODUCT OWNER REVIEW.** Task 2.3 is not marked COMPLETE until explicit Product Owner acceptance. This task remains read-only discovery and does not authorize schema/SQL/migrations, live data, production changes, deployment or VPS work.
