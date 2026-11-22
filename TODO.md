@@ -1367,3 +1367,7 @@ This update supersedes earlier conflicting task-status notes in this historical 
 
 ### Task 2.8 — Registry-to-Code Surface Crosswalk Increment 15 (2026-11-22)
 - Crosswalked registry domains against read-only frontend/backend tree paths in `TASK-2.8-REGISTRY-CODE-SURFACE-CROSSWALK-INCREMENT-15.md`. Path correspondence only; exact consumers and field operations remain partial. No tests or production changes.
+
+
+### Task 2.8 — High-Risk Lifecycle Relationship Trace Increment 16 (2026-11-22)
+- Targeted read-only trace across event/form, attachment, procurement, project deletion and reference-copy source paths recorded in `TASK-2.8-HIGH-RISK-LIFECYCLE-TRACE-INCREMENT-16.md`. Partial positive evidence and open gaps separated; all blockers remain open. No tests or production changes.
