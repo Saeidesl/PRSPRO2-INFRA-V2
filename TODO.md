@@ -1351,3 +1351,7 @@ This update supersedes earlier conflicting task-status notes in this historical 
 
 ### Task 2.8 — Test surface inventory Increment 11 (2026-11-22)
 - Read-only recursive test path inventory from legacy frontend/backend recorded in `TASK-2.8-TEST-SURFACE-INVENTORY-INCREMENT-11.md`. Test names provide surface inventory only, not execution or coverage proof; test-to-source traceability remains unresolved. G-01 OPEN; no tests executed or production changes.
+
+
+### Task 2.8 — Source-to-test assertion trace sampling Increment 12 (2026-11-22)
+- Read-only sampled assertion trace across workflow enforcement, procurement, attachment, project deletion, schema contract and event idempotency test files recorded in `TASK-2.8-SOURCE-TO-TEST-ASSERTION-TRACE-INCREMENT-12.md`. Not exhaustive and tests not executed; G-01/G-10 remain OPEN.
