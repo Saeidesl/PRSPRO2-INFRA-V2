@@ -613,3 +613,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ### Task 2.8 Increment 59 (2026-11-22)
 - Attachment storage/delete lifecycle trace recorded in `TASK-2.8-ATTACHMENT-STORAGE-DELETE-LIFECYCLE-TRACE-INCREMENT-59.md`: Google Drive storage abstraction, sequential file/metadata/audit writes and delete-to-trash/soft-delete boundary; recovery/retention/backup policies not established in inspected source.
 - E1 source review only; runtime testing not executed. G-04/G-10 remain OPEN; schema readiness NOT APPROVED. No live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+### Task 2.8 Increment 60 (2026-11-22)
+- Audit/project cascade deletion integrity trace recorded in `TASK-2.8-AUDIT-PROJECT-CASCADE-DELETION-INTEGRITY-TRACE-INCREMENT-60.md`: audit service/repository boundaries and sequential dependency soft deletion, storage trashing and physical project row deletion with partial failure reporting.
+- E1 source review only; runtime tests not executed. G-04/G-10/G-01 remain OPEN; schema readiness NOT APPROVED. No live data/DDL/migrations/provisioning/deployment/production changes.
