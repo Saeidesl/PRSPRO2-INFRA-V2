@@ -1089,3 +1089,10 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Confirmed bounded API dispatch/permission snippets for project create/update/delete-preview/delete, project-information deactivation, event create/void, event-form-response update, and form/form-field management. Coverage remains partial, not exhaustive.
 - Recorded evidence and limitations in TASK-2.5-READINESS-GAP-REGISTER.md. G-01/G-10 remain blockers.
 - No live data, tests, SQL/DDL, migration, database provisioning, production changes, deployment or VPS action.
+
+
+### Task 2.5 increment 18 — Configuration/workflow domain mutation and route cross-check (2026-11-22)
+- Sampled Router and workflow, workflow-step-department, event-type, department, project-status and information-type services/repositories in the READ-ONLY backend reference.
+- Recorded bounded mutation methods, selected route permission gates, and remaining lifecycle/tenant/constraint gaps in TASK-2.5-READINESS-GAP-REGISTER.md.
+- G-01/G-10 remain blockers; G-12 remains open/high. No exhaustive coverage claim.
+- No live data, tests, SQL/DDL, migration, database provisioning, production changes, deployment or VPS action.
