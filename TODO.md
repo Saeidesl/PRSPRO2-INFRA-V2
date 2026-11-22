@@ -1034,3 +1034,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Read-only sampling of project quantity validation, procurement/material numeric validation, event occurrence-date parsing and timestamp handling.
 - Recorded bounded integer-vs-number observations and unresolved precision/unit/timezone policy in the readiness register.
 - G-06/G-07 remain HIGH; G-01 remains BLOCKER. No schema, SQL, migration, live data, tests or production writes.
+
+
+### Task 2.5 incremental audit — identity, audit, deletion and file lifecycle increment 9 (2026-11-22)
+- Read-only sampling of user lifecycle and audit paths, user repository delete capability, role-permission bulk deletion, dependency-aware project deletion and Google Drive file trashing.
+- Recorded bounded identity/audit/deletion/storage evidence and unresolved migration, restore, purge, retention and reconciliation policies in the readiness register.
+- G-08/G-09/G-11 remain HIGH; G-01 remains BLOCKER. No SQL/DDL, migration, DB provisioning, live data, tests or production writes.
