@@ -521,3 +521,9 @@
 - Further source inspection of DatabaseSetup definitions confirms material/procurement entities, workflow step-department assignments, event-type procurement integration settings, workflow-step event rules and project-reference sync log are represented in the source schema. Raw JSON and revision/idempotency fields are migration-critical.
 - A naming collision in sheet numbering is observed: both MaterialNeeds and ProjectStatuses are defined as `18_...` sheet names. They are distinct literal sheet names (`18_MaterialNeeds` and `18_ProjectStatuses`), so not a runtime sheet-name collision, but numeric prefix conventions cannot be treated as unique ordering/identity metadata.
 - Router source snippets further confirm guarded reads for workflows/forms/information-types/event-types/events/attachments/users/roles/audit/print templates/procurement, but this remains a sampled route audit. Mutation mapping, parser/fallback handling and exhaustive authorization review still open. No runtime tests or live-data inspection.
+
+
+### Task 0.2 incremental notes (2026-11-22 — HTTP ingress/parser and error handling)
+- Read-only review of RequestParser.js and WebApp.js: request cache reset, parser/dispatch flow, opt-in admin GET diagnostics, event-creation diagnostic response behavior, token query/body handling, method override, path normalization, JSON object validation, and unsupported-method handling documented in ARCHITECTURE.md.
+- Error response source currently exposes error.message even for unknown exceptions (with INTERNAL_ERROR code); V2 must sanitize unknown errors and retain secure structured logs. Parser-level size/content-type enforcement not established from inspected files and remains pending verification.
+- No runtime tests, live records, secrets, or production changes. Route matrix and test coverage remain incomplete.
