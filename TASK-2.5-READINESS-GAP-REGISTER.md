@@ -38,3 +38,26 @@ Production backend source files re-read from the default branch of PRSPRO2BACKEN
 
 ## Guardrails and limitations
 No executable SQL/DDL, migration code, database provisioning, live production data access, production writes, deployment, VPS action or tests were performed. This increment is evidence progress only; it does not declare schema/migration readiness or Task 2.5 completion.
+
+## Increment 2 — mutation-path and tenant-boundary sampling (2026-11-22)
+Read-only source sampling expanded to Router.js, ProjectService.js, ProjectRepository.js, UserService.js, UserRepository.js, RolePermissionService.js, WorkflowService.js, WorkflowRepository.js, WorkflowStepDepartmentService.js, EventTypeService.js, InformationTypeService.js, ProjectDeletionService.js, StorageRepository.js, AttachmentRepository.js, EventRepository.js and EventDataService.js.
+
+### Observed evidence (bounded sample; not exhaustive)
+- Router.js is the dispatch/authorization layer and contains specific routes for project-information deletion, draft-project checks and permission-gated management routes. Route-level authorization and service/repository tenant constraints are separate evidence layers; both must be audited for target integrity.
+- ProjectService source includes create, update, draft/project-code flows and reference-image/information copy behavior. Several lookup operations explicitly filter departments by TenantID; project update paths validate the project tenant and code scope. Coverage of every nested dependency remains open.
+- UserService list/get/create/update flows are tenant scoped; update payload explicitly strips TenantID to prevent changing tenant ownership. User role/membership and credential migration remain distinct.
+- WorkflowService filters workflow and department lookups by tenant and checks workflow tenant ownership in step operations. This sample does not establish that all workflow-associated records have tenant-safe relational constraints.
+- EventTypeService validates department and project-status references against tenant scope and validates amendment form references against tenant-owned active forms. The candidate target constraints need to encode these relationships, not only rely on application validation.
+- InformationTypeService has tenant-aware type lookup and create/update/deactivate and column operations. Revision/history and form-cache invalidation behavior are application-level concerns requiring explicit target design.
+- ProjectDeletionService uses tenant-scoped project context and dependency collection; dependency inventory/recovery and partial failure handling require a transactional V2 redesign. Legacy soft-delete/purge semantics remain not migration-ready.
+- Repositories sampled are thin sheet adapters. Their methods do not themselves provide relational FK enforcement; tenant integrity is currently dependent on service validation and path consistency in the legacy architecture. This is a structural observation, not a claim about deployed data quality.
+
+### Updated gap status
+G-01 and G-10 remain BLOCKERS: the sampled paths establish a cross-cutting pattern of tenant-aware service validation but do not provide exhaustive endpoint-to-write-path, indirect-relationship and constraint coverage. No claim of completeness.
+New sub-findings to carry into design:
+- Router authorization, service validation and relational constraints must be evaluated as three separate layers.
+- User TenantID immutability is explicit in sampled update code, but transfer/disable/reassignment and identity migration policy remain open.
+- Project deletion currently depends on multi-entity collection and partial-failure handling; V2 should require transactionality and explicit recovery/retention policy.
+- Thin repository adapters mean application-only relationship validation cannot be treated as sufficient FK evidence for V2.
+
+No executable schema, SQL, migrations, database setup, live data access, tests, production changes or deployment performed.
