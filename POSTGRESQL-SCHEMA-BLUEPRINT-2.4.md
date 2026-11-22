@@ -56,3 +56,126 @@ Translate accepted discovery evidence into a coherent PostgreSQL logical schema 
 
 ## Verification
 Read back all changed documents from GitHub. No schema or migration tests are in scope; no such tests will be claimed. Task 2.4 will remain IMPLEMENTED/READY FOR REVIEW until explicit acceptance.
+
+
+## Work package 2.4-A — Logical schema inventory and group boundaries
+
+### A.1 Recommended database namespaces
+**Proposal:** Keep one application database and organize entities by logical domains in naming/documentation (rather than separate databases), with schemas only if later operations/security needs justify them. Candidate domain grouping:
+- identity & access
+- projects
+- workflow
+- events & forms
+- information/configuration
+- materials & procurement
+- files
+- audit & operations
+- print/reporting
+This avoids premature complexity and permits cross-domain relational integrity.
+
+### A.2 Logical entity inventory (candidate table families)
+Names are conceptual and not SQL names. Presence is source-evidenced or a design candidate; implementation/cardinality must be validated.
+
+**Identity and tenant**
+- tenants; users/accounts; tenant_memberships (if account identity is global); departments; roles; permissions (catalog); role_permissions; user_roles; user_department assignments.
+- Candidate separation: globally unique user identity vs tenant-specific membership and role assignment. Unknown: current uniqueness and account-sharing policy.
+
+**Projects**
+- projects (tenant-owned, status/workflow context, code and lifecycle fields).
+- project_status_catalog or tenant status configuration (only if source behavior warrants a configurable catalog).
+- project_information_types; information_type_columns/configuration; project_information current-value records; project_information_history/revisions.
+- project reference-copy/synchronization operation records, per-item status and source revision, to preserve recovery/idempotency evidence.
+- project deletion/recovery records or deletion-state fields; final retention policy unresolved.
+
+**Workflow**
+- workflows; workflow_versions; workflow_steps; workflow_step_department associations.
+- workflow_step_event_rules (version-bound where possible).
+- workflow/project execution state and transition history (shape needs further validation).
+- Published versions should be immutable; edits should create new version records rather than alter a version already used by projects/events (proposal based on observed version context).
+
+**Events and dynamic forms**
+- event_types and their version/configuration history (exact persistence strategy TBD).
+- events (ProjectID nullable to support independent events; tenant ownership still mandatory).
+- event_data / structured event payload or field-value rows (choose after payload/query needs are assessed).
+- forms; form_versions; form_fields/field associations; event-type-form links.
+- event form responses and immutable snapshots where needed.
+- amendment/revision records and void lifecycle metadata, subject to confirmed semantics.
+- event attachments through typed associations.
+
+**Information configuration**
+- information types and column/configuration entities; field options/validation/visibility configuration as versioned JSON only where structurally variable.
+- active current values vs revision/history must be distinct where legacy behavior supports them.
+
+**Materials and procurement**
+- material specifications and revisions, project-scoped spec keys, consumption/wastage parameters.
+- material need records; calculation provenance/history and reconciliation status.
+- purchase orders (support project-linked and general orders without fabricated project IDs); purchase order items; allocations; receipt/delivery records.
+- order/item/allocation/receipt history or audit trail, based on confirmed lifecycle behavior.
+- units/codes catalog only if a stable shared catalog is confirmed.
+
+**Files**
+- file/object metadata and typed association records (project/event/form/template etc.); storage provider/key; integrity/size/type metadata; upload and deletion states.
+- external bytes remain outside PostgreSQL. A typed association approach is preferred to a free-form polymorphic FK because ordinary FK integrity is otherwise unavailable.
+
+**Audit, operational reliability and integrations**
+- audit records with actor, tenant, action, target reference and bounded before/after snapshots; redact secrets and sensitive values.
+- integration/provider settings metadata, secret references only (secret values external).
+- notification configuration/delivery records if confirmed scope; transactional outbox and retry state.
+- idempotency records for operations whose retry safety is important, scoped by tenant, operation and key with request fingerprint/result reference.
+- migration run/validation ledger belongs to migration tooling and operational metadata; avoid mixing migration staging into live domain tables unless necessary.
+
+**Printing/reporting**
+- print templates and version/definition; template assets or typed file association.
+- resolver bindings are definitions, not cached project truth; generated outputs are optional retained artifacts and policy must be decided.
+- reporting views/projections are derived and must not become authoritative domain write tables without explicit rationale.
+
+### A.3 Cross-domain ownership boundaries
+- Tenant is the ownership/security root.
+- Project is an aggregate root for project-centric lifecycle, but event/material/procurement/file interactions can cross aggregate boundaries and should use explicit transactional service operations.
+- Workflow version and form/template version/config snapshots should be referenced from records where evidence supports snapshot semantics.
+- Event is a record of occurrence and status; form responses and dynamic payloads remain associated rather than embedded indiscriminately.
+- Purchase order is not necessarily project-owned; allocation expresses the project/need association.
+- Attachment metadata and typed associations are distinct from object-storage bytes and provider operations.
+- Audit/outbox/idempotency are operational cross-cutting entities, not generic substitutes for business tables.
+
+### A.4 Proposed cardinality and relationship map
+These are design candidates, not finalized constraints:
+- tenant 1:N tenant memberships, departments, roles and tenant-owned entities.
+- user 1:N memberships and user-role assignments; membership-level assignments preferred if users can belong to multiple tenants.
+- role M:N permissions via role_permissions; user M:N roles via user_roles (tenant context required).
+- workflow 1:N versions; version 1:N steps/rules; step M:N departments.
+- project N:1 workflow version/current execution context; project 1:N events and information revisions.
+- event N:1 project optional; event N:1 event-type version/config where snapshot context is preserved; event 1:1 or 1:N data/response structure pending verified legacy semantics.
+- form 1:N versions and fields; event type M:N forms; event 1:N form responses.
+- project 1:N material needs/specification revisions/calculation records.
+- purchase order 1:N items; order items M:N requirements/projects through allocations; receipts refer to order item and/or allocation according to confirmed business semantics.
+- file metadata M:N supported owners through typed association tables or controlled owner registry.
+- audit records reference target by typed reference or registry; FK enforcement strategy is a design decision.
+- template 1:N versions and assets.
+
+### A.5 Modeling recommendations with confidence
+| Recommendation | Confidence | Reason / caveat |
+|---|---|---|
+| Tenant ownership on tenant-scoped business records | High | Repeated tenant-scoped source behavior |
+| Optional project link for events | High | Validator and independent event semantics |
+| Separate purchase orders from project allocations | High | General/project-related procurement coexist |
+| Version workflow definitions | High | Draft/published/version behavior observed |
+| Retain material-spec revision provenance | High | Revision and superseded-source behavior observed |
+| Typed file associations rather than unconstrained polymorphic links | Medium-high | Legacy polymorphic links; target integrity needs improved modeling |
+| Account-global user plus tenant membership | Medium | Architectural proposal; current uniqueness/sharing policy unknown |
+| Event payload JSONB vs normalized response field rows | Medium-low | Query/reporting and validation requirements need benchmark/decision |
+| Soft-delete/archive universal policy | Low | Deletion semantics vary; avoid global assumption |
+| Partitioning tables by tenant/time | Low | Premature until volumes and query patterns measured |
+
+### A.6 Proposed default table-level integrity strategy
+- Tenant-scoped rows: tenant ownership explicit and consistent.
+- Cross-tenant relationships: composite FK strategy candidate (tenant_id plus referenced key) or equivalent DB enforcement; application-only tenant filters are insufficient as sole defense.
+- Tenant-local code uniqueness: unique indexes scoped by tenant and lifecycle rules, but exact fields/scopes remain undecided.
+- Role/permission association: unique role-permission pair within defined scope.
+- Revision sequence: unique spec key/revision, and versioned workflow/form/template sequence within owner scope.
+- Idempotency: unique tenant + operation namespace + idempotency key; request fingerprint to detect reuse with a different payload.
+- Receipt quantity and allocations: no final check constraints until unit, precision, reversal and partial receipt rules are validated.
+- All mutation operations must use transactional service boundaries; DB constraints protect races.
+
+### A.7 Work package status
+2.4-A inventory and logical ownership design has been drafted. This remains a proposal and is not an accepted schema. Next work package 2.4-B will refine tenant-scoped keys, associations, FK candidates and uniqueness without generating executable DDL.
