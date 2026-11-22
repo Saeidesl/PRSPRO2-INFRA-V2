@@ -1309,3 +1309,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 — G-01 Service/Test sampling increment 3 (2026-11-22)
 - Read-only sampled AccessControl, Event, Procurement, Attachment, ProjectDeletion, Workflow and ProjectInformation service sources; inventory backend test filenames from tree.
 - Record: TASK-2.8-G01-SERVICE-TEST-SAMPLING-INCREMENT-3.md. Sampling only, not test execution or exhaustive mapping. G-01 remains OPEN.
+
+
+### Task 2.8 — Mutation Risk Evidence Increment 4 (2026-11-22)
+- Source-level evidence recorded for ProjectDeletion, AttachmentService.delete and procurement receipt single/batch paths: TASK-2.8-MUTATION-RISK-EVIDENCE-INCREMENT-4.md.
+- Key migration incompatibilities/risks: multi-sheet deletion is non-transactional; receipt records included in project cascade; attachment storage bytes deleted before metadata/audit; receipt insertion/order-status/audit not atomic; replay payload equivalence not evidenced.
+- G-01 and blockers remain open. No tests executed.
