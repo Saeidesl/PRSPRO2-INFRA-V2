@@ -1219,3 +1219,10 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Recorded cancellation-after-receipt/allocation policy gaps and recommendations for state machine, history preservation, release/reversal controls, transactional state-transition audit and legacy quarantine.
 - Task 2.6 audit marked AUDIT COMPLETE / DESIGN READINESS NOT APPROVED. Blockers remain explicitly open; physical schema/SQL/migration not authorized.
 - No tests, live data, SQL/DDL, migration, DB provisioning, production changes or deployment.
+
+
+### Task 2.7 — Blocker Resolution & Evidence Closure kickoff (2026-11-22)
+- Status: IN PROGRESS — discovery/evidence review only.
+- Scope: traceability matrix; G-03 event/form history; G-04 attachment lifecycle/ownership; G-10 tenant-safe relationship coverage; G-01 registry/service/route/dependency reconciliation; closure gate assessment.
+- Task plan: TASK-2.7-BLOCKER-CLOSURE.md.
+- Schema design readiness remains NOT APPROVED; no SQL/DDL, migrations, live data, tests, provisioning, deployment or production modifications authorized/performed.
