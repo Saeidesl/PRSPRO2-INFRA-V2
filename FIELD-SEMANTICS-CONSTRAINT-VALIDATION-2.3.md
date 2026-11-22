@@ -85,3 +85,25 @@ Task 2.2 accepted the consolidated mapping package, but deliberately deferred tr
 
 ## Current checkpoint
 **IMPLEMENTED (partial evidence package)** — Task remains IN PROGRESS. This checkpoint is not a finalized constraint matrix or schema approval. No SQL/schema/migration, tests, live-data inspection, deployment, VPS, or production modifications occurred.
+
+
+## Additional persistence/validator evidence (2026-11-22)
+
+### Generic Validator.js
+- `required` treats undefined, null and whitespace-only string as missing.
+- `string` checks the value's runtime type but does not itself require a non-null value.
+- `number` checks JavaScript numeric runtime type and rejects NaN, but does not accept numeric strings in the inspected helper.
+- `boolean` checks runtime boolean type (no coercion in the helper).
+- `enum` returns success when value is undefined/null; requiredness must be enforced separately.
+- `id` requires non-empty string matching the observed prefix/underscore pattern.
+- `object` permits undefined/null, rejects arrays and non-object values.
+
+### Repository persistence boundary
+- GoogleSheetsRepository._rowToObject maps header values directly from row cells without type normalization in the inspected function.
+- This confirms that API validators and Sheets cell representation are separate layers. Sheets may yield typed cell values (e.g. numeric/date cells) and blank-cell representations; conversion behavior must be validated per read/write path before designing migration normalization.
+- No conclusion about all repository writes, date formatting, serialization or database-type equivalence is made from this excerpt.
+
+### Additional caveats
+- Validator.js is shared utility behavior, not a complete validator inventory for every domain.
+- Numeric-string acceptance/rejection varies across individual domain validators and conversion code; normalize only with source-path evidence.
+- A 404 was returned for guessed `ProcurementValidator.js` and `MaterialPlanningValidator.js` paths; this does not imply validators do not exist under other names or locations.
