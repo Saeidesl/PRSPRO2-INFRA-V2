@@ -920,3 +920,19 @@ Selected GET Router branches were traced against permission gates and service de
 ### Risk and limitations
 - These are selected Router paths, not exhaustive endpoint inventories or tests. Method/path normalization, overlapping prefix handlers, resource authorization in services, audit completeness and mutation atomicity remain open validation items.
 - V2 should model writes as explicit command handlers with validated input, tenant/resource scope, permission policy, transaction, audit/outbox and idempotency where appropriate; soft deactivation vs deletion semantics must be deliberately preserved.
+
+
+## 45. Mutation service and audit implementation observations (READ-ONLY, 2026-11-22)
+
+### AuditService behavior inspected
+- AuditService.log validates object and required TenantID/Action/EntityType/EntityID, creates AUD-prefixed UUID ID, serializes OldData/NewData to JSON strings, stores Reason and timestamp, and delegates to AuditRepository.insert.
+- The inspected implementation has no visible redaction/size guard, immutable storage enforcement, or transaction coordination itself. These may exist elsewhere but were not established here.
+- list/listByEntity/listByUser retrieve records then filter TenantID in service code; tenant scoping is present in these sampled methods. Bulk-query/index/retention guarantees are not established.
+
+### Selected service mutation review (scope-limited)
+- Fetch/read-only review of FormService, WorkflowService, ProjectInformationService, ProcurementService, AttachmentService, EventService and PrintTemplateService source confirmed these services are substantial multi-operation workflows and contain audit/locking markers in selected files. This marker presence alone does not establish audit coverage or atomicity for every mutation.
+- Earlier inspected behavior and these source patterns leave a cross-cutting risk: business mutation and audit/storage/cache/reference side effects can be separate operations in a Sheets environment. Partial failures may leave inconsistent state unless explicitly reconciled.
+- V2 requirements: audit payload redaction and bounded size; append-only policy and retention; transactional audit coupling for database mutations; outbox for external/storage effects; retry-safe idempotency; observable reconciliation; policy-level tests for tenant/resource scope.
+
+### Verification status
+- Source inspection only. No runtime, concurrency, failure-injection, security, or integration tests were run. Audit completeness and service-level resource authorization remain pending.
