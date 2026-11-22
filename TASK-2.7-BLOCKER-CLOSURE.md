@@ -208,3 +208,41 @@ Focused read-only review of AttachmentService upload/list/get/delete/copy paths,
 
 ### G-04 closure assessment
 Evidence improves failure ordering and ownership visibility but leaves object/metadata reconciliation, transactional compensation, restore/retention/purge, immutable audit coupling and complete lifecycle coverage unresolved. G-04 remains OPEN. No tests, live data, SQL/DDL, migrations, provisioning, deployment or production changes.
+
+
+## Increment 9 — Coverage reconciliation and Task 2.7 closure assessment (2026-11-22)
+
+### Bounded registry-to-source coverage reconciliation
+
+| Domain/structure group | sampled source/service evidence | task coverage status | remaining evidence limitation |
+|---|---|---|---|
+| tenant/security/users/roles/departments | AccessControlService, UserRepository, Router, DatabaseSetup inventory | PARTIAL | exhaustive role/permission association, routes, mutations and DB constraints not verified |
+| projects/workflows/steps/rules/status | ProjectService, ProjectRepository, WorkflowService/Repository, deletion collector | PARTIAL | exhaustive mutation/route/dependency mapping and lifecycle policy not reconciled |
+| events/event data/event types | EventService, EventDataService/Repository, EventRepository, EventTypeService, Router | PARTIAL | all callers/handlers, write parity, immutable history and transaction boundaries unknown |
+| reusable forms/form fields/mappings/responses | FormService/Repository and event-create/amend/read paths | PARTIAL | all consumers, retention, historical revision completeness and consistency guarantees unknown |
+| project information/history | ProjectInformationService/Repository, InformationTypeService | PARTIAL | full dependencies, retention, attachment and approval lineage unknown |
+| attachments/storage | AttachmentService/Repository, StorageRepository, delete collector | PARTIAL | provider contract, recovery/reconciliation/retention/restore/purge and all failure cases unknown |
+| procurement/material planning | ProcurementService/Repository, project delete collector, event timeline integration sampled | PARTIAL | lifecycle projection parity, receipt/cancel/correction semantics, transaction/idempotency coverage incomplete (G-02) |
+| reports/dashboard/export | ReportService and selected event/procurement projections sampled | PARTIAL | exhaustive downstream consumer inventory and parity not established |
+| project deletion cascade | ProjectDeletionService and Router path | PARTIAL | other entity cascades, full graph and rollback/recovery not verified |
+| audit logging | AuditService and sampled mutation hooks | PARTIAL | write completeness, tamper resistance, retention and domain-write coupling unknown |
+
+### Task 2.7 blocker register at closure
+
+| blocker | evidence accumulated in this task | status at end of Task 2.7 | closure condition for future work |
+|---|---|---|---|
+| G-01 coverage/dependency reconciliation | header inventory, Router inventory, service operation inventory, project deletion collector, definition mutation review, tenant matrix, history/attachment evidence | OPEN — audit scope bounded; no exhaustive route/handler/dependency registry or runtime coverage | exhaustive source manifest and dependency/caller/mutation matrix, cross-checked against actual repository files, routes and tests |
+| G-02 procurement lifecycle | prior Task 2.6 audit, tenant-filtered repository/service validations and procurement dependencies in deletion/timeline; multiple single/batch paths noted | OPEN — business semantics/parity and atomicity unresolved | authoritative receipt/correction/void/cancel/reversal rules; single/batch parity; idempotency; transaction/recovery; projections reconciled and test evidence |
+| G-03 event/form history | create, response snapshots, amendment, replay/optimistic checks, void/restoration, audit/report projections reviewed | OPEN — service behavior evidence but atomicity/history/retention/parity incomplete | immutable history/revision contract, correction/amendment semantics, transactional write boundaries, retention and report parity verified |
+| G-04 attachment lifecycle | owner visibility, upload/download/delete/copy, storage-first failure ordering, polymorphic owner | OPEN — failure recovery/retention/restore/purge and reconciliation not evidenced | provider-neutral storage contract, compensating/retry/reconciliation, retention/restore/purge policy and lifecycle tests |
+| G-10 tenant-safe relationships | tenant validation matrix across generic repositories/services, procurement and access control | OPEN — service-level checks dominate; DB integrity not proven | explicit V2 tenant-key/relationship model and constraints, owner typing, cross-tenant isolation tests |
+
+### Closure determination
+Task 2.7's requested read-only evidence and traceability deliverable is now documented across nine increments, including bounded source reviews, matrices, limitations and a blocker register with concrete future closure criteria. This **audit task** is considered deliverable-complete, subject to Product Owner acceptance of the audit package. It does **not** close underlying readiness blockers and does **not** approve schema readiness.
+
+**Schema Readiness: NOT APPROVED.** This task does not authorize SQL/DDL, migration scripts, DB provisioning, live data, runtime test execution against production, deployment, VPS setup, or any production-repository writes. The next work package must address the remaining blocker evidence and policy decisions; it should not prematurely create a physical schema.
+
+### Evidence/verification boundary
+- Source observations are read-only and bounded to the named legacy source files and excerpts. No tests were run; no test success is claimed.
+- Documentation commits were made only in PRSPRO2-INFRA-V2. Legacy production backend remains read-only.
+- The closure package records unknowns rather than inventing business rules.
