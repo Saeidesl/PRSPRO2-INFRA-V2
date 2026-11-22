@@ -1504,3 +1504,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 56 — User-role mutation/audit boundary
 - Bounded source trace recorded in `TASK-2.8-USER-ROLE-MUTATION-AUDIT-BOUNDARY-TRACE-INCREMENT-56.md`: assignment checks tenant and active role, duplicate association and user-role match, then separately writes audit; sampled permissions resolution is tenant-role scoped with global catalog read.
 - E1 only; runtime/exhaustive mutation testing not performed. G-01/G-10 remain OPEN.
+
+
+## Task 2.8 Increment 57 — Procurement/material planning lifecycle trace
+- Source trace recorded in `TASK-2.8-PROCUREMENT-MATERIAL-PLANNING-LIFECYCLE-TRACE-INCREMENT-57.md`: bounded order/receipt/idempotency/locking and recovery behavior, material-spec revision and calculation ledger, source-event void cascade and separate audit writes.
+- E1 only; no runtime testing. G-02/G-03/G-10 remain OPEN; schema readiness NOT APPROVED.
