@@ -1173,3 +1173,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.6 Increment 6 — cross-service and project-retention semantics
 - Reviewed MaterialPlanningService, ProcurementEventIntegrationService and project deletion collector dependencies.
 - Recorded separation of need recalculation from receipts and retention-safe project archive/deletion implications. G-02 remains BLOCKER pending final cross-consumer/source coverage.
+
+
+### Task 2.6 Increment 7 — configuration lifecycle
+- Reviewed workflow publication/versioning, information-type logical deactivation, event-type reference validation, project-status lifecycle and permission service.
+- Provisional V2 configuration lifecycle decisions recorded. G-01/G-10 remain BLOCKERS pending dependency coverage and relationship matrix.
