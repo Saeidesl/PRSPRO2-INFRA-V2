@@ -729,3 +729,11 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Expanded DATA-MODEL-DRAFT.md with focused conceptual aggregate notes for Projects, Events, Forms and workflow context; documented candidate constraints and explicit open questions.
 - No columns, cardinality, schema constraints or behaviors were invented as final; details remain subject to validation against implementation.
 - Task 2.1 remains IN PROGRESS and awaiting PO acceptance. No SQL, tests, live data or migration executed.
+
+
+### Phase 2 / Task 2.1 checkpoint (2026-11-22)
+- [x] Add conceptual identity/tenant/role/permission and session requirements to DATA-MODEL-DRAFT.md (provisional, source-backed where noted).
+- [x] Add procurement allocation/receipt quantity invariants and unresolved policy questions.
+- [x] Add file-storage metadata/association and audit lifecycle requirements.
+- [ ] Consolidate conceptual inventory/relationship matrix and open questions for Product Owner review.
+- Status: IN PROGRESS; no SQL schema or migration tooling.
