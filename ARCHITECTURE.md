@@ -1290,3 +1290,7 @@ Source sampling observed tenant-scoped order idempotency, receipt replay checks,
 
 ## Task 2.5 — Event/Form and central-information evidence increment 4 (2026-11-22)
 Read-only source sampling confirmed distinct event request idempotency, event void controls, versioned event-form response and definition snapshots, amendment-event linkage, current central-information projection, separate revision/history/approval and reference-sync conflict resolution. G-03 remains a blocker pending exhaustive payload, reporting and dependency mapping; G-01/G-10 remain blockers; G-12 remains open. Evidence in `TASK-2.5-READINESS-GAP-REGISTER.md`. No SQL/DDL, migration, live data, database setup, tests, production change or deployment.
+
+
+## Task 2.5 — payload shape/form-definition increment 5 (2026-11-22)
+Read-only review observed legacy EventData JSON object validation, separate legacy EventData and reusable form-response persistence, ordered form fields, visibility rules, snapshot contents, SINGLE/MULTIPLE helper behavior, and separate central-information value/history/sync records. G-03 remains blocker pending full type/cardinality and payload/reporting inventory. See `TASK-2.5-READINESS-GAP-REGISTER.md`. No SQL/DDL, migration, live data, tests, database setup, production change or deployment.
