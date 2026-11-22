@@ -79,3 +79,26 @@ Router.js contains route dispatch patterns for auth/session, project status, dep
 - The route inventory is only a bounded regex-based extraction from Router.js; dynamic dispatch, nested route conditions, permissions and method coverage require further manual reconciliation. This output does not establish endpoint completeness.
 - G-01 remains OPEN; inventory is evidence, not closure. G-10 remains OPEN because header names do not prove all tenant relationships or database constraints.
 - No runtime tests, live data, SQL/DDL, migration, DB provisioning or production modification performed.
+
+
+## Increment 3 — Service operation inventory and dependency coverage (2026-11-22)
+
+### Method inventory cross-check (read-only; bounded source files)
+- ProjectService: list/get/create/update/updateFromTemplate, project-form/dashboard lookups, project-code-from-event validation/update, visibility checks, reference-image and information-image copy paths.
+- EventService: list/get/listByProject/project-detail and workflow-progress reads; create/locked-create, completeStep, void; workflow-rule validation, department/admin restrictions, cross-department later-event check; event enrichment and procurement timeline aggregation.
+- FormService: form list/get/create/update/field operations; event-type form assignment/unassignment; definition cache; prepare/save/update event responses; amendment/update field; get responses and snapshots.
+- AttachmentService: list/listByEntity/get, project-image gallery/counts, upload/download/thumbnail/delete and copyProjectImage; visibility checks and canonical project filename.
+- ProcurementService: createOrder/locked create, createReceipt, createReceiptsBatch/locked receipt, listNeeds/listOrders/workspace/reports/dashboard; project/event validation and request-row normalization.
+- AuditService: log/list/listByEntity/listByUser.
+- Router: GET/POST/PUT/DELETE dispatch and procurement read wrapper/permission helpers in sampled file.
+
+### Dependency/coverage observations
+- The method inventory confirms distinct command paths and projections; however, method-name coverage is not proof of callers, mutation parity, transaction boundaries, complete dependency graph or test coverage.
+- Project/Event/Workflow/Form/Attachment/Procurement/Audit contain interconnected lifecycle and read-projection concerns. V2 must define authoritative service/API commands and projections rather than directly replicate legacy sheet structures.
+- Procurement has multiple receipt paths and projections (single, batch, workspace, reports, dashboard), reinforcing G-02's unresolved parity/idempotency/atomicity/reversal questions.
+- Project/event visibility is handled at service-level paths in sampled sources; tenant-safe FK enforcement and exhaustive relationship validation remain unproven.
+- Delete/void/amend/copy operations remain high-risk dependency paths: attachment deletion's storage-first ordering noted earlier; event void policy and later-event restriction sampled; project/image copy path sampled. Full effects and rollback/recovery remain unknown.
+- Coverage is still bounded to exact source files and their method inventory; no exhaustive route-to-handler map, mutation matrix, dependent-record graph, or runtime test evidence was produced. G-01, G-03, G-04, G-10 remain open.
+
+### Gate
+No schema readiness approval. No SQL/DDL, migrations, live data, DB provisioning, tests, deployment or production modifications.
