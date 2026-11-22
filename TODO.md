@@ -1321,3 +1321,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Read-only source review of EventService and FormService event creation, void, metadata edits, response snapshots and amendment flows recorded in TASK-2.8-EVENT-FORM-LIFECYCLE-EVIDENCE-INCREMENT-5.md.
 - Findings: void and project restoration/material-planning reconciliation are multi-operation; form response stores definition snapshot but direct edits/amendments update the current response record; immutable revision chain not demonstrated; concurrency/version checks and amendment event governance exist in inspected paths.
 - V2 design implications recorded; G-01 remains open; tests not executed.
+
+
+### Task 2.8 — G-01 Increment 6: registry/auxiliary lifecycle and reset-safety evidence (2026-11-22)
+- Read-only review of DatabaseSetup.js registry/header definitions plus selected frontend API and feature-module excerpts recorded in `TASK-2.8-SCHEMA-REGISTRY-AUXILIARY-EVIDENCE-INCREMENT-6.md`.
+- Confirmed numeric prefix reuse across distinct sheet names (`18_MaterialNeeds` and `18_ProjectStatuses`), JSON/list and polymorphic source-field categories, and presence of a destructive legacy reset utility (not executed).
+- V2 implications and bounded limitations recorded; G-01/G-10 remain open. No tests, live data, SQL/DDL, migration, provisioning, production writes or deployment.
