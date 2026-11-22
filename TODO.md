@@ -1193,3 +1193,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.6 Increment 10 — audit/report and legacy ID relationship semantics
 - Reviewed audit/report repository/service and EventData, ProjectInformation and project repository relationships.
 - Provisional append-only audit, tenant-safe report, historical-retention and legacy-ID mapping decisions documented. G-01/G-05/G-09/G-10 remain OPEN/BLOCKERS as applicable.
+
+
+### Task 2.6 Increment 11 — cross-cutting technical baseline
+- Consolidated recommended exact-decimal/unit, UTC/local-time, tenant-compatible relational constraints and retention-safe relationship policies.
+- These are provisional V2 technical decisions; G-06/G-07/G-10 remain OPEN/BLOCKERS pending source/data-field discovery and business precision/time policy.
