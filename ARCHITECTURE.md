@@ -1172,3 +1172,11 @@ Selected GET Router branches were traced against permission gates and service de
 - Provisional implications: preserve source/reference project policy and provenance; version workflows and forms; capture stable definition snapshots for historical records; preserve material specification/calculation revisions and reconciliation state; make multi-record mutations transactional, replay-safe and observable.
 - These implications are discovery notes only, not approved relational schema decisions. Further source audit and PO review are pending.
 - No production repository was modified. No tests, schema, migration, deployment or live data access occurred.
+
+
+## 13. Additional audit — procurement receipt constraints, attachment/storage and access (2026-11-22)
+- Receipt paths validate received quantities against remaining ordered quantities and, where allocations exist, against project allocation remaining balances. Unallocated surplus is separately receivable to general stock within the unallocated portion.
+- Attachment entity visibility is tenant-scoped and project visibility is checked; event-linked files inherit project visibility in the inspected path. Uploads validate entity ownership and attachment type/format constraints.
+- The storage repository is an abstraction in the source but currently delegates to Google Drive storage. This is a migration dependency to replace; V2 should not retain Drive/GAS dependency.
+- Access-control/authentication currently relies on AuthService token-based current-user resolution and request-level caching. Detailed permission matrix and role-grant semantics remain pending audit.
+- These findings are provisional audit evidence only; they do not define the V2 storage provider or permissions design.
