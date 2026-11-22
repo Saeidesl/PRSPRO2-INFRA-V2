@@ -404,3 +404,30 @@ This is a bounded method/route sample, not a full CRUD/consumer matrix. It does 
 - G-12 remains OPEN/HIGH: configuration scope, revision/publish/deactivate lifecycle and historical consumer contracts remain unresolved.
 
 No live data, SQL/DDL, migration, database provisioning, tests, production modification, deployment or VPS action occurred.
+
+
+## Increment 19 — Identity, role-assignment, audit, report and print-template cross-check (read-only, 2026-11-22)
+
+### Reference files sampled
+UserService.js, UserRoleService.js, RoleService.js, RolePermissionService.js (the fetched file contains repository-level implementation in this source snapshot), AuditService.js, ReportService.js, PrintTemplateService.js, PrintTemplateRepository.js and selected Router.js dispatch branches.
+
+### Bounded evidence
+- UserService list/get/create/update: tenant-filtered listing and per-user tenant checks; create validates department tenant, generates ID, hashes submitted password, and logs sanitized user data. Update validates tenant and department, prevents TenantID mutation, hashes changed password and logs sanitized snapshots. Username duplicate checking is global in the sampled paths, consistent with a login username uniqueness requirement, but exact database constraint and concurrency guarantee remain unverified.
+- User-role assignment/removal: validates target user and tenant; assignment validates active role, role tenant and user/role tenant equality, checks duplicate, writes association and audits. Removal validates association tenant and deletes association then audits. Atomicity and race-safe uniqueness are not proven.
+- Role service: tenant-scoped list/get/create/update observed; creation checks tenant-local Code duplicate, update checks duplicate and limits patch fields. Role/permission association lifecycle is sampled but full route-to-service/repository and referential integrity coverage remains incomplete.
+- AuditService records tenant, actor, action, entity type/id, serialized old/new data, reason and timestamp. Read paths include tenant list, entity lookup and user lookup with tenant checks. Audit write atomicity with business mutations, immutability/tamper protection, retention and privacy/redaction policy remain unverified.
+- ReportService project-report path verifies tenant and project availability, aggregates non-void/cancelled events and project-specific procurement needs/orders/calculations; dashboard reads multiple domain collections and builds tenant-visible aggregates. Report projections and historical semantics are consumers that must be captured in target design; the source audit does not establish all report variants or query performance requirements.
+- PrintTemplateRepository defines template fields including tenant, code/name/status/version, DefinitionJSON, creator/updater timestamps, PDF metadata and image-assets JSON; it additively ensures sheet/header presence and supports get/insert/update. This indicates dynamic template definitions and stored PDF/image metadata, not a confirmed relational schema.
+- PrintTemplateService selected operations include list/create/update/deactivate, preview, resolve/resolveMany, project-binding updates and image/PDF upload/download paths. The sampled Router branches gate list/get/source/image/PDF/preview/resolve paths with SYSTEM_SETTINGS/PROJECT_VIEW combinations and create/update/deactivate with SYSTEM_SETTINGS; updateProjectBinding dispatch is direct in Router but service-level checks were observed for project-field/central-information bindings (PROJECT_EDIT) and event-related bindings (EVENT_EDIT). Full permission/tenant path review remains pending.
+
+### Readiness and limitations
+CONFIRMED (bounded): selected identity and role-assignment validation, audit record shape/read paths, project report and dashboard aggregation inputs, print-template definition and asset metadata, and selected route dispatch/gates.
+PARTIAL/UNVERIFIED: full user disable/delete/session effects; username uniqueness constraint under concurrency; role/permission uniqueness and lifecycle; atomic audit coupling; report/export consumer completeness; template revision immutability, asset ownership, tenant scope and file lifecycle; complete route authorization and relation matrix.
+- G-01 remains BLOCKER (complete lifecycle and consumer matrix).
+- G-10 remains BLOCKER (tenant-safe relational constraints).
+- G-08 remains HIGH/open (identity migration and username/password/session policy).
+- G-09 remains HIGH/open (audit/history retention and recovery).
+- G-11 remains HIGH/open (PDF/image asset storage migration).
+- G-12 remains HIGH/open (configuration lifecycle/versioning; template semantics included).
+
+Source-only review. No live data, credentials, tests, SQL/DDL, migration, database provisioning, production modification, deployment or VPS action occurred.
