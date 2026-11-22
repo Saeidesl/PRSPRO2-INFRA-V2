@@ -1450,3 +1450,8 @@ Task 2.7 is a read-only discovery and traceability effort covering event/form hi
 - Companion register: TASK-2.8-RECOMMENDED-POLICY-DEFAULTS.md.
 - It proposes default business/technical policy for procurement, history/amendment/void, attachment lifecycle, tenant integrity and exhaustive legacy coverage.
 - Status: proposals only. PO approval and evidence closure are required before these become policy or are translated into executable schema. No schema/migrations, tests, live-data work, provisioning, deployment or production modifications.
+
+
+## Task 2.8 — Lifecycle and transaction contract draft
+- TASK-2.8-LIFECYCLE-TRANSACTION-CONTRACTS.md proposes state transitions, invariants, transaction/concurrency pattern and test contracts across procurement, history, attachment and tenant domains.
+- These contracts remain design proposals and are not implemented or runtime-tested. Schema readiness remains gated on policy acceptance and source evidence closure.
