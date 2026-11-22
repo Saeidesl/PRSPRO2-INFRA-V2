@@ -1149,3 +1149,7 @@ Selected GET Router branches were traced against permission gates and service de
 ## Phase 2 source-to-target mapping checkpoint (2026-11-22)
 - Legacy header-level source mapping for Project, Workflow, Event and Form domains is recorded in DATA-MODEL-DRAFT.md. The inventory is preliminary and does not validate record-level data or complete semantics.
 - Production repositories remain read-only; no data extraction or schema implementation is authorized.
+
+
+## Phase 2 procurement source-mapping checkpoint (2026-11-22)
+- Procurement source mappings and limited observed service behavior are documented in DATA-MODEL-DRAFT.md. The evidence is source-level and provisional; exact quantity policies, data validation, schema and migration remain pending.
