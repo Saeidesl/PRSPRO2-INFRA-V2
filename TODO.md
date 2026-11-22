@@ -1602,3 +1602,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 60 (2026-11-22)
 - Audit/project cascade deletion integrity trace recorded in `TASK-2.8-AUDIT-PROJECT-CASCADE-DELETION-INTEGRITY-TRACE-INCREMENT-60.md`: audit service/repository boundaries and sequential dependency soft deletion, storage trashing and physical project row deletion with partial failure reporting.
 - E1 source review only; runtime tests not executed. G-04/G-10/G-01 remain OPEN; schema readiness NOT APPROVED. No live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+### Task 2.8 Increment 61 (2026-11-22)
+- Bounded Router/API permission boundary trace recorded in `TASK-2.8-ROUTER-API-PERMISSION-BOUNDARY-TRACE-INCREMENT-61.md`: sampled procurement, project material planning, information/history, attachment and audit routes with route permission layers.
+- E1 only; full endpoint matrix and route tests pending. G-01/G-10 remain OPEN; schema readiness NOT APPROVED. No live data/DDL/migrations/provisioning/deployment/production changes.
