@@ -342,3 +342,32 @@ Use transactional outbox for notifications/integrations. A domain transaction wr
 - [ ] Cross-check blueprint against accepted 2.1–2.3 documents and architecture record.
 - [ ] Read-back verification of all updated documentation.
 - [ ] Present proposal to Product Owner; task remains pending acceptance.
+
+
+## Cross-review against accepted discovery artifacts (2026-11-22)
+
+### Evidence alignment matrix
+| Discovery evidence | Blueprint treatment | Review outcome |
+|---|---|---|
+| Events may have absent/null/blank ProjectID in create validation | Optional project FK; tenant ownership remains required | Consistent; do not require project for independent events |
+| Event validator requires EventTypeID and PerformedBy; some fields optional | Requiredness is not automatically translated into SQL nullability; finalize from full write-path and migration evidence | Consistent, decision pending |
+| Event status validator observed ACTIVE/VOID | Candidate lifecycle/history and reversal model; no generalized deletion assumption | Consistent; exact VOID semantics still unresolved |
+| EventData registry includes DataJSON | Payload/field-value alternatives remain open; preserve schema/version context and bounded payload validation | Consistent, performance/query benchmark later |
+| Information types support SINGLE/MULTIPLE and several data types incl. image/file | Separate cardinality semantics; file values reference metadata rather than byte content; validation config bounded/versioned | Consistent |
+| Project-information history and approval selection are distinct from history/audit | Separate revisions/history and approval decision records; no conflation with audit log | Consistent |
+| Material specification revisions and calculation history are observed | Revision/provenance and calculation identity retained as relational candidates | Consistent |
+| Procurement includes project-linked and general orders, allocations, receipts; validation/replay paths have differences | Order independent of project; allocations express project/need links; transactional quantities, replay/reversal behavior not finalized | Consistent, contract needs explicit future validation |
+| Legacy attachments have EntityType/EntityID-style polymorphic linkage | Prefer typed FK associations or registry; if polymorphic remains, reconciliation and tenant checks required | Target improves integrity; migration mapping needs owner inventory |
+| Source mapping explicitly remains partial and many target constraints are UNKNOWN | Blueprint treats names/keys/precision/cardinality as proposals, not final schema | Consistent; schema implementation is not yet authorized |
+
+### Findings and limitations from cross-review
+1. The discovery mapping remains partial. The blueprint is not a migration-ready table-by-table design and should not be used to generate migrations until source mapping completeness and mutation paths are audited.
+2. Event payload choice (JSONB vs normalized response/value tables) remains an explicit design trade-off. Before choosing, define required search/report/filter behavior, validation, version snapshots and representative load benchmarks.
+3. Procurement integrity rules need a unified V2 contract for create order, allocations, batch/single receipt, correction/reversal, idempotent replay and remaining quantities. Legacy lock/write differences are not to be reproduced as uncontrolled partial writes.
+4. Attachment target types and ownership lifecycle must be enumerated before selecting typed association tables. Storage provider operations require reconciliation, not cross-system DB transaction assumptions.
+5. Tenant-aware integrity must include every relationship edge, including indirect links (project, need, order item, allocation, receipt, event, workflow context, attachments), not only root entity ownership.
+6. Numeric precision, currency, unit conversion, date/time timezone, legacy identifier mapping, global-vs-tenant catalog scope and uniqueness are still open.
+7. This review found no basis to declare implementation/testing readiness. It validates conceptual consistency only.
+
+### Task 2.4 review conclusion
+Work packages A–D are drafted and the evidence consistency pass is recorded. The logical blueprint is **READY FOR PRODUCT OWNER REVIEW**, not complete/accepted. It remains design-only and must not be treated as approved schema or migration specification until the Product Owner accepts it and the subsequent detailed source/constraint design tasks are authorized.
