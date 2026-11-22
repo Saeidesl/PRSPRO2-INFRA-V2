@@ -723,3 +723,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Added an evidence-aware conceptual relationship matrix to DATA-MODEL-DRAFT.md, distinguishing observed source links from design candidates and unknown cardinality.
 - Added candidate transaction boundaries (hypotheses only) and a relationship-validation checklist for source-to-target mapping.
 - Task 2.1 remains IN PROGRESS pending Product Owner acceptance. No executable schema or migration was created; no tests were run.
+
+
+### Task 2.1 incremental checkpoint — Project/Event/Form focused model (2026-11-22)
+- Expanded DATA-MODEL-DRAFT.md with focused conceptual aggregate notes for Projects, Events, Forms and workflow context; documented candidate constraints and explicit open questions.
+- No columns, cardinality, schema constraints or behaviors were invented as final; details remain subject to validation against implementation.
+- Task 2.1 remains IN PROGRESS and awaiting PO acceptance. No SQL, tests, live data or migration executed.
