@@ -57,3 +57,25 @@ Legacy backend: EventService.js, EventDataService.js, EventDataRepository.js, Ev
 - Missing files queried by exact name (EventVoidService.js, FormResponseService.js) were not present at those paths; behavior was sampled in EventService/FormService instead. No absence claim beyond that path search.
 - No live data, tests, SQL/DDL, migrations, DB provisioning, production modifications, deployment or VPS action.
 - G-03, G-04, G-10 and G-01 remain OPEN/BLOCKER pending broader evidence and decision closure.
+
+
+## Increment 2 — Header/route inventory reconciliation (2026-11-22)
+
+### Table/header inventory sampled from DatabaseSetup.js
+The sampled setup file enumerates these legacy sheet/table-like structures (names are inventory evidence only, not proposed V2 tables):
+- Tenant/security: 01_Tenants, 02_Users, 03_Departments, 04_Roles, 05_Permissions, 06_UserRoles, 07_RolePermissions.
+- Project/workflow: 08_Projects, 09_Workflows, 10_WorkflowSteps, 17_WorkflowStepDepartments, 37_WorkflowStepEventRules, 18_ProjectStatuses, 38_ProjectReferenceSyncLog, 08_Projects_Backup_UnusedColumns_.
+- Event/forms: 11_EventTypes, 12_EventFields, 13_Events, 14_EventData, 32_Forms, 33_FormFields, 34_EventTypeForms, 35_EventFormData.
+- Information/template: 28_InformationTypes, 29_InformationTypeColumns, 30_ProjectInformation, 31_ProjectInformationHistory, 36_PrintTemplates.
+- Attachments/audit: 15_Attachments, 16_AuditLogs.
+- Procurement/materials: 23_EventTypeProcurementSettings, 18_MaterialNeeds, 24_ProjectMaterialSpecs, 25_MaterialNeedCalculations, 19_PurchaseOrders, 20_PurchaseOrderItems, 21_PurchaseAllocations, 22_MaterialReceipts.
+
+### Router inventory sampled
+Router.js contains route dispatch patterns for auth/session, project status, departments, project image gallery/card images, project form lookups/projects, workflow management/workflows, print templates and revisions/sources/resolve/preview, forms, information types, event types/events, attachments, users/roles/permissions, audit, project dashboard, procurement workspace/reports/dashboard/needs/orders/receipt batch and receipt, project reports and dashboard.
+
+### Coverage implications
+- The legacy system has broad, distinct business areas and auxiliary structures; the header inventory is not a complete domain model and is not a complete route/service dependency audit.
+- Naming/numbering collisions and legacy backup/unused-column structure (e.g., 08_Projects_Backup_UnusedColumns_ and duplicate 18_ prefix for ProjectStatuses) are source-level migration hazards. They must be reconciled using actual sheet IDs/metadata and data profiling later, not assumed as V2 entities.
+- The route inventory is only a bounded regex-based extraction from Router.js; dynamic dispatch, nested route conditions, permissions and method coverage require further manual reconciliation. This output does not establish endpoint completeness.
+- G-01 remains OPEN; inventory is evidence, not closure. G-10 remains OPEN because header names do not prove all tenant relationships or database constraints.
+- No runtime tests, live data, SQL/DDL, migration, DB provisioning or production modification performed.
