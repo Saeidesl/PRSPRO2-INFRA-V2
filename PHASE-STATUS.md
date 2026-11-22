@@ -243,3 +243,9 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 - Bounded read-only event/form and attachment lifecycle cross-check recorded in TASK-2.7-BLOCKER-CLOSURE.md.
 - Evidence notes include void policy, form amendment/snapshot behavior, EventData access, polymorphic attachment owner and visibility, deletion ordering, project-image copy linkage and candidate tenant relationship graph.
 - G-03/G-04/G-10/G-01 remain unresolved. No tests, live data, SQL/DDL, migration, DB provisioning or production modifications.
+
+
+## Task 2.7 Increment 2 checkpoint (2026-11-22)
+- Recorded DatabaseSetup.js header inventory and bounded Router.js route dispatch inventory.
+- Covered security, project/workflow, event/form, information/template, attachment/audit and procurement structures; noted duplicate/legacy numbering/backup artifacts as reconciliation hazards.
+- G-01/G-10 remain open. No tests, live data, SQL/DDL, migrations, provisioning or production changes.
