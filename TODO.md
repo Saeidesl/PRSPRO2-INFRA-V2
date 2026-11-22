@@ -1547,3 +1547,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 49 (2026-11-22)
 - Assertion-source crosswalk for report, print-template batch, reference-copy, project-image gallery and thumbnail tests documented in `TASK-2.8-REPORT-PRINT-REFERENCE-ATTACHMENT-ASSERTION-CROSSWALK-INCREMENT-49.md`.
 - E2 only; mock/storage boundaries noted. G-01/G-04/G-10 remain open. No runtime tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+### Task 2.8 Increment 50 (2026-11-22)
+- Consolidated blocker/evidence matrix and closure dependency review recorded in `TASK-2.8-CONSOLIDATED-EVIDENCE-MATRIX-CLOSURE-DEPENDENCIES-INCREMENT-50.md`, summarizing E1/E2, G-01/G-02/G-03/G-04/G-10, seven business-policy decisions and safe evidence execution boundary.
+- Schema readiness remains NOT APPROVED. Task 2.8 cannot be marked complete until decisions/closure criteria are accepted or dispositioned; current GitHub-only access cannot execute isolated legacy runtime tests and production mutation is prohibited.
