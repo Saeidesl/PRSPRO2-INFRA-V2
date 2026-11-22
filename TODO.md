@@ -915,3 +915,5 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - [x] Inspect procurement order and receipt write paths (locking, idempotency, allocation/receipt ceilings, batch normalization, status updates and partial-write recovery); record V2 transactional requirements and unresolved edge cases. (2026-11-22)
 
 - [x] Inspect procurement allocation lifecycle visibility in service methods, allocation aggregation and current named tests; record the bounded absence of mutation/void methods in inspected service, VOID aggregate uncertainty, and unexecuted test-coverage gaps. (2026-11-22)
+
+- [x] Inspect procurement route authorization and material-planning revision, recalculation, source-event-void, and CalculationKey replay behavior; record concurrency and reconciliation implications. (2026-11-22)
