@@ -1514,3 +1514,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 58 — Event void and ProjectInformation revision/sync
 - Bounded source trace recorded in `TASK-2.8-EVENT-VOID-PROJECT-INFORMATION-REVISION-SYNC-TRACE-INCREMENT-58.md`: sequential event/project restoration and material cascade with surfaced reconciliation failure; ProjectInformation value/history/audit/reference sync writes; sampled form/event data visibility controls.
 - E1 only; runtime testing not performed. G-03/G-10/G-01 remain OPEN.
+
+
+## Task 2.8 Increment 59 — Attachment storage/delete lifecycle
+- Bounded source trace recorded in `TASK-2.8-ATTACHMENT-STORAGE-DELETE-LIFECYCLE-TRACE-INCREMENT-59.md`: storage and metadata/audit writes are sequential; delete trashes the file before metadata/audit; retention/backup/recovery evidence remains pending.
+- E1 only; no runtime testing. G-04/G-10 remain OPEN.
