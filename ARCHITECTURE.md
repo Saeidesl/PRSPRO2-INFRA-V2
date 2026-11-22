@@ -1217,3 +1217,7 @@ The consolidated conceptual model and review gate are documented in DATA-MODEL-D
 
 ## 2026-11-22 — Phase 2.2 mapping task started
 Read-only field/constraint mapping started. SOURCE-TO-TARGET-MAPPING-2.2.md records registry header evidence and verified behavioral constraints while distinguishing unknowns. Full source-level validation of types, requiredness, uniqueness, FK/cardinality, tenant constraints, reversals, integration contracts and workload patterns remains pending. No schema or migration work has begun.
+
+
+## 2026-11-22 — Phase 2 Task 2.2 consolidated mapping review
+The Task 2.2 review package is recorded in SOURCE-TO-TARGET-MAPPING-2.2.md. It consolidates legacy registry fields and logical targets across identity, project/workflow, events/forms, project information, reference-copy, material planning, procurement, attachments/audit, print templates, workflow rules and integration configuration. It documents evidence levels, tenant-aware relationships, snapshots/history, idempotency, side-effect boundaries, known divergent receipt paths, and unresolved business/policy/constraint decisions. The package is ready for Product Owner review; executable schema/migration decisions remain gated.
