@@ -291,3 +291,62 @@ Avoid bundling unrelated domains into long transactions. External storage/provid
 - Maximum size/type constraints, thumbnail generation and provider failure recovery.
 - Audit detail payload, redaction policy, retention and administrative access policy.
 - Required checksums and migration integrity strategy for file bytes.
+
+
+## 15. Consolidated conceptual dependency and transaction map (review draft)
+
+### Domain dependency sequence (logical, not a mandated implementation order)
+1. **Tenant & identity:** Tenant, User/account, tenant membership, session, role, permission, department and scoped assignments.
+2. **Configuration foundations:** workflow definitions/versions/steps/rules, event types, information types, form definitions/fields/versions, units and other validated reference catalogs.
+3. **Project lifecycle:** project identity/status, workflow execution context, central-information current state and revision history.
+4. **Operational events:** event/type/project (project optional), event data, response/snapshot, amendment/void state and workflow effects.
+5. **Materials planning:** project/specification/calculation context and material requirement/need lines, with source-event trace where applicable.
+6. **Procurement:** orders, items, allocation, receipt/quantity history and reconciliation.
+7. **Supporting resources:** files/associations/lifecycle, audit trail and notification/outbox records coordinated with domain operations.
+8. **Presentation/read models:** report projections, print templates/elements/bindings and derived views; these must not become competing sources of authoritative business data.
+
+This sequence is a conceptual dependency map. It does not assert exact cardinality, table names, or that every domain must be deployed in this order.
+
+### Transaction candidates and side-effect boundaries
+| Operation | Candidate DB transaction contents | External/async work | Failure/recovery requirement |
+|---|---|---|---|
+| Create/activate project | Project + initial lifecycle/workflow state + central info/revision + audit | File copy or notifications via outbox | Idempotency, validate state and retry side effects |
+| Register event | Event + data + form response snapshot + workflow/project effect + audit + notification intent | Provider notification, file/storage actions if required | Atomic domain mutation; replay protection; outbox retry |
+| Amend form response | Amendment record/response revision + central-information synchronization + audit | Notifications or dependent recalculation if external | Conflict detection and idempotency; preserve historical snapshot |
+| Void event | Void state + validated restoration/recalculation + audit | Material-planning reconciliation if asynchronous | Dependency guard; no unsafe state restoration; recovery log |
+| Procurement order | Order + items + allocations + idempotency record + audit | None in critical transaction unless confirmed | Atomic constraints, retry/replay, consistent quantities |
+| Receive items | Receipt records + quantity/status accounting + audit + idempotency | Notifications if required | Atomic batch semantics, prevent over-receipt, reversal history |
+| Upload/attach file | Metadata + association + lifecycle intent + audit | Object upload/scan/thumbnail/storage | Outbox; checksum; cleanup/reconciliation; access checks |
+| Delete/archive resource | Validated lifecycle/archive/dependency changes + audit + cleanup intent | Storage cleanup and external cleanup | Explicit policy; shared-resource protections; retryable cleanup |
+| Notify | Durable outbox creation in originating transaction | Provider delivery and retry | Deduplication, backoff, dead-letter/review, observability |
+
+Table is a design hypothesis; detailed source mapping and Product Owner decisions precede schema/implementation.
+
+### Cross-domain invariants to validate and implement
+- Tenant isolation is enforced consistently across every parent/child/reference path.
+- Permission checks include tenant and resource scope; authenticated status alone is not authorization.
+- Events may be project-independent; event names or UI labels must not drive state transitions.
+- Workflow/form snapshots retain the configuration context required to interpret historical records.
+- Revisions, amendments and voids are traceable and do not erase history silently.
+- Procurement quantities, allocation and receipt invariants are enforced atomically, including concurrent requests.
+- General procurement and shared allocations remain supported.
+- External file/notification operations are coordinated with DB state through durable intent and reconciliation, not long-running DB transactions.
+- Audit evidence is protected, safely redacted and traceable for both user and system actions.
+- Derived reports/templates do not replace authoritative transactional records.
+
+### Decisions/validation gate before executable schema
+1. Source-to-target mapping and legacy ID/uniqueness scope for each domain.
+2. Tenant ownership/membership/role/permission scope, including multi-tenant user behavior.
+3. Entity cardinality, optionality, FK/compound constraints and polymorphic-link replacements.
+4. Project/event/form/workflow snapshot, amendment, void, deletion/archive and recovery semantics.
+5. Procurement units/precision/conversion, allocation, surplus, receipt, correction/return and status transitions.
+6. File association types, storage metadata, access inheritance, integrity and lifecycle/retention.
+7. Audit classification, redaction, retention, integrity and privileged access.
+8. Query patterns and indexes, based on workload measurement—not guessed indexes.
+9. Transaction boundaries, locking/concurrency, idempotency and outbox/reconciliation.
+10. Migration mapping, staged rehearsal, counts/checksums, exception handling, rollback and cutover approval.
+
+### Task 2.1 status and remaining work
+- Conceptual entity clusters, relationship matrix, focused domain notes, candidate transaction boundaries and validation checklist are consolidated.
+- Still pending detailed source-to-target field/ID mapping, exhaustive cardinality/uniqueness validation, data-volume/query baseline, business decisions listed above and Product Owner review.
+- Task 2.1 is not complete and no SQL schema is authorized by this draft.
