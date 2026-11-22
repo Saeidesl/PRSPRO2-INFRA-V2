@@ -1542,3 +1542,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 48 (2026-11-22)
 - Assertion-source crosswalk for form API contract, material planning, procurement integration, draft project lifecycle and reusable forms recorded in `TASK-2.8-FORM-MATERIAL-PROCUREMENT-DRAFT-ASSERTION-CROSSWALK-INCREMENT-48.md`.
 - E2 only; mocked repository and source-pattern boundaries noted. G-01/G-02/G-03 remain open. No runtime tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+### Task 2.8 Increment 49 (2026-11-22)
+- Assertion-source crosswalk for report, print-template batch, reference-copy, project-image gallery and thumbnail tests documented in `TASK-2.8-REPORT-PRINT-REFERENCE-ATTACHMENT-ASSERTION-CROSSWALK-INCREMENT-49.md`.
+- E2 only; mock/storage boundaries noted. G-01/G-04/G-10 remain open. No runtime tests/live data/DDL/migrations/provisioning/deployment/production changes.
