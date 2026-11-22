@@ -176,3 +176,8 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 ### Task 2.6 — Increment 4
 - Bounded review of order creation recovery, single receipt and route service inventory; provisional contract consolidated.
 - G-02 remains unresolved. No schema work.
+
+
+### Task 2.6 — Increment 5
+- Provisional procurement lifecycle matrix recorded; sampled service/repository inventory contains create/read projection paths but no dedicated correction/deallocation/reversal API surfaced.
+- G-02 remains BLOCKER and decision matrix is not yet finalized.
