@@ -1294,3 +1294,7 @@ Read-only source sampling confirmed distinct event request idempotency, event vo
 
 ## Task 2.5 — payload shape/form-definition increment 5 (2026-11-22)
 Read-only review observed legacy EventData JSON object validation, separate legacy EventData and reusable form-response persistence, ordered form fields, visibility rules, snapshot contents, SINGLE/MULTIPLE helper behavior, and separate central-information value/history/sync records. G-03 remains blocker pending full type/cardinality and payload/reporting inventory. See `TASK-2.5-READINESS-GAP-REGISTER.md`. No SQL/DDL, migration, live data, tests, database setup, production change or deployment.
+
+
+## Task 2.5 — Information-type/column/report evidence increment 6 (2026-11-22)
+Read-only audit sampled type/column validators and services, revision and structural-change restrictions, cache invalidation, attachment upload validation contract, and report/dashboard aggregation paths. Data-type and validation evidence recorded, but complete field semantics/report query inventory is not closed. G-03/G-04/G-10 remain blockers; G-06 high; G-12 open. See TASK-2.5-READINESS-GAP-REGISTER.md. No tests executed, SQL/DDL, migration, live data, DB provisioning, production change or deployment.
