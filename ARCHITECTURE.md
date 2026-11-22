@@ -1180,3 +1180,12 @@ Selected GET Router branches were traced against permission gates and service de
 - The storage repository is an abstraction in the source but currently delegates to Google Drive storage. This is a migration dependency to replace; V2 should not retain Drive/GAS dependency.
 - Access-control/authentication currently relies on AuthService token-based current-user resolution and request-level caching. Detailed permission matrix and role-grant semantics remain pending audit.
 - These findings are provisional audit evidence only; they do not define the V2 storage provider or permissions design.
+
+
+## 14. Identity, permissions and tenant isolation — audit evidence (2026-11-22)
+- Source login resolves unique username match and rejects ambiguity; account status and session tenant/user consistency are checked.
+- Session state is currently stored in Script Properties with configurable expiry and throttled last-seen writes; this is a GAS dependency to replace in V2.
+- Roles and role assignments are tenant-scoped; permissions are resolved through role-permission mappings with request-scoped caches.
+- Endpoint-specific authorization is implemented across Router handlers; a route-by-route coverage audit remains open. V2 should use explicit deny-by-default authorization policies with tests.
+- Many legacy repository reads are broad and then tenant-filtered. V2 should make tenant scoping and relationship integrity enforceable at the database/API layer.
+- Evidence is documented in IDENTITY-PERMISSIONS-TENANT-CHECKPOINT-2.1.md. This remains discovery evidence, not approved schema design.
