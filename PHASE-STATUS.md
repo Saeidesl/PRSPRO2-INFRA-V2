@@ -217,3 +217,9 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 - Read-only review of procurement need/order/workspace/report/dashboard projections; documented divergent status filters, allocation receipt distribution, surplus and display caps, and project visibility handling.
 - Recommended canonical receipt net projection and shared reporting/workspace accounting semantics; G-02 remains BLOCKER.
 - No tests, live data, SQL/DDL, migration, DB provisioning or production modifications.
+
+
+## Phase 2 — Task 2.6 Increment 13 checkpoint (2026-11-22)
+- Bounded read-only audit of single/batch receipt commands and Router dispatch: differences in general-stock receipt validation, source-event replay/idempotency, receipt aggregation and post-insert status/audit write sequence recorded.
+- Recommended unified receipt command, durable idempotency constraints, explicit reversal lineage, consistent allocation rules, transactional persistence and reconciliation.
+- G-02 remains BLOCKER. No tests, live data, SQL/DDL, migration, DB provisioning or production modifications.
