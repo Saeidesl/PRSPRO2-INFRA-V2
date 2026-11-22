@@ -71,3 +71,23 @@ Evidence:
 G-02 remains BLOCKER: correction/reversal paths, allocation mutations, route write surface, surplus/over-receipt policies and report semantics still require source coverage.
 
 No tests executed, no live data, SQL/DDL, migration, DB provisioning, production modifications or deployment.
+
+
+### Increment 4 — order creation recovery and single-receipt parity (2026-11-22)
+
+Reviewed remaining order creation writes, single receipt writes and Router write-path inventory.
+
+Evidence:
+- Order creation validates/normalizes full payload before writing, then inserts order, each item and its allocations sequentially. On failure after header insertion, it attempts to mark the order NEEDS_REVIEW and adds a failure note rather than deleting partial records. This is a compensating recovery marker, not atomic transaction rollback; update failure/recovery guarantees remain unproven.
+- Order creation allocations are derived from need quantity, prior counted allocations, surplus and explicit allocation payload; total allocation is validated against ordered quantity. Need/project tenant and visibility validation is applied in sampled code.
+- Single receipt checks replay by source-event/item and idempotency key at outer method, then validates project/item/order/allocation and ordered quantity, inserts receipt, updates order status and audit. These writes are sequential and no atomic transaction is demonstrated. The single path's quantity aggregation includes prior receipt rows without a clearly demonstrated common status filter, unlike the replay predicate that excludes VOID in one branch.
+- Router inventory confirms write service calls for createOrder, createReceipt and createReceiptsBatch; sampled read endpoints include workspace, reports, dashboard, needs and orders. Route-level write permissions were not fully captured from this limited excerpt and remain to verify in later security/tenant work.
+
+### G-02 contract consolidation — still provisional
+- Legacy failure recovery leaves order header NEEDS_REVIEW when item/allocation write sequence fails; V2 should transactionally prevent partial graph writes, while maintaining a durable failed-operation/reconciliation record when external side effects are involved.
+- Single and batch receipt flows must share identical status eligibility and validation policy. Replay by source-event and idempotency key must be standardized and DB-enforced.
+- Status drift and partial legacy graph recovery are explicit migration/reconciliation cases; not a reason to silently discard records.
+
+G-02 remains BLOCKER until receipt corrections/reversals, allocation mutation/deallocation, over-receipt/surplus, lifecycle states and dependency policies are sufficiently discovered and decision-ready.
+
+No tests executed, no live data, SQL/DDL, migration, DB provisioning, production modifications or deployment.
