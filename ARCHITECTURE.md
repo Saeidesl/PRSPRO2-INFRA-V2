@@ -1090,3 +1090,21 @@ Selected GET Router branches were traced against permission gates and service de
 
 ### Verification limitations
 - Source inspection only; no runtime tests, token/session data, production data or secrets accessed. No production repository was modified. This increment does not close the exhaustive route/resource permission audit or Task 0.2.
+
+
+## 53. Task 0.2 audit increment — sessions and authorization resolution (2026-11-22)
+
+### Verified source observations
+- AccessControlService authenticates via AuthService/SessionManager, then resolves roles within the user tenant; admin bypass is derived from active tenant roles with SYS_ADMIN or ADMIN codes. Permission checks are tenant-aware and request-cached.
+- PermissionService bulk-resolves permissions and caches results per tenant/user for the request. AccessControlService.require delegates to it. Generic enforceRouteAccess authenticates but intentionally returns true without domain permission enforcement; Router/service checks remain the effective operational gate. Thus missing route/service checks are a systemic fail-closed design risk, not evidence of a specific exploit.
+- SessionManager stores session records in Script Properties keyed by raw token. Session expiry, status, tenant/user consistency and admin revocation are implemented; admin session list/revoke paths are tenant-scoped and admin-guarded. Admin listing hashes session identifiers for display/revocation matching; current session cannot be revoked through the admin revoke path.
+- Permission resolution and session behavior were inspected at source level only. No live sessions, tokens, production data or tests were accessed.
+
+### V2 requirements / risks
+- Model sessions/revocation and tenant-bound identity as first-class durable structures; never store bearer secrets as directly enumerable property keys or expose raw tokens. Hash/token storage strategy, expiry, rotation, concurrent-session policy and revocation semantics need explicit design.
+- Authorization should be centralized and fail-closed, with explicit route policies plus resource-level tenant/project/department scope validation. Admin role semantics should be explicit and tenant-bound; avoid broad implicit bypasses unless deliberate.
+- Cache permission decisions only within a safe scope; invalidate/recompute after role/user/session changes and ensure tenant/user identity is part of keys.
+- Build automated authorization matrix tests for every API route: unauthenticated, tenant mismatch, permission denied, department/project visibility, admin and relevant exceptions. Audit logging should capture denial without secrets.
+
+### Limitations
+- This does not constitute a full route/service/resource permission matrix or security testing. Task 0.2 remains in progress.
