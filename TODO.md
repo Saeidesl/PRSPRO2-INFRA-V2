@@ -1138,3 +1138,11 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Closed Task 2.5 as a discovery deliverable only; comprehensive source coverage is not claimed and schema implementation is NOT READY.
 - Blockers G-01/G-02/G-03/G-04/G-10 and remaining high/open gaps are retained in TASK-2.5-READINESS-GAP-REGISTER.md; next task must resolve blockers before schema design.
 - No tests, live data, SQL/DDL, migration, DB provisioning, production modification, deployment or VPS action.
+
+
+## Task 2.6 — Resolve discovery blockers before Schema Design
+- Status: IN PROGRESS.
+- Increment 1: bounded Procurement order/receipt/event-integration review and proposed correction/reversal contract documented in TASK-2.6-BLOCKER-RESOLUTION.md.
+- G-02 remains BLOCKER pending further source coverage and explicit contract closure; do not implement physical schema yet.
+- Next increment: inspect receipt void/adjustment, allocation mutation, order status-transition and deletion/report dependency paths; document lifecycle matrix and evidence.
+- Read-only reference review only. No tests, live data, SQL/DDL, migration, DB provisioning, production changes or deployment.
