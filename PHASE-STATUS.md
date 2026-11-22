@@ -521,3 +521,9 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 Increment 41 (2026-11-22)
 - Remaining technical defaults vs unresolved business decisions and evidence boundary recorded in `TASK-2.8-REMAINING-POLICY-DECISIONS-EVIDENCE-BOUNDARY-INCREMENT-41.md`.
 - Source evidence pack is bounded and documented, but business-policy items remain unconfirmed, and no E3 runtime tests or E4 live-data evidence exist. Task 2.8 discovery/decision pack cannot declare schema readiness. G-01/G-02/G-03/G-04/G-10 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+## Phase 2 — Task 2.8 Increment 42 (2026-11-22)
+- Read-only tenant header/repository boundary trace added in `TASK-2.8-TENANT-INTEGRITY-HEADER-REPOSITORY-BOUNDARY-TRACE-INCREMENT-42.md`.
+- Source observations: tenant-qualified headers in key tenant-owned entities and relation tables; global-looking Permission registry; AccessControlService tenant/user cache filtering; selected repository wrappers delegate ID-only operations without tenant predicate, so caller/service validation is a critical boundary.
+- G-10/G-01 remain OPEN; source evidence is E1 only. Schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
