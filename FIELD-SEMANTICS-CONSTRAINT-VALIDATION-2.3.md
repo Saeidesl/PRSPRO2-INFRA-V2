@@ -133,3 +133,29 @@ Task 2.2 accepted the consolidated mapping package, but deliberately deferred tr
 
 ### Caveat
 These are selected validator excerpts. Service-level authorization, tenant constraints, lifecycle, uniqueness, and all branches were not exhaustively audited in this increment.
+
+
+## Repository/service semantics validation — next increment (2026-11-22)
+
+### Repository access patterns and integrity candidates
+- ProjectRepository exposes lookup by ID and ProjectCode, and a separate existence lookup. These calls establish application-level lookup intent, but no evidence of database-enforced uniqueness was found in this repository wrapper. ProjectCode uniqueness scope (tenant/global/status) remains to be validated in service logic and data policy.
+- WorkflowRepository similarly exposes Code lookup/existence. This is an application-level uniqueness candidate, not proof of DB uniqueness or scope.
+- EventRepository exposes project/type/actor/department filtering; its ProjectID association is optional in the validator evidence. EventDataRepository.findByEventId uses findOne, implying the service expects one event-data record per event in this read path, but uniqueness and write semantics require further validation.
+- AttachmentRepository filters by EntityType + EntityID and excludes DELETED records. A polymorphic association is used; this cannot be expressed as a conventional single FK without a chosen V2 pattern. Attachment status/lifecycle and physical-storage consistency require explicit handling.
+- AuditRepository uses entity/user lookups; AuditService serializes OldData/NewData as JSON strings and records ISO timestamps. Audit is tenant-scoped at service access, but append-only enforcement and retention policy are not demonstrated.
+
+### Project-information values and history
+- ProjectInformationRepository findAnyByProjectAndType selects a record by ProjectID + InformationTypeID regardless of status; findByProjectAndType additionally requires ACTIVE (with ACTIVE default). This signals potentially multiple/inactive historical rows and active-selection semantics; uniqueness must not be assumed without service lifecycle review.
+- History records are linked by ProjectInformationID and sorted by Revision. Approval selection is tenant-filtered and Action='APPROVED' in the inspected service helper. Preserve revision/history/audit distinction.
+- Image/file project-information values are attachment references validated against tenant, project, active state, attachment type and MIME; V2 should model attachment IDs/references rather than embedding file bytes in field-value rows (subject to complete mapping).
+
+### Procurement quantity and integrity
+- ProcurementService helper converts values using JavaScript Number and validates finite, non-negative/positive quantities depending on allowZero. This is not evidence of decimal precision/rounding policy. PostgreSQL NUMERIC should be evaluated rather than binary floating-point storage for quantities, rates or allocation balances.
+- Procurement source has multiple entities (needs/orders/items/allocations/receipts) and tenant-filtered repository access. Receipt/allocation reconciliation and protection against concurrent over-receipt remain transactional integrity requirements, not merely field constraints.
+
+### JSON and temporal representation
+- EventDataService parses DataJSON into an object and rejects arrays/non-object shapes and malformed JSON. Dynamic data should have schema/version strategy and preserve historical definition context where needed.
+- AuditService serializes old/new snapshots to JSON strings; timestamp is ISO string. V2 should evaluate JSONB and timestamptz, while defining timezone/clock-source policy and preserving source timestamp semantics.
+
+### Evidence limitations
+- This is repository/service excerpt review only. Not all write paths, concurrency behavior, service transactions, constraints or tests were inspected. The items above are constraint/design candidates, not approved database decisions.
