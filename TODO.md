@@ -1022,3 +1022,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Read-only validator/service review confirmed supported data-type list, SINGLE/MULTIPLE, column metadata, validation-rule shapes, revision and structural-change restrictions, logical column deletion/cache invalidation, bounded attachment validator contract and report/dashboard aggregation needs.
 - Evidence and gap implications recorded in TASK-2.5-READINESS-GAP-REGISTER.md; G-03/G-04/G-10 remain blockers; G-06 high; G-12 open.
 - No tests executed; no SQL/DDL, migration, DB provisioning, live data, production changes or deployment.
+
+
+### Task 2.5 incremental audit — identifier/tenant relationship evidence increment 7 (2026-11-22)
+- Read-only sampling of ID conventions, authentication/session, project validation, event validation, registry and project deletion dependency collection.
+- Recorded mixed ID-generation evidence, username ambiguity/login fail-closed behavior, tenant-scoped entity/association registry and application-side dependency deletion observations in the readiness register.
+- G-05 remains HIGH; G-10 and G-01 remain BLOCKERS; G-08 remains HIGH. No schema, SQL, migration, live data, tests or production writes.
