@@ -1359,3 +1359,7 @@ This update supersedes earlier conflicting task-status notes in this historical 
 
 ### Task 2.8 — Consolidated Gap Register Increment 13 (2026-11-22)
 - Consolidated increments 1–12 into domain-level evidence/gap register in `TASK-2.8-CONSOLIDATED-GAP-REGISTER-INCREMENT-13.md`, separating partial evidence from closure. G-01 through G-04 and G-10 remain OPEN; schema readiness NOT APPROVED. No tests or production changes.
+
+
+### Task 2.8 — Structured Entity Manifest Increment 14 (2026-11-22)
+- Extracted 37 declared legacy sheet registry entries and grouped candidate domain/relationship notes in `TASK-2.8-STRUCTURED-ENTITY-MANIFEST-INCREMENT-14.md`. Registry evidence only; candidate edges are inferred and remain to be validated against source consumers. No live data/tests/schema/migration or production changes.
