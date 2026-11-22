@@ -1431,3 +1431,7 @@ Task 2.7 is a read-only discovery and traceability effort covering event/form hi
 
 ### Task 2.7 Increment 7 — Event/form history
 - Legacy event/form paths persist form response payloads and definition snapshots, with amendment replay/optimistic checks and void state restoration in sampled services. Writes are multi-step; atomicity, immutable lineage, full reporting parity and retention remain unproven.
+
+
+### Task 2.7 Increment 8 — Attachment lifecycle
+- Legacy upload and delete paths sequence storage and metadata/audit writes; compensation, restore, orphan reconciliation, retention/purge and transactional guarantees are not established. Attachment owner remains polymorphic PROJECT/EVENT.
