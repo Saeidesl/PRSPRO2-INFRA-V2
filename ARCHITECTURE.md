@@ -1138,3 +1138,9 @@ Selected GET Router branches were traced against permission gates and service de
 ### Audit boundaries and closure
 - READ-ONLY source audit only. No production data or live Google Sheets/Drive content, session tokens, secrets or Telegram configuration values were read. No runtime tests, live API tests or file/notification tests were performed. No existing production repositories were modified.
 - Task 0.2 source-discovery work is concluded to the scope available through source inspection and documentation. Coverage limitations, unknowns and required follow-up validations are explicitly retained above. This conclusion is not a security certification, runtime validation, migration readiness approval or authorization to begin implementation/migrate/deploy.
+
+
+## Phase 2 conceptual data model checkpoint (2026-11-22)
+- The provisional dependency map, transaction boundary hypotheses and integrity invariants are maintained in DATA-MODEL-DRAFT.md in the Infra V2 repository.
+- Treat this as design documentation, not a final schema. Domain field mapping, policy decisions, workload baseline and PO review remain required.
+- No implementation, SQL migration, live-data access, dual-writing, deployment or production changes are authorized.
