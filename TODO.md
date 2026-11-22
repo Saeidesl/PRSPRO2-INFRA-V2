@@ -1507,3 +1507,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ## Phase 2 — Task 2.8 Increment 41 (2026-11-22)
 - Remaining technical defaults vs unresolved business decisions and evidence boundary recorded in `TASK-2.8-REMAINING-POLICY-DECISIONS-EVIDENCE-BOUNDARY-INCREMENT-41.md`.
 - Source evidence pack is bounded and documented, but business-policy items remain unconfirmed, and no E3 runtime tests or E4 live-data evidence exist. Task 2.8 discovery/decision pack cannot declare schema readiness. G-01/G-02/G-03/G-04/G-10 remain OPEN; schema readiness NOT APPROVED. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
+
+
+### Task 2.8 Increment 42 (2026-11-22)
+- Focused tenant header/repository boundary trace documented in `TASK-2.8-TENANT-INTEGRITY-HEADER-REPOSITORY-BOUNDARY-TRACE-INCREMENT-42.md`. Source observations: tenant-qualified User/Department/Role/UserRole/RolePermission/Project headers, global-looking Permission header, tenant/user cache keying in AccessControlService, and ID-only generic repository wrappers requiring service-layer ownership enforcement.
+- This source-only increment does not close G-10/G-01; uniqueness and global/shared policy decisions remain open. No tests/live data/DDL/migrations/provisioning/deployment/production changes.
