@@ -856,3 +856,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 
 - [x] Read-only audit of reference-project copy plan/replay semantics, dependency-safe project deletion, attachment access and audit-record shape; checkpoint REFERENCE-COPY-DELETION-AUDIT-CHECKPOINT-2.1.md.
 - [ ] Complete reference-copy retry/rollback and attachment recovery/retention paths, audit coverage, auxiliary sheet, and API mutation matrix.
+
+
+### Phase 2 — Task 2.1 final consolidation checkpoint (2026-11-22)
+- Consolidated the conceptual entity inventory, relationship evidence, transaction boundaries, reliability requirements and unresolved policy gates in DATA-MODEL-DRAFT.md.
+- The draft is prepared for Product Owner review; it is not an accepted schema blueprint.
+- Task 2.1 remains IN PROGRESS until explicit acceptance. No schema/migration code or tests started.
