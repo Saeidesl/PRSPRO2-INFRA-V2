@@ -355,3 +355,30 @@ No SQL/DDL, migration, DB provisioning, live data, tests, production changes or 
 - G-01/G-10 remain BLOCKERS: this cross-check does not provide exhaustive mutation or tenant-safe relational coverage.
 
 No tests were executed. No SQL/DDL, migration, DB provisioning, live production data, production writes, deployment or VPS action occurred.
+
+
+## Increment 17 — Project mutation and route-dispatch cross-check (read-only, 2026-11-22)
+
+### Reference files re-read
+- Production backend Router.js
+- ProjectService.js
+- ProjectDeletionService.js
+- ProjectInformationService.js
+- EventService.js
+- FormService.js
+
+### Bounded route evidence
+- POST /projects is routed through PROJECT_CREATE to ProjectService.create.
+- Project update route dispatches to ProjectService.update; the inspected branch applies PROJECT_EDIT, with a draft/creator exception and PROJECT_CREATE fallback behavior in the relevant branch (route semantics are not exhaustive from this snippet).
+- Project deletion preview and deletion dispatch to ProjectDeletionService.preview/remove with admin-only checks in the inspected Router branches.
+- Project information record removal/deactivation dispatches to ProjectInformationService.deactivate under PROJECT_EDIT.
+- POST /events is routed under EVENT_CREATE to EventService.create; event void is routed under EVENT_EDIT to EventService.void.
+- Event form-response PUT route dispatches to FormService.updateEventFormResponse under EVENT_EDIT.
+- Form create/update and form-field update/removal routes are permission-gated under SYSTEM_SETTINGS in the sampled Router branches.
+
+### Interpretation and remaining coverage
+This cross-check confirms selected API-to-service mutation reachability and permission gates only. It does not establish a complete route matrix, every nested write, repository operation, indirect tenant-bound constraint, transaction/recovery behavior, nor all create/update/delete/archive/reversal pathways. These observations must not be treated as a security certification or relational schema declarations.
+
+G-01 and G-10 remain BLOCKERS. The next bounded increment should continue systematic route-to-service mapping and repository-level mutation/dependency coverage across the remaining registry domains, with evidence tiers and unresolved items retained.
+
+No live data, tests, SQL/DDL, migration, DB provisioning, production changes, deployment or VPS action occurred.
