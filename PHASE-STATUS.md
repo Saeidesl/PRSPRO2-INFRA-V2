@@ -98,3 +98,10 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 - Deliverable: SOURCE-TO-TARGET-MAPPING-2.2.md.
 - Acceptance does not authorize SQL/schema, migration execution, live data access, deployment or production modifications.
 - Next: continue to the next roadmap task only after checking dependencies and scope.
+
+
+## Phase 2 — Task 2.5 current checkpoint (2026-11-22)
+- Task 2.5 — source-evidence/readiness audit: IN PROGRESS; NOT READY for schema implementation.
+- Increment 17 added bounded route-to-service mutation/permission evidence for selected project, project-information, event and form pathways to TASK-2.5-READINESS-GAP-REGISTER.md.
+- G-01 (exhaustive mutation/dependency coverage) and G-10 (tenant-safe relational constraints) remain BLOCKERS; G-02/G-03/G-04 also remain blockers as recorded in the gap register.
+- No schema, SQL/DDL, migration, live-data access, database provisioning, tests, production modification, deployment or VPS action authorized or performed.
