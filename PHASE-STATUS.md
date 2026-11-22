@@ -44,3 +44,10 @@ COMPLETE and accepted. Tasks 1.1–1.5:
 - Read-only DatabaseSetup.js sheet-header inventory was extracted for Project, Project Information/History, reference-copy logs, Workflow/Steps/Departments/EventRules, EventTypes/Fields/Events/EventData and Forms/Fields/Associations/Responses.
 - Source-to-target mapping notes and cautions were appended to DATA-MODEL-DRAFT.md. This is header-level evidence only; data, full event header and semantic paths remain to be validated.
 - No production repository was modified. No production data, schema or migration accessed.
+
+
+## Phase 2 — Procurement mapping checkpoint (2026-11-22)
+- Extracted headers for procurement settings, material needs/specs/calculations, orders/items, allocations and receipts from read-only legacy DatabaseSetup.js.
+- Targeted ProcurementService review observed locks, order and receipt idempotency checks, tenant/project/event visibility helpers, and combined accounting reads. These observations are provisional and do not certify every branch/path.
+- Added provisional source mapping, transaction/integrity candidates and open business rules to DATA-MODEL-DRAFT.md.
+- No live data, schema, SQL or migrations were used.
