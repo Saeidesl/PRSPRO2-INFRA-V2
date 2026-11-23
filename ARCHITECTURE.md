@@ -1633,3 +1633,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 80 — GET route/service authorization crosscheck
 - Recorded bounded Router.js source observations in `TASK-2.8-GET-ROUTE-SERVICE-AUTHORIZATION-CROSSCHECK-INCREMENT-80.md`: explicit PROJECT_VIEW/ATTACHMENT_VIEW checks for sampled information/gallery/attachment paths, Event form-response/EventData paths with reliance on service validation excerpts, and procurement read permission wrappers.
 - This is not exhaustive endpoint reconciliation and does not confirm a defect. E1 only; no tests. G-01/G-10 remain blockers; no production writes.
+
+
+## Task 2.8 Increment 81 — Mutation route permission crosscheck
+- Recorded bounded Router mutation route evidence in `TASK-2.8-MUTATION-ROUTE-PERMISSION-CROSSCHECK-INCREMENT-81.md`: explicit PROCUREMENT_MANAGE for order/receipt creation, PROJECT_EDIT for information save/approval, EVENT_EDIT for form response update, ATTACHMENT_UPLOAD for uploads and ATTACHMENT_DELETE for deletion; service validation is relied upon in sampled event response/EventData read paths.
+- Full route/service reconciliation and negative tests remain pending. E1 only; no production changes. G-01/G-10 blockers.
