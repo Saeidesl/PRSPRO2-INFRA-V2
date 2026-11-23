@@ -1623,3 +1623,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 78 — Reference-copy operation and workflow edit failure boundary
 - Recorded bounded source evidence in `TASK-2.8-REFERENCE-COPY-OPERATION-LEDGER-AND-WORKFLOW-EDIT-FAILURE-BOUNDARY-INCREMENT-78.md`: project operation-ID replay lookup, persisted per-information copy plan/status and retry/failure checkpointing; image-copy helpers; workflow published-rule cloning into draft and sequential rule replacement.
 - Durable operation ledger, DB atomic aggregate, storage rollback/outbox and workflow edit/publish transaction/concurrency remain unverified. E1 only; no runtime tests or production writes. G-01/G-10 blockers; G-02/G-03/G-04 open. Schema readiness NOT APPROVED.
+
+
+## Task 2.8 Increment 79 — Attachment access and project-information history boundary
+- Recorded bounded source trace in `TASK-2.8-ATTACHMENT-ACCESS-AND-INFORMATION-HISTORY-BOUNDARY-INCREMENT-79.md`: attachment visibility/entity/project gates and image-copy validation/duplicate lookup with compensating storage cleanup; ProjectInformation ExpectedRevision/event replay, history/audit/reference-sync sequence, sync-log conflict behavior and file-type sync skip.
+- Storage reconciliation and transactional value/history/audit/sync are unverified. E1 only; no runtime tests or production changes. G-01/G-10 blockers and G-03/G-04 open; schema readiness NOT APPROVED.
