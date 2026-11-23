@@ -1828,3 +1828,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ## Task 2.8 Increment 107 — Role/user-role mutation boundary (2026-11-23)
 - Recorded read-only role lifecycle and role/user-role mutation trace in `docs/audit/TASK-2.8-ROLE-USER-ROLE-MUTATION-BOUNDARY-INCREMENT-107.md`: tenant-scoped role/user validation, role code duplicate-check race boundary, sequential mutation/audit, Router role/user-role permissions and repository bulk locking/write semantics. Role-permission service orchestration remains unavailable via indexed source retrieval; no claims made about it.
 - E1 only; no runtime tests or production changes. Task 2.8 remains IN PROGRESS; schema readiness NOT APPROVED; G-01/G-10 remain blockers.
+
+
+## Task 2.8 Increment 108 — Department lifecycle boundary (2026-11-23)
+- Recorded read-only DepartmentService/Repository/Validator trace: tenant-scoped list/get/create/update, service-level tenant code duplicate checks, explicit update allowlist, request cache reset on writes, and sequential mutation/audit boundaries.
+- E1 only; no runtime tests or production changes. Task 2.8 remains IN PROGRESS; schema readiness NOT APPROVED; G-01/G-10 remain blockers.
