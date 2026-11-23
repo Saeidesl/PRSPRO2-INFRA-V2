@@ -2004,3 +2004,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 142 — Legacy test inventory and traceability gaps (2026-11-23)
 - Test-file inventory mapped to domain families recorded in `docs/audit/TASK-2.8-LEGACY-TEST-INVENTORY-AND-TRACEABILITY-GAPS-INCREMENT-142.md`: 41 backend and 46 frontend test files present in source trees, with selected assertion inspection and evidence-quality limits.
 - No tests/CI executed; exhaustive route-to-test trace, tenant-negative/concurrency/fault/migration/runtime/performance coverage remain open. E2 only; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 143 — Backend source-file audit coverage reconciliation (2026-11-23)
+- Source-tree-to-audit reconciliation recorded in `docs/audit/TASK-2.8-BACKEND-SOURCE-FILE-COVERAGE-RECONCILIATION-INCREMENT-143.md`, grouping backend source families and linked increments, distinguishing source-family evidence from exhaustive route/DTO/test coverage.
+- One-file-to-route-to-test trace and tenant relation constraint verification remain incomplete. E1/E2 only; no tests or production changes; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
