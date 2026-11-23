@@ -639,3 +639,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Consolidated increments 52–63 into a domain-by-domain coverage/evidence matrix and readiness gap register in `TASK-2.8-CONSOLIDATED-COVERAGE-EVIDENCE-READINESS-MATRIX-INCREMENT-64.md`.
 - G-01 (complete mutation/route/dependency coverage) and G-10 (tenant integrity) remain OPEN/BLOCKERS; G-02/G-03/G-04 remain OPEN/HIGH. Runtime verification is not established.
 - Task 2.8 remains IN PROGRESS; schema/migration readiness is NOT APPROVED. No production modifications or live data access.
+
+
+## Phase 2 — Task 2.8 Increment 65 (2026-11-23)
+- Recorded a bounded Router.js GET dispatcher branch inventory and selected authorization patterns in a dedicated audit artifact.
+- Evidence is source-observed only; mutation route coverage and runtime tests remain pending. G-01 remains OPEN/BLOCKER; no production changes.
