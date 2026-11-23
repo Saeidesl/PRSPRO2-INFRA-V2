@@ -1775,3 +1775,7 @@ Read-only trace recorded in `docs/audit/TASK-2.8-INFORMATION-TYPE-COLUMN-LIFECYC
 
 ## Task 2.8 Increment 111 — Form definition/field lifecycle
 Trace recorded in `docs/audit/TASK-2.8-FORM-DEFINITION-FIELD-LIFECYCLE-INCREMENT-111.md`. Form and field tenant validation, visibility dependency/order checks, version increments and cache invalidation are observed; transactional writes, composite constraints and CAS remain unproven. E1 only, no tests or production changes; schema readiness not approved.
+
+
+## Task 2.8 Increment 112 — Event lifecycle boundary
+Read-only trace documented in `docs/audit/TASK-2.8-EVENT-CREATE-IDEMPOTENCY-WORKFLOW-VOID-BOUNDARY-INCREMENT-112.md`. Tenant/workflow checks, optional idempotency marker, event/form/procurement/project/audit sequencing, quantity validation and void dependency guards are observed; atomicity, unique idempotency constraint and stuck-processing recovery remain unproven. E1 only, no tests or production changes; schema readiness not approved.
