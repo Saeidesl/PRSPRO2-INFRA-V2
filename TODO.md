@@ -1722,3 +1722,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 0.2 / Task 2.8 Increment 86 (2026-11-23)
 - Recorded `TASK-2.8-ADMINISTRATIVE-FRONTEND-CALLER-TRACE-INCREMENT-86.md`: read-only caller-family trace for users, roles, available permissions, departments, project statuses, permission catalogue, audit and workflow settings modules.
 - Administrative route/payload/permission reconciliation remains partial. E1 only; no tests or production changes. G-01/G-10 blockers remain.
+
+
+### Task 0.2 / Task 2.8 Increment 87 (2026-11-23)
+- Recorded `TASK-2.8-FRONTEND-BACKEND-CROSSWALK-ROLLUP-INCREMENT-87.md`: consolidated observed frontend caller families and backend counterparts and explicitly bounded coverage status.
+- The route-to-caller-to-service-to-repository matrix is not exhaustive and route negative/runtime tests remain unexecuted. G-01/G-10 blockers remain; E1 only, no production changes.
