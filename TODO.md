@@ -1984,3 +1984,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 138 — Tenant-qualified relation/constraint candidate manifest (2026-11-23)
 - Consolidated header-derived relation candidates across identity/RBAC, projects/workflows, events/forms/information, material/procurement, attachments/audit and print templates in `docs/audit/TASK-2.8-TENANT-QUALIFIED-RELATIONSHIP-CONSTRAINT-CANDIDATE-MANIFEST-INCREMENT-138.md`.
 - This is a candidate manifest, not existing FK proof. Composite tenant constraints, normalized array-link policy, global Permission catalog scope, polymorphic owner integrity and cross-tenant tests remain unresolved. E1 only; G-01/G-10 remain blockers; no tests or production changes; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 139 — Critical Project/Event route-to-evidence crosswalk (2026-11-23)
+- Bounded route matrix recorded in `docs/audit/TASK-2.8-CRITICAL-PROJECT-EVENT-ROUTE-EVIDENCE-CROSSWALK-INCREMENT-139.md` for Project/Event read/mutation routes, permissions/exceptions, tenant/service evidence, persistence effects and test-source status.
+- All entries remain PARTIAL pending exhaustive nested-route/caller/DTO/constraint/test mapping. E1/E2 only; no tests or production changes; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
