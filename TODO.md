@@ -2076,3 +2076,7 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 193)
 - Crosschecked Workflow headers/status validations in DatabaseSetup.js against service/repository field use for Workflows, WorkflowSteps, WorkflowStepDepartments and WorkflowStepEventRules; documented in `docs/audit/TASK-2.8-WORKFLOW-DATABASE-SETUP-HEADER-CROSSCHECK-INCREMENT-193.md`.
 - Header presence is not relational constraint proof. Assignment DELETED validation vs service INACTIVE removal and inaccessible Step repository remain policy/evidence questions. E1 only; no tests or production changes. G-01/G-10 remain blockers; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 194 — Consolidated project/event/procurement/storage boundary crosscheck (2026-11-23)
+A compact cross-module crosscheck consolidates shared project-visibility predicates, project lookups/status/code mutation, event workflow-step resolution, procurement lock/idempotency/allocations, and attachment visibility/copy compensation. Source-only E1; no tests or production changes. Direct WorkflowStepRepository/material-planning source remains inaccessible via current exact-path route; G-01/G-10 remain blockers; schema readiness NOT APPROVED. See `docs/audit/TASK-2.8-CONSOLIDATED-PROJECT-EVENT-PROCUREMENT-STORAGE-CROSSCHECK-INCREMENT-194.md`.
