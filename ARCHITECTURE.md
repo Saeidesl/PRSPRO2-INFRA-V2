@@ -1863,3 +1863,7 @@ Read-only CI/test-source trace documents backend Node tests and manifest/source 
 
 ### Task 2.8 Increment 133 — Frontend event-type fields route mismatch candidate (2026-11-23)
 Source crosswalk identifies a credible caller mismatch candidate: dashboard timeline requests `/event-types/{id}/fields` for historical DynamicData labels, while the inspected Router GET event-type nested branch accepts forms/procurement and rejects other subpaths; frontend silently falls back. Runtime impact and deployed version alignment are unverified, so this is not a confirmed defect. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 134 — Attachment caller/owner/storage-key crosswalk (2026-11-23)
+Read-only caller crosswalk documents sampled PROJECT/EVENT metadata owner types, attachment identifiers embedded in information/form values, separate print-template asset metadata, copy/gallery/thumbnail/download flows, and storage-first/object-first sequential failure boundaries. Historical owner completeness, typed reference integrity, tenant constraints, orphan recovery, retention and direct-access runtime validation remain unverified. E1 only; no tests or production changes; G-04/G-10 remain open; schema readiness NOT APPROVED.
