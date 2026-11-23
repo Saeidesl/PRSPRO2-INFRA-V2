@@ -1682,3 +1682,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 0.2 / Task 2.8 Increment 78 (2026-11-23)
 - Recorded `TASK-2.8-REFERENCE-COPY-OPERATION-LEDGER-AND-WORKFLOW-EDIT-FAILURE-BOUNDARY-INCREMENT-78.md`: project reference-copy operation replay lookup, persisted item-level copy plan/checkpoint/failure status, per-type retry path and image-copy validation; WorkflowService published-rule clone and draft transition/version replacement sequence.
 - Dedicated durable operation ledger, DB aggregate atomicity, storage rollback/outbox and workflow clone/publish rollback/concurrency remain unverified. E1 only; no runtime tests. G-01/G-10 blockers, G-02/G-03/G-04 open; no production changes.
+
+
+### Task 0.2 / Task 2.8 Increment 79 (2026-11-23)
+- Recorded `TASK-2.8-ATTACHMENT-ACCESS-AND-INFORMATION-HISTORY-BOUNDARY-INCREMENT-79.md`: attachment visibility tenant/entity/project gates, image-copy ownership/category/idempotent duplicate lookup and compensating cleanup; project information revision/ExpectedRevision, event replay, history/audit and reference-sync sequencing.
+- Storage reconciliation and transactional current/history/audit/sync remain unverified. E1 only; no runtime tests. G-01/G-10 blockers and G-03/G-04 open; no production changes.
