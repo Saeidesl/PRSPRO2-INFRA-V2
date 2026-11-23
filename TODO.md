@@ -1838,3 +1838,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ## Task 2.8 Increment 109 — Project-status lifecycle boundary (2026-11-23)
 - Recorded read-only ProjectStatusService trace: tenant/admin permission context, tenant filtering, create active-name duplicate validation, update mutable-field protections and audit sequence. Candidate consistency gap: reactivation to ACTIVE without supplying Name bypasses the visible duplicate-active-name check; runtime impact unverified. Create/update uniqueness checks and writes are not visibly atomic.
 - E1 only; no tests or production changes. Task 2.8 remains IN PROGRESS; schema readiness NOT APPROVED; G-01/G-10 remain blockers.
+
+
+## Task 2.8 Increment 110 — Information type/column lifecycle boundary (2026-11-23)
+- Recorded read-only InformationTypeService/Repository/Validator trace: tenant-scoped type checks, structural-change guard for active usage, revision updates, type/column soft-deactivation and code uniqueness/validation boundaries. Column deactivation dependency checks, revision CAS, storage uniqueness and transactional audit are not demonstrated.
+- E1 only; no tests or production changes. Task 2.8 remains IN PROGRESS; schema readiness NOT APPROVED; G-01/G-10 remain blockers.
