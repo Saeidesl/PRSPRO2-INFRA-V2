@@ -2089,3 +2089,10 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 ### Task 2.8 Increment 196 — Consolidated cross-domain invariant synthesis (2026-11-23)
 - Reconciled increments 185–195 and recovered project design documents into a compact cross-domain invariant synthesis, documented in `docs/audit/TASK-2.8-CONSOLIDATED-INVARIANT-SYNTHESIS-INCREMENT-196.md`.
 - No new production source retrieval or runtime evidence in this increment. G-01/G-10 remain open; G-02/G-03/G-04 remain open; schema readiness NOT APPROVED. No tests, DDL, migrations, live data, production changes, deployment or VPS action.
+
+
+## Task 2.7 / Phase 2 Increment 197 — repository access/readiness checkpoint (2026-11-23)
+- Reconfirmed all four V2 repository metadata entries. Frontend/backend/database V2 repos report size 0 (metadata signal only; content/commit proof not obtained). Infra V2 remains readable.
+- Retried production-backend retrieval routes (REST tree, commits, repository fetch and direct file paths); all failed with 404 and code-search indexing is unavailable. No production changes.
+- Recorded evidence and implications in `docs/audit/TASK-2.7-REPOSITORY-ACCESS-AND-V2-REPOSITORY-READINESS-CHECKPOINT-INCREMENT-197.md`.
+- G-01/G-10 and G-02/G-03/G-04 remain blockers. Schema readiness NOT APPROVED. No tests, DDL, migrations, live data, provisioning or deployment.
