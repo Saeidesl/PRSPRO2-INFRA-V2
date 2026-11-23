@@ -2056,3 +2056,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 189)
 - Read-only retrieval recovered exact root-level paths for WorkflowService.js, WorkflowRepository.js and EventTypeService.js. Source trace recorded tenant-filtered management bootstrap, workflow/step version visibility, tenant duplicate checks, workflow draft lifecycle/version transitions, rule validation and sequential non-atomic mutations in `docs/audit/TASK-2.8-WORKFLOW-SERVICE-SOURCE-TRACE-RECOVERY-INCREMENT-189.md`.
 - WorkflowStepRepository exact path, full assignment/repository implementation, clone completeness, runtime/concurrency and permission-negative tests remain unresolved. E1 only; no tests/live data/production changes. G-01/G-10 remain blockers; schema readiness NOT APPROVED.
+
+
+## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 190)
+- WorkflowService.publish source trace confirms tenant ownership, active-step minimum, version derivation, active tenant event-type/rule reference checks, publication metadata update, repeat-policy snapshot and sequential audit record. Findings recorded in `docs/audit/TASK-2.8-WORKFLOW-PUBLISH-LIFECYCLE-VALIDATION-INCREMENT-190.md`.
+- Atomicity, concurrency, complete rule semantics, assignment constraints and runtime validation remain unverified; E1 only, no tests or production changes. G-01/G-10 remain blockers; schema readiness NOT APPROVED.
