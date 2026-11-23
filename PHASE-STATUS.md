@@ -770,3 +770,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 168)
 - Audited ProjectInformationRepository tenant boundaries: findHistory scopes by parent ID only; sampled service call sites tenant-filter returned history, but repo API is unscoped. findSyncLog tenant parameter is optional and omitting it removes TenantID filtering. Project/type repository lookup methods are ID-based; sampled service callers validate tenant/project/type first. Exhaustive callers remain unknown.
 - Added `docs/audit/TASK-2.8-PROJECT-INFORMATION-REPOSITORY-TENANT-BOUNDARY-TRACE-INCREMENT-168.md`. Structural tenant isolation, mandatory tenant-scoped queries and history integrity remain V2 design gates. Schema NOT APPROVED; source-only audit.
+
+
+## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 169)
+- Router crosswalk for Project Information: GET/list/item/history guarded by PROJECT_VIEW; save, soft-delete, approve, reference-conflict resolution guarded by PROJECT_EDIT; sampled service-level tenant/project/type validation is also present. Complete route/mutation coverage remains unverified.
+- Artifact `docs/audit/TASK-2.8-PROJECT-INFORMATION-ROUTE-PERMISSION-CROSSWALK-INCREMENT-169.md` committed. G-01/G-09/G-10 remain open; source-only audit.
