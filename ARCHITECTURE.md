@@ -1575,3 +1575,9 @@ Read-only source review documents event creation/void, project-state restoration
 - Bounded source review documented in `TASK-2.8-PROCUREMENT-AND-PROJECT-DELETE-TRANSACTIONAL-GAP-TRACE-INCREMENT-69.md`: locks/idempotency/prevalidation and compensation in procurement; sequential dependency mutation, storage trash and physical project delete in cascade path.
 - These are current-system observations and V2 requirements, not validated runtime behavior. V2 should transactionally enforce quantity/allocation/idempotency invariants, tenant-aware constraints, audit/outbox and staged storage reconciliation.
 - No tests executed. G-02/G-03/G-04/G-10 and G-01 remain open; schema readiness NOT APPROVED. No production changes.
+
+
+## Task 2.8 — Project/Event/Information/Material/Attachment boundary trace (Increment 70, 2026-11-23)
+- Bounded read-only source trace recorded in `TASK-2.8-PROJECT-EVENT-INFORMATION-MATERIAL-ATTACHMENT-BOUNDARY-TRACE-INCREMENT-70.md`: sampled tenant checks, optimistic concurrency/idempotency/locks and sequential multi-write/storage operations across project, event, information, material, attachment and audit paths.
+- V2 requirements include transaction-backed revision/copy/recalculation, tenant-aware constraints, audit/outbox, external-storage reconciliation and cross-tenant negative testing.
+- E1 only; no runtime tests. G-01/G-10 and G-02/G-03/G-04 remain open; schema readiness NOT APPROVED. No production changes.
