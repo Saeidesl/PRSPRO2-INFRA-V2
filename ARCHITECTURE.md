@@ -1803,3 +1803,7 @@ Read-only trace of MaterialPlanningService and its test file documents additive 
 
 ### Task 2.8 Increment 118 — Procurement allocation/receipt projection (2026-11-23)
 Read-only ProcurementService trace documents normalized project/need allocation validation, automatic remaining-need allocation and surplus handling, sequential order/items/allocations with NEEDS_REVIEW on partial failure, lock/idempotency guarded single and batch receipts, allocation/project receipt limits, status projection, request-scoped cache and derived procurement quantities. Single and batch receipt pathways are not fully behaviorally equivalent in the inspected source. Transactional guarantees, durable uniqueness, and reconciliation recovery are not demonstrated. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 119 — Procurement workspace/report visibility projection (2026-11-23)
+Read-only source trace documents multi-project order projections and all-linked-project visibility checks (orders are omitted if any associated project is inaccessible), request-cached combined workspace, tenant/project-filtered report dataset enrichment, and visibility-aware dashboard aggregation. Runtime leak tests, concurrent-read consistency and report snapshot semantics remain unverified. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
