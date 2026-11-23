@@ -1657,3 +1657,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 0.2 / Task 2.8 Increment 73 (2026-11-23)
 - Cross-operation dependency/failure boundary audit recorded in `TASK-2.8-CROSS-OPERATION-DEPENDENCY-FAILURE-BOUNDARY-INCREMENT-73.md`: project deletion re-collection/shared procurement protections/sequential partial-state boundaries; event void and project-information locks; project template allow-list/optimistic check; attachment storage→metadata→audit sequence.
 - E1 only; no runtime tests. Reconciliation, transactions and fault-injection test requirements documented. G-01/G-10 remain BLOCKER; G-02/G-03/G-04 OPEN/HIGH; schema readiness NOT APPROVED. No production changes.
+
+
+### Task 0.2 / Task 2.8 Increment 74 (2026-11-23)
+- Recorded deletion coverage gap in `TASK-2.8-PROJECT-DELETION-COVERAGE-GAP-INCREMENT-74.md` after inspection of the collector and FormRepository: collector's explicit child inventory does not include ProjectInformation/history, EventFormData responses or reference-sync logs. This is a source-level coverage gap, not runtime proof of orphaning.
+- Noted audit-write-after-project-row-delete boundary. V2 requires dependency registry, explicit disposition policies, durable deletion ledger and transactional audit/outbox. E1 only; G-01/G-10 remain blockers; no production changes.
