@@ -785,3 +785,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 171)
 - EventDataService validates event tenant and project availability before EventDataRepository.findByEventId (ID-only filter); parses JSON object payload. AuditRepository.findByEntity/findByUser and EventRepository secondary filters are not tenant-scoped in repository layer and rely on callers. Audit append-only/transaction/retention not established.
 - Artifact `docs/audit/TASK-2.8-EVENT-DATA-AUDIT-REPOSITORY-TENANT-SCOPE-TRACE-INCREMENT-171.md` committed. G-01/G-10 and audit integrity/retention gaps remain open.
+
+
+## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 172)
+- DatabaseSetup header cross-check: EventData (14) contains ID/EventID/DataJSON/CreatedAt only, inheriting tenant scope via parent; AuditLogs (16) include TenantID but polymorphic EntityType/EntityID; Events (13) includes workflow/version/restoration/idempotency fields. Headers do not prove uniqueness, constraints, or deployed completeness.
+- Artifact `docs/audit/TASK-2.8-EVENT-DATA-AUDIT-HEADER-CARDINALITY-CROSSCHECK-INCREMENT-172.md` committed. G-01/G-03/G-10 and audit integrity gates remain open.
