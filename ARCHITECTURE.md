@@ -1807,3 +1807,7 @@ Read-only ProcurementService trace documents normalized project/need allocation 
 
 ### Task 2.8 Increment 119 — Procurement workspace/report visibility projection (2026-11-23)
 Read-only source trace documents multi-project order projections and all-linked-project visibility checks (orders are omitted if any associated project is inaccessible), request-cached combined workspace, tenant/project-filtered report dataset enrichment, and visibility-aware dashboard aggregation. Runtime leak tests, concurrent-read consistency and report snapshot semantics remain unverified. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 120 — Frontend API/session/router/cache crosswalk (2026-11-23)
+Read-only trace of frontend API, session, permissions, router, cache and app startup compared to backend RequestParser/WebApp/Response/ErrorHandler/Code/config. Observed localStorage session/token persistence, query token transport, retry/deduplication, cache/stale refresh, frontend permission route gating and auth expiry reset, explicit API environment configuration, backend request normalization and enforcement, diagnostic opt-in boundary, and separated Telegram dispatch. V2 requirements include secure session transport, centralized deny-by-default backend authorization, safe retry policy, auth-scoped cache invalidation and explicit API/error contracts. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
