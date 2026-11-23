@@ -1733,3 +1733,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 100 — Workflow schema/key constraint crosswalk
 - Recorded `TASK-2.8-WORKFLOW-SHEET-RELATIONSHIP-AND-KEY-CONSTRAINT-CROSSWALK-INCREMENT-100.md`: schema headers crosswalk Workflow, Steps, Department assignments and Event Rules; required tenant/version composite constraints for V2 documented.
 - Header evidence E1 only; no runtime tests. G-01/G-10 remain open.
+
+
+## Task 2.8 Increment 101 — Workflow test coverage crosscheck
+- Recorded `TASK-2.8-WORKFLOW-TEST-INTENT-COVERAGE-CROSSCHECK-INCREMENT-101.md`: existing test intent covers enforcement/version basics but lacks sampled direct tests for version mismatch, protected lifecycle fields, concurrency, failure recovery and assignment race.
+- Tests inspected only, not run. G-01/G-03/G-10 remain open.
