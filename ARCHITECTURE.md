@@ -1643,3 +1643,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 82 — Frontend API caller trace
 - Recorded `TASK-2.8-FRONTEND-API-CALLER-TRACE-INCREMENT-82.md`: read-only frontend inspection of production API URL isolation in index/API module, in-flight GET deduplication/retry/diagnostics and endpoint caller families across event, form, attachment and project modules.
 - Caller/route/service/permission crosswalk remains incomplete. E1 only; no tests or production changes. G-01 remains blocker; no schema approval.
+
+
+## Task 2.8 Increment 83 — Additional frontend caller families
+- Recorded `TASK-2.8-ADDITIONAL-FRONTEND-CALLER-FAMILIES-INCREMENT-83.md`: bounded frontend endpoint-family trace across material planning, project detail, workflows, event types, reports and admin modules.
+- Dynamic path/contract/permission reconciliation remains partial. E1 only; no tests or production changes; G-01 remains blocker.
