@@ -1617,3 +1617,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 63 (2026-11-22)
 - Legacy test inventory and V2 verification gap map recorded in `TASK-2.8-LEGACY-TEST-INVENTORY-VERIFICATION-GAP-MAP-INCREMENT-63.md`. Verified 40 test files in the reference backend tests tree; read representative test names for attachment access, project deletion, procurement, workflow rules, event idempotency and material planning.
 - Test execution/pass status is not claimed. PostgreSQL/transaction/RLS/route matrix/storage recovery coverage remains unverified. G-01/G-10 remain OPEN; schema readiness NOT APPROVED. No production changes.
+
+
+### Task 2.8 Increment 64 (2026-11-23)
+- Consolidated increments 52–63 into `TASK-2.8-CONSOLIDATED-COVERAGE-EVIDENCE-READINESS-MATRIX-INCREMENT-64.md`, mapping domains to source evidence, test-source evidence, V2 integrity/transaction requirements and unresolved validation.
+- G-01 and G-10 remain OPEN/BLOCKERS; G-02/G-03/G-04 remain OPEN/HIGH. No E3/runtime evidence established; schema/migration readiness remains NOT APPROVED. No production changes.
