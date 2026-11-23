@@ -1658,3 +1658,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 85 — Frontend session, permissions and image caller trace
 - Recorded `TASK-2.8-FRONTEND-SESSION-PERMISSION-AND-IMAGE-CALLER-TRACE-INCREMENT-85.md`: frontend permission lookup, auth login/logout/me, information-type and project-image endpoint families; session lifecycle and image caller abstraction boundaries.
 - Complete role/session cache invalidation and permission contract remain pending. E1 only; no tests or production changes. G-01 blocker remains.
+
+
+## Task 2.8 Increment 86 — Administrative frontend caller trace
+- Recorded `TASK-2.8-ADMINISTRATIVE-FRONTEND-CALLER-TRACE-INCREMENT-86.md`: endpoint-family extraction from users, roles, permission catalog, departments, statuses, audit and workflow-settings frontend modules.
+- Route/payload/permission contract reconciliation remains partial. E1 only; no tests or production changes. G-01/G-10 blockers remain.
