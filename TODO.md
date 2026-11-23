@@ -2108,3 +2108,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Consolidated amendment/void/snapshot/immutability/transaction and downstream-effect policy recommendations and test candidates.
 - Document: `TASK-2.8-EVENT-FORM-HISTORY-CORRECTION-DECISION-MATRIX-INCREMENT-199.md` (root-level due repeated contents-API 404 on docs/audit path).
 - G-03 remains OPEN; G-01/G-10/G-04 remain blockers. Design only; no tests, SQL/DDL, migration, live data, provisioning, deployment or production changes.
+
+
+### Task 2.8 Increment 201 — G-01 consolidated coverage reconciliation (2026-11-23)
+- Consolidated the bounded source/route/caller/consumer audit evidence from increments 107, 125–148 and 185–200 into a domain coverage matrix, with evidence grading, target domain mapping and explicit gaps.
+- Document: `TASK-2.8-G01-CONSOLIDATED-COVERAGE-RECONCILIATION-INCREMENT-201.md`.
+- This is not exhaustive source coverage; retrieval constraints, unverified branches/callers and no runtime test evidence remain. G-01/G-02/G-03/G-04/G-10 OPEN; schema readiness NOT APPROVED. No production changes, tests, DDL, migration, live data, provisioning or deployment.
