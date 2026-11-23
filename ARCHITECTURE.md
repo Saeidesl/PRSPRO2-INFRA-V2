@@ -1911,3 +1911,7 @@ Frontend source-tree reconciliation records 26 module files represented across c
 
 ### Task 2.8 Increment 145 — Attachment/report/print/diagnostics route crosswalk (2026-11-23)
 Bounded route matrix covers attachment/gallery/download/delete, reports/audit, print-template source/assets and diagnostics permission/service/persistence evidence. All rows remain PARTIAL; nested route/direct object authorization, snapshot consistency, privacy, template concurrency and storage recovery runtime tests remain incomplete. E1/E2 only; no tests or production changes; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 146 — Auth/identity/admin route crosswalk (2026-11-23)
+Bounded route matrix documents login/current-user/permissions/logout, admin sessions, users/user-role and role/permission catalogue routes, permission gates, service/tenant checks and mutation effects. Runtime tests, password migration, session invalidation, tenant-negative coverage and transaction/constraint validation remain incomplete. E1/E2 only; no tests or production changes; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
