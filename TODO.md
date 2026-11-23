@@ -1994,3 +1994,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 140 — Critical Workflow/Procurement/Admin route crosswalk (2026-11-23)
 - Bounded route-to-evidence matrices recorded in `docs/audit/TASK-2.8-CRITICAL-WORKFLOW-PROCUREMENT-ADMIN-ROUTE-CROSSWALK-INCREMENT-140.md` for workflow version/rule/assignment/publish, procurement workspace/order/receipt/material spec, and administrative/configuration routes.
 - Nested branches, DTO/caller matrix, tenant/permission negative runtime tests, concurrency/fault recovery and DB constraint mapping remain incomplete. E1/E2 only; no tests or production changes; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 141 — User-role association, validators and setup boundary (2026-11-23)
+- Audited user-role assignment/removal/repository, role/audit/generic validators and status/sidebar permission setup scripts read-only; recorded tenant checks, read-before-write uniqueness, physical membership delete, sequential audit and migration/bootstrap script boundaries in `docs/audit/TASK-2.8-USER-ROLE-ASSOCIATION-VALIDATOR-SETUP-BOUNDARY-INCREMENT-141.md`.
+- DB uniqueness/tenant FKs, temporal membership policy, transactional audit, setup script recovery and seed conflict behavior remain unverified. E1 only; no tests or production changes; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
