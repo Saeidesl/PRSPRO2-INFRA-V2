@@ -1909,3 +1909,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 123 — Source-tree coverage reconciliation (2026-11-23)
 - Read-only source-tree reconciliation recorded in `docs/audit/TASK-2.8-SOURCE-TREE-COVERAGE-RECONCILIATION-INCREMENT-123.md`, separating audited families from remaining detailed crosswalks for Router, RolePermission, EventType, EventData/EventField, Telegram, migration/setup/database schema, diagnostics, WorkflowStep repository, tests, frontend page modules/CSS/loader lifecycle and CI/browser-test coverage.
 - Inventory only, not behavior proof. Task 0.2 route/service permission crosswalk remains open; E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 124 — EventType and historical EventData boundary (2026-11-23)
+- Audited EventTypeService/Repository/Validator and EventData/Field service/repositories in `docs/audit/TASK-2.8-EVENT-TYPE-AND-HISTORICAL-EVENT-DATA-BOUNDARY-INCREMENT-124.md`: tenant/user/department visibility, independent/project types, amendment/draft/variant flags, reference validation, cache invalidation, sequential mutation/audit and parent-event visibility for historical dynamic data.
+- Direct spreadsheet reference validation, storage uniqueness/transaction guarantees, cache recovery and runtime permissions remain unverified. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
