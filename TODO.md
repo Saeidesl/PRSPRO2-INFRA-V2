@@ -1954,3 +1954,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 132 — CI and regression-test coverage crosswalk (2026-11-23)
 - Source-only crosswalk recorded in `docs/audit/TASK-2.8-CI-AND-REGRESSION-TEST-COVERAGE-CROSSWALK-INCREMENT-132.md`: backend syntax/unit/manifest CI, frontend syntax/regression/assets/CSS checks and staging E2E fail-closed guard, selected source-contract test families and test-depth limits.
 - CI/tests were not executed. Requirement-to-test exhaustive mapping, runtime GAS/browser, tenant isolation, fault recovery, concurrency and migration/performance validation remain open. E1 only; no production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 133 — Frontend event-type fields route mismatch candidate (2026-11-23)
+- Crosswalk candidate recorded in `docs/audit/TASK-2.8-FRONTEND-EVENT-FIELD-ROUTE-MISMATCH-CANDIDATE-INCREMENT-133.md`: dashboard selected-project timeline calls GET `/event-types/{id}/fields`; inspected Router nested GET branch dispatches forms/procurement and rejects other subpaths. UI catches failures and falls back without field labels.
+- Runtime/deployment verification pending; candidate mismatch, not confirmed defect. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
