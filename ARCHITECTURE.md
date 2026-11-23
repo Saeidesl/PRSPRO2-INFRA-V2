@@ -1613,3 +1613,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 76 — Form snapshot and workflow draft/publish boundary
 - Recorded bounded source trace in `TASK-2.8-FORM-SNAPSHOT-AND-WORKFLOW-DRAFT-PUBLISH-BOUNDARY-INCREMENT-76.md`: FormService validates mapping/tenant/current version/visibility and requiredness, captures DefinitionSnapshot with event-form responses; mutations bump form version and invalidate cache. WorkflowService excerpts show published-version draft cloning and version-qualified rule replacement.
 - Atomic response lineage/audit synchronization, workflow publish rollback and concurrency/recovery are unverified. E1 only; no runtime tests or production changes. G-01/G-03/G-10 remain open; G-02/G-04 remain open. Schema readiness NOT APPROVED.
+
+
+## Task 2.8 Increment 77 — Independent events and procurement timeline projection
+- Recorded bounded EventService source observations in `TASK-2.8-INDEPENDENT-EVENT-AND-PROCUREMENT-TIMELINE-PROJECTION-INCREMENT-77.md`: tenant-scoped list includes independent events without ProjectID; project-bound events are visibility-filtered; procurement orders/receipts are projected into project timelines from source procurement records rather than duplicate event rows.
+- Independent-event mutation lifecycle, complete route coverage and projection consistency are unverified. E1 only; no tests or production changes. G-01/G-10 blockers and G-02/G-03/G-04 open. Schema readiness NOT APPROVED.
