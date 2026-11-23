@@ -1738,3 +1738,7 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 101 — Workflow test coverage crosscheck
 - Recorded `TASK-2.8-WORKFLOW-TEST-INTENT-COVERAGE-CROSSCHECK-INCREMENT-101.md`: existing test intent covers enforcement/version basics but lacks sampled direct tests for version mismatch, protected lifecycle fields, concurrency, failure recovery and assignment race.
 - Tests inspected only, not run. G-01/G-03/G-10 remain open.
+
+
+## Task 2.8 Increment 103 — Attachment upload/delete recovery boundary
+- Read-only trace of AttachmentService upload and delete paths documents storage-first upload then metadata insert then audit; delete path storage delete then metadata status update then audit. Compensating cleanup, durable operation state, and reconciliation evidence are not established. V2 implications: staged uploads, transactional metadata/audit or outbox, recoverable deletion state, idempotent reconciliation and orphan detection. E1 only; no tests. G-04/G-09/G-11 open; G-01/G-10 blockers remain.
