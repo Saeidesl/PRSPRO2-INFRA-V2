@@ -711,3 +711,10 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Source evidence identifies PROJECT/EVENT association patterns, inherited project visibility for linked events, sequential metadata/storage/audit operations, provider coupling, and recovery/orphan risks. Owner/FK coverage, storage reconciliation, delete/restore policy and runtime validation remain pending.
 - G-04/G-11 remain open; G-01/G-10 and other readiness gaps remain unchanged. Schema readiness NOT APPROVED.
 - No tests, live data/file access, SQL/DDL, migrations, DB provisioning, production modifications, deployment or VPS action.
+
+
+## Phase 2 — Task 2.5 checkpoint (2026-11-23, Increment 160)
+- Added bounded attachment-validator and Router permission crosswalk in `docs/audit/TASK-2.8-ATTACHMENT-VALIDATOR-ROUTE-GATE-TRACE-INCREMENT-160.md`.
+- Observed MIME/extension allow-list, filename and base64-size checks, PDF signature check in provider, ATTACHMENT_VIEW route gate on read/download/thumbnail/list surfaces, and additional tenant/owner checks in service paths. Upload/delete route gate details remain pending.
+- G-04/G-11 and broader tenant/FK/mutation coverage remain open; schema readiness NOT APPROVED.
+- No tests, live files/data, SQL/DDL, migrations, production modifications or deployment.
