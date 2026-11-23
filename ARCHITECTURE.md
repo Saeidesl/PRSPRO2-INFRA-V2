@@ -1586,3 +1586,9 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 — Legacy test intent review (Increment 71, 2026-11-23)
 - Current tests-directory snapshot listed 41 files (earlier audit snapshot reported 40; count drift noted). Reviewed six representative test sources for coverage intent only, including material planning, procurement, project deletion, workflow enforcement, attachment access and schema/idempotency recovery.
 - No test execution or pass claims. V2 test strategy must add PostgreSQL integration, tenant-negative, concurrency, rollback, migration, audit durability and storage recovery coverage. G-01/G-10/G-02/G-03/G-04 remain open; schema readiness NOT APPROVED.
+
+
+## Task 2.8 Increment 72 — Relationship and constraint crosswalk (2026-11-23)
+- Added `TASK-2.8-RELATIONSHIP-CONSTRAINT-CROSSWALK-INCREMENT-72.md`: bounded logical-edge matrix from DatabaseSetup headers and sampled repository contracts across tenant, project/event, forms, central information/history, workflow, materials/procurement and polymorphic storage/audit.
+- Candidate tenant-qualified composite constraints, transaction-backed invariants and versioned-ledger requirements are documented as recommendations, not approved DDL. Cardinality and lifecycle policy remain unresolved; one repository fetch failed.
+- E1 only; no runtime tests, schema implementation or production changes. G-01/G-10 BLOCKER and G-02/G-03/G-04 OPEN; readiness NOT APPROVED.
