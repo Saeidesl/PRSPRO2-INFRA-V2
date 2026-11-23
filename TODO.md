@@ -1848,3 +1848,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ## Task 2.8 Increment 111 — Form definition/field lifecycle (2026-11-23)
 - Recorded read-only form/field lifecycle trace: tenant ownership, type and visibility validation, form version increments, field add/update/soft-delete dependency checks, 60-second ScriptCache invalidation and sequential mutation/audit boundaries. Composite DB constraints, transactional configuration writes and CAS are not demonstrated.
 - E1 only; no runtime tests or production changes. Task 2.8 remains IN PROGRESS; schema readiness NOT APPROVED; G-01/G-10 remain blockers.
+
+
+## Task 2.8 Increment 112 — Event lifecycle boundary (2026-11-23)
+- Recorded read-only EventService trace: event type/project/tenant/workflow/department validation, independent events, form and procurement integration sequencing, quantity variants, user-scoped idempotency and processing marker, void guards and timeline projection/pagination boundaries.
+- Event, response, procurement integration, project mutation and audit are sequential; atomicity and PROCESSING recovery/DB uniqueness are not demonstrated. E1 only; no tests or production changes. Task 2.8 remains IN PROGRESS; schema readiness NOT APPROVED; G-01/G-10 remain blockers.
