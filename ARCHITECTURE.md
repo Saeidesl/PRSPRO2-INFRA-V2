@@ -1815,3 +1815,7 @@ Read-only trace of frontend API, session, permissions, router, cache and app sta
 
 ### Task 2.8 Increment 121 — Storage, audit, reporting and print-template boundaries (2026-11-23)
 Source-only cross-domain trace documented spreadsheet repository cache/locking/row lookup and invalidation, tenant-aware Google Drive storage/upload validation, audit service tenant filtering and sequential mutation coupling, report visible-project aggregation, and versioned print-template binding resolution, optimistic source checks and attachment lifecycle. V2 implications include relational constraints, transactional audit/outbox, object-storage staging/reconciliation, report snapshot semantics and typed template binding contracts. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 122 — Frontend shared UI/theme/accessibility boundary (2026-11-23)
+Source-only review documented shared layout permission presentation, modal focus/ARIA and close behavior (full focus trap not proven), form native validation/serialization, table escaping with trusted raw-cell escape hatch, loading/alert semantics, theme/system preference persistence and sidebar-access overlay. Accessibility, mobile, focus, raw HTML caller trust and large-table behavior require runtime verification. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
