@@ -1763,3 +1763,7 @@ Read-only trace documented in `docs/audit/TASK-2.8-ROLE-USER-ROLE-MUTATION-BOUND
 
 ## Task 2.8 Increment 108 — Department lifecycle boundary
 Department tenant lifecycle observations are recorded in `docs/audit/TASK-2.8-DEPARTMENT-LIFECYCLE-TENANT-BOUNDARY-INCREMENT-108.md`. Service tenant checks and field allowlisting are observed; uniqueness/atomicity and audit recovery are not proven. E1 only, no tests or production changes; task remains in progress and schema readiness is not approved.
+
+
+## Task 2.8 Increment 109 — Project-status lifecycle boundary
+Source trace recorded in `docs/audit/TASK-2.8-PROJECT-STATUS-LIFECYCLE-UNIQUENESS-BOUNDARY-INCREMENT-109.md`. Tenant and permission checks, active-name duplicate check on create, immutable identity/tenant fields on update and sequential audit are observed. Potential reactivation duplicate-name gap and non-atomic read/write boundary are unverified source-level candidates, not confirmed defects. E1 only, no tests or production changes; schema readiness not approved.
