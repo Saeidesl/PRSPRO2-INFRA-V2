@@ -1638,3 +1638,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 81 — Mutation route permission crosscheck
 - Recorded bounded Router mutation route evidence in `TASK-2.8-MUTATION-ROUTE-PERMISSION-CROSSCHECK-INCREMENT-81.md`: explicit PROCUREMENT_MANAGE for order/receipt creation, PROJECT_EDIT for information save/approval, EVENT_EDIT for form response update, ATTACHMENT_UPLOAD for uploads and ATTACHMENT_DELETE for deletion; service validation is relied upon in sampled event response/EventData read paths.
 - Full route/service reconciliation and negative tests remain pending. E1 only; no production changes. G-01/G-10 blockers.
+
+
+## Task 2.8 Increment 82 — Frontend API caller trace
+- Recorded `TASK-2.8-FRONTEND-API-CALLER-TRACE-INCREMENT-82.md`: read-only frontend inspection of production API URL isolation in index/API module, in-flight GET deduplication/retry/diagnostics and endpoint caller families across event, form, attachment and project modules.
+- Caller/route/service/permission crosswalk remains incomplete. E1 only; no tests or production changes. G-01 remains blocker; no schema approval.
