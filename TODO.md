@@ -2096,3 +2096,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Retried production-backend retrieval routes (REST tree, commits, repository fetch and direct file paths); all failed with 404 and code-search indexing is unavailable. No production changes.
 - Recorded evidence and implications in `docs/audit/TASK-2.7-REPOSITORY-ACCESS-AND-V2-REPOSITORY-READINESS-CHECKPOINT-INCREMENT-197.md`.
 - G-01/G-10 and G-02/G-03/G-04 remain blockers. Schema readiness NOT APPROVED. No tests, DDL, migrations, live data, provisioning or deployment.
+
+
+### Task 2.8 Increment 198 — Procurement policy conflict/decision matrix (2026-11-23)
+- Consolidated increments 12–14/195 and policy/default/lifecycle drafts into a decision matrix separating stable technical requirements from business decisions; outlined canonical projections and conceptual commands.
+- Document: `docs/audit/TASK-2.8-PROCUREMENT-POLICY-CONFLICT-AND-DECISION-MATRIX-INCREMENT-198.md`.
+- G-02 remains OPEN pending PO policy choices and exhaustive source/runtime evidence; G-01/G-10 remain blockers. Design only; no tests, SQL/DDL, migrations, live data, provisioning, deployment or production changes.
