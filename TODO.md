@@ -1924,3 +1924,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 126 — Telegram pairing/polling/notification boundary (2026-11-23)
 - Audited TelegramBotService and Code.js routing in `docs/audit/TASK-2.8-TELEGRAM-PAIRING-POLLING-NOTIFICATION-BOUNDARY-INCREMENT-126.md`: Script Properties secret/config model, time-bound private-chat pairing, sole-active-tenant validation, webhook/polling mode, offset handling, recipient mapping, project/event notification payload and attachments, chunking and partial delivery results.
 - Durable retry/idempotency/delivery ledger, live configuration and privacy tests remain unverified. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 127 — Legacy schema setup, migration and diagnostics (2026-11-23)
+- Audited DatabaseSetup, ProductionConfigurationMigration and selected diagnostics scripts read-only; documented schema/header inventory, destructive reset/repair setup functions, migration preview/preflight checks, target configuration migration behavior, separate destructive migration routine, diagnostics persistence and sensitive output considerations in `docs/audit/TASK-2.8-LEGACY-SCHEMA-MIGRATION-AND-DIAGNOSTICS-INCREMENT-127.md`.
+- No functions were executed; migration, backup restore, diagnostic runtime, permissions and recovery remain unverified. E1 only; no production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
