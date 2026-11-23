@@ -1771,3 +1771,7 @@ Source trace recorded in `docs/audit/TASK-2.8-PROJECT-STATUS-LIFECYCLE-UNIQUENES
 
 ## Task 2.8 Increment 110 — Information type/column lifecycle boundary
 Read-only trace recorded in `docs/audit/TASK-2.8-INFORMATION-TYPE-COLUMN-LIFECYCLE-BOUNDARY-INCREMENT-110.md`. Tenant ownership, usage guards for selected structural updates, revision increment and soft deletion are observed; dependency checks for column deactivation, CAS, uniqueness and transactional audit remain unverified. E1 only, no tests or production changes; schema readiness not approved.
+
+
+## Task 2.8 Increment 111 — Form definition/field lifecycle
+Trace recorded in `docs/audit/TASK-2.8-FORM-DEFINITION-FIELD-LIFECYCLE-INCREMENT-111.md`. Form and field tenant validation, visibility dependency/order checks, version increments and cache invalidation are observed; transactional writes, composite constraints and CAS remain unproven. E1 only, no tests or production changes; schema readiness not approved.
