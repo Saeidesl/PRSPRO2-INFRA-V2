@@ -1823,3 +1823,7 @@ Source-only review documented shared layout permission presentation, modal focus
 
 ### Task 2.8 Increment 123 — Source-tree coverage reconciliation (2026-11-23)
 Source-tree and audit-index reconciliation records module families that have focused audits and families still requiring source-level inspection/crosswalk. Remaining gaps include exhaustive Router route/payload/permission mapping, RolePermission, EventType and EventData/EventField, Telegram operations, migration/setup/database contracts, diagnostics, WorkflowStep repository, test coverage, frontend page-module caller flows/CSS/loader lifecycle and CI/browser tests. Inventory is not behavioral evidence. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 124 — EventType and historical EventData boundary (2026-11-23)
+Read-only trace documents EventType visibility policy and configuration normalization, tenant-scoped references and amendment-form validation, event-type cache invalidation, sequential create/update/audit, direct sheet access in project-status reference validation, and historical EventData parent-event tenant/project visibility checks and JSON validation. DB uniqueness, transaction and runtime behavior are not proven. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
