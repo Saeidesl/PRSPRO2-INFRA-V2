@@ -1859,3 +1859,7 @@ Read-only caller inventory documents users/roles/permissions/departments/project
 
 ### Task 2.8 Increment 132 — CI and regression-test coverage crosswalk (2026-11-23)
 Read-only CI/test-source trace documents backend Node tests and manifest/source validation, frontend JS syntax/regression/assets/CSS checks, staging E2E fail-closed guard and selected static source-contract tests. CI and tests were not run. Exhaustive requirements-to-tests trace, runtime GAS/browser validation, tenant isolation, fault/concurrency/recovery, migration and performance validation remain incomplete. E1 only; no production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 133 — Frontend event-type fields route mismatch candidate (2026-11-23)
+Source crosswalk identifies a credible caller mismatch candidate: dashboard timeline requests `/event-types/{id}/fields` for historical DynamicData labels, while the inspected Router GET event-type nested branch accepts forms/procurement and rejects other subpaths; frontend silently falls back. Runtime impact and deployed version alignment are unverified, so this is not a confirmed defect. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
