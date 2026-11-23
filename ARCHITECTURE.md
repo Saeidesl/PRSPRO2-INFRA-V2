@@ -1550,3 +1550,10 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 — GET dispatcher inventory (Increment 65, 2026-11-23)
 - Bounded read-only GET branch-family inventory and permission-pattern observations documented. V2 recommendation: explicit route registry and route-by-route authorization/tenant-negative testing.
 - GET only; mutation routes and runtime coverage remain unverified. No production changes.
+
+
+## Task 2.8 — Router mutation-route inventory checkpoint (Increment 66, 2026-11-23)
+- Read-only Router.js audit now includes bounded POST/PUT/DELETE dispatch inventory, permission guards, notable fallback branches, and review caveats.
+- Source evidence: production Router.js blob SHA `f2542a17993b852c7dd2968a8fefe57f70b991f3`.
+- Review note: print-template project-data binding PUT branch has no explicit Router-level `AccessControlService.require` visible in that branch; service-side authorization must be checked before drawing conclusions.
+- Source-level inventory is not runtime verification. Tenant boundaries, service/repository invariants, full dependency coverage, and runtime tests remain open.
