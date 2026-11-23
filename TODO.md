@@ -1752,3 +1752,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 0.2 / Task 2.8 Increment 92 (2026-11-23)
 - Recorded `TASK-2.8-WORKFLOW-PUBLISH-VERSION-SCOPE-AND-CONCURRENCY-INCREMENT-92.md`: publish version-scoped rules, active step membership validation scope concern, sequential publish/audit, missing visible publish lock/CAS and concurrency risk.
 - E1 observation; potential scope issue pending validation, not a confirmed exploitable defect. No runtime tests. G-01/G-03/G-10 remain open.
+
+
+### Task 0.2 / Task 2.8 Increment 93 (2026-11-23)
+- Recorded `TASK-2.8-WORKFLOW-PUBLISH-SCOPE-CHECK-REFINEMENT-INCREMENT-93.md`: verified version-scoped rule repository lookup and locked replace operation; narrowed publish step-version scope concern pending verification because step repository source path could not be fetched.
+- Potential gap remains unconfirmed; E1 only, no runtime tests. G-01/G-03/G-10 remain open.
