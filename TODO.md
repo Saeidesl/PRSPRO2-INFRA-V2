@@ -1944,3 +1944,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 130 — Frontend material/procurement/workflow/report/print caller trace (2026-11-23)
 - Read-only audit recorded in `docs/audit/TASK-2.8-FRONTEND-MATERIAL-PROCUREMENT-WORKFLOW-REPORT-PRINT-CALLER-TRACE-INCREMENT-130.md`: material-spec multi-row saves/history, procurement workspace/order/receipt caller and permission UX, workflow/bootstrap/rules/publish/assignment cache invalidation, project reports/local template storage, print-template revision sync/bindings/image/PDF and source edits.
 - Full caller payload matrix and browser/runtime, concurrency, storage failure, mobile/accessibility and report correctness tests remain pending. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 131 — Frontend admin/configuration caller inventory (2026-11-23)
+- Read-only inventory recorded in `docs/audit/TASK-2.8-FRONTEND-ADMIN-CONFIGURATION-CALLER-INVENTORY-INCREMENT-131.md`: users/roles/permissions/departments/project statuses, event types/forms/information types, attachments/audit, admin sessions/project delete and settings callers.
+- Payload/permission crosswalk, runtime tenant isolation, configuration transaction/concurrency, accessibility and mobile tests remain incomplete. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
