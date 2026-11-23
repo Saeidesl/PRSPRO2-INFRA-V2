@@ -1608,3 +1608,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 75 — Event void and reference-copy reconciliation
 - Bounded trace recorded in `TASK-2.8-EVENT-VOID-REFERENCE-COPY-RECONCILIATION-INCREMENT-75.md`: void validation/restoration and post-update material reconciliation failure reporting; reference-copy operation replay and image ownership validation.
 - V2 should implement durable transactional state plus reconciliation outbox, retry-safe operation records and staged external file copy. E1 only; runtime tests and aggregate recovery remain unverified. No production changes.
+
+
+## Task 2.8 Increment 76 — Form snapshot and workflow draft/publish boundary
+- Recorded bounded source trace in `TASK-2.8-FORM-SNAPSHOT-AND-WORKFLOW-DRAFT-PUBLISH-BOUNDARY-INCREMENT-76.md`: FormService validates mapping/tenant/current version/visibility and requiredness, captures DefinitionSnapshot with event-form responses; mutations bump form version and invalidate cache. WorkflowService excerpts show published-version draft cloning and version-qualified rule replacement.
+- Atomic response lineage/audit synchronization, workflow publish rollback and concurrency/recovery are unverified. E1 only; no runtime tests or production changes. G-01/G-03/G-10 remain open; G-02/G-04 remain open. Schema readiness NOT APPROVED.
