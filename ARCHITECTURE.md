@@ -1742,3 +1742,7 @@ Read-only source review documents event creation/void, project-state restoration
 
 ## Task 2.8 Increment 103 — Attachment upload/delete recovery boundary
 - Read-only trace of AttachmentService upload and delete paths documents storage-first upload then metadata insert then audit; delete path storage delete then metadata status update then audit. Compensating cleanup, durable operation state, and reconciliation evidence are not established. V2 implications: staged uploads, transactional metadata/audit or outbox, recoverable deletion state, idempotent reconciliation and orphan detection. E1 only; no tests. G-04/G-09/G-11 open; G-01/G-10 blockers remain.
+
+
+## Task 2.8 Increment 104 — Attachment visibility/copy
+- Trace notes tenant/project visibility helper and status filtering across list/gallery/thumbnail paths, plus copyProjectImage restrictions, duplicate-source lookup and compensation cleanup on failure. Potential status consistency and concurrent-copy uniqueness boundaries require tests. E1 only; no runtime tests. G-01/G-04/G-10/G-11 remain open.
