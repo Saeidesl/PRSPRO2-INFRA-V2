@@ -1545,3 +1545,8 @@ Read-only source review documents event creation/void, project-state restoration
 - Added consolidated domain coverage/evidence/readiness matrix, evidence classification and gap register across tenant/RBAC, workflow, projects, events/forms, information history, material planning, procurement, storage, audit, API authorization and migration/runtime validation.
 - Matrix explicitly separates bounded source observations and test-source inventory from runtime verification; no runtime pass is claimed.
 - G-01/G-10 remain blockers. Task 2.8 remains NOT READY for executable schema/migration. No production code/data or live database touched.
+
+
+## Task 2.8 — GET dispatcher inventory (Increment 65, 2026-11-23)
+- Bounded read-only GET branch-family inventory and permission-pattern observations documented. V2 recommendation: explicit route registry and route-by-route authorization/tenant-negative testing.
+- GET only; mutation routes and runtime coverage remain unverified. No production changes.
