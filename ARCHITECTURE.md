@@ -1759,3 +1759,7 @@ Read-only source review documents event creation/void, project-state restoration
 
 ## Task 2.8 Increment 107 — Role/user-role mutation boundary
 Read-only trace documented in `docs/audit/TASK-2.8-ROLE-USER-ROLE-MUTATION-BOUNDARY-INCREMENT-107.md`. Role and user tenant checks and bounded Router permission gates were observed; duplicate/relationship uniqueness and transactional audit boundaries are not proven. Role-permission service orchestration source was not retrieved, so its behavior remains pending discovery. E1 only, no tests or production changes. Task 2.8 remains in progress; schema readiness not approved.
+
+
+## Task 2.8 Increment 108 — Department lifecycle boundary
+Department tenant lifecycle observations are recorded in `docs/audit/TASK-2.8-DEPARTMENT-LIFECYCLE-TENANT-BOUNDARY-INCREMENT-108.md`. Service tenant checks and field allowlisting are observed; uniqueness/atomicity and audit recovery are not proven. E1 only, no tests or production changes; task remains in progress and schema readiness is not approved.
