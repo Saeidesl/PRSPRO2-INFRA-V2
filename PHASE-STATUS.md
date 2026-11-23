@@ -698,3 +698,9 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Event create/void orchestration, idempotency PROCESSING/COMPLETED markers, form persistence, project-state writes, integration failure handling and material-needs reconciliation failure paths documented in `docs/audit/TASK-2.8-EVENT-CREATE-VOID-ORCHESTRATION-PARTIAL-FAILURE-TRACE-INCREMENT-157.md`.
 - Evidence shows sequential persistence and recoverable partial-failure boundaries; durable uniqueness, atomicity and runtime guarantees are not established. Void may persist before material reconciliation; failure is caught and logged for manual/recovery review.
 - G-01/G-03/G-08/G-09/G-10 remain OPEN/pending discovery; schema readiness NOT APPROVED. E1 only; no tests/live data/DDL/migration/provisioning/production changes.
+
+
+## Phase 2 — Task 2.8 Increment 158 (2026-11-23)
+- Read-only FormService trace documented: response validation/snapshots, sequential response and central-information writes, amendment-event replay synchronization, ProjectInformation revision/history, and reference-sync failure boundaries.
+- Amendment replay intentionally retries central-information synchronization after a response save, but writes across current-value/history/audit/reference-sync remain sequential and atomicity is unproven.
+- G-01/G-03/G-04/G-09/G-10/G-11/G-12 remain OPEN/pending discovery; schema readiness NOT APPROVED. E1 only; no runtime tests, live data, DDL, migration, provisioning or legacy repo writes.
