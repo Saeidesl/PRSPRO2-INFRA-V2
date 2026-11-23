@@ -1581,3 +1581,8 @@ Read-only source review documents event creation/void, project-state restoration
 - Bounded read-only source trace recorded in `TASK-2.8-PROJECT-EVENT-INFORMATION-MATERIAL-ATTACHMENT-BOUNDARY-TRACE-INCREMENT-70.md`: sampled tenant checks, optimistic concurrency/idempotency/locks and sequential multi-write/storage operations across project, event, information, material, attachment and audit paths.
 - V2 requirements include transaction-backed revision/copy/recalculation, tenant-aware constraints, audit/outbox, external-storage reconciliation and cross-tenant negative testing.
 - E1 only; no runtime tests. G-01/G-10 and G-02/G-03/G-04 remain open; schema readiness NOT APPROVED. No production changes.
+
+
+## Task 2.8 — Legacy test intent review (Increment 71, 2026-11-23)
+- Current tests-directory snapshot listed 41 files (earlier audit snapshot reported 40; count drift noted). Reviewed six representative test sources for coverage intent only, including material planning, procurement, project deletion, workflow enforcement, attachment access and schema/idempotency recovery.
+- No test execution or pass claims. V2 test strategy must add PostgreSQL integration, tenant-negative, concurrency, rollback, migration, audit durability and storage recovery coverage. G-01/G-10/G-02/G-03/G-04 remain open; schema readiness NOT APPROVED.
