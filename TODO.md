@@ -2051,3 +2051,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 188)
 - Re-established read-only access to backend repository root-level files (DatabaseSetup.js, Code.js, Router.js), but exact WorkflowStepRepository/WorkflowService paths could not be resolved and repository search is not indexed for these terms. No new source conclusions; limitation documented in `docs/audit/TASK-2.8-WORKFLOW-STEP-SOURCE-ACCESS-RECOVERY-INCREMENT-188.md`.
 - G-01/G-10 remain blockers; G-02/G-03/G-04 remain open/high. Schema readiness NOT APPROVED. No tests, production changes or live data.
+
+
+## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 189)
+- Read-only retrieval recovered exact root-level paths for WorkflowService.js, WorkflowRepository.js and EventTypeService.js. Source trace recorded tenant-filtered management bootstrap, workflow/step version visibility, tenant duplicate checks, workflow draft lifecycle/version transitions, rule validation and sequential non-atomic mutations in `docs/audit/TASK-2.8-WORKFLOW-SERVICE-SOURCE-TRACE-RECOVERY-INCREMENT-189.md`.
+- WorkflowStepRepository exact path, full assignment/repository implementation, clone completeness, runtime/concurrency and permission-negative tests remain unresolved. E1 only; no tests/live data/production changes. G-01/G-10 remain blockers; schema readiness NOT APPROVED.
