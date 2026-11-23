@@ -1823,3 +1823,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ## Task 2.8 Increment 106 — Auth/session/user lifecycle boundary
 - Recorded `docs/audit/TASK-2.8-AUTH-SESSION-USER-LIFECYCLE-TRACE-INCREMENT-106.md`: source inspection of auth, session, user update, permissions and selected Router paths. Observed unsalted SHA-256 password hash helper, globally unique username/login policy, token/session storage in Script Properties, configured expiry behavior, admin tenant-scoped session controls and sampled user-update route permissions. Session invalidation on account/password change remains unverified.
 - E1 only; no runtime tests, live users, secrets or production changes. G-01/G-10 remain blockers; schema readiness NOT APPROVED.
+
+
+## Task 2.8 Increment 107 — Role/user-role mutation boundary (2026-11-23)
+- Recorded read-only role lifecycle and role/user-role mutation trace in `docs/audit/TASK-2.8-ROLE-USER-ROLE-MUTATION-BOUNDARY-INCREMENT-107.md`: tenant-scoped role/user validation, role code duplicate-check race boundary, sequential mutation/audit, Router role/user-role permissions and repository bulk locking/write semantics. Role-permission service orchestration remains unavailable via indexed source retrieval; no claims made about it.
+- E1 only; no runtime tests or production changes. Task 2.8 remains IN PROGRESS; schema readiness NOT APPROVED; G-01/G-10 remain blockers.
