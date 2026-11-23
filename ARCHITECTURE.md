@@ -1562,3 +1562,10 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 — Downstream verification checkpoint (Increment 67, 2026-11-23)
 - Reviewed `PrintTemplateService.updateProjectBinding` and delegated handlers. The route's missing visible Router-level guard is not treated as a confirmed bypass: the service checks tenant-scoped template/project availability, and dispatch requires PROJECT_EDIT or EVENT_EDIT by source type. Delegated handlers also contain tenant, locking/version, field allow-list and event restrictions (bounded source observations).
 - No runtime test performed; verification remains source-only.
+
+
+## Task 2.8 — Tenant-boundary and role mutation trace (Increment 68, 2026-11-23)
+- Recorded bounded UserRoleService/RoleService/UserService/PermissionService/WorkflowService and repository-boundary observations in `TASK-2.8-TENANT-BOUNDARY-ROLE-MUTATION-TRACE-INCREMENT-68.md`.
+- Assignment tenant checks and role tenant/code checks were observed in sampled source; writes and audit appear separate in sampled flows. Generic project/event ID lookup is caller-dependent; procurement retrieval helpers tenant-filter.
+- V2 requirements: tenant-aware composite integrity, transaction/audit strategy, protected-role invariant and cross-tenant negative tests. These are requirements only, not implemented.
+- E1 only; no runtime tests. G-01/G-10 remain OPEN/BLOCKER; schema readiness NOT APPROVED. No production changes.
