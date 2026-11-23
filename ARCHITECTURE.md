@@ -1871,3 +1871,7 @@ Read-only caller crosswalk documents sampled PROJECT/EVENT metadata owner types,
 
 ### Task 2.8 Increment 135 — Legacy identifier-generation crosswalk (2026-11-23)
 Read-only bounded source sample documents mismatch between centralized ID prefix registry and service-generated identifiers, UUID length/casing/prefix variants, distinct business/item codes, selected tenant-scoped duplicate checks and copy/repeat linkage. Exhaustive identifier inventory, live collision analysis, migration mapping and durable uniqueness requirements remain unverified. E1 only; no tests or production changes; G-05 remains HIGH/open; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 136 — Quantity precision, units and timestamp handling (2026-11-23)
+Source-only numerical/time boundary trace documents positive integer project quantity, material specification consumption/wastage and four-decimal ceiling calculation, JavaScript floating-point procurement quantities/prices/allocation sums, free-text units and sampled ISO date handling. Domain precision, currency/unit conversion, business-date/timezone/Jalali semantics and exhaustive field inventory remain unverified. E1 only; no tests or production changes; G-06/G-07 remain HIGH/open; G-01/G-10 remain open; schema readiness NOT APPROVED.
