@@ -759,3 +759,9 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - The helper validates source Attachment tenant, PROJECT owner and source project and image MIME; copies attachment to target project and replaces reference with new target-owned attachment metadata. Active image-typed information columns are traversed in scalar/table values. Lock/status/retry persistence exists in sampled orchestration; atomicity/compensating cleanup for multi-file copying is unproven.
 - Copy-vs-share policy and durable integrity/recovery remain design gaps. G-04/G-09/G-10/G-11 remain open; schema readiness NOT APPROVED.
 - Source trace only; no runtime tests, live data, production modification, migration or deployment.
+
+
+## Phase 2 — Task 2.5 checkpoint (2026-11-23, Increment 167)
+- Added revision/history/soft-delete trace of ProjectInformationService.js in `docs/audit/TASK-2.8-PROJECT-INFORMATION-REVISION-HISTORY-DELETE-TRACE-INCREMENT-167.md`.
+- Observed current ValueJSON/revision/status/source-event metadata plus history snapshots, ExpectedRevision stale-edit guard, sequential update/history/audit/live-sync; soft-delete increments revision and creates history/audit. Atomicity remains unproven. File-based live-sync conflict USE_SOURCE is rejected in sampled conflict resolution.
+- G-01/G-03/G-04/G-09/G-10/G-11/G-12 remain open; schema readiness NOT APPROVED. Source-only, no tests/data/production changes/migration.
