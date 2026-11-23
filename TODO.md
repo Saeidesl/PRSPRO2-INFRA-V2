@@ -2061,3 +2061,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 190)
 - WorkflowService.publish source trace confirms tenant ownership, active-step minimum, version derivation, active tenant event-type/rule reference checks, publication metadata update, repeat-policy snapshot and sequential audit record. Findings recorded in `docs/audit/TASK-2.8-WORKFLOW-PUBLISH-LIFECYCLE-VALIDATION-INCREMENT-190.md`.
 - Atomicity, concurrency, complete rule semantics, assignment constraints and runtime validation remain unverified; E1 only, no tests or production changes. G-01/G-10 remain blockers; schema readiness NOT APPROVED.
+
+
+## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 191)
+- Audited WorkflowStepDepartmentService/repository and WorkflowStepEventRuleRepository/saveStepEventRules. Evidence covers tenant-scoped assignment validation, batch limits/fallback inserts, soft removal, clone/version rule behavior and ScriptLock replacement plus sequential workflow update/audit. Recorded in `docs/audit/TASK-2.8-WORKFLOW-DEPARTMENT-ASSIGNMENT-AND-RULE-REPOSITORY-INCREMENT-191.md`.
+- Race/atomicity/partial failure, audit consistency, repository helper tenant safety at all callers and runtime tests remain unresolved. E1 only; no tests or production changes; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
