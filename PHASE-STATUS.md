@@ -775,3 +775,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 169)
 - Router crosswalk for Project Information: GET/list/item/history guarded by PROJECT_VIEW; save, soft-delete, approve, reference-conflict resolution guarded by PROJECT_EDIT; sampled service-level tenant/project/type validation is also present. Complete route/mutation coverage remains unverified.
 - Artifact `docs/audit/TASK-2.8-PROJECT-INFORMATION-ROUTE-PERMISSION-CROSSWALK-INCREMENT-169.md` committed. G-01/G-09/G-10 remain open; source-only audit.
+
+
+## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 170)
+- Project-information file/image field validation trace: attachment reference is checked for same tenant, PROJECT owner and exact project, active state, allowed INFORMATION/PROFILE type (PROFILE only for image), MIME whitelist, and image MIME; image arrays cap at 20, files remain single. Metadata reference normalized to attachment ID/name/MIME/size/type. Retention and immutable-version linkage remain unproven.
+- Artifact `docs/audit/TASK-2.8-PROJECT-INFORMATION-ATTACHMENT-REFERENCE-VALIDATION-TRACE-INCREMENT-170.md` committed. G-04/G-09/G-11 remain open.
