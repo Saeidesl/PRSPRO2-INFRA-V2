@@ -1787,3 +1787,7 @@ Trace recorded in `docs/audit/TASK-2.8-EVENT-FORM-RESPONSE-AMENDMENT-SYNC-BOUNDA
 
 ## Task 2.8 Increment 114 — Project lifecycle and repeat-reference copy
 Read-only trace in `docs/audit/TASK-2.8-PROJECT-LIFECYCLE-REPEAT-COPY-BOUNDARY-INCREMENT-114.md`. Draft/active lifecycle, repeat source and policy, staged copy state, image-copy orchestration and uniqueness/locking boundaries observed. E1 only; transaction/storage recovery and DB constraints not proven; schema readiness not approved.
+
+
+## Task 2.8 Increment 115 — Project information revision and reference synchronization
+Read-only trace recorded in `docs/audit/TASK-2.8-PROJECT-INFORMATION-REVISION-APPROVAL-LIVE-SYNC-BOUNDARY-INCREMENT-115.md`. Validation, revision history, approvals, idempotency, LIVE_SYNC conflict handling and resolution are observed. Transactions, durable fan-out/recovery and DB unique constraints remain unproven. E1 only; schema readiness not approved.
