@@ -1767,3 +1767,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 0.2 / Task 2.8 Increment 95 (2026-11-23)
 - Recorded `TASK-2.8-WORKFLOW-DEPARTMENT-ASSIGNMENT-VERSION-SCOPE-INCREMENT-95.md`: assignment scope semantics for versioned steps, duplicate/concurrency boundary and batch atomicity/fallback writes.
 - Business semantics remain unresolved; E1 only, no runtime tests. G-01/G-03/G-10 remain open.
+
+
+### Task 0.2 / Task 2.8 Increment 96 (2026-11-23)
+- Recorded `TASK-2.8-WORKFLOW-RULE-SAVE-STEP-VERSION-MISMATCH-INCREMENT-96.md`: saveStepEventRules validates workflow/step tenant relationship but does not explicitly bind selected step version to draft target version; credible mismatch path, runtime impact unverified. Sequential clone/replace/metadata/audit boundary.
+- E1 source evidence only. No runtime tests; G-01/G-03/G-10 remain open.
