@@ -644,3 +644,9 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 Increment 65 (2026-11-23)
 - Recorded a bounded Router.js GET dispatcher branch inventory and selected authorization patterns in a dedicated audit artifact.
 - Evidence is source-observed only; mutation route coverage and runtime tests remain pending. G-01 remains OPEN/BLOCKER; no production changes.
+
+
+## Phase 0 — READ-ONLY audit checkpoint (Increment 66, 2026-11-23)
+- Corrected GitHub owner spelling for retrieval; Router.js was successfully retrieved and read-only POST/PUT/DELETE route dispatch inventory documented in `docs/audit/TASK-2.8-ROUTER-MUTATION-ROUTE-INVENTORY-INCREMENT-66.md`.
+- Source review observation requiring follow-up: print-template project-data binding PUT route lacks visible Router-level permission guard; downstream authorization not yet verified, so this is not classified as a confirmed vulnerability.
+- Task 0.2 remains IN PROGRESS; no runtime testing or production modification.
