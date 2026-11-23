@@ -1979,3 +1979,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 137 — Remaining frontend auth/dashboard/workflow preference trace (2026-11-23)
 - Read-only trace recorded in `docs/audit/TASK-2.8-REMAINING-FRONTEND-AUTH-DASHBOARD-WORKFLOW-PREFERENCE-INCREMENT-137.md`: auth fail-closed permission bootstrap/cleanup, dashboard redesign local state/history pagination/attachment/needs projection and project-create workflow preference helper.
 - Browser/runtime auth, pagination concurrency, local-state cross-account, mobile/accessibility and performance tests remain pending. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 138 — Tenant-qualified relation/constraint candidate manifest (2026-11-23)
+- Consolidated header-derived relation candidates across identity/RBAC, projects/workflows, events/forms/information, material/procurement, attachments/audit and print templates in `docs/audit/TASK-2.8-TENANT-QUALIFIED-RELATIONSHIP-CONSTRAINT-CANDIDATE-MANIFEST-INCREMENT-138.md`.
+- This is a candidate manifest, not existing FK proof. Composite tenant constraints, normalized array-link policy, global Permission catalog scope, polymorphic owner integrity and cross-tenant tests remain unresolved. E1 only; G-01/G-10 remain blockers; no tests or production changes; schema readiness NOT APPROVED.
