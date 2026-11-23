@@ -1569,3 +1569,9 @@ Read-only source review documents event creation/void, project-state restoration
 - Assignment tenant checks and role tenant/code checks were observed in sampled source; writes and audit appear separate in sampled flows. Generic project/event ID lookup is caller-dependent; procurement retrieval helpers tenant-filter.
 - V2 requirements: tenant-aware composite integrity, transaction/audit strategy, protected-role invariant and cross-tenant negative tests. These are requirements only, not implemented.
 - E1 only; no runtime tests. G-01/G-10 remain OPEN/BLOCKER; schema readiness NOT APPROVED. No production changes.
+
+
+## Task 2.8 — Procurement and cascade-delete transactional gap trace (Increment 69, 2026-11-23)
+- Bounded source review documented in `TASK-2.8-PROCUREMENT-AND-PROJECT-DELETE-TRANSACTIONAL-GAP-TRACE-INCREMENT-69.md`: locks/idempotency/prevalidation and compensation in procurement; sequential dependency mutation, storage trash and physical project delete in cascade path.
+- These are current-system observations and V2 requirements, not validated runtime behavior. V2 should transactionally enforce quantity/allocation/idempotency invariants, tenant-aware constraints, audit/outbox and staged storage reconciliation.
+- No tests executed. G-02/G-03/G-04/G-10 and G-01 remain open; schema readiness NOT APPROVED. No production changes.
