@@ -845,3 +845,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 184)
 - Workflow step create and rule save/fork crosscheck recorded. Creation checks tenant and duplicate step code via scan, and may clone rules/update draft state before insert; rule save checks workflow/step tenant relationship and version/event-type validity, then replacement, lifecycle patch and audit are sequential. Composite constraints, concurrency and transaction/recovery are unproven.
 - Artifact `docs/audit/TASK-2.8-WORKFLOW-STEP-CREATE-DRAFT-FORK-RULE-VALIDATION-TRACE-INCREMENT-184.md` committed. G-01/G-10 remain open.
+
+
+## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 185)
+- EventType workflow-step reference trace recorded: bounded service validation checks step existence and TenantID, but does not visibly establish broader workflow linkage/lifecycle semantics. Header context and domain policy remain incomplete; this is a discovery gap, not a defect finding. G-01/G-10 remain open.
+- Artifact `docs/audit/TASK-2.8-EVENT-TYPE-WORKFLOW-STEP-REFERENCE-INTEGRITY-TRACE-INCREMENT-185.md` committed.
