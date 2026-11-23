@@ -855,3 +855,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 186)
 - WorkflowStepRepository source and workflow tests crosschecked. Repository exposes reads, insert/update, but no delete in inspected file; findByWorkflowId and findByCode are not tenant-scoped repository methods and rely on service-layer validation. Static tests exist; not executed in this audit. Artifact recorded; G-01/G-10 remain open.
 - Artifact `docs/audit/TASK-2.8-WORKFLOW-STEP-REPOSITORY-TEST-EVIDENCE-TRACE-INCREMENT-186.md` committed.
+
+
+## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 187)
+- Router workflow-step API crosswalk recorded. Reads for step list allow WORKFLOW_MANAGE or PROJECT_VIEW; event-rule and management data reads require WORKFLOW_MANAGE; nested POST step creation/publish and department assignments are behind WORKFLOW_MANAGE. Runtime permission-negative checks not performed; G-01/G-10 remain open.
+- Artifact `docs/audit/TASK-2.8-WORKFLOW-STEP-ROUTE-AUTHORIZATION-CROSSCHECK-INCREMENT-187.md` committed.
