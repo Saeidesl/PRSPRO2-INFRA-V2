@@ -1672,3 +1672,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 0.2 / Task 2.8 Increment 76 (2026-11-23)
 - Bounded FormService/event-response source review documented in `TASK-2.8-FORM-SNAPSHOT-AND-WORKFLOW-DRAFT-PUBLISH-BOUNDARY-INCREMENT-76.md`: tenant/mapping/version/visibility validation, DefinitionSnapshot capture and response persistence; form/field version bumps and cache invalidation; published workflow draft cloning/version-qualified rule replacement.
 - Atomicity, immutable response lineage, complete publish rollback and runtime concurrency/recovery remain unverified. E1 only; no tests executed or production changes. G-01/G-03/G-10 remain open; G-02/G-04 remain open; schema readiness NOT APPROVED.
+
+
+### Task 0.2 / Task 2.8 Increment 77 (2026-11-23)
+- Recorded `TASK-2.8-INDEPENDENT-EVENT-AND-PROCUREMENT-TIMELINE-PROJECTION-INCREMENT-77.md`: bounded EventService list evidence includes tenant-visible independent events (ProjectID absent) and project-linked visibility filtering; procurement order/receipt timeline is synthesized from source procurement records, not duplicate event rows.
+- Full independent-event write lifecycle and projection consistency remain unverified; E1 only, no tests executed. G-01/G-10 blockers and G-02/G-03/G-04 open. No production changes.
