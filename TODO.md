@@ -2114,3 +2114,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Consolidated the bounded source/route/caller/consumer audit evidence from increments 107, 125–148 and 185–200 into a domain coverage matrix, with evidence grading, target domain mapping and explicit gaps.
 - Document: `TASK-2.8-G01-CONSOLIDATED-COVERAGE-RECONCILIATION-INCREMENT-201.md`.
 - This is not exhaustive source coverage; retrieval constraints, unverified branches/callers and no runtime test evidence remain. G-01/G-02/G-03/G-04/G-10 OPEN; schema readiness NOT APPROVED. No production changes, tests, DDL, migration, live data, provisioning or deployment.
+
+
+### Task 2.8 Increment 202 — Coverage gap closure plan (2026-11-23)
+- Converted the Increment 201 domain crosswalk gaps into 13 finite evidence work packages, dependencies, exit criteria and a retrieval-blocker fallback. Avoids repeating bounded audit work and separates evidence gaps from PO policy gates.
+- Document: `TASK-2.8-COVERAGE-GAP-CLOSURE-PLAN-INCREMENT-202.md`.
+- Does not close any readiness gate. G-01/G-02/G-03/G-04/G-10 remain OPEN; schema readiness NOT APPROVED. No tests, SQL/DDL, migration, live data, provisioning or deployment.
