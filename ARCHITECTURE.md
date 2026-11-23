@@ -1799,3 +1799,7 @@ Trace in `docs/audit/TASK-2.8-ADMIN-PROJECT-CASCADE-DELETE-BOUNDARY-INCREMENT-11
 
 ### Task 2.8 Increment 117 — Material specification/calculation lifecycle (2026-11-23)
 Read-only trace of MaterialPlanningService and its test file documents additive lazy sheet preparation, revisioned tenant/project material specifications, append-oriented calculation ledger and calculation-key replay, quantity calculation/variance, confirmed and estimated need supersession, and void-event review marking. The specification, ledger, need projection and audit operations are sequential; transactional consistency, durable uniqueness and complete partial-failure recovery are not demonstrated. Test intent inspected only, not executed. E1 only; no production changes; G-01/G-10 remain open and schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 118 — Procurement allocation/receipt projection (2026-11-23)
+Read-only ProcurementService trace documents normalized project/need allocation validation, automatic remaining-need allocation and surplus handling, sequential order/items/allocations with NEEDS_REVIEW on partial failure, lock/idempotency guarded single and batch receipts, allocation/project receipt limits, status projection, request-scoped cache and derived procurement quantities. Single and batch receipt pathways are not fully behaviorally equivalent in the inspected source. Transactional guarantees, durable uniqueness, and reconciliation recovery are not demonstrated. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
