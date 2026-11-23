@@ -801,3 +801,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 175)
 - Cross-check login versus account creation/update: UserService intends global case-insensitive username uniqueness, but AuthService login fails closed when multiple matches and explicitly notes usernames may repeat across tenants (policy drift/historical duplicate possibility). SHA-256 UTF-8 hash is used without salt/work factor in sampled helper. Account mutation/audit sequential.
 - Artifact `docs/audit/TASK-2.8-USERNAME-POLICY-CONFLICT-LEGACY-PASSWORD-HASH-TRACE-INCREMENT-175.md` committed. G-05/G-08/G-10 remain open.
+
+
+## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 176)
+- User-role repositories are ID-based and unscoped; service assignment validates user/role tenant and active role, and list path filters tenant afterward. Role-permission association has TenantID; permission catalog is global per header inventory. Unique/FK and transactional audit coupling not proven.
+- Artifact `docs/audit/TASK-2.8-USER-ROLE-ROLE-PERMISSION-TENANT-INTEGRITY-TRACE-INCREMENT-176.md` committed. G-01/G-05/G-10 remain open.
