@@ -1879,3 +1879,7 @@ Source-only numerical/time boundary trace documents positive integer project qua
 
 ### Task 2.8 Increment 137 — Remaining frontend auth/dashboard/workflow preference trace (2026-11-23)
 Read-only trace documents auth login/logout and fail-closed permission loading/local cleanup, dashboard redesign persisted filters/expanded state, paginated project history/data-field context and attachment/needs projection, and a local workflow preference helper. Runtime auth transitions, pagination consistency, cross-account storage isolation, browser/mobile/accessibility and performance remain unverified. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 138 — Tenant-qualified relation/constraint candidate manifest (2026-11-23)
+Header-derived candidate relationships across tenant/RBAC, project/workflow, event/form/information, material/procurement, attachment/audit and template domains were consolidated. Candidate composite tenant constraints, array-link normalization, global-vs-tenant Permission scope and polymorphic link strategies are documented. This is not proof of current constraints or exhaustive relationship validation; G-01/G-10 remain blockers. E1 only; no tests or production changes; schema readiness NOT APPROVED.
