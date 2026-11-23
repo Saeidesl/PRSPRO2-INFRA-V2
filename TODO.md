@@ -1642,3 +1642,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 0.2 / Task 2.8 Increment 70 (2026-11-23)
 - Bounded Project/Event/EventData/ProjectInformation/material-planning/Attachment/AuditService trace recorded in `TASK-2.8-PROJECT-EVENT-INFORMATION-MATERIAL-ATTACHMENT-BOUNDARY-TRACE-INCREMENT-70.md`: tenant checks, optimistic revision/idempotency/lock patterns and sequential multi-write/storage boundaries.
 - E1 source evidence only; no runtime, concurrency or recovery tests. G-01/G-10 remain OPEN/BLOCKER; G-02/G-03/G-04 remain OPEN/HIGH. No production changes.
+
+
+### Task 0.2 / Task 2.8 Increment 71 (2026-11-23)
+- Current tests directory listing returned 41 test files (previous increment reported 40; snapshot difference noted). Six representative test sources reviewed for test intent: material planning, procurement, project deletion, workflow event enforcement, attachment access and idempotency schema recovery.
+- Review of test sources only; tests not executed. Mock/source-contract coverage does not establish PostgreSQL/runtime validation. G-01/G-10 remain OPEN/BLOCKER; G-02/G-03/G-04 remain OPEN/HIGH. No production changes.
