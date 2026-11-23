@@ -1858,3 +1858,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ## Task 2.8 Increment 113 — Event form response/amendment sync boundary (2026-11-23)
 - Recorded read-only FormService response trace: required mappings/form version/field validation, response definition snapshots, response save and central-information sync, direct template update concurrency checks, amendment event gating/replay and project-code reconciliation. Response+central projection+audit atomicity remains unproven.
 - E1 only; no tests or production changes. Task 2.8 remains IN PROGRESS; schema readiness NOT APPROVED; G-01/G-10 remain blockers.
+
+
+## Task 2.8 Increment 114 — Project lifecycle/repeat-copy boundary (2026-11-23)
+- Read-only trace recorded for draft create/completion, tenant-scoped active project creation, workflow immutability after event history, repeat project source validation and configured INITIAL_COPY/LIVE_SYNC/INDEPENDENT policies, staged copy plan/retry state, profile/information image copying, operation IDs, and code uniqueness checks.
+- DB transaction/uniqueness guarantees and cross-storage recovery remain unproven. E1 only, no tests/production changes. Task 2.8 IN PROGRESS; schema readiness NOT APPROVED; G-01/G-10 open.
