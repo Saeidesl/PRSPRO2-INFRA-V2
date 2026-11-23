@@ -1835,3 +1835,7 @@ Read-only source trace documents tenant-scoped role checks, global permission-ca
 
 ### Task 2.8 Increment 126 — Telegram pairing/polling/notification boundary (2026-11-23)
 Read-only source trace documents secret/config storage in Script Properties, time-limited pairing, sole-active-tenant/private chat checks, polling/webhook lifecycle, update-offset processing, tenant recipient mapping, project/event notification content/attachment collection and partial delivery statuses. Live config not accessed; durable notification queue/retry/idempotency, revocation, rate limiting and privacy behavior remain unverified. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 127 — Legacy schema setup, migration and diagnostics (2026-11-23)
+Read-only trace documents DatabaseSetup header definitions and destructive setup/admin functions, configuration migration preflight (header/ID/conflict/tenant/reference checks), backup-before-target-mutation path, a separate target-clearing migration routine with hardcoded environment identifiers, and diagnostic scripts/persistence/privacy boundaries. No migration/reset/diagnostic functions were run. Backup restore, migration recovery, runtime diagnostics permissions/retention remain unverified. E1 only; no production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
