@@ -26,7 +26,7 @@
 - [x] Consolidate critical risks, performance constraints, migration dependencies, and test/deployment coverage caveats.
 - [x] Record detailed findings and unknowns in ARCHITECTURE.md.
 
-**Status:** IN PROGRESS
+**Status:** COMPLETE — Product Owner accepted closure pack Increment 149 on 2026-11-23. Read-only audit work package closed; residual limitations/blockers remain documented.
 
 ### Task 0.3 — Discovery report and target boundaries
 - [x] Draft high-level current-system map from read-only source audit evidence.
@@ -2039,3 +2039,10 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 0.2 / Task 2.8 Increment 149 — Read-only audit closure pack assembled (2026-11-23)
 - Consolidated source-tree/module-family coverage, route branch inventory, relationship candidate manifest, test/CI inventory, caller crosswalks and residual blocker register in `docs/audit/TASK-0.2-TASK-2.8-READ-ONLY-SOURCE-AUDIT-CLOSURE-PACK-INCREMENT-149.md`.
 - Source audit/documentation assembly is ready for Product Owner review; Task 0.2 remains IN PROGRESS pending explicit acceptance. This does not approve PostgreSQL schema, migration, live-data access or deployment. G-01/G-10 remain blockers and runtime/test evidence is absent.
+
+
+### Task 0.2 acceptance (2026-11-23)
+- Product Owner accepted the Increment 149 read-only source audit closure pack.
+- Task 0.2 read-only audit work package is COMPLETE. E1/E2 evidence and partial coverage limitations are explicitly documented; E3 runtime/test and E4 live-data evidence were not obtained.
+- G-01/G-10 remain blockers; G-02/G-03/G-04 and G-05 through G-12 remain open or policy-dependent as recorded in the closure pack/readiness documents. PostgreSQL schema readiness remains NOT APPROVED.
+- Acceptance does not authorize schema implementation, migrations, live-data access, production changes, VPS purchase, deployment or cutover.
