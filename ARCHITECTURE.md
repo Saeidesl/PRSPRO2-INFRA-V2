@@ -1603,3 +1603,8 @@ Read-only source review documents event creation/void, project-state restoration
 - Source review of ProjectDeletionService collector (SHA 62482bfb42c2c7bb3329becbb2f821e1efbb4c8e) and FormRepository found that the explicit dependency collector omits ProjectInformation/history, EventFormData responses and reference-sync logs from its visible child inventory. This is a coverage gap in the sampled source, not runtime evidence of orphaning.
 - Also documented the post-project-delete audit write boundary. V2 should use a dependency registry/disposition policy, durable deletion operation and transaction/outbox; no physical deletion before full dependency accounting.
 - E1 only; no tests or production changes. G-01/G-10 remain blockers; schema readiness NOT APPROVED.
+
+
+## Task 2.8 Increment 75 — Event void and reference-copy reconciliation
+- Bounded trace recorded in `TASK-2.8-EVENT-VOID-REFERENCE-COPY-RECONCILIATION-INCREMENT-75.md`: void validation/restoration and post-update material reconciliation failure reporting; reference-copy operation replay and image ownership validation.
+- V2 should implement durable transactional state plus reconciliation outbox, retry-safe operation records and staged external file copy. E1 only; runtime tests and aggregate recovery remain unverified. No production changes.
