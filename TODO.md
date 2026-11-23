@@ -1647,3 +1647,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 0.2 / Task 2.8 Increment 71 (2026-11-23)
 - Current tests directory listing returned 41 test files (previous increment reported 40; snapshot difference noted). Six representative test sources reviewed for test intent: material planning, procurement, project deletion, workflow event enforcement, attachment access and idempotency schema recovery.
 - Review of test sources only; tests not executed. Mock/source-contract coverage does not establish PostgreSQL/runtime validation. G-01/G-10 remain OPEN/BLOCKER; G-02/G-03/G-04 remain OPEN/HIGH. No production changes.
+
+
+### Task 0.2 / Task 2.8 Increment 72 (2026-11-23)
+- Recorded bounded logical relationship and candidate constraint crosswalk in `TASK-2.8-RELATIONSHIP-CONSTRAINT-CROSSWALK-INCREMENT-72.md` based on DatabaseSetup headers and sampled repositories. Includes tenant-qualified references, project/event/form/information/history/material/procurement links and polymorphic attachment/audit risk.
+- Candidate constraints are recommendations only; cardinality, independent-event policy, lifecycle/retention and cross-domain semantics remain pending discovery. MaterialPlanningRepository fetch failed (NOT_FOUND). E1 only; no runtime tests, DDL, migration, live data or production changes. G-01/G-10 remain BLOCKER; G-02/G-03/G-04 open/high; schema readiness NOT APPROVED.
