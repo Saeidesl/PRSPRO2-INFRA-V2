@@ -1803,3 +1803,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Recorded `docs/audit/TASK-2.8-WORKFLOW-SERVICE-PUBLISH-AND-RULE-VALIDATION-TRACE-INCREMENT-102.md`: read-only source trace of `WorkflowService.createStep`, `getStepEventRules`, `saveStepEventRules`, and `publish`.
 - Evidence: step creation checks tenant/workflow and duplicate Code, but uses sequential version-clone/draft-update/step-insert; rule saving validates the target draft version yet step membership is not explicitly checked against that same workflow version; publishing validates active-step membership for active rules and writes workflow publication state followed by audit.
 - These are source-level boundaries, not confirmed runtime defects. No tests executed and no production changes. G-01/G-03/G-10 remain open.
+
+
+### Task 2.8 Increment 103 (2026-11-23)
+- Recorded `docs/audit/TASK-2.8-ATTACHMENT-UPLOAD-DELETE-RECOVERY-BOUNDARY-INCREMENT-103.md`: source trace of attachment upload persistence/audit sequencing and delete storage-first sequencing.
+- Upload object precedes metadata insert and audit without visible compensating cleanup; delete removes storage before metadata soft-delete and audit. These create recoverability/orphan and metadata-to-storage inconsistency boundaries, not runtime-confirmed failures. E1 only, no tests. G-04/G-09/G-11 remain open; G-01/G-10 remain blockers.
