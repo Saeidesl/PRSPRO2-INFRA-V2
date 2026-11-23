@@ -1914,3 +1914,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 124 — EventType and historical EventData boundary (2026-11-23)
 - Audited EventTypeService/Repository/Validator and EventData/Field service/repositories in `docs/audit/TASK-2.8-EVENT-TYPE-AND-HISTORICAL-EVENT-DATA-BOUNDARY-INCREMENT-124.md`: tenant/user/department visibility, independent/project types, amendment/draft/variant flags, reference validation, cache invalidation, sequential mutation/audit and parent-event visibility for historical dynamic data.
 - Direct spreadsheet reference validation, storage uniqueness/transaction guarantees, cache recovery and runtime permissions remain unverified. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 125 — Role-permission resolution and assignment (2026-11-23)
+- Retrieved and audited previously unavailable RolePermission orchestration and repository code plus PermissionService/Repository and AccessControlService. Recorded tenant role checks, permission catalogue resolution, batch assignment/removal, physical link deletion, request-cache resolution, admin role-code semantics and route-enforcement delegation in `docs/audit/TASK-2.8-ROLE-PERMISSION-RESOLUTION-AND-ASSIGNMENT-INCREMENT-125.md`.
+- Composite uniqueness, transaction/audit coupling and exhaustive Router permission enforcement remain unverified. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
