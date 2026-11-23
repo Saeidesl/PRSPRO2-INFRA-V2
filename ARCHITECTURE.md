@@ -1791,3 +1791,7 @@ Read-only trace in `docs/audit/TASK-2.8-PROJECT-LIFECYCLE-REPEAT-COPY-BOUNDARY-I
 
 ## Task 2.8 Increment 115 — Project information revision and reference synchronization
 Read-only trace recorded in `docs/audit/TASK-2.8-PROJECT-INFORMATION-REVISION-APPROVAL-LIVE-SYNC-BOUNDARY-INCREMENT-115.md`. Validation, revision history, approvals, idempotency, LIVE_SYNC conflict handling and resolution are observed. Transactions, durable fan-out/recovery and DB unique constraints remain unproven. E1 only; schema readiness not approved.
+
+
+## Task 2.8 Increment 116 — Project cascade deletion
+Trace in `docs/audit/TASK-2.8-ADMIN-PROJECT-CASCADE-DELETE-BOUNDARY-INCREMENT-116.md` records dependency preview and destructive cascade. Normal V2 lifecycle should favor archive; deletion needs durable orchestration, retention, rollback/recovery, audit/outbox and complete dependency validation. E1 only; no tests or production changes; schema readiness not approved.
