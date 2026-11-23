@@ -765,3 +765,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Added revision/history/soft-delete trace of ProjectInformationService.js in `docs/audit/TASK-2.8-PROJECT-INFORMATION-REVISION-HISTORY-DELETE-TRACE-INCREMENT-167.md`.
 - Observed current ValueJSON/revision/status/source-event metadata plus history snapshots, ExpectedRevision stale-edit guard, sequential update/history/audit/live-sync; soft-delete increments revision and creates history/audit. Atomicity remains unproven. File-based live-sync conflict USE_SOURCE is rejected in sampled conflict resolution.
 - G-01/G-03/G-04/G-09/G-10/G-11/G-12 remain open; schema readiness NOT APPROVED. Source-only, no tests/data/production changes/migration.
+
+
+## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 168)
+- Audited ProjectInformationRepository tenant boundaries: findHistory scopes by parent ID only; sampled service call sites tenant-filter returned history, but repo API is unscoped. findSyncLog tenant parameter is optional and omitting it removes TenantID filtering. Project/type repository lookup methods are ID-based; sampled service callers validate tenant/project/type first. Exhaustive callers remain unknown.
+- Added `docs/audit/TASK-2.8-PROJECT-INFORMATION-REPOSITORY-TENANT-BOUNDARY-TRACE-INCREMENT-168.md`. Structural tenant isolation, mandatory tenant-scoped queries and history integrity remain V2 design gates. Schema NOT APPROVED; source-only audit.
