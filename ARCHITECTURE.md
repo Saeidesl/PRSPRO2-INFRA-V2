@@ -1891,3 +1891,7 @@ Bounded route matrix maps project/event route families to sampled permission gat
 
 ### Task 2.8 Increment 140 — Critical Workflow/Procurement/Admin route crosswalk (2026-11-23)
 Bounded route matrices document workflow publish/rules/assignment, procurement workspace/order/receipt/material specification, and administrative/configuration endpoint permission families, tenant/service checks, persistence effects and test-source evidence. Exhaustive nested routes/callers/DTOs, negative runtime tests, constraints and fault/concurrency recovery remain unverified. E1/E2 only; no tests or production changes; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 141 — User-role association, validators and setup boundary (2026-11-23)
+Read-only trace documents tenant-scoped user/role validation, association duplicate check and physical deletion, repository helper tenant dependence, generic shape validation vs domain authorization, and permission/project-status setup scripts. Composite uniqueness, transactional audit, temporal membership policy, seed conflict safety and migration recovery remain unverified. Setup functions not executed. E1 only; no tests or production changes; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
