@@ -1813,3 +1813,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 104 (2026-11-23)
 - Recorded `docs/audit/TASK-2.8-ATTACHMENT-VISIBILITY-COPY-IDEMPOTENCY-TRACE-INCREMENT-104.md`: visibility helper/list status handling, project-image listing, copy restrictions, copy idempotency/cleanup compensation and potential concurrency constraint gap.
 - E1 only; no runtime tests. Status policy and concurrent deduplication remain unverified. G-01/G-04/G-10/G-11 remain open.
+
+
+## Task 2.8 Increment 105 — Material-planning source retrieval limitation
+- Recorded `docs/audit/TASK-2.8-MATERIAL-PLANNING-SOURCE-RETRIEVAL-LIMITATION-INCREMENT-105.md`: targeted backend repository code search for material planning did not return indexed source, so this increment makes no implementation claims. Source retrieval/tree access is required before a material-planning trace can continue.
+- E0 for this increment. No tests or production changes. Task 2.8 remains IN PROGRESS; schema readiness NOT APPROVED.
