@@ -1949,3 +1949,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 131 — Frontend admin/configuration caller inventory (2026-11-23)
 - Read-only inventory recorded in `docs/audit/TASK-2.8-FRONTEND-ADMIN-CONFIGURATION-CALLER-INVENTORY-INCREMENT-131.md`: users/roles/permissions/departments/project statuses, event types/forms/information types, attachments/audit, admin sessions/project delete and settings callers.
 - Payload/permission crosswalk, runtime tenant isolation, configuration transaction/concurrency, accessibility and mobile tests remain incomplete. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 132 — CI and regression-test coverage crosswalk (2026-11-23)
+- Source-only crosswalk recorded in `docs/audit/TASK-2.8-CI-AND-REGRESSION-TEST-COVERAGE-CROSSWALK-INCREMENT-132.md`: backend syntax/unit/manifest CI, frontend syntax/regression/assets/CSS checks and staging E2E fail-closed guard, selected source-contract test families and test-depth limits.
+- CI/tests were not executed. Requirement-to-test exhaustive mapping, runtime GAS/browser, tenant isolation, fault recovery, concurrency and migration/performance validation remain open. E1 only; no production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
