@@ -1919,3 +1919,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 125 — Role-permission resolution and assignment (2026-11-23)
 - Retrieved and audited previously unavailable RolePermission orchestration and repository code plus PermissionService/Repository and AccessControlService. Recorded tenant role checks, permission catalogue resolution, batch assignment/removal, physical link deletion, request-cache resolution, admin role-code semantics and route-enforcement delegation in `docs/audit/TASK-2.8-ROLE-PERMISSION-RESOLUTION-AND-ASSIGNMENT-INCREMENT-125.md`.
 - Composite uniqueness, transaction/audit coupling and exhaustive Router permission enforcement remain unverified. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 126 — Telegram pairing/polling/notification boundary (2026-11-23)
+- Audited TelegramBotService and Code.js routing in `docs/audit/TASK-2.8-TELEGRAM-PAIRING-POLLING-NOTIFICATION-BOUNDARY-INCREMENT-126.md`: Script Properties secret/config model, time-bound private-chat pairing, sole-active-tenant validation, webhook/polling mode, offset handling, recipient mapping, project/event notification payload and attachments, chunking and partial delivery results.
+- Durable retry/idempotency/delivery ledger, live configuration and privacy tests remain unverified. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
