@@ -2102,3 +2102,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Consolidated increments 12–14/195 and policy/default/lifecycle drafts into a decision matrix separating stable technical requirements from business decisions; outlined canonical projections and conceptual commands.
 - Document: `docs/audit/TASK-2.8-PROCUREMENT-POLICY-CONFLICT-AND-DECISION-MATRIX-INCREMENT-198.md`.
 - G-02 remains OPEN pending PO policy choices and exhaustive source/runtime evidence; G-01/G-10 remain blockers. Design only; no tests, SQL/DDL, migrations, live data, provisioning, deployment or production changes.
+
+
+### Task 2.8 Increment 199 — Event/Form history decision matrix (2026-11-23)
+- Consolidated amendment/void/snapshot/immutability/transaction and downstream-effect policy recommendations and test candidates.
+- Document: `TASK-2.8-EVENT-FORM-HISTORY-CORRECTION-DECISION-MATRIX-INCREMENT-199.md` (root-level due repeated contents-API 404 on docs/audit path).
+- G-03 remains OPEN; G-01/G-10/G-04 remain blockers. Design only; no tests, SQL/DDL, migration, live data, provisioning, deployment or production changes.
