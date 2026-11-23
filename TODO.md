@@ -1727,3 +1727,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 0.2 / Task 2.8 Increment 87 (2026-11-23)
 - Recorded `TASK-2.8-FRONTEND-BACKEND-CROSSWALK-ROLLUP-INCREMENT-87.md`: consolidated observed frontend caller families and backend counterparts and explicitly bounded coverage status.
 - The route-to-caller-to-service-to-repository matrix is not exhaustive and route negative/runtime tests remain unexecuted. G-01/G-10 blockers remain; E1 only, no production changes.
+
+
+### Task 0.2 / Task 2.8 Increment 88 (2026-11-23)
+- Recorded `TASK-2.8-EVENTDATA-AND-ATTACHMENT-DELETE-BOUNDARY-INCREMENT-88.md`: EventData read parent-event tenant/project visibility validation; attachment delete ordering storage -> metadata DELETED -> audit; ProjectDeletion dependency collector omission of project information/history, event form responses and reference-sync log in visible source.
+- E1 only; no runtime tests or production changes. G-01/G-10 blockers; G-03/G-04 remain open.
