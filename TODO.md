@@ -1969,3 +1969,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 135 — Legacy identifier-generation crosswalk (2026-11-23)
 - Bounded source-only ID/code inventory recorded in `docs/audit/TASK-2.8-LEGACY-IDENTIFIER-GENERATION-CROSSWALK-INCREMENT-135.md`: Constants prefix registry vs service-generated UUID/prefix variants, short fragments, business/item codes, tenant-scoped duplicate checks and repeat/copy provenance.
 - Exhaustive entity ID inventory, live collision analysis, migration mapping and code-generation constraints remain pending. E1 only; no tests or production changes; G-05 remains HIGH/open; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 136 — Quantity precision, units and timestamp handling (2026-11-23)
+- Bounded source trace recorded in `docs/audit/TASK-2.8-QUANTITY-PRECISION-UNIT-TIMEZONE-BOUNDARY-INCREMENT-136.md`: integer project quantity, material consumption/wastage and four-decimal ceiling calculation, floating-point procurement quantities/prices/allocations, free-text units and ISO Date usage.
+- Universal unit/currency precision, decimal scale/rounding, date-only/timezone/Jalali policy and complete field/consumer inventory remain unresolved. E1 only; no tests or production changes; G-06/G-07 remain HIGH/open; G-01/G-10 remain open; schema readiness NOT APPROVED.
