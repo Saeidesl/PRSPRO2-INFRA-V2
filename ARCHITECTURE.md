@@ -1883,3 +1883,7 @@ Read-only trace documents auth login/logout and fail-closed permission loading/l
 
 ### Task 2.8 Increment 138 — Tenant-qualified relation/constraint candidate manifest (2026-11-23)
 Header-derived candidate relationships across tenant/RBAC, project/workflow, event/form/information, material/procurement, attachment/audit and template domains were consolidated. Candidate composite tenant constraints, array-link normalization, global-vs-tenant Permission scope and polymorphic link strategies are documented. This is not proof of current constraints or exhaustive relationship validation; G-01/G-10 remain blockers. E1 only; no tests or production changes; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 139 — Critical Project/Event route-to-evidence crosswalk (2026-11-23)
+Bounded route matrix maps project/event route families to sampled permission gates, tenant/service checks, persistence/lifecycle effects and test-source evidence. Every row remains PARTIAL; nested route branches, exact DTO/caller contract, constraints and negative/runtime tests are not exhaustive. E1/E2 only; no tests or production changes; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
