@@ -1974,3 +1974,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 136 — Quantity precision, units and timestamp handling (2026-11-23)
 - Bounded source trace recorded in `docs/audit/TASK-2.8-QUANTITY-PRECISION-UNIT-TIMEZONE-BOUNDARY-INCREMENT-136.md`: integer project quantity, material consumption/wastage and four-decimal ceiling calculation, floating-point procurement quantities/prices/allocations, free-text units and ISO Date usage.
 - Universal unit/currency precision, decimal scale/rounding, date-only/timezone/Jalali policy and complete field/consumer inventory remain unresolved. E1 only; no tests or production changes; G-06/G-07 remain HIGH/open; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 137 — Remaining frontend auth/dashboard/workflow preference trace (2026-11-23)
+- Read-only trace recorded in `docs/audit/TASK-2.8-REMAINING-FRONTEND-AUTH-DASHBOARD-WORKFLOW-PREFERENCE-INCREMENT-137.md`: auth fail-closed permission bootstrap/cleanup, dashboard redesign local state/history pagination/attachment/needs projection and project-create workflow preference helper.
+- Browser/runtime auth, pagination concurrency, local-state cross-account, mobile/accessibility and performance tests remain pending. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
