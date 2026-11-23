@@ -1648,3 +1648,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 83 — Additional frontend caller families
 - Recorded `TASK-2.8-ADDITIONAL-FRONTEND-CALLER-FAMILIES-INCREMENT-83.md`: bounded frontend endpoint-family trace across material planning, project detail, workflows, event types, reports and admin modules.
 - Dynamic path/contract/permission reconciliation remains partial. E1 only; no tests or production changes; G-01 remains blocker.
+
+
+## Task 2.8 Increment 84 — Procurement frontend integration boundary
+- Recorded `TASK-2.8-PROCUREMENT-FRONTEND-INTEGRATION-CALLER-BOUNDARY-INCREMENT-84.md`: sampled procurement integration in event submission result/failure handling, project timeline projection filtering and project reports; index asset inventory has no standalone procurement module in the sample.
+- Full contract and consistency validation remain incomplete. E1 only; no tests or production changes. G-01 blocker; G-02 open/high.
