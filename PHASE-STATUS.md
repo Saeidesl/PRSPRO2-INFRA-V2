@@ -825,3 +825,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 
 ## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 180)
 - Bounded GitHub searches for Authorization cluster test files returned no indexed matches. This is not proof of absence; tests not run and runtime/tenant-negative/permission-negative/concurrency/rollback coverage remains unverified. Artifact `docs/audit/TASK-2.8-AUTHORIZATION-TEST-DISCOVERY-BOUNDARY-INCREMENT-180.md` committed. G-01/G-10 remain blockers.
+
+
+## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 181)
+- WorkflowStepDepartment assignment validates tenant workflow, active step/department and duplicate department mapping in service; batch insert uses insertMany or sequential fallback; removal soft-deactivates. Repository reads are ID/workflow based; tenant relational constraints, transactionality and version semantics remain unverified.
+- Artifact `docs/audit/TASK-2.8-WORKFLOW-STEP-DEPARTMENT-TENANT-RELATIONSHIP-TRACE-INCREMENT-181.md` committed. G-01/G-10 remain open.
