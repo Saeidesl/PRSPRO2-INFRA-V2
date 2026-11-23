@@ -1683,3 +1683,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 90 — Procurement order/receipt atomicity and allocations
 - Recorded `TASK-2.8-PROCUREMENT-ORDER-RECEIPT-ATOMICITY-AND-ALLOCATION-INCREMENT-90.md`: validation/lock/idempotency/quantity safeguards; partial multi-sheet order writes marked NEEDS_REVIEW; batch receipts inserted before order status and audit updates.
 - No runtime verification. G-01/G-02/G-03/G-10 remain open. No production changes.
+
+
+## Task 2.8 Increment 91 — Event void lifecycle and reconciliation boundary
+- Recorded `TASK-2.8-EVENT-VOID-LIFECYCLE-RESTORE-AUDIT-AND-MATERIAL-RECONCILIATION-INCREMENT-91.md`: guarded snapshot restoration, event void update, workflow recomputation, audit sequence and material reconciliation failure path.
+- E1 only, no runtime tests. G-01/G-03/G-10 remain open. No production changes.
