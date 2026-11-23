@@ -1702,3 +1702,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 0.2 / Task 2.8 Increment 82 (2026-11-23)
 - Recorded `TASK-2.8-FRONTEND-API-CALLER-TRACE-INCREMENT-82.md`: read-only frontend source trace of index API URL configuration, API request/dedup/retry diagnostics and caller endpoint families in events/forms/attachments/projects modules.
 - Caller/route/service/permission crosswalk remains partial; no confirmed mismatch from sampled excerpts. E1 only; no tests or production changes. G-01/G-10 blockers remain.
+
+
+### Task 0.2 / Task 2.8 Increment 83 (2026-11-23)
+- Recorded `TASK-2.8-ADDITIONAL-FRONTEND-CALLER-FAMILIES-INCREMENT-83.md`: read-only endpoint-family extraction from material planning, project detail, workflows, event types, reports and admin frontend modules.
+- Route/caller/permission reconciliation remains partial; no confirmed mismatch. E1 only; no tests or production changes; G-01 blocker remains.
