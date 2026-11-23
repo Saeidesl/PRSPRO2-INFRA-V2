@@ -1929,3 +1929,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 127 — Legacy schema setup, migration and diagnostics (2026-11-23)
 - Audited DatabaseSetup, ProductionConfigurationMigration and selected diagnostics scripts read-only; documented schema/header inventory, destructive reset/repair setup functions, migration preview/preflight checks, target configuration migration behavior, separate destructive migration routine, diagnostics persistence and sensitive output considerations in `docs/audit/TASK-2.8-LEGACY-SCHEMA-MIGRATION-AND-DIAGNOSTICS-INCREMENT-127.md`.
 - No functions were executed; migration, backup restore, diagnostic runtime, permissions and recovery remain unverified. E1 only; no production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 128 — Backend Router endpoint/permission crosswalk (2026-11-23)
+- Read-only Router.js dispatch and permission-family inventory recorded in `docs/audit/TASK-2.8-BACKEND-ROUTER-ENDPOINT-PERMISSION-CROSSWALK-INCREMENT-128.md`, covering GET/POST/PUT/DELETE families, sampled permission gates, nested paths and delegated service checks.
+- Exhaustive branch-by-branch caller/payload/service reconciliation and negative authorization tests remain pending. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
