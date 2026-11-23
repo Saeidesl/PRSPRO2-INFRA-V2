@@ -1847,3 +1847,7 @@ Read-only Router dispatch trace inventory covers major GET/POST/PUT/DELETE route
 
 ### Task 2.8 Increment 129 — Frontend project/event/dashboard caller trace (2026-11-23)
 Read-only frontend caller trace documents project list/create/edit, project reference-copy orchestration, attachment/image caching, project-detail information/history/audit/events/print data, event queue/picker/context/form prefetch/amendment/submit, and dashboard selected-project cache refresh/request guards. Runtime permission/visibility, cache invalidation, browser accessibility, module cleanup and performance tests remain unverified. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 130 — Frontend material/procurement/workflow/report/print caller trace (2026-11-23)
+Read-only caller trace documents material specification multi-row create/revision and history refresh, procurement workspace and order/receipt UI, workflow management and department-assignment cache/refresh flows, project report retrieval/filtering and local-only report template persistence, and print-template revision synchronization/binding/source edit/image/PDF flows. Runtime tests, full payload/permission crosswalk, concurrency and responsive/accessibility remain unverified. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
