@@ -1723,3 +1723,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 98 — Workflow update field allowlist boundary
 - Recorded `TASK-2.8-WORKFLOW-UPDATE-MASS-ASSIGNMENT-OF-MUTABLE-FIELDS-INCREMENT-98.md`: WorkflowService.update generic copy-through of fields not explicitly excluded, including potential lifecycle/version fields; route-level controls pending trace.
 - E1 only, no runtime tests. G-01/G-03/G-10 remain open.
+
+
+## Task 2.8 Increment 99 — Workflow route permission crosscheck
+- Recorded `TASK-2.8-WORKFLOW-ROUTE-PERMISSION-CROSSCHECK-INCREMENT-99.md`: sampled workflow mutations require WORKFLOW_MANAGE; GET list/steps have limited read exceptions. Increment 98 concern narrowed in route reachability, but explicit allowlisting still needed.
+- E1 only, no runtime tests; exhaustive route coverage G-01 and tenant proof G-10 remain open.
