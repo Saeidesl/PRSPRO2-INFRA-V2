@@ -1693,3 +1693,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 92 — Workflow publish version-scope and concurrency
 - Recorded `TASK-2.8-WORKFLOW-PUBLISH-VERSION-SCOPE-AND-CONCURRENCY-INCREMENT-92.md`: publish rule validation against step set, potential version scope mismatch to verify, sequential workflow state/audit and no visible publish lock/CAS.
 - Source-level potential gap, not confirmed defect. E1 only; no runtime tests. G-01/G-03/G-10 remain open.
+
+
+## Task 2.8 Increment 93 — Publish scope check refinement
+- Recorded `TASK-2.8-WORKFLOW-PUBLISH-SCOPE-CHECK-REFINEMENT-INCREMENT-93.md`: rule repository version filtering and locked replace; narrowed publish step version filter concern; step repository path unavailable, so issue remains unconfirmed.
+- E1 only, no runtime tests. G-01/G-03/G-10 remain open.
