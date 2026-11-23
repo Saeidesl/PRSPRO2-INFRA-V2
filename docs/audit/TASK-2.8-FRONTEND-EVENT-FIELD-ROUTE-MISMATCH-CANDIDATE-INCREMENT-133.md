@@ -21,3 +21,8 @@ This is a credible frontend/backend route-contract mismatch candidate. In the da
 ## Limits
 - Source-only crosswalk; no runtime API call, browser test or production change.
 - Candidate mismatch, not confirmed defect. E1 only; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+## Additional verification within source (Increment 147 follow-up)
+- EventTypeService.list/get was re-read: default list normalizes event-type records; optional `includeFormDefinitions` adds form definitions only, and `get` returns normalized event-type record. No EventFields list is exposed through these paths.
+- EventFieldRepository is a separate read-only repository. No Router GET route was found in the complete inspected EventType nested branch to expose its fields. This strengthens the route-contract mismatch candidate but still does not establish runtime/deployed behavior.
