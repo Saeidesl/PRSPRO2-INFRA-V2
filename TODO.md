@@ -1762,3 +1762,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 0.2 / Task 2.8 Increment 94 (2026-11-23)
 - Recorded `TASK-2.8-WORKFLOW-STEP-CREATE-DRAFT-CLONE-AND-UNIQUENESS-INCREMENT-94.md`: createStep code uniqueness scope, all-version step ordering, clone→workflow draft update→step insert sequential failure/concurrency boundaries.
 - Business rule and runtime validation pending. E1 only; G-01/G-03/G-10 open.
+
+
+### Task 0.2 / Task 2.8 Increment 95 (2026-11-23)
+- Recorded `TASK-2.8-WORKFLOW-DEPARTMENT-ASSIGNMENT-VERSION-SCOPE-INCREMENT-95.md`: assignment scope semantics for versioned steps, duplicate/concurrency boundary and batch atomicity/fallback writes.
+- Business semantics remain unresolved; E1 only, no runtime tests. G-01/G-03/G-10 remain open.
