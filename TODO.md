@@ -2019,3 +2019,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 145 — Attachment/report/print/diagnostics route crosswalk (2026-11-23)
 - Bounded route-to-evidence matrix recorded in `docs/audit/TASK-2.8-ATTACHMENT-REPORT-PRINT-DIAGNOSTICS-ROUTE-CROSSWALK-INCREMENT-145.md` for attachment/gallery/download/delete, reports/audit, print-template/source/assets and diagnostics families.
 - All rows PARTIAL pending nested route, direct access, permission-negative, snapshot/privacy, template concurrency and storage-recovery tests. E1/E2 only; no tests or production changes; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 146 — Auth/identity/admin route crosswalk (2026-11-23)
+- Bounded crosswalk recorded in `docs/audit/TASK-2.8-AUTH-IDENTITY-ADMIN-ROUTE-CROSSWALK-INCREMENT-146.md` for login/me/permissions/logout, admin session management, user CRUD/role membership and role/permission catalogue mutations.
+- Password migration, exhaustive route/resource tenant-negative tests, session invalidation and transactional membership/audit remain unresolved. E1/E2 only; no tests or production changes; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
