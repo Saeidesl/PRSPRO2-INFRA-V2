@@ -2024,3 +2024,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 146 — Auth/identity/admin route crosswalk (2026-11-23)
 - Bounded crosswalk recorded in `docs/audit/TASK-2.8-AUTH-IDENTITY-ADMIN-ROUTE-CROSSWALK-INCREMENT-146.md` for login/me/permissions/logout, admin session management, user CRUD/role membership and role/permission catalogue mutations.
 - Password migration, exhaustive route/resource tenant-negative tests, session invalidation and transactional membership/audit remain unresolved. E1/E2 only; no tests or production changes; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 147 — Event-field route mismatch candidate follow-up (2026-11-23)
+- Re-read EventTypeService.list/get and EventFieldRepository; default EventType response and optional form-definition prefetch do not expose event-field definitions. Updated Increment 133 audit document with stronger source evidence for the `/event-types/{id}/fields` candidate mismatch.
+- Runtime/deployed version behavior remains unverified; candidate not confirmed defect. E1 only; no tests or production changes; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
