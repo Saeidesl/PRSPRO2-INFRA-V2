@@ -1855,3 +1855,7 @@ Read-only caller trace documents material specification multi-row create/revisio
 
 ### Task 2.8 Increment 131 — Frontend admin/configuration caller inventory (2026-11-23)
 Read-only caller inventory documents users/roles/permissions/departments/project statuses, event types/forms/information types, attachments/audit, admin sessions/project cascade deletion and settings modules. Exact payload and permission matrix, configuration mutation atomicity, runtime tenant isolation, cache invalidation and browser accessibility/mobile behavior remain unverified. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 132 — CI and regression-test coverage crosswalk (2026-11-23)
+Read-only CI/test-source trace documents backend Node tests and manifest/source validation, frontend JS syntax/regression/assets/CSS checks, staging E2E fail-closed guard and selected static source-contract tests. CI and tests were not run. Exhaustive requirements-to-tests trace, runtime GAS/browser validation, tenant isolation, fault/concurrency/recovery, migration and performance validation remain incomplete. E1 only; no production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
