@@ -1899,3 +1899,7 @@ Read-only trace documents tenant-scoped user/role validation, association duplic
 
 ### Task 2.8 Increment 142 — Legacy test inventory and traceability gaps (2026-11-23)
 Test-source inventory reconciled backend and frontend test families (41 backend, 46 frontend test files in source trees). Existence/selected assertions provide E2 only; no tests executed. Exhaustive route-to-test trace, runtime fidelity, tenant isolation negatives, concurrency/fault recovery, migration, storage and workload performance tests remain open. G-01/G-10 remain blockers; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 143 — Backend source-file audit coverage reconciliation (2026-11-23)
+Source tree and audit documents were reconciled into a source-family map linked to prior increments. Coverage is source-family evidence only; exhaustive branch/caller/DTO/test mapping, mutation secondary-effect matrix and tenant-qualified constraint validation remain open. E1/E2 only; no tests or production changes; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
