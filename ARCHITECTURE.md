@@ -1653,3 +1653,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 84 — Procurement frontend integration boundary
 - Recorded `TASK-2.8-PROCUREMENT-FRONTEND-INTEGRATION-CALLER-BOUNDARY-INCREMENT-84.md`: sampled procurement integration in event submission result/failure handling, project timeline projection filtering and project reports; index asset inventory has no standalone procurement module in the sample.
 - Full contract and consistency validation remain incomplete. E1 only; no tests or production changes. G-01 blocker; G-02 open/high.
+
+
+## Task 2.8 Increment 85 — Frontend session, permissions and image caller trace
+- Recorded `TASK-2.8-FRONTEND-SESSION-PERMISSION-AND-IMAGE-CALLER-TRACE-INCREMENT-85.md`: frontend permission lookup, auth login/logout/me, information-type and project-image endpoint families; session lifecycle and image caller abstraction boundaries.
+- Complete role/session cache invalidation and permission contract remain pending. E1 only; no tests or production changes. G-01 blocker remains.
