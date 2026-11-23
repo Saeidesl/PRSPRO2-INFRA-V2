@@ -1652,3 +1652,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 0.2 / Task 2.8 Increment 72 (2026-11-23)
 - Recorded bounded logical relationship and candidate constraint crosswalk in `TASK-2.8-RELATIONSHIP-CONSTRAINT-CROSSWALK-INCREMENT-72.md` based on DatabaseSetup headers and sampled repositories. Includes tenant-qualified references, project/event/form/information/history/material/procurement links and polymorphic attachment/audit risk.
 - Candidate constraints are recommendations only; cardinality, independent-event policy, lifecycle/retention and cross-domain semantics remain pending discovery. MaterialPlanningRepository fetch failed (NOT_FOUND). E1 only; no runtime tests, DDL, migration, live data or production changes. G-01/G-10 remain BLOCKER; G-02/G-03/G-04 open/high; schema readiness NOT APPROVED.
+
+
+### Task 0.2 / Task 2.8 Increment 73 (2026-11-23)
+- Cross-operation dependency/failure boundary audit recorded in `TASK-2.8-CROSS-OPERATION-DEPENDENCY-FAILURE-BOUNDARY-INCREMENT-73.md`: project deletion re-collection/shared procurement protections/sequential partial-state boundaries; event void and project-information locks; project template allow-list/optimistic check; attachment storage→metadata→audit sequence.
+- E1 only; no runtime tests. Reconciliation, transactions and fault-injection test requirements documented. G-01/G-10 remain BLOCKER; G-02/G-03/G-04 OPEN/HIGH; schema readiness NOT APPROVED. No production changes.
