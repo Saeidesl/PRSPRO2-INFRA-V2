@@ -1687,3 +1687,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 0.2 / Task 2.8 Increment 79 (2026-11-23)
 - Recorded `TASK-2.8-ATTACHMENT-ACCESS-AND-INFORMATION-HISTORY-BOUNDARY-INCREMENT-79.md`: attachment visibility tenant/entity/project gates, image-copy ownership/category/idempotent duplicate lookup and compensating cleanup; project information revision/ExpectedRevision, event replay, history/audit and reference-sync sequencing.
 - Storage reconciliation and transactional current/history/audit/sync remain unverified. E1 only; no runtime tests. G-01/G-10 blockers and G-03/G-04 open; no production changes.
+
+
+### Task 0.2 / Task 2.8 Increment 80 (2026-11-23)
+- Recorded `TASK-2.8-GET-ROUTE-SERVICE-AUTHORIZATION-CROSSCHECK-INCREMENT-80.md`: bounded Router GET checks for project information, attachments, galleries, event responses/EventData and procurement read routes; distinguishes explicit route permission checks from reliance on service validation.
+- No confirmed authorization defect; method-level and runtime coverage incomplete. E1 only, no tests. G-01/G-10 blockers remain; no production changes.
