@@ -1712,3 +1712,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 0.2 / Task 2.8 Increment 84 (2026-11-23)
 - Recorded `TASK-2.8-PROCUREMENT-FRONTEND-INTEGRATION-CALLER-BOUNDARY-INCREMENT-84.md`: procurement integration caller snippets across event submission failure handling, project timeline projection filtering and report payload needs/calculations/orders; no standalone procurement module in the sampled index asset inventory.
 - Full frontend/backend contract remains incomplete. E1 only; no tests or production changes. G-01 blocker and G-02 open/high remain.
+
+
+### Task 0.2 / Task 2.8 Increment 85 (2026-11-23)
+- Recorded `TASK-2.8-FRONTEND-SESSION-PERMISSION-AND-IMAGE-CALLER-TRACE-INCREMENT-85.md`: frontend auth/session/permissions endpoint-family and information-type/project-image caller trace; recommends central session/permission and attachment abstraction in V2.
+- Complete session lifecycle/cache invalidation and permission contract remain unverified. E1 only; no tests or production changes. G-01 blocker remains.
