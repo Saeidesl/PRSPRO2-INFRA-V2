@@ -1797,3 +1797,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 0.2 / Task 2.8 Increment 101 (2026-11-23)
 - Recorded `TASK-2.8-WORKFLOW-TEST-INTENT-COVERAGE-CROSSCHECK-INCREMENT-101.md`: inspected existing workflow tests and identified untested version mismatch, protected-field, concurrency, fault and assignment uniqueness boundaries.
 - Test source inspected only; tests NOT run. G-01/G-03/G-10 remain open.
+
+
+### Task 2.8 Increment 102 (2026-11-23)
+- Recorded `docs/audit/TASK-2.8-WORKFLOW-SERVICE-PUBLISH-AND-RULE-VALIDATION-TRACE-INCREMENT-102.md`: read-only source trace of `WorkflowService.createStep`, `getStepEventRules`, `saveStepEventRules`, and `publish`.
+- Evidence: step creation checks tenant/workflow and duplicate Code, but uses sequential version-clone/draft-update/step-insert; rule saving validates the target draft version yet step membership is not explicitly checked against that same workflow version; publishing validates active-step membership for active rules and writes workflow publication state followed by audit.
+- These are source-level boundaries, not confirmed runtime defects. No tests executed and no production changes. G-01/G-03/G-10 remain open.
