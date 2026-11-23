@@ -745,3 +745,10 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Event configured form file fields upload through project-scoped `/projects/{projectId}/attachments`, then embed AttachmentID/FileName/MimeType/FileSize/AttachmentType metadata in response values. This indicates a project-owned file with form-response reference in this observed path; direct binary payload is not persisted in form value. Independent-event upload is rejected in this helper.
 - Reuse, clear/removal, amendment and orphan lifecycle policies remain unproven. G-03/G-04/G-09/G-10/G-11 remain open; schema readiness NOT APPROVED.
 - No runtime tests, live files/data, production modifications, schema, migration or deployment.
+
+
+## Phase 2 — Task 2.5 checkpoint (2026-11-23, Increment 165)
+- Added crosswalk of project attachment upload UI and lifecycle in `docs/audit/TASK-2.8-PROJECT-ATTACHMENT-UI-LIMIT-LIFECYCLE-CROSSWALK-INCREMENT-165.md`.
+- Project edit/create sample saves project before upload and uses a 5 MB client-side limit; configured event form upload uses a 10 MB limit (from Increment 164). Server settings remain authoritative. Project save and attachment upload are sequential, so failure may leave saved project but upload incomplete.
+- G-04/G-09/G-11 remain open; schema readiness NOT APPROVED.
+- No runtime tests, live data/files, production modifications, schema or migration.
