@@ -663,3 +663,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Bounded read-only event/form response preparation and tenant-boundary trace recorded in `docs/audit/TASK-2.8-EVENT-FORM-PREPARATION-TENANT-PAYLOAD-TRACE-INCREMENT-151.md`.
 - Observed EventDataService parent/tenant/project availability checks and JSON validation; FormService mapped response validation, required forms, duplicate IDs, form version, field visibility/required checks and tenant-scoped mappings; EventType normalization observations recorded.
 - E1 source evidence only; G-01/G-03/G-10 remain open. No tests, live data, schema, migrations, production modifications, deployment or VPS actions.
+
+
+## Phase 2 — Task 2.8 Increment 152 (2026-11-23)
+- Procurement order/single receipt/batch receipt locking and idempotency paths traced in a bounded read-only review; documented in `docs/audit/TASK-2.8-PROCUREMENT-IDEMPOTENCY-LOCK-BATCH-RECEIPT-TRACE-INCREMENT-152.md`.
+- Source observed lock/idempotency replay checks and separate batch receipt validation/accounting path. Transaction/constraint guarantees are not established from source alone. G-01/G-02/G-06/G-10 remain open. No runtime tests, live data, SQL/migrations, provisioning or production modifications.
