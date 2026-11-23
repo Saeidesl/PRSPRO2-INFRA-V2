@@ -1632,3 +1632,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 0.2 / Task 2.8 Increment 68 (2026-11-23)
 - Bounded tenant/identity/role mutation trace recorded in `TASK-2.8-TENANT-BOUNDARY-ROLE-MUTATION-TRACE-INCREMENT-68.md`: UserRole assignment/removal checks, RoleService tenant/code checks, sampled PermissionService role resolution, WorkflowService tenant filtering, and repository lookup boundaries.
 - E1 source evidence only; no runtime cross-tenant tests or exhaustive mutation coverage. G-01/G-10 remain OPEN/BLOCKER; G-02/G-03/G-04 remain OPEN/HIGH. No production changes.
+
+
+### Task 0.2 / Task 2.8 Increment 69 (2026-11-23)
+- Bounded procurement mutation and project cascade-delete transaction-gap trace recorded in `TASK-2.8-PROCUREMENT-AND-PROJECT-DELETE-TRANSACTIONAL-GAP-TRACE-INCREMENT-69.md`: lock/idempotency/prevalidation and compensation in procurement; sequential dependency deletion/storage trashing/project deletion.
+- E1 source evidence only; no runtime concurrency, transaction or recovery tests. G-02/G-03/G-04/G-10 remain OPEN/HIGH or BLOCKER; G-01 remains OPEN. No production changes.
