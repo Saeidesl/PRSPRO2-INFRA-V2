@@ -674,3 +674,9 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Bounded read-only receipt accounting/projection trace documented in `docs/audit/TASK-2.8-PROCUREMENT-RECEIPT-QUANTITY-RECONCILIATION-PROJECTION-TRACE-INCREMENT-153.md`.
 - Observed single/batch receipt path differences in general-stock allocation validation, replay semantics, cumulative allocation/quantity checks and post-write order-state/audit sequence; read projections use differing receipt accounting/clamping/distribution logic. Canonical net receipt/reversal contract remains unverified.
 - G-02 remains OPEN/BLOCKER; G-01/G-06/G-10 remain OPEN. Schema readiness NOT APPROVED. E1 source evidence only; no runtime tests/live data/schema/migration/provisioning/production modifications.
+
+
+## Phase 2 — Task 2.8 Increment 154 (2026-11-23)
+- Procurement Router and repository surface crosswalk documented in `docs/audit/TASK-2.8-PROCUREMENT-ROUTER-REPOSITORY-SURFACE-CROSSWALK-INCREMENT-154.md`.
+- Retrieved Router excerpt shows procurement read endpoints and order/receipt single/batch POST commands with permission gates; no receipt correction/reversal route was visible in this bounded excerpt. ProcurementRepository sampled file is tenant-filtered collection read-only access. Absence is not asserted beyond inspected excerpt.
+- G-01/G-02/G-10 remain OPEN; schema readiness NOT APPROVED. E1 only, no tests/live data/schema/migrations/provisioning/production modifications.
