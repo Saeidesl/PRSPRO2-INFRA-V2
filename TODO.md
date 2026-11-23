@@ -1873,3 +1873,9 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ## Task 2.8 Increment 116 — Admin project cascade-delete boundary (2026-11-23)
 - READ-ONLY audit of dependency-aware deletion preview/removal, tenant/admin/code confirmation, cross-domain dependency collection, shared procurement protection, soft-delete and attachment-storage cleanup, event VOID handling, conditional physical project removal and failure accumulation.
 - Sequential destructive cascade, storage/audit recovery and dependency completeness remain unproven. E1 only, no tests/production changes; Task 2.8 IN PROGRESS; schema readiness NOT APPROVED; G-01/G-10 remain open.
+
+
+### Task 2.8 Increment 117 — Material specification/calculation lifecycle (2026-11-23)
+- Source retrieval succeeded via read-only repository tree/file access, resolving the earlier indexed-search limitation recorded in Increment 105. MaterialPlanningService and material-planning test intent inspected.
+- Documented specification revisions, calculation-key replay, quantity arithmetic, confirmed-need supersession, estimated-need supersession, event-void review marking, lazy schema setup and sequential write/audit boundaries in `docs/audit/TASK-2.8-MATERIAL-SPECIFICATION-CALCULATION-LIFECYCLE-INCREMENT-117.md`.
+- Test file inspected, tests NOT run. No live data or production changes. E1 only; G-01/G-10 remain open; schema readiness NOT APPROVED.
