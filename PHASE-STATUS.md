@@ -731,3 +731,10 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Documented bounded discovery boundary for file references in FormService/EventDataService at `docs/audit/TASK-2.8-FORM-ATTACHMENT-LINK-DISCOVERY-BOUNDARY-INCREMENT-162.md`. This scan did not establish explicit file-reference tokens in FormService; front-end field serialization and related source paths still require discovery. This is not proof of absence.
 - G-03/G-04/G-11 remain open; schema readiness NOT APPROVED.
 - No runtime tests, production data/files, modifications to production, SQL or migration.
+
+
+## Phase 2 — Task 2.5 checkpoint (2026-11-23, Increment 163)
+- Added bounded tenant qualification and partial-failure boundary findings for project deletion collector in `docs/audit/TASK-2.8-CASCADE-TENANT-RELATION-FAILURE-BOUNDARY-INCREMENT-163.md`.
+- Event-data collector selection appears keyed by active collected event IDs without an independent TenantID filter in the sampled code; this is a reliance on ID/relationship integrity, not proven cross-tenant safety. Attachments use tenant filter plus entity links. Collector reads fail closed on sheet read errors, but deletion remains sequential and non-transactional.
+- G-01/G-04/G-09/G-10/G-11 remain open; schema readiness NOT APPROVED.
+- No tests, live data/files, production modifications, SQL, migration or deployment.
