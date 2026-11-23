@@ -811,3 +811,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 177)
 - Department/Role service traces show tenant-filtered list via broad in-memory reads, tenant validation on ID access, tenant-scoped normalized code duplicate scans on create/update, and sequential audit. Repository code lookups remain unscoped; DB uniqueness/atomicity and full lifecycle semantics unverified.
 - Artifact `docs/audit/TASK-2.8-DEPARTMENT-ROLE-TENANT-CODE-UNIQUENESS-TRACE-INCREMENT-177.md` committed. G-01/G-10 remain open.
+
+
+## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 178)
+- Cross-checked identity/authorization headers and repository helper boundaries: Departments/Roles and association rows carry TenantID; Permission catalog is global in the header inventory. Repository code helpers for Department/Role are global-code scans; UserRole repository filters IDs after broad reads. A file-path/content mismatch was observed for the RolePermission repository retrieval and is explicitly left unresolved. Constraints/indexes/atomicity cannot be inferred from sheet headers.
+- Artifact `docs/audit/TASK-2.8-AUTHORIZATION-REPOSITORY-HEADER-CONSTRAINT-CROSSCHECK-INCREMENT-178.md` committed. G-01/G-05/G-10 remain open.
