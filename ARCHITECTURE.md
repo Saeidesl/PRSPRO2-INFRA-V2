@@ -1875,3 +1875,7 @@ Read-only bounded source sample documents mismatch between centralized ID prefix
 
 ### Task 2.8 Increment 136 — Quantity precision, units and timestamp handling (2026-11-23)
 Source-only numerical/time boundary trace documents positive integer project quantity, material specification consumption/wastage and four-decimal ceiling calculation, JavaScript floating-point procurement quantities/prices/allocation sums, free-text units and sampled ISO date handling. Domain precision, currency/unit conversion, business-date/timezone/Jalali semantics and exhaustive field inventory remain unverified. E1 only; no tests or production changes; G-06/G-07 remain HIGH/open; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 137 — Remaining frontend auth/dashboard/workflow preference trace (2026-11-23)
+Read-only trace documents auth login/logout and fail-closed permission loading/local cleanup, dashboard redesign persisted filters/expanded state, paginated project history/data-field context and attachment/needs projection, and a local workflow preference helper. Runtime auth transitions, pagination consistency, cross-account storage isolation, browser/mobile/accessibility and performance remain unverified. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
