@@ -1539,3 +1539,9 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 63 — Legacy test inventory and V2 gap map
 - Inventory recorded in `TASK-2.8-LEGACY-TEST-INVENTORY-VERIFICATION-GAP-MAP-INCREMENT-63.md`: 40 test files in legacy backend tests tree; representative suites reviewed by name. Existing tests were not executed; gaps in PostgreSQL, migrations, RLS, transaction/concurrency and end-to-end tenant verification are noted.
 - G-01/G-10 remain OPEN; schema readiness NOT APPROVED.
+
+
+## Task 2.8 — Consolidated audit matrix (Increment 64, 2026-11-23)
+- Added consolidated domain coverage/evidence/readiness matrix, evidence classification and gap register across tenant/RBAC, workflow, projects, events/forms, information history, material planning, procurement, storage, audit, API authorization and migration/runtime validation.
+- Matrix explicitly separates bounded source observations and test-source inventory from runtime verification; no runtime pass is claimed.
+- G-01/G-10 remain blockers. Task 2.8 remains NOT READY for executable schema/migration. No production code/data or live database touched.
