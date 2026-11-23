@@ -1792,3 +1792,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 0.2 / Task 2.8 Increment 100 (2026-11-23)
 - Recorded `TASK-2.8-WORKFLOW-SHEET-RELATIONSHIP-AND-KEY-CONSTRAINT-CROSSWALK-INCREMENT-100.md`: crosswalk of Workflow/Step/Department assignment/Rule sheet fields and required relational constraints for V2.
 - Header/source evidence only; Sheets headers do not prove constraints. No tests. G-01/G-10 remain open.
+
+
+### Task 0.2 / Task 2.8 Increment 101 (2026-11-23)
+- Recorded `TASK-2.8-WORKFLOW-TEST-INTENT-COVERAGE-CROSSCHECK-INCREMENT-101.md`: inspected existing workflow tests and identified untested version mismatch, protected-field, concurrency, fault and assignment uniqueness boundaries.
+- Test source inspected only; tests NOT run. G-01/G-03/G-10 remain open.
