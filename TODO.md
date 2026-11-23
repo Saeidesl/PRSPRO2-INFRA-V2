@@ -1939,3 +1939,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 129 — Frontend project/event/dashboard caller trace (2026-11-23)
 - Read-only caller audit recorded in `docs/audit/TASK-2.8-FRONTEND-PROJECTS-EVENTS-DASHBOARD-CALLER-TRACE-INCREMENT-129.md`: project list/create/edit/reference-copy and image caches, project detail information/events/audit/attachments/forms, event picker/context/form prefetch/amendment/submit and dashboard selected-project loading/cache behavior.
 - API caller/cache contracts, runtime permissions, module cleanup, responsive/accessibility and browser behavior remain unverified. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 130 — Frontend material/procurement/workflow/report/print caller trace (2026-11-23)
+- Read-only audit recorded in `docs/audit/TASK-2.8-FRONTEND-MATERIAL-PROCUREMENT-WORKFLOW-REPORT-PRINT-CALLER-TRACE-INCREMENT-130.md`: material-spec multi-row saves/history, procurement workspace/order/receipt caller and permission UX, workflow/bootstrap/rules/publish/assignment cache invalidation, project reports/local template storage, print-template revision sync/bindings/image/PDF and source edits.
+- Full caller payload matrix and browser/runtime, concurrency, storage failure, mobile/accessibility and report correctness tests remain pending. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
