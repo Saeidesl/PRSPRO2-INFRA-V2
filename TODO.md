@@ -1853,3 +1853,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ## Task 2.8 Increment 112 — Event lifecycle boundary (2026-11-23)
 - Recorded read-only EventService trace: event type/project/tenant/workflow/department validation, independent events, form and procurement integration sequencing, quantity variants, user-scoped idempotency and processing marker, void guards and timeline projection/pagination boundaries.
 - Event, response, procurement integration, project mutation and audit are sequential; atomicity and PROCESSING recovery/DB uniqueness are not demonstrated. E1 only; no tests or production changes. Task 2.8 remains IN PROGRESS; schema readiness NOT APPROVED; G-01/G-10 remain blockers.
+
+
+## Task 2.8 Increment 113 — Event form response/amendment sync boundary (2026-11-23)
+- Recorded read-only FormService response trace: required mappings/form version/field validation, response definition snapshots, response save and central-information sync, direct template update concurrency checks, amendment event gating/replay and project-code reconciliation. Response+central projection+audit atomicity remains unproven.
+- E1 only; no tests or production changes. Task 2.8 remains IN PROGRESS; schema readiness NOT APPROVED; G-01/G-10 remain blockers.
