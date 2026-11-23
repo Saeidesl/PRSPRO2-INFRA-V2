@@ -1818,3 +1818,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ## Task 2.8 Increment 105 — Material-planning source retrieval limitation
 - Recorded `docs/audit/TASK-2.8-MATERIAL-PLANNING-SOURCE-RETRIEVAL-LIMITATION-INCREMENT-105.md`: targeted backend repository code search for material planning did not return indexed source, so this increment makes no implementation claims. Source retrieval/tree access is required before a material-planning trace can continue.
 - E0 for this increment. No tests or production changes. Task 2.8 remains IN PROGRESS; schema readiness NOT APPROVED.
+
+
+## Task 2.8 Increment 106 — Auth/session/user lifecycle boundary
+- Recorded `docs/audit/TASK-2.8-AUTH-SESSION-USER-LIFECYCLE-TRACE-INCREMENT-106.md`: source inspection of auth, session, user update, permissions and selected Router paths. Observed unsalted SHA-256 password hash helper, globally unique username/login policy, token/session storage in Script Properties, configured expiry behavior, admin tenant-scoped session controls and sampled user-update route permissions. Session invalidation on account/password change remains unverified.
+- E1 only; no runtime tests, live users, secrets or production changes. G-01/G-10 remain blockers; schema readiness NOT APPROVED.
