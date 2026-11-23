@@ -19,7 +19,7 @@
 - [x] Inventory database sheet definitions and headers from DatabaseSetup.js.
 - [x] Preliminary audit of tenant-scoping patterns, workflow-version/rule context, event/form version snapshot references, and procurement idempotency paths.
 - [x] Extract selected workflow-event sequencing, repeat-project/reference copy behavior, and file lifecycle rules (selected paths).
-- [ ] Extract relationship/business rules in detail; audit workflows and role/permission enforcement.
+- [ ] Extract relationship/business rules in detail; audit workflows and role/permission enforcement. (Router POST/PUT/DELETE dispatch inventory recorded; service-level verification remains.)
 - [x] Preliminary inventory of Drive storage and attachment lifecycle.
 - [x] Inventory integrations (Telegram and other external services) at source level; live configuration remains undiscovered.
 - [x] Inventory frontend and backend test-file names and CI workflow files (inventory only; tests not run).
