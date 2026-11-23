@@ -2046,3 +2046,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Task 0.2 read-only audit work package is COMPLETE. E1/E2 evidence and partial coverage limitations are explicitly documented; E3 runtime/test and E4 live-data evidence were not obtained.
 - G-01/G-10 remain blockers; G-02/G-03/G-04 and G-05 through G-12 remain open or policy-dependent as recorded in the closure pack/readiness documents. PostgreSQL schema readiness remains NOT APPROVED.
 - Acceptance does not authorize schema implementation, migrations, live-data access, production changes, VPS purchase, deployment or cutover.
+
+
+## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 188)
+- Re-established read-only access to backend repository root-level files (DatabaseSetup.js, Code.js, Router.js), but exact WorkflowStepRepository/WorkflowService paths could not be resolved and repository search is not indexed for these terms. No new source conclusions; limitation documented in `docs/audit/TASK-2.8-WORKFLOW-STEP-SOURCE-ACCESS-RECOVERY-INCREMENT-188.md`.
+- G-01/G-10 remain blockers; G-02/G-03/G-04 remain open/high. Schema readiness NOT APPROVED. No tests, production changes or live data.
