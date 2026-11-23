@@ -1618,3 +1618,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 77 — Independent events and procurement timeline projection
 - Recorded bounded EventService source observations in `TASK-2.8-INDEPENDENT-EVENT-AND-PROCUREMENT-TIMELINE-PROJECTION-INCREMENT-77.md`: tenant-scoped list includes independent events without ProjectID; project-bound events are visibility-filtered; procurement orders/receipts are projected into project timelines from source procurement records rather than duplicate event rows.
 - Independent-event mutation lifecycle, complete route coverage and projection consistency are unverified. E1 only; no tests or production changes. G-01/G-10 blockers and G-02/G-03/G-04 open. Schema readiness NOT APPROVED.
+
+
+## Task 2.8 Increment 78 — Reference-copy operation and workflow edit failure boundary
+- Recorded bounded source evidence in `TASK-2.8-REFERENCE-COPY-OPERATION-LEDGER-AND-WORKFLOW-EDIT-FAILURE-BOUNDARY-INCREMENT-78.md`: project operation-ID replay lookup, persisted per-information copy plan/status and retry/failure checkpointing; image-copy helpers; workflow published-rule cloning into draft and sequential rule replacement.
+- Durable operation ledger, DB atomic aggregate, storage rollback/outbox and workflow edit/publish transaction/concurrency remain unverified. E1 only; no runtime tests or production writes. G-01/G-10 blockers; G-02/G-03/G-04 open. Schema readiness NOT APPROVED.
