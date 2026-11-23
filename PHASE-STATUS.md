@@ -835,3 +835,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 182)
 - Workflow lifecycle/version publication source trace recorded: tenant checks, active steps, event types/rules validation, publication/version/policy updates, and sequential audit. Atomic publication, historical snapshot immutability, relational constraints and comprehensive repository inventory remain unverified.
 - Artifact `docs/audit/TASK-2.8-WORKFLOW-LIFECYCLE-VERSION-PUBLISH-RELATIONSHIP-TRACE-INCREMENT-182.md` committed. G-01/G-10 remain open.
+
+
+## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 183)
+- Workflow event-rule version cloning and replacement trace recorded. Clone filters Tenant/status then inserts batch; replacement script-lock soft-deactivates matching records and appends records. Service may subsequently patch workflow draft state and audit sequentially; cross-operation transaction and durable relational constraints remain unproven.
+- Artifact `docs/audit/TASK-2.8-WORKFLOW-EVENT-RULE-REPLACEMENT-CLONE-TRANSACTION-TRACE-INCREMENT-183.md` committed. G-01/G-10 remain open.
