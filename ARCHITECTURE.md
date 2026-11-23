@@ -1746,3 +1746,7 @@ Read-only source review documents event creation/void, project-state restoration
 
 ## Task 2.8 Increment 104 — Attachment visibility/copy
 - Trace notes tenant/project visibility helper and status filtering across list/gallery/thumbnail paths, plus copyProjectImage restrictions, duplicate-source lookup and compensation cleanup on failure. Potential status consistency and concurrent-copy uniqueness boundaries require tests. E1 only; no runtime tests. G-01/G-04/G-10/G-11 remain open.
+
+
+### Task 2.8 Increment 105 — Material-planning source retrieval limitation (2026-11-23)
+- Targeted code-search attempts for material-planning service/repository identifiers and generic material-related code in the read-only backend repository returned no indexed source results. No implementation claims are made; source/tree access is required for further tracing. E0 only, no tests or production changes. Task 2.8 remains IN PROGRESS; schema readiness NOT APPROVED.
