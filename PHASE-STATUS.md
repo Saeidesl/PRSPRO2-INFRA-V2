@@ -704,3 +704,10 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Read-only FormService trace documented: response validation/snapshots, sequential response and central-information writes, amendment-event replay synchronization, ProjectInformation revision/history, and reference-sync failure boundaries.
 - Amendment replay intentionally retries central-information synchronization after a response save, but writes across current-value/history/audit/reference-sync remain sequential and atomicity is unproven.
 - G-01/G-03/G-04/G-09/G-10/G-11/G-12 remain OPEN/pending discovery; schema readiness NOT APPROVED. E1 only; no runtime tests, live data, DDL, migration, provisioning or legacy repo writes.
+
+
+## Phase 2 — Task 2.5 checkpoint (2026-11-23, Increment 159)
+- Read-only attachment association, authorization, upload/download/thumbnail, Google Drive storage provider, copy and deletion lifecycle trace documented in `docs/audit/TASK-2.8-ATTACHMENT-ASSOCIATION-STORAGE-LIFECYCLE-TRACE-INCREMENT-159.md`.
+- Source evidence identifies PROJECT/EVENT association patterns, inherited project visibility for linked events, sequential metadata/storage/audit operations, provider coupling, and recovery/orphan risks. Owner/FK coverage, storage reconciliation, delete/restore policy and runtime validation remain pending.
+- G-04/G-11 remain open; G-01/G-10 and other readiness gaps remain unchanged. Schema readiness NOT APPROVED.
+- No tests, live data/file access, SQL/DDL, migrations, DB provisioning, production modifications, deployment or VPS action.
