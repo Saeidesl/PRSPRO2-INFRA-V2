@@ -1959,3 +1959,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 133 — Frontend event-type fields route mismatch candidate (2026-11-23)
 - Crosswalk candidate recorded in `docs/audit/TASK-2.8-FRONTEND-EVENT-FIELD-ROUTE-MISMATCH-CANDIDATE-INCREMENT-133.md`: dashboard selected-project timeline calls GET `/event-types/{id}/fields`; inspected Router nested GET branch dispatches forms/procurement and rejects other subpaths. UI catches failures and falls back without field labels.
 - Runtime/deployment verification pending; candidate mismatch, not confirmed defect. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 134 — Attachment caller/owner/storage-key crosswalk (2026-11-23)
+- Read-only crosswalk recorded in `docs/audit/TASK-2.8-ATTACHMENT-CALLER-OWNER-STORAGE-KEY-CROSSWALK-INCREMENT-134.md`: PROJECT/EVENT metadata owner evidence, project-information/form value references, separate print-template assets, copy/download/thumbnail/delete/upload ordering and object-storage recovery gaps.
+- Historical owner inventory, field-level reference mapping, tenant-safe constraints, orphan/recovery/retention and direct access runtime tests remain incomplete. E1 only; no tests or production changes; G-04/G-10 remain open; schema readiness NOT APPROVED.
