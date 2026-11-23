@@ -668,3 +668,9 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 Increment 152 (2026-11-23)
 - Procurement order/single receipt/batch receipt locking and idempotency paths traced in a bounded read-only review; documented in `docs/audit/TASK-2.8-PROCUREMENT-IDEMPOTENCY-LOCK-BATCH-RECEIPT-TRACE-INCREMENT-152.md`.
 - Source observed lock/idempotency replay checks and separate batch receipt validation/accounting path. Transaction/constraint guarantees are not established from source alone. G-01/G-02/G-06/G-10 remain open. No runtime tests, live data, SQL/migrations, provisioning or production modifications.
+
+
+## Phase 2 — Task 2.8 Increment 153 (2026-11-23)
+- Bounded read-only receipt accounting/projection trace documented in `docs/audit/TASK-2.8-PROCUREMENT-RECEIPT-QUANTITY-RECONCILIATION-PROJECTION-TRACE-INCREMENT-153.md`.
+- Observed single/batch receipt path differences in general-stock allocation validation, replay semantics, cumulative allocation/quantity checks and post-write order-state/audit sequence; read projections use differing receipt accounting/clamping/distribution logic. Canonical net receipt/reversal contract remains unverified.
+- G-02 remains OPEN/BLOCKER; G-01/G-06/G-10 remain OPEN. Schema readiness NOT APPROVED. E1 source evidence only; no runtime tests/live data/schema/migration/provisioning/production modifications.
