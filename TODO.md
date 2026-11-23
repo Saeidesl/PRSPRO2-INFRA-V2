@@ -1667,3 +1667,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 0.2 / Task 2.8 Increment 75 (2026-11-23)
 - Recorded Event void/reference-copy reconciliation trace in `TASK-2.8-EVENT-VOID-REFERENCE-COPY-RECONCILIATION-INCREMENT-75.md`: void guards and restoration/reconciliation sequencing, material-review failure handling, reference-copy operation replay and image-copy validation.
 - E1 only; aggregate atomicity/recovery unverified. No runtime tests or production changes. G-01/G-10 remain blockers; G-02/G-03/G-04 remain open/high.
+
+
+### Task 0.2 / Task 2.8 Increment 76 (2026-11-23)
+- Bounded FormService/event-response source review documented in `TASK-2.8-FORM-SNAPSHOT-AND-WORKFLOW-DRAFT-PUBLISH-BOUNDARY-INCREMENT-76.md`: tenant/mapping/version/visibility validation, DefinitionSnapshot capture and response persistence; form/field version bumps and cache invalidation; published workflow draft cloning/version-qualified rule replacement.
+- Atomicity, immutable response lineage, complete publish rollback and runtime concurrency/recovery remain unverified. E1 only; no tests executed or production changes. G-01/G-03/G-10 remain open; G-02/G-04 remain open; schema readiness NOT APPROVED.
