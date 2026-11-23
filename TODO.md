@@ -1868,3 +1868,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ## Task 2.8 Increment 115 — Project information revision and reference sync boundary (2026-11-23)
 - Audited value validation (including attachment ownership, multi-row bounds), revision/history, approval and LIVE_SYNC fan-out, idempotency logs, conflict detection/resolution and local preservation. Sequential value/history/audit/sync writes and durable transactional recovery are not proven.
 - E1 only, no tests or production changes; Task 2.8 IN PROGRESS; schema readiness NOT APPROVED; G-01/G-10 remain.
+
+
+## Task 2.8 Increment 116 — Admin project cascade-delete boundary (2026-11-23)
+- READ-ONLY audit of dependency-aware deletion preview/removal, tenant/admin/code confirmation, cross-domain dependency collection, shared procurement protection, soft-delete and attachment-storage cleanup, event VOID handling, conditional physical project removal and failure accumulation.
+- Sequential destructive cascade, storage/audit recovery and dependency completeness remain unproven. E1 only, no tests/production changes; Task 2.8 IN PROGRESS; schema readiness NOT APPROVED; G-01/G-10 remain open.
