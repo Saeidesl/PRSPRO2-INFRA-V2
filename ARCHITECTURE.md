@@ -1597,3 +1597,9 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 73 — Cross-operation dependency/failure boundary audit
 - Recorded bounded source trace in `TASK-2.8-CROSS-OPERATION-DEPENDENCY-FAILURE-BOUNDARY-INCREMENT-73.md`: deletion dependency re-collection/shared procurement protections and sequential partial-state handling; event void checks; project update allow-list/optimistic version; information save lock; attachment storage/metadata/audit ordering.
 - V2 requirements: durable deletion/reconciliation operations, transactional state and outbox for external storage, retry/fault-injection testing and shared allocation constraints. E1 only, not runtime verified; no production changes.
+
+
+## Task 2.8 Increment 74 — Project deletion coverage gap
+- Source review of ProjectDeletionService collector (SHA 62482bfb42c2c7bb3329becbb2f821e1efbb4c8e) and FormRepository found that the explicit dependency collector omits ProjectInformation/history, EventFormData responses and reference-sync logs from its visible child inventory. This is a coverage gap in the sampled source, not runtime evidence of orphaning.
+- Also documented the post-project-delete audit write boundary. V2 should use a dependency registry/disposition policy, durable deletion operation and transaction/outbox; no physical deletion before full dependency accounting.
+- E1 only; no tests or production changes. G-01/G-10 remain blockers; schema readiness NOT APPROVED.
