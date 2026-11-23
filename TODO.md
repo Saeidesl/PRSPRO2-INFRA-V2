@@ -2071,3 +2071,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 192)
 - Workflow Router matrix crosschecked GET/POST/PUT/DELETE branches and permissions, including workflow list read-choice exceptions, steps read exception, management-data/rules, publication, assignments and soft removal. Bounded matrix recorded in `docs/audit/TASK-2.8-WORKFLOW-ROUTER-OPERATION-MATRIX-INCREMENT-192.md`.
 - Runtime permission negatives, alternate/method-override routes, exhaustive caller/DTO/test trace remain open. E1/E2 source evidence only; no tests or production changes. G-01/G-10 remain blockers; schema readiness NOT APPROVED.
+
+
+## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 193)
+- Crosschecked Workflow headers/status validations in DatabaseSetup.js against service/repository field use for Workflows, WorkflowSteps, WorkflowStepDepartments and WorkflowStepEventRules; documented in `docs/audit/TASK-2.8-WORKFLOW-DATABASE-SETUP-HEADER-CROSSCHECK-INCREMENT-193.md`.
+- Header presence is not relational constraint proof. Assignment DELETED validation vs service INACTIVE removal and inaccessible Step repository remain policy/evidence questions. E1 only; no tests or production changes. G-01/G-10 remain blockers; schema readiness NOT APPROVED.
