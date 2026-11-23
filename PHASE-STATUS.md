@@ -752,3 +752,10 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Project edit/create sample saves project before upload and uses a 5 MB client-side limit; configured event form upload uses a 10 MB limit (from Increment 164). Server settings remain authoritative. Project save and attachment upload are sequential, so failure may leave saved project but upload incomplete.
 - G-04/G-09/G-11 remain open; schema readiness NOT APPROVED.
 - No runtime tests, live data/files, production modifications, schema or migration.
+
+
+## Phase 2 — Task 2.5 checkpoint (2026-11-23, Increment 166)
+- Read-only trace of repeat-project image/reference copying in backend ProjectService.js recorded at `docs/audit/TASK-2.8-REPEAT-PROJECT-IMAGE-REFERENCE-COPY-TRACE-INCREMENT-166.md`.
+- The helper validates source Attachment tenant, PROJECT owner and source project and image MIME; copies attachment to target project and replaces reference with new target-owned attachment metadata. Active image-typed information columns are traversed in scalar/table values. Lock/status/retry persistence exists in sampled orchestration; atomicity/compensating cleanup for multi-file copying is unproven.
+- Copy-vs-share policy and durable integrity/recovery remain design gaps. G-04/G-09/G-10/G-11 remain open; schema readiness NOT APPROVED.
+- Source trace only; no runtime tests, live data, production modification, migration or deployment.
