@@ -1708,3 +1708,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 95 — Workflow department assignment version scope
 - Recorded `TASK-2.8-WORKFLOW-DEPARTMENT-ASSIGNMENT-VERSION-SCOPE-INCREMENT-95.md`: assignment API uses tenant/workflow/step/dept IDs but no explicit version field, loads all active workflow steps, and uses read-before-write batch validation/fallback inserts.
 - Version semantics, uniqueness, and concurrency remain pending. E1 only, no runtime tests. G-01/G-03/G-10 remain open.
+
+
+## Task 2.8 Increment 96 — Workflow rule save version binding
+- Recorded `TASK-2.8-WORKFLOW-RULE-SAVE-STEP-VERSION-MISMATCH-INCREMENT-96.md`: saveStepEventRules lacks explicit selected-step version equality with draft target; it writes target WorkflowVersion paired with provided StepID. Credible source-level mismatch, runtime effect unverified; sequential persistence boundary.
+- E1 only, no runtime tests. G-01/G-03/G-10 remain open.
