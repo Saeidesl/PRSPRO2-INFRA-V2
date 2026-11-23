@@ -1688,3 +1688,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 91 — Event void lifecycle and reconciliation boundary
 - Recorded `TASK-2.8-EVENT-VOID-LIFECYCLE-RESTORE-AUDIT-AND-MATERIAL-RECONCILIATION-INCREMENT-91.md`: guarded snapshot restoration, event void update, workflow recomputation, audit sequence and material reconciliation failure path.
 - E1 only, no runtime tests. G-01/G-03/G-10 remain open. No production changes.
+
+
+## Task 2.8 Increment 92 — Workflow publish version-scope and concurrency
+- Recorded `TASK-2.8-WORKFLOW-PUBLISH-VERSION-SCOPE-AND-CONCURRENCY-INCREMENT-92.md`: publish rule validation against step set, potential version scope mismatch to verify, sequential workflow state/audit and no visible publish lock/CAS.
+- Source-level potential gap, not confirmed defect. E1 only; no runtime tests. G-01/G-03/G-10 remain open.
