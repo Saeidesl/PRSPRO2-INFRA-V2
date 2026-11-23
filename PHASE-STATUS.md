@@ -725,3 +725,9 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Observed ATTACHMENT_UPLOAD/ATTACHMENT_DELETE route gates, tenant-scoped dependency collection, shared procurement protection rules, sequential child soft-delete/Drive trash/event-void and conditional physical project deletion. Lock does not provide atomicity; partial-failure recovery remains unproven. Preview path includes a schema ensure call in the sampled service.
 - G-04/G-09/G-10/G-11 and mutation coverage remain open; schema readiness NOT APPROVED.
 - No runtime actions, tests, live data/files, SQL, migration or production modifications.
+
+
+## Phase 2 — Task 2.5 checkpoint (2026-11-23, Increment 162)
+- Documented bounded discovery boundary for file references in FormService/EventDataService at `docs/audit/TASK-2.8-FORM-ATTACHMENT-LINK-DISCOVERY-BOUNDARY-INCREMENT-162.md`. This scan did not establish explicit file-reference tokens in FormService; front-end field serialization and related source paths still require discovery. This is not proof of absence.
+- G-03/G-04/G-11 remain open; schema readiness NOT APPROVED.
+- No runtime tests, production data/files, modifications to production, SQL or migration.
