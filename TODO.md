@@ -1999,3 +1999,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 141 — User-role association, validators and setup boundary (2026-11-23)
 - Audited user-role assignment/removal/repository, role/audit/generic validators and status/sidebar permission setup scripts read-only; recorded tenant checks, read-before-write uniqueness, physical membership delete, sequential audit and migration/bootstrap script boundaries in `docs/audit/TASK-2.8-USER-ROLE-ASSOCIATION-VALIDATOR-SETUP-BOUNDARY-INCREMENT-141.md`.
 - DB uniqueness/tenant FKs, temporal membership policy, transactional audit, setup script recovery and seed conflict behavior remain unverified. E1 only; no tests or production changes; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 142 — Legacy test inventory and traceability gaps (2026-11-23)
+- Test-file inventory mapped to domain families recorded in `docs/audit/TASK-2.8-LEGACY-TEST-INVENTORY-AND-TRACEABILITY-GAPS-INCREMENT-142.md`: 41 backend and 46 frontend test files present in source trees, with selected assertion inspection and evidence-quality limits.
+- No tests/CI executed; exhaustive route-to-test trace, tenant-negative/concurrency/fault/migration/runtime/performance coverage remain open. E2 only; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
