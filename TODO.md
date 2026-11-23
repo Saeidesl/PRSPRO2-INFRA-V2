@@ -1627,3 +1627,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 65 (2026-11-23)
 - Bounded read-only inventory of Router.js GET-dispatch branches and permission patterns recorded in `TASK-2.8-ROUTER-GET-DISPATCH-BRANCH-INVENTORY-INCREMENT-65.md`.
 - This does not cover mutation routes or exhaustive authorization. G-01 remains OPEN/BLOCKER; no tests executed or production changes.
+
+
+### Task 0.2 / Task 2.8 Increment 68 (2026-11-23)
+- Bounded tenant/identity/role mutation trace recorded in `TASK-2.8-TENANT-BOUNDARY-ROLE-MUTATION-TRACE-INCREMENT-68.md`: UserRole assignment/removal checks, RoleService tenant/code checks, sampled PermissionService role resolution, WorkflowService tenant filtering, and repository lookup boundaries.
+- E1 source evidence only; no runtime cross-tenant tests or exhaustive mutation coverage. G-01/G-10 remain OPEN/BLOCKER; G-02/G-03/G-04 remain OPEN/HIGH. No production changes.
