@@ -816,3 +816,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 178)
 - Cross-checked identity/authorization headers and repository helper boundaries: Departments/Roles and association rows carry TenantID; Permission catalog is global in the header inventory. Repository code helpers for Department/Role are global-code scans; UserRole repository filters IDs after broad reads. A file-path/content mismatch was observed for the RolePermission repository retrieval and is explicitly left unresolved. Constraints/indexes/atomicity cannot be inferred from sheet headers.
 - Artifact `docs/audit/TASK-2.8-AUTHORIZATION-REPOSITORY-HEADER-CONSTRAINT-CROSSCHECK-INCREMENT-178.md` committed. G-01/G-05/G-10 remain open.
+
+
+## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 179)
+- Router crosswalk of department, role, permission, user-role and role-permission routes/gates recorded. Observed combined department GET gates, role catalogue/list and permission routes, role assignment and membership routes; route/test/runtime exhaustive coverage and permission-negative verification remain incomplete. Department/Role delete routes not observed in bounded Router delete scan; this is not proof beyond inspected branches.
+- Artifact `docs/audit/TASK-2.8-AUTHORIZATION-ROUTE-PERMISSION-CROSSWALK-INCREMENT-179.md` committed. G-01/G-10 remain open.
