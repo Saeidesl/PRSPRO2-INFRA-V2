@@ -1673,3 +1673,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 88 — EventData and attachment delete boundary
 - Recorded `TASK-2.8-EVENTDATA-AND-ATTACHMENT-DELETE-BOUNDARY-INCREMENT-88.md`: EventData parent-event tenant/project access validation; attachment deletion sequenced storage -> metadata -> audit; ProjectDeletion visible collector omits project information/history, event form response and sync-log dependencies.
 - Source-level risk only, not runtime orphan/failure proof. E1; no tests or production changes. G-01/G-10 blockers, G-03/G-04 open.
+
+
+## Task 2.8 Increment 89 — Cascade delete retry and shared-order boundary
+- Recorded `TASK-2.8-PROJECT-CASCADE-DELETE-RETRY-AND-SHARED-ORDER-BOUNDARY-INCREMENT-89.md`: locked/revalidated cascade, per-row failures, shared procurement safeguards, partial retry sequence, project row deletion gating and audit sequencing.
+- Source-only failure boundary observations; no runtime tests. G-01/G-02/G-03/G-04/G-10 remain open as applicable. No production changes.
