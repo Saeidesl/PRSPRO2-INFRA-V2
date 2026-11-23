@@ -1732,3 +1732,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 0.2 / Task 2.8 Increment 88 (2026-11-23)
 - Recorded `TASK-2.8-EVENTDATA-AND-ATTACHMENT-DELETE-BOUNDARY-INCREMENT-88.md`: EventData read parent-event tenant/project visibility validation; attachment delete ordering storage -> metadata DELETED -> audit; ProjectDeletion dependency collector omission of project information/history, event form responses and reference-sync log in visible source.
 - E1 only; no runtime tests or production changes. G-01/G-10 blockers; G-03/G-04 remain open.
+
+
+### Task 0.2 / Task 2.8 Increment 89 (2026-11-23)
+- Recorded `TASK-2.8-PROJECT-CASCADE-DELETE-RETRY-AND-SHARED-ORDER-BOUNDARY-INCREMENT-89.md`: cascade delete sequence, per-item failure capture, project physical deletion gating, shared/general procurement safeguards, partial retry boundary and audit-after-project-row-delete risk.
+- No runtime proof. G-01/G-02/G-03/G-04/G-10 remain open/blocking as applicable. No production changes.
