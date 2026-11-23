@@ -1668,3 +1668,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 87 — Frontend/backend crosswalk rollup
 - Recorded `TASK-2.8-FRONTEND-BACKEND-CROSSWALK-ROLLUP-INCREMENT-87.md`: consolidated caller-family coverage and sampled backend counterparts; documents the evidence boundary and route registry/OpenAPI recommendation.
 - The crosswalk remains non-exhaustive; no runtime tests. G-01/G-10 blockers remain; no production changes.
+
+
+## Task 2.8 Increment 88 — EventData and attachment delete boundary
+- Recorded `TASK-2.8-EVENTDATA-AND-ATTACHMENT-DELETE-BOUNDARY-INCREMENT-88.md`: EventData parent-event tenant/project access validation; attachment deletion sequenced storage -> metadata -> audit; ProjectDeletion visible collector omits project information/history, event form response and sync-log dependencies.
+- Source-level risk only, not runtime orphan/failure proof. E1; no tests or production changes. G-01/G-10 blockers, G-03/G-04 open.
