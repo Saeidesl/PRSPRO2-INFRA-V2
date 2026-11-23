@@ -1808,3 +1808,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 103 (2026-11-23)
 - Recorded `docs/audit/TASK-2.8-ATTACHMENT-UPLOAD-DELETE-RECOVERY-BOUNDARY-INCREMENT-103.md`: source trace of attachment upload persistence/audit sequencing and delete storage-first sequencing.
 - Upload object precedes metadata insert and audit without visible compensating cleanup; delete removes storage before metadata soft-delete and audit. These create recoverability/orphan and metadata-to-storage inconsistency boundaries, not runtime-confirmed failures. E1 only, no tests. G-04/G-09/G-11 remain open; G-01/G-10 remain blockers.
+
+
+### Task 2.8 Increment 104 (2026-11-23)
+- Recorded `docs/audit/TASK-2.8-ATTACHMENT-VISIBILITY-COPY-IDEMPOTENCY-TRACE-INCREMENT-104.md`: visibility helper/list status handling, project-image listing, copy restrictions, copy idempotency/cleanup compensation and potential concurrency constraint gap.
+- E1 only; no runtime tests. Status policy and concurrent deduplication remain unverified. G-01/G-04/G-10/G-11 remain open.
