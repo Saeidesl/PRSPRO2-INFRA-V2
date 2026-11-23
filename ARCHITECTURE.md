@@ -1903,3 +1903,7 @@ Test-source inventory reconciled backend and frontend test families (41 backend,
 
 ### Task 2.8 Increment 143 — Backend source-file audit coverage reconciliation (2026-11-23)
 Source tree and audit documents were reconciled into a source-family map linked to prior increments. Coverage is source-family evidence only; exhaustive branch/caller/DTO/test mapping, mutation secondary-effect matrix and tenant-qualified constraint validation remain open. E1/E2 only; no tests or production changes; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 144 — Frontend source-file audit coverage reconciliation (2026-11-23)
+Frontend source-tree reconciliation records 26 module files represented across core, shared UI, project/event/dashboard, material/procurement/workflow/report/print and administrative families. Exact per-caller DTO, route permission/resource check, service effect and test trace, module lifecycle/cache and browser runtime validation remain incomplete. E1/E2 only; no tests or production changes; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
