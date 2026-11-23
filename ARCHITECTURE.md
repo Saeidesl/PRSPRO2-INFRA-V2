@@ -1698,3 +1698,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 93 — Publish scope check refinement
 - Recorded `TASK-2.8-WORKFLOW-PUBLISH-SCOPE-CHECK-REFINEMENT-INCREMENT-93.md`: rule repository version filtering and locked replace; narrowed publish step version filter concern; step repository path unavailable, so issue remains unconfirmed.
 - E1 only, no runtime tests. G-01/G-03/G-10 remain open.
+
+
+## Task 2.8 Increment 94 — Workflow step creation
+- Recorded `TASK-2.8-WORKFLOW-STEP-CREATE-DRAFT-CLONE-AND-UNIQUENESS-INCREMENT-94.md`: createStep checks Code across workflow versions, derives order from all existing steps, sequentially clones rules/updates draft state/inserts step; failure and concurrency gaps unverified.
+- Unconfirmed business-rule and runtime issues. E1 only, no tests. G-01/G-03/G-10 remain open.
