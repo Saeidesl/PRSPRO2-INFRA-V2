@@ -1889,3 +1889,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 119 — Procurement workspace/report visibility projection (2026-11-23)
 - Read-only trace recorded in `docs/audit/TASK-2.8-PROCUREMENT-WORKSPACE-REPORT-VISIBILITY-PROJECTION-INCREMENT-119.md`: multi-project order projection and all-linked-project visibility suppression, needs/order/receipt derivations, combined workspace cache reuse, tenant/project filtered report enrichment, and visibility-aware dashboard aggregates.
 - Runtime visibility/privacy tests, concurrent projection consistency and snapshot semantics remain unverified. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 120 — Frontend API/session/router/cache crosswalk (2026-11-23)
+- Audited frontend core API, session, permissions, router, cache and startup modules against legacy backend request parser, response/error boundary, WebApp dispatch, Code entrypoint and configuration. Findings recorded in `docs/audit/TASK-2.8-FRONTEND-API-SESSION-ROUTER-CACHE-CORE-INCREMENT-120.md`.
+- Documented API environment configuration, query-token transport, retry/dedup/cache behavior, session/permission reset lifecycle, route guard scope, backend route enforcement, diagnostics boundary and Telegram dispatch/config concerns. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
