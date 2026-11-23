@@ -1779,3 +1779,7 @@ Trace recorded in `docs/audit/TASK-2.8-FORM-DEFINITION-FIELD-LIFECYCLE-INCREMENT
 
 ## Task 2.8 Increment 112 — Event lifecycle boundary
 Read-only trace documented in `docs/audit/TASK-2.8-EVENT-CREATE-IDEMPOTENCY-WORKFLOW-VOID-BOUNDARY-INCREMENT-112.md`. Tenant/workflow checks, optional idempotency marker, event/form/procurement/project/audit sequencing, quantity validation and void dependency guards are observed; atomicity, unique idempotency constraint and stuck-processing recovery remain unproven. E1 only, no tests or production changes; schema readiness not approved.
+
+
+## Task 2.8 Increment 113 — Event form response/amendment synchronization
+Trace recorded in `docs/audit/TASK-2.8-EVENT-FORM-RESPONSE-AMENDMENT-SYNC-BOUNDARY-INCREMENT-113.md`. Response validation, snapshots, direct-update concurrency controls and amendment replay behavior are observed; transactional synchronization of response, project-information projection and audit is not proven. E1 only, no tests or production changes; schema readiness not approved.
