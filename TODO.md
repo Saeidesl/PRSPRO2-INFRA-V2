@@ -1692,3 +1692,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 0.2 / Task 2.8 Increment 80 (2026-11-23)
 - Recorded `TASK-2.8-GET-ROUTE-SERVICE-AUTHORIZATION-CROSSCHECK-INCREMENT-80.md`: bounded Router GET checks for project information, attachments, galleries, event responses/EventData and procurement read routes; distinguishes explicit route permission checks from reliance on service validation.
 - No confirmed authorization defect; method-level and runtime coverage incomplete. E1 only, no tests. G-01/G-10 blockers remain; no production changes.
+
+
+### Task 0.2 / Task 2.8 Increment 81 (2026-11-23)
+- Recorded `TASK-2.8-MUTATION-ROUTE-PERMISSION-CROSSCHECK-INCREMENT-81.md`: bounded Router mutation checks for procurement orders/receipts, project information save/approval, event form response update and attachment upload/delete; notes service-validation reliance for sampled EventData and form-response reads.
+- Full route/service permission coverage and runtime negative tests remain pending. E1 only; G-01/G-10 blockers; no production changes.
