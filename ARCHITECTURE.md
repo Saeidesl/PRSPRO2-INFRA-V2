@@ -1839,3 +1839,7 @@ Read-only source trace documents secret/config storage in Script Properties, tim
 
 ### Task 2.8 Increment 127 — Legacy schema setup, migration and diagnostics (2026-11-23)
 Read-only trace documents DatabaseSetup header definitions and destructive setup/admin functions, configuration migration preflight (header/ID/conflict/tenant/reference checks), backup-before-target-mutation path, a separate target-clearing migration routine with hardcoded environment identifiers, and diagnostic scripts/persistence/privacy boundaries. No migration/reset/diagnostic functions were run. Backup restore, migration recovery, runtime diagnostics permissions/retention remain unverified. E1 only; no production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 128 — Backend Router endpoint/permission crosswalk (2026-11-23)
+Read-only Router dispatch trace inventory covers major GET/POST/PUT/DELETE route families, sampled permission checks and delegated service authorization. AccessControlService route pre-enforcement primarily authenticates; explicit permission gates reside in Router/service paths. Full branch/caller/payload/resource-level authorization crosswalk and negative runtime tests remain incomplete. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
