@@ -780,3 +780,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 170)
 - Project-information file/image field validation trace: attachment reference is checked for same tenant, PROJECT owner and exact project, active state, allowed INFORMATION/PROFILE type (PROFILE only for image), MIME whitelist, and image MIME; image arrays cap at 20, files remain single. Metadata reference normalized to attachment ID/name/MIME/size/type. Retention and immutable-version linkage remain unproven.
 - Artifact `docs/audit/TASK-2.8-PROJECT-INFORMATION-ATTACHMENT-REFERENCE-VALIDATION-TRACE-INCREMENT-170.md` committed. G-04/G-09/G-11 remain open.
+
+
+## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 171)
+- EventDataService validates event tenant and project availability before EventDataRepository.findByEventId (ID-only filter); parses JSON object payload. AuditRepository.findByEntity/findByUser and EventRepository secondary filters are not tenant-scoped in repository layer and rely on callers. Audit append-only/transaction/retention not established.
+- Artifact `docs/audit/TASK-2.8-EVENT-DATA-AUDIT-REPOSITORY-TENANT-SCOPE-TRACE-INCREMENT-171.md` committed. G-01/G-10 and audit integrity/retention gaps remain open.
