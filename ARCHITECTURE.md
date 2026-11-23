@@ -1767,3 +1767,7 @@ Department tenant lifecycle observations are recorded in `docs/audit/TASK-2.8-DE
 
 ## Task 2.8 Increment 109 — Project-status lifecycle boundary
 Source trace recorded in `docs/audit/TASK-2.8-PROJECT-STATUS-LIFECYCLE-UNIQUENESS-BOUNDARY-INCREMENT-109.md`. Tenant and permission checks, active-name duplicate check on create, immutable identity/tenant fields on update and sequential audit are observed. Potential reactivation duplicate-name gap and non-atomic read/write boundary are unverified source-level candidates, not confirmed defects. E1 only, no tests or production changes; schema readiness not approved.
+
+
+## Task 2.8 Increment 110 — Information type/column lifecycle boundary
+Read-only trace recorded in `docs/audit/TASK-2.8-INFORMATION-TYPE-COLUMN-LIFECYCLE-BOUNDARY-INCREMENT-110.md`. Tenant ownership, usage guards for selected structural updates, revision increment and soft deletion are observed; dependency checks for column deactivation, CAS, uniqueness and transactional audit remain unverified. E1 only, no tests or production changes; schema readiness not approved.
