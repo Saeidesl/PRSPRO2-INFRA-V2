@@ -1899,3 +1899,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 121 — Storage, audit, reporting and print-template boundaries (2026-11-23)
 - Read-only trace recorded in `docs/audit/TASK-2.8-STORAGE-AUDIT-REPORT-PRINT-TEMPLATE-BOUNDARY-INCREMENT-121.md`: sheet repository cache/lock/write boundary, Drive storage and tenant upload checks, audit filtering/sequential write boundary, report aggregation/visibility and reusable print-template versioning/data binding/file lifecycle.
 - Transactional audit/outbox, object-store recovery, report snapshot consistency and complete print-template mutation recovery are not demonstrated. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 122 — Frontend shared UI/theme/accessibility boundary (2026-11-23)
+- Read-only audit recorded in `docs/audit/TASK-2.8-FRONTEND-SHARED-COMPONENTS-THEME-ACCESSIBILITY-INCREMENT-122.md`: shared layout/nav, modal, form, table, loading/alert, theme and sidebar permission presentation.
+- Observed accessibility primitives, escape/raw HTML boundaries, client-only route/menu guard, theme persistence and areas needing keyboard/focus/browser testing. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
