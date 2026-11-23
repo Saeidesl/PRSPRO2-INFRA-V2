@@ -1851,3 +1851,7 @@ Read-only frontend caller trace documents project list/create/edit, project refe
 
 ### Task 2.8 Increment 130 — Frontend material/procurement/workflow/report/print caller trace (2026-11-23)
 Read-only caller trace documents material specification multi-row create/revision and history refresh, procurement workspace and order/receipt UI, workflow management and department-assignment cache/refresh flows, project report retrieval/filtering and local-only report template persistence, and print-template revision synchronization/binding/source edit/image/PDF flows. Runtime tests, full payload/permission crosswalk, concurrency and responsive/accessibility remain unverified. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 131 — Frontend admin/configuration caller inventory (2026-11-23)
+Read-only caller inventory documents users/roles/permissions/departments/project statuses, event types/forms/information types, attachments/audit, admin sessions/project cascade deletion and settings modules. Exact payload and permission matrix, configuration mutation atomicity, runtime tenant isolation, cache invalidation and browser accessibility/mobile behavior remain unverified. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
