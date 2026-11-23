@@ -1703,3 +1703,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 94 — Workflow step creation
 - Recorded `TASK-2.8-WORKFLOW-STEP-CREATE-DRAFT-CLONE-AND-UNIQUENESS-INCREMENT-94.md`: createStep checks Code across workflow versions, derives order from all existing steps, sequentially clones rules/updates draft state/inserts step; failure and concurrency gaps unverified.
 - Unconfirmed business-rule and runtime issues. E1 only, no tests. G-01/G-03/G-10 remain open.
+
+
+## Task 2.8 Increment 95 — Workflow department assignment version scope
+- Recorded `TASK-2.8-WORKFLOW-DEPARTMENT-ASSIGNMENT-VERSION-SCOPE-INCREMENT-95.md`: assignment API uses tenant/workflow/step/dept IDs but no explicit version field, loads all active workflow steps, and uses read-before-write batch validation/fallback inserts.
+- Version semantics, uniqueness, and concurrency remain pending. E1 only, no runtime tests. G-01/G-03/G-10 remain open.
