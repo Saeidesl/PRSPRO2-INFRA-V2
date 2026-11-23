@@ -1863,3 +1863,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ## Task 2.8 Increment 114 — Project lifecycle/repeat-copy boundary (2026-11-23)
 - Read-only trace recorded for draft create/completion, tenant-scoped active project creation, workflow immutability after event history, repeat project source validation and configured INITIAL_COPY/LIVE_SYNC/INDEPENDENT policies, staged copy plan/retry state, profile/information image copying, operation IDs, and code uniqueness checks.
 - DB transaction/uniqueness guarantees and cross-storage recovery remain unproven. E1 only, no tests/production changes. Task 2.8 IN PROGRESS; schema readiness NOT APPROVED; G-01/G-10 open.
+
+
+## Task 2.8 Increment 115 — Project information revision and reference sync boundary (2026-11-23)
+- Audited value validation (including attachment ownership, multi-row bounds), revision/history, approval and LIVE_SYNC fan-out, idempotency logs, conflict detection/resolution and local preservation. Sequential value/history/audit/sync writes and durable transactional recovery are not proven.
+- E1 only, no tests or production changes; Task 2.8 IN PROGRESS; schema readiness NOT APPROVED; G-01/G-10 remain.
