@@ -1718,3 +1718,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 97 — Workflow assignment repository tenant/uniqueness
 - Recorded `TASK-2.8-WORKFLOW-ASSIGNMENT-REPOSITORY-TENANT-AND-UNIQUENESS-INCREMENT-97.md`: assignment repo helper methods lack intrinsic TenantID filters; caller filtering is relied on. Storage constraints and race protection not proven.
 - E1 only, no runtime tests. G-01/G-10 remain open.
+
+
+## Task 2.8 Increment 98 — Workflow update field allowlist boundary
+- Recorded `TASK-2.8-WORKFLOW-UPDATE-MASS-ASSIGNMENT-OF-MUTABLE-FIELDS-INCREMENT-98.md`: WorkflowService.update generic copy-through of fields not explicitly excluded, including potential lifecycle/version fields; route-level controls pending trace.
+- E1 only, no runtime tests. G-01/G-03/G-10 remain open.
