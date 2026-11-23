@@ -830,3 +830,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 181)
 - WorkflowStepDepartment assignment validates tenant workflow, active step/department and duplicate department mapping in service; batch insert uses insertMany or sequential fallback; removal soft-deactivates. Repository reads are ID/workflow based; tenant relational constraints, transactionality and version semantics remain unverified.
 - Artifact `docs/audit/TASK-2.8-WORKFLOW-STEP-DEPARTMENT-TENANT-RELATIONSHIP-TRACE-INCREMENT-181.md` committed. G-01/G-10 remain open.
+
+
+## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 182)
+- Workflow lifecycle/version publication source trace recorded: tenant checks, active steps, event types/rules validation, publication/version/policy updates, and sequential audit. Atomic publication, historical snapshot immutability, relational constraints and comprehensive repository inventory remain unverified.
+- Artifact `docs/audit/TASK-2.8-WORKFLOW-LIFECYCLE-VERSION-PUBLISH-RELATIONSHIP-TRACE-INCREMENT-182.md` committed. G-01/G-10 remain open.
