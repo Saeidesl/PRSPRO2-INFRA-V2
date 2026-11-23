@@ -1755,3 +1755,7 @@ Read-only source review documents event creation/void, project-state restoration
 ### Task 2.8 Increment 106 — Auth/session/user lifecycle boundary (2026-11-23)
 - Source-only trace of AuthService, SessionManager, UserService, AccessControlService, PermissionService and sampled Router paths. Observed SHA-256 without salt/work factor in helper, global username collision/login policy, token storage in Script Properties, session expiry configuration, admin tenant-scoped session operations and sampled permission checks. Session invalidation after user status/password mutation remains unverified.
 - V2 security requirements and test gaps are documented in `TASK-2.8-AUTH-SESSION-USER-LIFECYCLE-TRACE-INCREMENT-106.md`. E1 only; no tests or production changes. Task 2.8 remains IN PROGRESS; schema readiness NOT APPROVED.
+
+
+## Task 2.8 Increment 107 — Role/user-role mutation boundary
+Read-only trace documented in `docs/audit/TASK-2.8-ROLE-USER-ROLE-MUTATION-BOUNDARY-INCREMENT-107.md`. Role and user tenant checks and bounded Router permission gates were observed; duplicate/relationship uniqueness and transactional audit boundaries are not proven. Role-permission service orchestration source was not retrieved, so its behavior remains pending discovery. E1 only, no tests or production changes. Task 2.8 remains in progress; schema readiness not approved.
