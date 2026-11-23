@@ -1819,3 +1819,7 @@ Source-only cross-domain trace documented spreadsheet repository cache/locking/r
 
 ### Task 2.8 Increment 122 — Frontend shared UI/theme/accessibility boundary (2026-11-23)
 Source-only review documented shared layout permission presentation, modal focus/ARIA and close behavior (full focus trap not proven), form native validation/serialization, table escaping with trusted raw-cell escape hatch, loading/alert semantics, theme/system preference persistence and sidebar-access overlay. Accessibility, mobile, focus, raw HTML caller trust and large-table behavior require runtime verification. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 123 — Source-tree coverage reconciliation (2026-11-23)
+Source-tree and audit-index reconciliation records module families that have focused audits and families still requiring source-level inspection/crosswalk. Remaining gaps include exhaustive Router route/payload/permission mapping, RolePermission, EventType and EventData/EventField, Telegram operations, migration/setup/database contracts, diagnostics, WorkflowStep repository, test coverage, frontend page-module caller flows/CSS/loader lifecycle and CI/browser tests. Inventory is not behavioral evidence. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
