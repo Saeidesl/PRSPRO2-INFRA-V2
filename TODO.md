@@ -19,7 +19,7 @@
 - [x] Inventory database sheet definitions and headers from DatabaseSetup.js.
 - [x] Preliminary audit of tenant-scoping patterns, workflow-version/rule context, event/form version snapshot references, and procurement idempotency paths.
 - [x] Extract selected workflow-event sequencing, repeat-project/reference copy behavior, and file lifecycle rules (selected paths).
-- [ ] Extract relationship/business rules in detail; audit workflows and role/permission enforcement. (Router POST/PUT/DELETE dispatch inventory recorded; service-level verification remains.)
+- [x] Extract relationship/business rules in detail; audit workflows and role/permission enforcement. (Bounded source traces and route-family crosswalks recorded across increments 107, 125, 138–148; exhaustive branch-to-DTO/test and runtime verification remain explicitly partial.)
 - [x] Preliminary inventory of Drive storage and attachment lifecycle.
 - [x] Inventory integrations (Telegram and other external services) at source level; live configuration remains undiscovered.
 - [x] Inventory frontend and backend test-file names and CI workflow files (inventory only; tests not run).
@@ -2034,3 +2034,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 148 — Router complete inspected branch inventory (2026-11-23)
 - Complete inspected Router.js branch inventory grouped by GET/POST/PUT/DELETE recorded in `docs/audit/TASK-2.8-ROUTER-COMPLETE-BRANCH-INVENTORY-INCREMENT-148.md` and cross-checked against caller/source-family increments.
 - Branch-to-permission/tenant/DTO/persistence/test mapping remains PARTIAL; nested method override and runtime checks remain unverified. E1 only; no tests or production changes; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
+
+
+### Task 0.2 / Task 2.8 Increment 149 — Read-only audit closure pack assembled (2026-11-23)
+- Consolidated source-tree/module-family coverage, route branch inventory, relationship candidate manifest, test/CI inventory, caller crosswalks and residual blocker register in `docs/audit/TASK-0.2-TASK-2.8-READ-ONLY-SOURCE-AUDIT-CLOSURE-PACK-INCREMENT-149.md`.
+- Source audit/documentation assembly is ready for Product Owner review; Task 0.2 remains IN PROGRESS pending explicit acceptance. This does not approve PostgreSQL schema, migration, live-data access or deployment. G-01/G-10 remain blockers and runtime/test evidence is absent.
