@@ -738,3 +738,10 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Event-data collector selection appears keyed by active collected event IDs without an independent TenantID filter in the sampled code; this is a reliance on ID/relationship integrity, not proven cross-tenant safety. Attachments use tenant filter plus entity links. Collector reads fail closed on sheet read errors, but deletion remains sequential and non-transactional.
 - G-01/G-04/G-09/G-10/G-11 remain open; schema readiness NOT APPROVED.
 - No tests, live data/files, production modifications, SQL, migration or deployment.
+
+
+## Phase 2 — Task 2.5 checkpoint (2026-11-23, Increment 164)
+- Traced actual frontend file-field upload/reference semantics from read-only legacy frontend source and recorded `docs/audit/TASK-2.8-FRONTEND-FORM-FILE-REFERENCE-SEMANTICS-TRACE-INCREMENT-164.md`.
+- Event configured form file fields upload through project-scoped `/projects/{projectId}/attachments`, then embed AttachmentID/FileName/MimeType/FileSize/AttachmentType metadata in response values. This indicates a project-owned file with form-response reference in this observed path; direct binary payload is not persisted in form value. Independent-event upload is rejected in this helper.
+- Reuse, clear/removal, amendment and orphan lifecycle policies remain unproven. G-03/G-04/G-09/G-10/G-11 remain open; schema readiness NOT APPROVED.
+- No runtime tests, live files/data, production modifications, schema, migration or deployment.
