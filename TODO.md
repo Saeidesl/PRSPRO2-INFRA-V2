@@ -1934,3 +1934,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 128 — Backend Router endpoint/permission crosswalk (2026-11-23)
 - Read-only Router.js dispatch and permission-family inventory recorded in `docs/audit/TASK-2.8-BACKEND-ROUTER-ENDPOINT-PERMISSION-CROSSWALK-INCREMENT-128.md`, covering GET/POST/PUT/DELETE families, sampled permission gates, nested paths and delegated service checks.
 - Exhaustive branch-by-branch caller/payload/service reconciliation and negative authorization tests remain pending. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 129 — Frontend project/event/dashboard caller trace (2026-11-23)
+- Read-only caller audit recorded in `docs/audit/TASK-2.8-FRONTEND-PROJECTS-EVENTS-DASHBOARD-CALLER-TRACE-INCREMENT-129.md`: project list/create/edit/reference-copy and image caches, project detail information/events/audit/attachments/forms, event picker/context/form prefetch/amendment/submit and dashboard selected-project loading/cache behavior.
+- API caller/cache contracts, runtime permissions, module cleanup, responsive/accessibility and browser behavior remain unverified. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
