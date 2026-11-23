@@ -2080,3 +2080,7 @@ This update supersedes earlier conflicting task-status notes in this historical 
 
 ### Task 2.8 Increment 194 — Consolidated project/event/procurement/storage boundary crosscheck (2026-11-23)
 A compact cross-module crosscheck consolidates shared project-visibility predicates, project lookups/status/code mutation, event workflow-step resolution, procurement lock/idempotency/allocations, and attachment visibility/copy compensation. Source-only E1; no tests or production changes. Direct WorkflowStepRepository/material-planning source remains inaccessible via current exact-path route; G-01/G-10 remain blockers; schema readiness NOT APPROVED. See `docs/audit/TASK-2.8-CONSOLIDATED-PROJECT-EVENT-PROCUREMENT-STORAGE-CROSSCHECK-INCREMENT-194.md`.
+
+
+### Task 2.8 Increment 195 — Material planning revision, calculation ledger and procurement boundary (2026-11-23)
+Reviewed material specification revisioning, append-only calculation ledger, recalculation lock/need supersession, tenant-filtered procurement repository and generic event repository queries. V2 implications: unique revision/key constraints, transactional locking and write bundles, tenant-aware FK/query scope, audit and retry-safe behavior. E1 static review only; no tests or production changes. See `docs/audit/TASK-2.8-MATERIAL-PLANNING-REVISION-CALCULATION-LEDGER-PROCUREMENT-BOUNDARY-INCREMENT-195.md`.
