@@ -1887,3 +1887,7 @@ Header-derived candidate relationships across tenant/RBAC, project/workflow, eve
 
 ### Task 2.8 Increment 139 — Critical Project/Event route-to-evidence crosswalk (2026-11-23)
 Bounded route matrix maps project/event route families to sampled permission gates, tenant/service checks, persistence/lifecycle effects and test-source evidence. Every row remains PARTIAL; nested route branches, exact DTO/caller contract, constraints and negative/runtime tests are not exhaustive. E1/E2 only; no tests or production changes; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 140 — Critical Workflow/Procurement/Admin route crosswalk (2026-11-23)
+Bounded route matrices document workflow publish/rules/assignment, procurement workspace/order/receipt/material specification, and administrative/configuration endpoint permission families, tenant/service checks, persistence effects and test-source evidence. Exhaustive nested routes/callers/DTOs, negative runtime tests, constraints and fault/concurrency recovery remain unverified. E1/E2 only; no tests or production changes; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
