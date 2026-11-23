@@ -1919,3 +1919,7 @@ Bounded route matrix documents login/current-user/permissions/logout, admin sess
 
 ### Task 2.8 Increment 147 — Event-field route mismatch candidate follow-up (2026-11-23)
 EventTypeService.list/get and EventFieldRepository were re-read; optional includeFormDefinitions adds reusable-form definitions, not event field definitions. No `/event-types/{id}/fields` Router branch was found in the inspected nested route. This strengthens the dashboard caller mismatch candidate but does not confirm runtime/deployment impact. E1 only; no tests or production changes; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 148 — Router complete inspected branch inventory (2026-11-23)
+Inspected Router.js branches for GET/POST/PUT/DELETE were enumerated and crosschecked with caller/source-family audits. Branch inventory exists, but each branch's exhaustive permission/resource/tenant predicate, DTO, secondary writes and test mapping remain partial; nested method-override/runtime behavior is unverified. E1 only; no tests or production changes; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
