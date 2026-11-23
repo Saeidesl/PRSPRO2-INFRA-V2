@@ -1662,3 +1662,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 0.2 / Task 2.8 Increment 74 (2026-11-23)
 - Recorded deletion coverage gap in `TASK-2.8-PROJECT-DELETION-COVERAGE-GAP-INCREMENT-74.md` after inspection of the collector and FormRepository: collector's explicit child inventory does not include ProjectInformation/history, EventFormData responses or reference-sync logs. This is a source-level coverage gap, not runtime proof of orphaning.
 - Noted audit-write-after-project-row-delete boundary. V2 requires dependency registry, explicit disposition policies, durable deletion ledger and transactional audit/outbox. E1 only; G-01/G-10 remain blockers; no production changes.
+
+
+### Task 0.2 / Task 2.8 Increment 75 (2026-11-23)
+- Recorded Event void/reference-copy reconciliation trace in `TASK-2.8-EVENT-VOID-REFERENCE-COPY-RECONCILIATION-INCREMENT-75.md`: void guards and restoration/reconciliation sequencing, material-review failure handling, reference-copy operation replay and image-copy validation.
+- E1 only; aggregate atomicity/recovery unverified. No runtime tests or production changes. G-01/G-10 remain blockers; G-02/G-03/G-04 remain open/high.
