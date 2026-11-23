@@ -692,3 +692,9 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Procurement event integration configuration, form-response quantity source validation and central project-information linkage to material recalculation documented in `docs/audit/TASK-2.8-PROCUREMENT-EVENT-INTEGRATION-TRIGGER-CENTRAL-INFORMATION-TRACE-INCREMENT-156.md`.
 - Observed tenant/event-type configuration and numeric single-value information type requirements; exactly-once response source validation and source-event-linked central information checks before calculation. Atomicity across event, central info, calculation and audit remains unverified.
 - G-01/G-03/G-06/G-10 remain OPEN; schema readiness NOT APPROVED. E1 only; no tests/live data/DDL/migrations/provisioning/production changes.
+
+
+## Phase 2 — Task 2.8 Increment 157 (2026-11-23)
+- Event create/void orchestration, idempotency PROCESSING/COMPLETED markers, form persistence, project-state writes, integration failure handling and material-needs reconciliation failure paths documented in `docs/audit/TASK-2.8-EVENT-CREATE-VOID-ORCHESTRATION-PARTIAL-FAILURE-TRACE-INCREMENT-157.md`.
+- Evidence shows sequential persistence and recoverable partial-failure boundaries; durable uniqueness, atomicity and runtime guarantees are not established. Void may persist before material reconciliation; failure is caught and logged for manual/recovery review.
+- G-01/G-03/G-08/G-09/G-10 remain OPEN/pending discovery; schema readiness NOT APPROVED. E1 only; no tests/live data/DDL/migration/provisioning/production changes.
