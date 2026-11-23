@@ -1884,3 +1884,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 118 — Procurement allocation/receipt projection (2026-11-23)
 - Recorded source-only trace of order allocation normalization/validation, surplus treatment, sequential order/items/allocation writes and NEEDS_REVIEW recovery marker, single/batch receipt validation and replay, receipt-driven order status, request-scoped collection cache, and procurement projections in `docs/audit/TASK-2.8-PROCUREMENT-ALLOCATION-RECEIPT-PROJECTION-INCREMENT-118.md`.
 - Allocation/receipt/order writes are sequential and transaction/recovery guarantees are not proven; single and batch receipt paths have differing validation/replay details. E1 only, no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 119 — Procurement workspace/report visibility projection (2026-11-23)
+- Read-only trace recorded in `docs/audit/TASK-2.8-PROCUREMENT-WORKSPACE-REPORT-VISIBILITY-PROJECTION-INCREMENT-119.md`: multi-project order projection and all-linked-project visibility suppression, needs/order/receipt derivations, combined workspace cache reuse, tenant/project filtered report enrichment, and visibility-aware dashboard aggregates.
+- Runtime visibility/privacy tests, concurrent projection consistency and snapshot semantics remain unverified. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
