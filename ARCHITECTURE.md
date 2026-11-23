@@ -1915,3 +1915,7 @@ Bounded route matrix covers attachment/gallery/download/delete, reports/audit, p
 
 ### Task 2.8 Increment 146 — Auth/identity/admin route crosswalk (2026-11-23)
 Bounded route matrix documents login/current-user/permissions/logout, admin sessions, users/user-role and role/permission catalogue routes, permission gates, service/tenant checks and mutation effects. Runtime tests, password migration, session invalidation, tenant-negative coverage and transaction/constraint validation remain incomplete. E1/E2 only; no tests or production changes; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 147 — Event-field route mismatch candidate follow-up (2026-11-23)
+EventTypeService.list/get and EventFieldRepository were re-read; optional includeFormDefinitions adds reusable-form definitions, not event field definitions. No `/event-types/{id}/fields` Router branch was found in the inspected nested route. This strengthens the dashboard caller mismatch candidate but does not confirm runtime/deployment impact. E1 only; no tests or production changes; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
