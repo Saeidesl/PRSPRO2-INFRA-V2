@@ -1895,3 +1895,7 @@ Bounded route matrices document workflow publish/rules/assignment, procurement w
 
 ### Task 2.8 Increment 141 — User-role association, validators and setup boundary (2026-11-23)
 Read-only trace documents tenant-scoped user/role validation, association duplicate check and physical deletion, repository helper tenant dependence, generic shape validation vs domain authorization, and permission/project-status setup scripts. Composite uniqueness, transactional audit, temporal membership policy, seed conflict safety and migration recovery remain unverified. Setup functions not executed. E1 only; no tests or production changes; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 142 — Legacy test inventory and traceability gaps (2026-11-23)
+Test-source inventory reconciled backend and frontend test families (41 backend, 46 frontend test files in source trees). Existence/selected assertions provide E2 only; no tests executed. Exhaustive route-to-test trace, runtime fidelity, tenant isolation negatives, concurrency/fault recovery, migration, storage and workload performance tests remain open. G-01/G-10 remain blockers; schema readiness NOT APPROVED.
