@@ -1989,3 +1989,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 2.8 Increment 139 — Critical Project/Event route-to-evidence crosswalk (2026-11-23)
 - Bounded route matrix recorded in `docs/audit/TASK-2.8-CRITICAL-PROJECT-EVENT-ROUTE-EVIDENCE-CROSSWALK-INCREMENT-139.md` for Project/Event read/mutation routes, permissions/exceptions, tenant/service evidence, persistence effects and test-source status.
 - All entries remain PARTIAL pending exhaustive nested-route/caller/DTO/constraint/test mapping. E1/E2 only; no tests or production changes; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 140 — Critical Workflow/Procurement/Admin route crosswalk (2026-11-23)
+- Bounded route-to-evidence matrices recorded in `docs/audit/TASK-2.8-CRITICAL-WORKFLOW-PROCUREMENT-ADMIN-ROUTE-CROSSWALK-INCREMENT-140.md` for workflow version/rule/assignment/publish, procurement workspace/order/receipt/material spec, and administrative/configuration routes.
+- Nested branches, DTO/caller matrix, tenant/permission negative runtime tests, concurrency/fault recovery and DB constraint mapping remain incomplete. E1/E2 only; no tests or production changes; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
