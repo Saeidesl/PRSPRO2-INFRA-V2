@@ -1843,3 +1843,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ## Task 2.8 Increment 110 — Information type/column lifecycle boundary (2026-11-23)
 - Recorded read-only InformationTypeService/Repository/Validator trace: tenant-scoped type checks, structural-change guard for active usage, revision updates, type/column soft-deactivation and code uniqueness/validation boundaries. Column deactivation dependency checks, revision CAS, storage uniqueness and transactional audit are not demonstrated.
 - E1 only; no tests or production changes. Task 2.8 remains IN PROGRESS; schema readiness NOT APPROVED; G-01/G-10 remain blockers.
+
+
+## Task 2.8 Increment 111 — Form definition/field lifecycle (2026-11-23)
+- Recorded read-only form/field lifecycle trace: tenant ownership, type and visibility validation, form version increments, field add/update/soft-delete dependency checks, 60-second ScriptCache invalidation and sequential mutation/audit boundaries. Composite DB constraints, transactional configuration writes and CAS are not demonstrated.
+- E1 only; no runtime tests or production changes. Task 2.8 remains IN PROGRESS; schema readiness NOT APPROVED; G-01/G-10 remain blockers.
