@@ -718,3 +718,10 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Observed MIME/extension allow-list, filename and base64-size checks, PDF signature check in provider, ATTACHMENT_VIEW route gate on read/download/thumbnail/list surfaces, and additional tenant/owner checks in service paths. Upload/delete route gate details remain pending.
 - G-04/G-11 and broader tenant/FK/mutation coverage remain open; schema readiness NOT APPROVED.
 - No tests, live files/data, SQL/DDL, migrations, production modifications or deployment.
+
+
+## Phase 2 — Task 2.5 checkpoint (2026-11-23, Increment 161)
+- Recorded attachment upload/delete Router permission gates and dependency-aware project cascade deletion source trace in `docs/audit/TASK-2.8-ATTACHMENT-MUTATION-PROJECT-CASCADE-TRACE-INCREMENT-161.md`.
+- Observed ATTACHMENT_UPLOAD/ATTACHMENT_DELETE route gates, tenant-scoped dependency collection, shared procurement protection rules, sequential child soft-delete/Drive trash/event-void and conditional physical project deletion. Lock does not provide atomicity; partial-failure recovery remains unproven. Preview path includes a schema ensure call in the sampled service.
+- G-04/G-09/G-10/G-11 and mutation coverage remain open; schema readiness NOT APPROVED.
+- No runtime actions, tests, live data/files, SQL, migration or production modifications.
