@@ -2084,3 +2084,8 @@ A compact cross-module crosscheck consolidates shared project-visibility predica
 
 ### Task 2.8 Increment 195 — Material planning revision, calculation ledger and procurement boundary (2026-11-23)
 Reviewed material specification revisioning, append-only calculation ledger, recalculation lock/need supersession, tenant-filtered procurement repository and generic event repository queries. V2 implications: unique revision/key constraints, transactional locking and write bundles, tenant-aware FK/query scope, audit and retry-safe behavior. E1 static review only; no tests or production changes. See `docs/audit/TASK-2.8-MATERIAL-PLANNING-REVISION-CALCULATION-LEDGER-PROCUREMENT-BOUNDARY-INCREMENT-195.md`.
+
+
+### Task 2.8 Increment 196 — Consolidated cross-domain invariant synthesis (2026-11-23)
+- Reconciled increments 185–195 and recovered project design documents into a compact cross-domain invariant synthesis, documented in `docs/audit/TASK-2.8-CONSOLIDATED-INVARIANT-SYNTHESIS-INCREMENT-196.md`.
+- No new production source retrieval or runtime evidence in this increment. G-01/G-10 remain open; G-02/G-03/G-04 remain open; schema readiness NOT APPROVED. No tests, DDL, migrations, live data, production changes, deployment or VPS action.
