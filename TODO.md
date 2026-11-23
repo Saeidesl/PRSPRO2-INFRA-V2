@@ -1737,3 +1737,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 0.2 / Task 2.8 Increment 89 (2026-11-23)
 - Recorded `TASK-2.8-PROJECT-CASCADE-DELETE-RETRY-AND-SHARED-ORDER-BOUNDARY-INCREMENT-89.md`: cascade delete sequence, per-item failure capture, project physical deletion gating, shared/general procurement safeguards, partial retry boundary and audit-after-project-row-delete risk.
 - No runtime proof. G-01/G-02/G-03/G-04/G-10 remain open/blocking as applicable. No production changes.
+
+
+### Task 0.2 / Task 2.8 Increment 90 (2026-11-23)
+- Recorded `TASK-2.8-PROCUREMENT-ORDER-RECEIPT-ATOMICITY-AND-ALLOCATION-INCREMENT-90.md`: tenant/project/event validation, order/receipt idempotency, allocation and receipt quantity ceilings, order NEEDS_REVIEW partial-write compensation, receipt batch insert followed by order status/audit sequencing.
+- Source-only evidence; no runtime tests. G-01/G-02/G-03/G-10 remain open. No production changes.
