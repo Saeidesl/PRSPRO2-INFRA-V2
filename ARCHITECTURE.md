@@ -1783,3 +1783,7 @@ Read-only trace documented in `docs/audit/TASK-2.8-EVENT-CREATE-IDEMPOTENCY-WORK
 
 ## Task 2.8 Increment 113 — Event form response/amendment synchronization
 Trace recorded in `docs/audit/TASK-2.8-EVENT-FORM-RESPONSE-AMENDMENT-SYNC-BOUNDARY-INCREMENT-113.md`. Response validation, snapshots, direct-update concurrency controls and amendment replay behavior are observed; transactional synchronization of response, project-information projection and audit is not proven. E1 only, no tests or production changes; schema readiness not approved.
+
+
+## Task 2.8 Increment 114 — Project lifecycle and repeat-reference copy
+Read-only trace in `docs/audit/TASK-2.8-PROJECT-LIFECYCLE-REPEAT-COPY-BOUNDARY-INCREMENT-114.md`. Draft/active lifecycle, repeat source and policy, staged copy state, image-copy orchestration and uniqueness/locking boundaries observed. E1 only; transaction/storage recovery and DB constraints not proven; schema readiness not approved.
