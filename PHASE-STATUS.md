@@ -796,3 +796,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - AuditService log validates required identity/action/entity fields, serializes snapshots and inserts separately; list/entity/user queries load or filter broad datasets then Tenant filter in-memory. Atomic coupling, redaction, size/retention and pagination not evidenced (Increment 173).
 - UserService/repository trace: tenant list filters in memory; username duplication is intended global case-insensitive; repository helpers normalize, uniqueness enforcement/atomicity unknown; tenant memberships and login credential migration remain gaps (Increment 174).
 - Artifacts `TASK-2.8-AUDIT-SERVICE-TENANT-QUERY-WRITE-INTEGRITY-TRACE-INCREMENT-173.md` and `TASK-2.8-USER-IDENTITY-UNIQUENESS-TENANT-QUERY-TRACE-INCREMENT-174.md` committed. G-05/G-08/G-10 and audit gates remain open.
+
+
+## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 175)
+- Cross-check login versus account creation/update: UserService intends global case-insensitive username uniqueness, but AuthService login fails closed when multiple matches and explicitly notes usernames may repeat across tenants (policy drift/historical duplicate possibility). SHA-256 UTF-8 hash is used without salt/work factor in sampled helper. Account mutation/audit sequential.
+- Artifact `docs/audit/TASK-2.8-USERNAME-POLICY-CONFLICT-LEGACY-PASSWORD-HASH-TRACE-INCREMENT-175.md` committed. G-05/G-08/G-10 remain open.
