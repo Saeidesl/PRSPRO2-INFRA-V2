@@ -1728,3 +1728,8 @@ Read-only source review documents event creation/void, project-state restoration
 ## Task 2.8 Increment 99 — Workflow route permission crosscheck
 - Recorded `TASK-2.8-WORKFLOW-ROUTE-PERMISSION-CROSSCHECK-INCREMENT-99.md`: sampled workflow mutations require WORKFLOW_MANAGE; GET list/steps have limited read exceptions. Increment 98 concern narrowed in route reachability, but explicit allowlisting still needed.
 - E1 only, no runtime tests; exhaustive route coverage G-01 and tenant proof G-10 remain open.
+
+
+## Task 2.8 Increment 100 — Workflow schema/key constraint crosswalk
+- Recorded `TASK-2.8-WORKFLOW-SHEET-RELATIONSHIP-AND-KEY-CONSTRAINT-CROSSWALK-INCREMENT-100.md`: schema headers crosswalk Workflow, Steps, Department assignments and Event Rules; required tenant/version composite constraints for V2 documented.
+- Header evidence E1 only; no runtime tests. G-01/G-10 remain open.
