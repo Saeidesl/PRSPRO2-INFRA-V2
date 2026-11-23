@@ -1782,3 +1782,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 0.2 / Task 2.8 Increment 98 (2026-11-23)
 - Recorded `TASK-2.8-WORKFLOW-UPDATE-MASS-ASSIGNMENT-OF-MUTABLE-FIELDS-INCREMENT-98.md`: WorkflowService.update generic copy-through permits unexcluded lifecycle/version fields at service layer; route-level filtering/authorization pending.
 - Potential mass-assignment boundary, not confirmed exploit. E1 only; no tests. G-01/G-03/G-10 remain open.
+
+
+### Task 0.2 / Task 2.8 Increment 99 (2026-11-23)
+- Recorded `TASK-2.8-WORKFLOW-ROUTE-PERMISSION-CROSSCHECK-INCREMENT-99.md`: route crosscheck confirms sampled workflow mutation endpoints require WORKFLOW_MANAGE; narrows Increment 98 reachability, but does not replace explicit mutable-field allowlisting.
+- E1 only; route inventory remains partial and runtime tests pending. G-01/G-10 remain open.
