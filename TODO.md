@@ -1879,3 +1879,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 - Source retrieval succeeded via read-only repository tree/file access, resolving the earlier indexed-search limitation recorded in Increment 105. MaterialPlanningService and material-planning test intent inspected.
 - Documented specification revisions, calculation-key replay, quantity arithmetic, confirmed-need supersession, estimated-need supersession, event-void review marking, lazy schema setup and sequential write/audit boundaries in `docs/audit/TASK-2.8-MATERIAL-SPECIFICATION-CALCULATION-LIFECYCLE-INCREMENT-117.md`.
 - Test file inspected, tests NOT run. No live data or production changes. E1 only; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 118 — Procurement allocation/receipt projection (2026-11-23)
+- Recorded source-only trace of order allocation normalization/validation, surplus treatment, sequential order/items/allocation writes and NEEDS_REVIEW recovery marker, single/batch receipt validation and replay, receipt-driven order status, request-scoped collection cache, and procurement projections in `docs/audit/TASK-2.8-PROCUREMENT-ALLOCATION-RECEIPT-PROJECTION-INCREMENT-118.md`.
+- Allocation/receipt/order writes are sequential and transaction/recovery guarantees are not proven; single and batch receipt paths have differing validation/replay details. E1 only, no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
