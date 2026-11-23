@@ -1843,3 +1843,7 @@ Read-only trace documents DatabaseSetup header definitions and destructive setup
 
 ### Task 2.8 Increment 128 — Backend Router endpoint/permission crosswalk (2026-11-23)
 Read-only Router dispatch trace inventory covers major GET/POST/PUT/DELETE route families, sampled permission checks and delegated service authorization. AccessControlService route pre-enforcement primarily authenticates; explicit permission gates reside in Router/service paths. Full branch/caller/payload/resource-level authorization crosswalk and negative runtime tests remain incomplete. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 129 — Frontend project/event/dashboard caller trace (2026-11-23)
+Read-only frontend caller trace documents project list/create/edit, project reference-copy orchestration, attachment/image caching, project-detail information/history/audit/events/print data, event queue/picker/context/form prefetch/amendment/submit, and dashboard selected-project cache refresh/request guards. Runtime permission/visibility, cache invalidation, browser accessibility, module cleanup and performance tests remain unverified. E1 only; no tests or production changes; G-01/G-10 remain open; schema readiness NOT APPROVED.
