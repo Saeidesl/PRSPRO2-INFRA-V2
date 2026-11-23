@@ -1907,3 +1907,7 @@ Source tree and audit documents were reconciled into a source-family map linked 
 
 ### Task 2.8 Increment 144 — Frontend source-file audit coverage reconciliation (2026-11-23)
 Frontend source-tree reconciliation records 26 module files represented across core, shared UI, project/event/dashboard, material/procurement/workflow/report/print and administrative families. Exact per-caller DTO, route permission/resource check, service effect and test trace, module lifecycle/cache and browser runtime validation remain incomplete. E1/E2 only; no tests or production changes; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 145 — Attachment/report/print/diagnostics route crosswalk (2026-11-23)
+Bounded route matrix covers attachment/gallery/download/delete, reports/audit, print-template source/assets and diagnostics permission/service/persistence evidence. All rows remain PARTIAL; nested route/direct object authorization, snapshot consistency, privacy, template concurrency and storage recovery runtime tests remain incomplete. E1/E2 only; no tests or production changes; G-01/G-10 remain blockers; schema readiness NOT APPROVED.
