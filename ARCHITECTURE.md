@@ -1592,3 +1592,8 @@ Read-only source review documents event creation/void, project-state restoration
 - Added `TASK-2.8-RELATIONSHIP-CONSTRAINT-CROSSWALK-INCREMENT-72.md`: bounded logical-edge matrix from DatabaseSetup headers and sampled repository contracts across tenant, project/event, forms, central information/history, workflow, materials/procurement and polymorphic storage/audit.
 - Candidate tenant-qualified composite constraints, transaction-backed invariants and versioned-ledger requirements are documented as recommendations, not approved DDL. Cardinality and lifecycle policy remain unresolved; one repository fetch failed.
 - E1 only; no runtime tests, schema implementation or production changes. G-01/G-10 BLOCKER and G-02/G-03/G-04 OPEN; readiness NOT APPROVED.
+
+
+## Task 2.8 Increment 73 — Cross-operation dependency/failure boundary audit
+- Recorded bounded source trace in `TASK-2.8-CROSS-OPERATION-DEPENDENCY-FAILURE-BOUNDARY-INCREMENT-73.md`: deletion dependency re-collection/shared procurement protections and sequential partial-state handling; event void checks; project update allow-list/optimistic version; information save lock; attachment storage/metadata/audit ordering.
+- V2 requirements: durable deletion/reconciliation operations, transactional state and outbox for external storage, retry/fault-injection testing and shared allocation constraints. E1 only, not runtime verified; no production changes.
