@@ -1557,3 +1557,8 @@ Read-only source review documents event creation/void, project-state restoration
 - Source evidence: production Router.js blob SHA `f2542a17993b852c7dd2968a8fefe57f70b991f3`.
 - Review note: print-template project-data binding PUT branch has no explicit Router-level `AccessControlService.require` visible in that branch; service-side authorization must be checked before drawing conclusions.
 - Source-level inventory is not runtime verification. Tenant boundaries, service/repository invariants, full dependency coverage, and runtime tests remain open.
+
+
+## Task 2.8 — Downstream verification checkpoint (Increment 67, 2026-11-23)
+- Reviewed `PrintTemplateService.updateProjectBinding` and delegated handlers. The route's missing visible Router-level guard is not treated as a confirmed bypass: the service checks tenant-scoped template/project availability, and dispatch requires PROJECT_EDIT or EVENT_EDIT by source type. Delegated handlers also contain tenant, locking/version, field allow-list and event restrictions (bounded source observations).
+- No runtime test performed; verification remains source-only.
