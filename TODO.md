@@ -1717,3 +1717,8 @@ This update supersedes earlier conflicting task-status notes in this historical 
 ### Task 0.2 / Task 2.8 Increment 85 (2026-11-23)
 - Recorded `TASK-2.8-FRONTEND-SESSION-PERMISSION-AND-IMAGE-CALLER-TRACE-INCREMENT-85.md`: frontend auth/session/permissions endpoint-family and information-type/project-image caller trace; recommends central session/permission and attachment abstraction in V2.
 - Complete session lifecycle/cache invalidation and permission contract remain unverified. E1 only; no tests or production changes. G-01 blocker remains.
+
+
+### Task 0.2 / Task 2.8 Increment 86 (2026-11-23)
+- Recorded `TASK-2.8-ADMINISTRATIVE-FRONTEND-CALLER-TRACE-INCREMENT-86.md`: read-only caller-family trace for users, roles, available permissions, departments, project statuses, permission catalogue, audit and workflow settings modules.
+- Administrative route/payload/permission reconciliation remains partial. E1 only; no tests or production changes. G-01/G-10 blockers remain.
