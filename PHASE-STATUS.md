@@ -657,3 +657,9 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Task 0.2 is COMPLETE; TODO.md records acceptance and limitations. This document's earlier historical entries that describe Task 0.2 as IN PROGRESS are checkpoint records, not the current status.
 - Readiness limitations are unchanged: E1/E2 evidence only, no E3 execution evidence or E4 live-data evidence. G-01/G-10 remain blockers; schema readiness remains NOT APPROVED.
 - Repository recheck confirms PRSPRO2-V2, PRSPRO2BACKEND-V2, PRSPRO2DATABASE-V2 exist and are private but empty. No files bootstrapped in this increment.
+
+
+## Phase 2 — Task 2.8 Increment 151 (2026-11-23)
+- Bounded read-only event/form response preparation and tenant-boundary trace recorded in `docs/audit/TASK-2.8-EVENT-FORM-PREPARATION-TENANT-PAYLOAD-TRACE-INCREMENT-151.md`.
+- Observed EventDataService parent/tenant/project availability checks and JSON validation; FormService mapped response validation, required forms, duplicate IDs, form version, field visibility/required checks and tenant-scoped mappings; EventType normalization observations recorded.
+- E1 source evidence only; G-01/G-03/G-10 remain open. No tests, live data, schema, migrations, production modifications, deployment or VPS actions.
