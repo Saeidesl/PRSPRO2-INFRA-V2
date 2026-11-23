@@ -680,3 +680,9 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Procurement Router and repository surface crosswalk documented in `docs/audit/TASK-2.8-PROCUREMENT-ROUTER-REPOSITORY-SURFACE-CROSSWALK-INCREMENT-154.md`.
 - Retrieved Router excerpt shows procurement read endpoints and order/receipt single/batch POST commands with permission gates; no receipt correction/reversal route was visible in this bounded excerpt. ProcurementRepository sampled file is tenant-filtered collection read-only access. Absence is not asserted beyond inspected excerpt.
 - G-01/G-02/G-10 remain OPEN; schema readiness NOT APPROVED. E1 only, no tests/live data/schema/migrations/provisioning/production modifications.
+
+
+## Phase 2 — Task 2.8 Increment 155 (2026-11-23)
+- Material-planning specification revision, calculation ledger, confirmed-need reconciliation and source-event void handling trace documented in `docs/audit/TASK-2.8-MATERIAL-PLANNING-SPECIFICATION-CALCULATION-RECONCILIATION-TRACE-INCREMENT-155.md`.
+- Observed latest-spec revision selection, calculation-key replay lookup, 4-decimal ceiling calculation, sequential calculation/need/audit updates and source-event-void marking NEEDS_REVIEW. Atomicity/DB uniqueness/runtime behavior not established.
+- G-01/G-03/G-06/G-10 remain OPEN; G-02 remains OPEN/BLOCKER. Schema readiness NOT APPROVED. E1 only; no tests/live data/DDL/migrations/provisioning/production changes.
