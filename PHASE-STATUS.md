@@ -633,3 +633,9 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ### Task 2.8 Increment 63 (2026-11-22)
 - Legacy test inventory and V2 verification gap map recorded in `TASK-2.8-LEGACY-TEST-INVENTORY-VERIFICATION-GAP-MAP-INCREMENT-63.md`. Verified 40 test files in the reference backend tests tree; read representative test names for attachment access, project deletion, procurement, workflow rules, event idempotency and material planning.
 - Test execution/pass status is not claimed. PostgreSQL/transaction/RLS/route matrix/storage recovery coverage remains unverified. G-01/G-10 remain OPEN; schema readiness NOT APPROVED. No production changes.
+
+
+## Phase 2 — Task 2.8 Increment 64 (2026-11-23)
+- Consolidated increments 52–63 into a domain-by-domain coverage/evidence matrix and readiness gap register in `TASK-2.8-CONSOLIDATED-COVERAGE-EVIDENCE-READINESS-MATRIX-INCREMENT-64.md`.
+- G-01 (complete mutation/route/dependency coverage) and G-10 (tenant integrity) remain OPEN/BLOCKERS; G-02/G-03/G-04 remain OPEN/HIGH. Runtime verification is not established.
+- Task 2.8 remains IN PROGRESS; schema/migration readiness is NOT APPROVED. No production modifications or live data access.
