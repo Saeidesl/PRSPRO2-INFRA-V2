@@ -2605,3 +2605,8 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Read-only static audit of backend-check, PMS agent suite, procurement diagnostics and Agent monitor workflow definitions. Recorded monitor scope limitations, duplicate path-filter entries, path-trigger coverage boundaries and follow-up test targets WF-01..WF-05.
 - Report: `docs/audit/TASK-2.8-CI-WORKFLOW-TRIGGER-AND-ALERTING-SCOPE-AUDIT-INCREMENT-280.md`.
 - No workflow runs/tests, production modifications or data access. G-01/G-10 remain OPEN; runtime assurance NOT VERIFIED; schema readiness NOT APPROVED.
+
+### Task 2.8 Increment 281 — Production Apps Script sync/deploy safety trace (2026-11-24)
+- Static review of `sync-apps-script.yml` recorded dispatch/confirmation/variable gates, clasp credential handling, isolated target checks, and important semantics: `push_only` still performs `clasp push --force`; deploy mode is gated separately. SY-01..SY-06 assurance targets recorded.
+- Report: `docs/audit/TASK-2.8-PRODUCTION-APPS-SCRIPT-SYNC-DEPLOY-SAFETY-TRACE-INCREMENT-281.md`.
+- No secrets inspected, workflow executed, source pushed, deployment or production data accessed. G-01/G-10 OPEN; runtime assurance NOT VERIFIED.
