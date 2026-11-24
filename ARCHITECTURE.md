@@ -2021,3 +2021,7 @@ Static trace of sequential calculation status and confirmed-need updates, audit 
 
 ### Task 2.8 — attachment deletion failure boundaries (Increment 258)
 AttachmentService.delete sequentially performs storage delete, metadata DELETED, then audit. Static review documents failure windows ATT-01..ATT-06, recovery test blueprint ATT-01..ATT-10 and durable storage-job/outbox requirement. No runtime failure injection performed.
+
+
+### Task 2.8 — project cascade deletion boundary (Increment 259)
+ProjectDeletionService.remove sequentially soft-deletes dependencies, trashes files, marks events VOID, conditionally physically deletes the project row, and then writes audit. Static analysis identified PD-01..PD-10 partial-failure windows and PD-01..PD-14 test blueprint. Audit failure after project physical deletion and mixed child cleanup remain unverified; no tests run.
