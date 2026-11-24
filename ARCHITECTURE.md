@@ -1981,3 +1981,7 @@ Read-only audit of synthetic procurement project timeline. Order and receipt pro
 
 ## Audit addendum — Increment 248 (2026-11-24)
 Static cross-path receipt review: inspected single/batch quantity aggregations include receipt records without explicit status filtering; a single-receipt replay check excludes VOID for its matching condition, yielding divergent semantics. Conditional candidate risk only if VOID records are intended excluded from aggregates. Report Increment 248. No tests/production changes; G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
+
+
+## Audit addendum — Increment 249 (2026-11-24)
+Static comparison of receipt validation paths: batch appears to allow blank-project receipt for the unallocated remainder of an item with allocations; inspected single receipt path requires ProjectID when allocations exist. Policy parity remains unresolved, candidate behavior difference only. Report Increment 249. No tests or production changes; G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
