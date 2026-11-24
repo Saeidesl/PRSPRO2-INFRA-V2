@@ -2127,3 +2127,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Revalidated metadata access to all six repositories (four V2 and two production reference repos). Selected read-only fetches from production backend/frontend succeeded; production repositories were not modified.
 - Recorded verified access recovery and sampled source retrieval in `TASK-2.8-GITHUB-ACCESS-RECOVERY-INCREMENT-203.md`; file read-back verified.
 - EP-01 remains INCOMPLETE: sampled fetches do not establish exhaustive source-tree manifest or reviewed commit hashes. G-01/G-02/G-03/G-04/G-10 remain OPEN; schema readiness NOT APPROVED. No tests, DDL, migration, live data, deployment or production changes.
+
+
+### Task 2.8 Increment 205 — Recursive read-only tree inventory (2026-11-24)
+- Retrieved non-truncated recursive default-branch tree snapshots for both production reference repositories: backend tree SHA `8253eb3718d1a2a1bd5de03b6b5090ba69b94b67` (147 file entries, 41 test files); frontend tree SHA `b74424ccb8d981172384d4eddbf6910a8f09b09c` (172 file entries, 46 test files). Tree snapshot SHAs recorded, not parent commit IDs.
+- Increment 205 created and read-back verified: `TASK-2.8-RECURSIVE-PRODUCTION-TREE-INVENTORY-INCREMENT-205.md`.
+- EP-01 advanced to exhaustive path inventory for captured trees, but remains incomplete pending exact commit refs, route/handler/caller/consumer/security/mutation-effect mapping and disposition. Test presence is not execution evidence. G-01/G-02/G-03/G-04/G-10 remain OPEN; schema readiness NOT APPROVED. Production remains read-only.
