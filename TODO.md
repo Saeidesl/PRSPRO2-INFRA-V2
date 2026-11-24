@@ -2234,3 +2234,8 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Re-read AttachmentService visibility, upload, download and delete paths. Tenant/entity/project visibility checks are present in source. Delete sequence is storage deletion, metadata status update, then audit; failure/reconciliation semantics not verified, noted as recovery risk.
 - Documented recommendations (not adopted decisions) for durable recoverable lifecycle and retention/scanning policy. E1 source only; G-04/G-01/G-10 remain OPEN.
 - Increment 222 created and read-back verified.
+
+
+### Task 2.8 Increment 223 — Event/Form/Project-information/Workflow mutation crosswalk (2026-11-24)
+- Re-fetched and bounded cross-domain mutation trace across EventService, FormService, ProjectInformationService and WorkflowService, including tenant/revision checks, locks/idempotency, amendment rules and side-effect write ordering.
+- Increment 223 created/read-back verified; source evidence only. Multi-write atomicity/recovery, caller/route/test mapping and grouped business-policy gates remain OPEN (G-01/G-03/G-10); readiness NOT APPROVED.
