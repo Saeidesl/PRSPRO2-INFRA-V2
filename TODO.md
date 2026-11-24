@@ -2374,3 +2374,11 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Reference-copy operation sequentially persists project information, history and sync-log; error path attempts to mark item FAILED but swallows failure of that recovery write. LIVE_SYNC idempotency key observed; collision/retry handling still needs testing.
 - Report: `TASK-2.8-FORM-AMENDMENT-REFERENCE-COPY-RECOVERY-INCREMENT-244.md`.
 - Static only; no tests run. G-01/G-10 OPEN; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 245 — Material planning recalculation/void reconciliation (2026-11-24)
+- Read-only trace of spec revision writes, per-spec recalculation sequence, calculation-key replay/linking, supersession of older specs/estimated needs, final audit and source-event void marking.
+- Multi-write boundaries include calculation-ledger insert, need mutation, ledger-to-need linkage and audit; event void sequentially marks calculation history and needs NEEDS_REVIEW. No durable reconciliation/rollback mechanism evidenced in the inspected service; this is a source limitation, not confirmed runtime defect.
+- Early-order fields are set DISABLED/blank in inspected create/revise paths; business intent remains unknown.
+- Report: `TASK-2.8-MATERIAL-PLANNING-RECALC-VOID-RECONCILIATION-INCREMENT-245.md`.
+- Static only; no tests run. G-01/G-02/G-03/G-10 remain open; schema readiness NOT APPROVED.
