@@ -2013,3 +2013,7 @@ Selected access-control tests/source review identifies a bounded test-coverage g
 
 ### Task 2.8 — event-void write sequence (Increment 256)
 Event void performs sequential project restoration, event VOID mutation, audits, step-progress recalculation, and material-needs reconciliation. Static trace identifies potential partial-state/audit windows V-01..V-07 and tests V-01..V-10. Runtime failure injection not performed; report is bounded and production references remain read-only.
+
+
+### Task 2.8 — material planning void reconciliation (Increment 257)
+Static trace of sequential calculation status and confirmed-need updates, audit and ScriptLock in markEventVoided identified MPV-01..MPV-08; test blueprint MPV-01..MPV-12 and V2 transactional outbox recommendations documented. Retry convergence, repeated note behavior and platform concurrency remain unverified.
