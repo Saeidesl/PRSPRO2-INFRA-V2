@@ -2053,3 +2053,7 @@ O-01..O-16 specify key scope/fingerprint, durable state, lease recovery, retry e
 
 ### Task 2.8 — consolidated mutation assurance evidence matrix (Increment 266)
 Cross-domain table separates source trace, test source presence, execution and recovery assurance. Selected test suites have not run; E3/runtime evidence is not established. G-01/G-02/G-03/G-04/G-10 remain open and schema readiness NOT APPROVED.
+
+
+## Task 2.8 audit addendum — Increment 266
+Project/Event validators provide input-shape checks but do not independently establish tenant/resource relationship authorization. Procurement project/event helpers perform selected tenant/visibility checks; caller-wide coverage remains unverified. PV-EV-01..08 test targets are documented in the Infra increment report. Static only; no tests/data/production changes. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
