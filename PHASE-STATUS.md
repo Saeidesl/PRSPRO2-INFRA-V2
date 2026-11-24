@@ -870,3 +870,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 Increment 278 (2026-11-24)
 - Added bounded test-source inventory pinned to backend tree SHA `8253eb3718d1a2a1bd5de03b6b5090ba69b94b67`.
 - Selected test files for schema, request cache/access control, idempotency schema recovery, project deletion, storage-folder behavior and procurement mocks confirmed by source inspection. No tests were run. Runtime assurance and gate closure not claimed.
+
+
+## Phase 2 — Task 2.8 Increment 279 (2026-11-24)
+- Recorded successful CI execution on backend commit `4a131aed6f0e1f7e0e05aad7dc2baacb35671dd7` with explicit applicability caveat relative to later current snapshot `8253eb3718d1a2a1bd5de03b6b5090ba69b94b67`.
+- Report `docs/audit/TASK-2.8-CI-EVIDENCE-SNAPSHOT-APPLICABILITY-INCREMENT-279.md`. Historical E2 evidence confirmed, current snapshot suite not established, E3 unverified.
