@@ -2504,3 +2504,8 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Read-only review of ProjectValidator, EventValidator and ProcurementService validation helpers. Documented PV-EV-01..08 downstream tenant/relationship/lifecycle test targets; validator-only checks do not prove relationship authorization.
 - Report: `TASK-2.8-VALIDATOR-AND-RELATIONSHIP-BOUNDARY-CROSSCHECK-INCREMENT-266.md`.
 - Static only; tests not run; no production changes/data access. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
+
+
+### Task 2.8 — Increment 267 (2026-11-24)
+- Prepared decision-ready recommended defaults for procurement (G-02), history/amendments (G-03), storage lifecycle (G-04) and tenant/global classification (G-10), separating recommendations from approved policy. See `TASK-2.8-PO-DECISION-READY-POLICY-GATES-INCREMENT-267.md`.
+- These gates require Product Owner decisions; recommendations are not approval. Task 2.8 remains IN PROGRESS.
