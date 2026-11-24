@@ -2325,3 +2325,10 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Potential partial-cascade and recovery risks documented; these are not confirmed defects. Source does not evidence rollback/reconciliation queue in inspected path.
 - Report: `TASK-2.8-PROJECT-CASCADE-DELETION-ORCHESTRATION-INCREMENT-237.md` (created).
 - Static only; no destructive/runtime/failure-injection tests. G-01/G-10 open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 238 — Storage semantics/deletion test boundary (2026-11-24)
+- Verified GoogleDriveStorage.delete uses Drive File.setTrashed(true); read-only review of deletion tests confirms dependency-collection coverage but not full cascade orchestration/failure injection.
+- Potential retry-discovery gap hypothesized when attachment metadata is soft-deleted before storage deletion fails; requires isolated verification and is not a confirmed defect.
+- Report: `TASK-2.8-STORAGE-SEMANTICS-DELETION-TEST-BOUNDARY-INCREMENT-238.md`.
+- Tests not executed. G-01/G-10 remain open; schema readiness NOT APPROVED.
