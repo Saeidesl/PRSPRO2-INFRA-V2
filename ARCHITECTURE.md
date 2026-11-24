@@ -1997,3 +1997,7 @@ Selected procurement service and event integration test files were inspected. Th
 
 ## Audit addendum — Increment 252 (2026-11-24)
 Created an implementation-ready receipt mutation test blueprint R-01..R-20 covering validation, tenant isolation, statuses, allocation parity, idempotency, partial failures, audit and concurrency. Production references remain read-only, so this is a test specification rather than implementation. Tests not executed. Report Increment 252; G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
+
+
+### Task 2.8 — mutation recovery test-coverage gaps (Increment 253)
+Static review of named deletion, attachment, event/workflow, and material-planning tests found bounded gaps for failure injection across project deletion orchestration, attachment storage/metadata/audit lifecycle, event-void downstream side effects, material reconciliation failure, audit failure semantics, and durable repair of PROCESSING/reconciliation states. Blueprint D-01..D-06 in Infra V2. Tests are not run and findings are not an exhaustive repository-wide absence claim. Production references remain read-only.
