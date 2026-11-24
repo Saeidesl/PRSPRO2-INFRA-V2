@@ -2454,3 +2454,8 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 ### Task 2.8 — Increment 257 (2026-11-24)
 - Traced MaterialPlanningService.markEventVoided multi-row update sequence and lock scope; recorded failure windows MPV-01..MPV-08 and test blueprint MPV-01..MPV-12. Identified repeat note-appending and mixed status convergence as candidates to test, not confirmed runtime failures.
 - Report `TASK-2.8-MATERIAL-PLANNING-VOID-RECONCILIATION-FAILURE-BOUNDARIES-INCREMENT-257.md`. Static-only; no runtime test/failure injection.
+
+
+### Task 2.8 — Increment 258 (2026-11-24)
+- Traced AttachmentService.delete exact ordering: storage delete/trash, metadata DELETED, then audit. Documented ATT-01..ATT-06 partial-failure windows and ATT-01..ATT-10 test blueprint, including the bounded audit-repair concern for already-DELETED records.
+- Report `TASK-2.8-ATTACHMENT-DELETE-STORAGE-METADATA-AUDIT-BOUNDARY-INCREMENT-258.md`. Static only; no test/failure injection.
