@@ -2085,3 +2085,7 @@ ProjectInformationService save/approve/conflict-resolution operations perform se
 
 ## Task 2.8 audit addendum — Increment 271
 Request caches exist across AccessControlService, PermissionService and GoogleSheetsRepository, with explicit reset functions. Reset-at-entry implementation and cache isolation across executions were not verified in the selected files; RC-01..RC-10 test targets recorded. Static only, no runtime tests/data/production writes. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
+
+
+## Task 2.8 audit addendum — Increment 272
+Selected project/event read paths enforce tenant and project visibility checks; project visibility grants admin/creator/explicit-user/department access and malformed ACL lists fail closed. Independent events are tenant-filtered in inspected paths. PV-01..PV-10 test targets documented; static only, no runtime tests/data/production writes. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
