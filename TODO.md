@@ -2634,3 +2634,10 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 
 ### Task 2.8 Increment 286 — Permission resolution/cache scope (2026-11-24)
 - Effective-permission resolution and `/auth/me/permissions` current-user route traced. Active role filtering and tenant-scoped role mappings/request caches observed; permission catalog status semantics and cache isolation/in-request invalidation require assurance. Admin output also does not visibly filter permission status. Report: `docs/audit/TASK-2.8-PERMISSION-RESOLUTION-CACHE-SCOPE-TRACE-INCREMENT-286.md`. Static only.
+
+
+## 2026-11-24 — Phase 2 execution pivot
+- Product Owner directed the project to enter database design and implementation.
+- Task 2.8 supplemental audit work paused and retained as incomplete; open findings are carried forward as schema/test controls.
+- Begin DB-1 in PRSPRO2DATABASE-V2: foundation SQL draft and schema decision record initialized. SQL execution, test validation and acceptance remain pending.
+- Next implementation work: establish disposable PostgreSQL test execution and migration validation; then extend the schema domain-by-domain.
