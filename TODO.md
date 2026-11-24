@@ -2339,3 +2339,10 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Contrasting attachment deletion order (standalone storage-first vs cascade metadata-first) and event-void multi-write handling recorded as failure hypotheses, not confirmed defects.
 - Report: `TASK-2.8-RETRY-RECOVERY-MULTIWRITE-CROSSWALK-INCREMENT-239.md` created.
 - No tests run. G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 240 — Nested ScriptLock/mutation primitive crosswalk (2026-11-24)
+- Read-only trace identified cascade outer ScriptLock followed by per-record GoogleSheetsRepository.deleteById/updateById inner ScriptLock acquisition.
+- Lock re-entrancy/timeout outcome is a hypothesis only; requires isolated GAS verification. Per-row lock/write performance also remains unmeasured.
+- Report: `TASK-2.8-NESTED-SCRIPTLOCK-MUTATION-PRIMITIVE-INCREMENT-240.md` created.
+- No runtime tests. G-01/G-10 open; schema readiness NOT APPROVED.
