@@ -2057,3 +2057,7 @@ Cross-domain table separates source trace, test source presence, execution and r
 
 ## Task 2.8 audit addendum — Increment 266
 Project/Event validators provide input-shape checks but do not independently establish tenant/resource relationship authorization. Procurement project/event helpers perform selected tenant/visibility checks; caller-wide coverage remains unverified. PV-EV-01..08 test targets are documented in the Infra increment report. Static only; no tests/data/production changes. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
+
+
+### Task 2.8 — decision-ready remaining policy gates (Increment 267)
+Recommended defaults for G-02/G-03/G-04/G-10 are documented separately from PO-approved rules. These gates require explicit PO decisions and evidence; recommendations do not close them. Schema readiness NOT APPROVED.
