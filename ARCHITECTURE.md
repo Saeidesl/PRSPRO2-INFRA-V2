@@ -2061,3 +2061,7 @@ Project/Event validators provide input-shape checks but do not independently est
 
 ### Task 2.8 — decision-ready remaining policy gates (Increment 267)
 Recommended defaults for G-02/G-03/G-04/G-10 are documented separately from PO-approved rules. These gates require explicit PO decisions and evidence; recommendations do not close them. Schema readiness NOT APPROVED.
+
+
+### Task 2.8 — G-01 route-to-mutation assurance reconciliation protocol (Increment 268)
+Each route requires a commit-pinned branch/caller/resource/tenant/validation/write/side-effect/lock/audit/test disposition. Inventory alone cannot close G-01. Protocol recorded; G-01 remains OPEN.
