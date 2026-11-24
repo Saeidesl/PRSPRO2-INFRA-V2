@@ -2547,3 +2547,8 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Static review of project ACL helper and selected EventService read paths documented inherited project visibility, tenant-scoped general events, and PV-01..PV-10 denial/revocation tests.
 - Report: `TASK-2.8-PROJECT-EVENT-READ-VISIBILITY-CROSSCHECK-INCREMENT-272.md`.
 - No confirmed defect; tests not executed, no production/data access. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
+
+
+### Task 2.8 — Increment 272 (2026-11-24)
+- Traced WorkflowService createStep/saveStepEventRules/publish and selected workflow rule/enforcement tests. Recorded WF-01..WF-15 failure/concurrency coverage blueprint. See `TASK-2.8-WORKFLOW-VERSION-MUTATION-RECOVERY-COVERAGE-INCREMENT-272.md`.
+- Static only; no test execution. G-01/G-10 remain OPEN.
