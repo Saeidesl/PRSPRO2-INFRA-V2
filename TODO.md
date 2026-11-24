@@ -2433,3 +2433,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Read-only coverage review of project deletion, attachment deletion lifecycle, event void downstream mutation/recovery, material planning failure injection, and audit failure semantics.
 - Recorded bounded coverage gaps D-01 through D-06 and V2 transactional/outbox remediation requirements in `TASK-2.8-MUTATION-RECOVERY-COVERAGE-GAPS-INCREMENT-253.md`.
 - Test review only: no tests run, no failure injection, and no production writes. Task remains IN PROGRESS.
+
+
+### Task 2.8 — Increment 254 (2026-11-24)
+- Consolidated mutation-boundary coverage into a cross-domain prioritized matrix (P0/P1/P2) and reusable failure-injection acceptance criteria. Includes event create/void, deletion, attachment, procurement, planning, audit and workflow mutation.
+- Search limitation recorded; code search yielded no usable results, not evidence of absence. Report: `TASK-2.8-MUTATION-BOUNDARY-COVERAGE-CONSOLIDATION-INCREMENT-254.md`.
+- Static blueprint only; no tests or failure injection run. Task remains IN PROGRESS.
