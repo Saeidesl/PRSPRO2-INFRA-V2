@@ -971,3 +971,9 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Added DB repository document `docs/DB4-INTEGRITY-GAP-ASSESSMENT-INCREMENT-3.md` distinguishing row-level constraints from aggregate rules that need transactional enforcement.
 - Roadmap updated; no schema or application code changed in this increment. Correction ledger, lifecycle policies and aggregate enforcement implementation remain pending discovery/policy validation.
 - No production repos or data modified.
+
+
+## DB-4 checkpoint — 2026-11-25 (aggregate-gap diagnostics submitted)
+- Added three disposable PostgreSQL diagnostic tests to database repository commit `7876c44f3fd407289c046aafaa1b4ca58cf0e085`: mismatched allocation-project vs need-project, aggregate allocations exceeding order quantity, and aggregate receipts exceeding order quantity. These tests intentionally demonstrate current schema gaps (not intended business behavior).
+- CI run #28 is currently waiting/in progress at container initialization; test outcome not yet verified.
+- No migration/schema changes in this checkpoint; diagnostics are evidence gathering only. No production repo or live data touched.
