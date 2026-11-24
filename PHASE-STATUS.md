@@ -875,3 +875,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 Increment 279 (2026-11-24)
 - Recorded successful CI execution on backend commit `4a131aed6f0e1f7e0e05aad7dc2baacb35671dd7` with explicit applicability caveat relative to later current snapshot `8253eb3718d1a2a1bd5de03b6b5090ba69b94b67`.
 - Report `docs/audit/TASK-2.8-CI-EVIDENCE-SNAPSHOT-APPLICABILITY-INCREMENT-279.md`. Historical E2 evidence confirmed, current snapshot suite not established, E3 unverified.
+
+
+## Phase 2 — Task 2.8 Increment 280 (2026-11-24)
+- CI workflow trigger and alerting scope review recorded in `docs/audit/TASK-2.8-CI-WORKFLOW-TRIGGER-AND-ALERTING-SCOPE-AUDIT-INCREMENT-280.md`.
+- Static-only observations; workflow execution, trigger behavior, alert permission runtime and full path coverage remain unverified. G-01/G-10 OPEN.
