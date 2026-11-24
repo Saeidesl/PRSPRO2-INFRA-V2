@@ -2414,3 +2414,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Static comparison: single/batch receipt validation rejects orders specifically marked CANCELLED, while separate order-item countability excludes CANCELLED, VOID, DELETED and NEEDS_REVIEW. Candidate gate inconsistency; existence/intent/runtime impact unverified.
 - Report: `TASK-2.8-PROCUREMENT-ORDER-STATUS-GATE-CONSISTENCY-INCREMENT-250.md`.
 - Static only; no tests/production changes. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 251 — Procurement receipt test coverage crosswalk (2026-11-24)
+- Static inspection of selected procurement service and event integration test files: tests cover workspace/need allocation optimization and event central-information integration separation; receipt mutation/status/parity/recovery scenarios were not present in the inspected service test file. Bounded observation, not exhaustive absence claim.
+- Report: `TASK-2.8-PROCUREMENT-RECEIPT-TEST-COVERAGE-CROSSWALK-INCREMENT-251.md`.
+- Test-source only; tests not executed, no production changes. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
