@@ -2239,3 +2239,8 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 ### Task 2.8 Increment 223 — Event/Form/Project-information/Workflow mutation crosswalk (2026-11-24)
 - Re-fetched and bounded cross-domain mutation trace across EventService, FormService, ProjectInformationService and WorkflowService, including tenant/revision checks, locks/idempotency, amendment rules and side-effect write ordering.
 - Increment 223 created/read-back verified; source evidence only. Multi-write atomicity/recovery, caller/route/test mapping and grouped business-policy gates remain OPEN (G-01/G-03/G-10); readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 224 — Selected mutation Router permission crosswalk (2026-11-24)
+- Re-read selected Router.js mutation branches for event create, reusable form amendment, Project Information save/history/approve/resolve/deactivate and Workflow publish. Router guards and service targets documented as E1 evidence.
+- Increment 224 created/read-back verified; exhaustive route/caller/negative tests remain outstanding; G-01/G-03/G-10 OPEN.
