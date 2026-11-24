@@ -1989,3 +1989,7 @@ Static comparison of receipt validation paths: batch appears to allow blank-proj
 
 ## Audit addendum — Increment 250 (2026-11-24)
 Static comparison: inspected single/batch receipt gate rejects order status CANCELLED specifically, while separate order-item countability logic excludes CANCELLED, VOID, DELETED and NEEDS_REVIEW. Potential policy/gate inconsistency, not confirmed runtime defect. Report Increment 250. No tests/production changes; G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
+
+
+## Audit addendum — Increment 251 (2026-11-24)
+Selected procurement service and event integration test files were inspected. They cover workspace/project lookup/allocation and central-information procurement integration, but the inspected service test file lacks receipt mutation/status/parity/recovery assertions. Bounded test-source observation only, not exhaustive repository-wide absence; tests not run. Report Increment 251. No production changes; G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
