@@ -2587,3 +2587,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Consolidated the current evidence levels and reconciled closure gates G-01/G-02/G-03/G-04/G-10, plus cache, concurrency, audit/privacy and migration evidence dependencies.
 - Report: `docs/audit/TASK-2.8-CLOSURE-READINESS-GATE-RECONCILIATION-INCREMENT-277.md`.
 - This is a close-out synthesis, not proof of gate completion. Tests remain NOT RUN; runtime/fault-injection/concurrency/data-integrity validation NOT VERIFIED; policy decisions PENDING; schema readiness NOT APPROVED. Task 2.8 cannot be honestly marked COMPLETE without acceptance of a bounded audit scope or controlled verification evidence.
+
+
+### Task 2.8 Increment 278 — Commit-pinned test-source evidence inventory (2026-11-24)
+- Inspected selected test files at backend main snapshot SHA `8253eb3718d1a2a1bd5de03b6b5090ba69b94b67`: schema-contract, request-cache/access-control, idempotency schema recovery, project deletion mocks, Drive folder mocks and procurement-service mocks.
+- Report: `docs/audit/TASK-2.8-COMMIT-PINNED-TEST-SOURCE-EVIDENCE-INVENTORY-INCREMENT-278.md`.
+- Presence and content of bounded test-source files confirmed; tests NOT RUN, runtime/platform assurance NOT ESTABLISHED, inventory not exhaustive. Gates remain OPEN; no production changes/data access.
