@@ -2408,3 +2408,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Static comparison: batch path permits blank-project/general receipt against unallocated remainder of an allocation-bearing order item; inspected single path requires a project when item allocations exist and does not show the same allowance. Business policy unknown; source-observed parity candidate.
 - Report: `TASK-2.8-SINGLE-BATCH-RECEIPT-ALLOCATION-POLICY-PARITY-INCREMENT-249.md`.
 - Static only; no tests/production changes. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 250 — Procurement order status gate consistency (2026-11-24)
+- Static comparison: single/batch receipt validation rejects orders specifically marked CANCELLED, while separate order-item countability excludes CANCELLED, VOID, DELETED and NEEDS_REVIEW. Candidate gate inconsistency; existence/intent/runtime impact unverified.
+- Report: `TASK-2.8-PROCUREMENT-ORDER-STATUS-GATE-CONSISTENCY-INCREMENT-250.md`.
+- Static only; no tests/production changes. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
