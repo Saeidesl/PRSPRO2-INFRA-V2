@@ -2619,3 +2619,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 ### Task 2.8 audit increment 283 — Router authorization trace
 - Static route dispatch trace across GET/POST/PUT/DELETE and selected contract tests recorded in `docs/audit/TASK-2.8-ROUTER-MUTATION-READ-AUTHORIZATION-TRACE-INCREMENT-283.md`.
 - Status: IN PROGRESS (static evidence only); route/service authorization and tenant/resource boundaries remain to be traced and dynamically tested.
+
+
+### Task 2.8 audit increment 284 — service/resource boundaries
+- Service-level trace recorded in `docs/audit/TASK-2.8-SERVICE-AUTHORIZATION-STORAGE-BOUNDARY-TRACE-INCREMENT-284.md`.
+- Print-template project binding candidate traced to service-level authorization and conflict/source validation; static evidence only.
+- User-role tenant checks and workflow assignment removal boundaries inspected. Attachment delete non-transactional storage-first failure window identified. Role-permission deeper validation and failure/runtime assurance remain open.
