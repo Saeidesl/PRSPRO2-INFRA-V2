@@ -2493,3 +2493,8 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 
 ### Numbering correction (2026-11-24)
 - The six supplementary reports previously labeled 253–258 collided with earlier same-day Task 2.8 increment numbers in the cumulative log. Renumbered these supplementary reports to 260–265 and updated references; original report files are being retired after replacement/read-back verification.
+
+
+### Task 2.8 — Increment 266 (2026-11-24)
+- Consolidated assurance matrix across Event, void, deletion, attachment, planning, procurement, audit, workflow, logical relations and locks, distinguishing source/test presence from execution (E1/E2 vs E3). See `TASK-2.8-CONSOLIDATED-MUTATION-ASSURANCE-EVIDENCE-MATRIX-INCREMENT-266.md`.
+- Matrix is source/test inventory only; runtime evidence remains unavailable and gates remain OPEN.
