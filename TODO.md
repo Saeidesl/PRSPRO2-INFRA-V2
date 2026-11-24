@@ -2311,3 +2311,10 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - These tests do not constitute direct receipt mutation transaction/failure coverage in inspected cases.
 - Report: `TASK-2.8-PROCUREMENT-INTEGRATION-TESTS-INCREMENT-235.md`.
 - Static review only, tests not executed; G-01/G-10 remain open and schema NOT APPROVED.
+
+
+### Task 2.8 Increment 236 — Attachment/project-deletion test inventory (2026-11-24)
+- Attachment tests cover event visibility/list/upload controls; inspected file lacked deletion failure injection.
+- Project deletion tests cover dependency collection, cross-boundary isolation, shared orders, inactive rows and retry after VOID event.
+- Report: `TASK-2.8-ATTACHMENT-DELETION-TESTS-INCREMENT-236.md`.
+- Static inspection only; actual orchestration/failure ordering tracing remains. G-01/G-10 open; schema NOT APPROVED.
