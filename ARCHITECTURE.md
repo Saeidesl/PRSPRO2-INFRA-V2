@@ -2101,3 +2101,7 @@ B-01..B-05 document limits: no isolated runtime test executor, no real platform 
 
 ## Task 2.8 audit addendum — Increment 273
 ProjectDeletionService uses admin/tenant checks, confirmation, script lock and dependency collection, but cascade mutations are non-transactional. Candidate recovery risk: Drive trash is attempted even where attachment-row soft-delete may have failed. Physical project-row removal is gated on accumulated failures. PD-01..PD-12 test targets recorded; static only, no failure injection/data/production changes. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
+
+
+## Task 2.8 audit addendum — Increment 274
+FormService, ProjectInformationService and MaterialPlanningService selected paths show tenant/reference validation, attachment/type validation, structured field constraints, revision checks, and additive schema setup under lock. Concurrency/audit/cache/migration runtime tests remain unverified. FM-01..FM-12 targets recorded. Static only; no tests/data/production writes. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
