@@ -2479,3 +2479,8 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 ### Task 2.8 — Increment 256 (2026-11-24)
 - Compiled C-01..C-22 concurrency, locking, race and retry convergence matrix from selected mutation test/source traces. Existing mocked lock coverage does not prove platform concurrency behavior. See `TASK-2.8-RACE-LOCK-REPLAY-CONVERGENCE-TESTS-INCREMENT-256.md`.
 - Blueprint only; no concurrent test runs or production experiments. Task remains IN PROGRESS.
+
+
+### Task 2.8 — Increment 257 (2026-11-24)
+- Formalized I-01..I-20 logical-edge, tenant alignment, polymorphic entity, version snapshot, status normalization and reconciliation integrity tests. See `TASK-2.8-LOGICAL-RELATIONSHIP-STATUS-INTEGRITY-INCREMENT-257.md`.
+- Test/data scan blueprint only; no production data access or execution. Task remains IN PROGRESS.
