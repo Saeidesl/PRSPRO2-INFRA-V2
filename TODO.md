@@ -2484,3 +2484,8 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 ### Task 2.8 — Increment 257 (2026-11-24)
 - Formalized I-01..I-20 logical-edge, tenant alignment, polymorphic entity, version snapshot, status normalization and reconciliation integrity tests. See `TASK-2.8-LOGICAL-RELATIONSHIP-STATUS-INTEGRITY-INCREMENT-257.md`.
 - Test/data scan blueprint only; no production data access or execution. Task remains IN PROGRESS.
+
+
+### Task 2.8 — Increment 258 (2026-11-24)
+- Consolidated cross-domain idempotency/recovery contract O-01..O-16 and operation identities for events, reference-copy, procurement, planning, attachments and deletion. See `TASK-2.8-CROSS-DOMAIN-IDEMPOTENCY-RECOVERY-INCREMENT-258.md`.
+- Blueprint only; runtime tests not run. Task remains IN PROGRESS.
