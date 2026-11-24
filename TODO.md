@@ -2500,9 +2500,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Matrix is source/test inventory only; runtime evidence remains unavailable and gates remain OPEN.
 
 
-### Task 2.8 Increment 266 — Validator/relationship boundary cross-check (2026-11-24)
+### Task 2.8 Increment 270 — Validator/relationship boundary cross-check (numbering corrected)
 - Read-only review of ProjectValidator, EventValidator and ProcurementService validation helpers. Documented PV-EV-01..08 downstream tenant/relationship/lifecycle test targets; validator-only checks do not prove relationship authorization.
-- Report: `TASK-2.8-VALIDATOR-AND-RELATIONSHIP-BOUNDARY-CROSSCHECK-INCREMENT-266.md`.
+- Report: `TASK-2.8-VALIDATOR-AND-RELATIONSHIP-BOUNDARY-CROSSCHECK-INCREMENT-270.md`.
 - Static only; tests not run; no production changes/data access. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
 
 
@@ -2524,3 +2524,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 ### Task 2.8 — Increment 270 (2026-11-24)
 - Traced FormService.updateEventFormResponse and reviewed reusable-forms.test.js coverage; recorded bounded amendment recovery gaps AM-01..AM-15. See `TASK-2.8-FORM-AMENDMENT-MULTIWRITE-RECOVERY-COVERAGE-INCREMENT-270.md`.
 - Static only; tests not run. G-01/G-03 remain OPEN.
+
+
+### Task 2.8 Increment 270 — Attachment and audit access enforcement cross-check (2026-11-24)
+- Read-only Router/AttachmentService review found permission gates and tenant/resource visibility checks in selected attachment and audit access routes. Documented AV-01..AV-08 authorization/tenant test targets.
+- Report: `TASK-2.8-ATTACHMENT-AUDIT-ACCESS-ENFORCEMENT-CROSSCHECK-INCREMENT-270.md`.
+- Static only; no tests, production writes or production data access. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
