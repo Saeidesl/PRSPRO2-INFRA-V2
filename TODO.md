@@ -2466,27 +2466,27 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Report `TASK-2.8-PROJECT-CASCADE-REMOVAL-PARTIAL-FAILURE-BOUNDARY-INCREMENT-259.md`. Static-only; no runtime test/failure injection.
 
 
-### Task 2.8 — Increment 254 (2026-11-24)
+### Task 2.8 — Increment 261 (2026-11-24; corrected numbering)
 - Source-traced EventService.void mutation boundaries and produced V-01..V-20 failure/edge test specification, including scripted fail-at-call harness and retry convergence expectations. See `TASK-2.8-EVENT-VOID-STATE-TRANSITION-FAILURE-TESTS-INCREMENT-261.md`.
 - Test specification only; no production changes or test execution. Task remains IN PROGRESS.
 
 
-### Task 2.8 — Increment 255 (2026-11-24)
+### Task 2.8 — Increment 262 (2026-11-24; corrected numbering)
 - Read-only cross-check of project cascade deletion, attachment deletion and AuditService.log sequencing. Recorded A-01..A-18 failure and audit contract tests, including project row removal preceding audit insert and storage deletion/metadata/audit partial boundaries. See `TASK-2.8-AUDIT-WRITE-FAILURE-TERMINAL-STATE-INCREMENT-262.md`.
 - Source review only; no runtime tests/failure injection. Task remains IN PROGRESS.
 
 
-### Task 2.8 — Increment 256 (2026-11-24)
+### Task 2.8 — Increment 263 (2026-11-24; corrected numbering)
 - Compiled C-01..C-22 concurrency, locking, race and retry convergence matrix from selected mutation test/source traces. Existing mocked lock coverage does not prove platform concurrency behavior. See `TASK-2.8-RACE-LOCK-REPLAY-CONVERGENCE-TESTS-INCREMENT-263.md`.
 - Blueprint only; no concurrent test runs or production experiments. Task remains IN PROGRESS.
 
 
-### Task 2.8 — Increment 257 (2026-11-24)
+### Task 2.8 — Increment 264 (2026-11-24; corrected numbering)
 - Formalized I-01..I-20 logical-edge, tenant alignment, polymorphic entity, version snapshot, status normalization and reconciliation integrity tests. See `TASK-2.8-LOGICAL-RELATIONSHIP-STATUS-INTEGRITY-INCREMENT-264.md`.
 - Test/data scan blueprint only; no production data access or execution. Task remains IN PROGRESS.
 
 
-### Task 2.8 — Increment 258 (2026-11-24)
+### Task 2.8 — Increment 265 (2026-11-24; corrected numbering)
 - Consolidated cross-domain idempotency/recovery contract O-01..O-16 and operation identities for events, reference-copy, procurement, planning, attachments and deletion. See `TASK-2.8-CROSS-DOMAIN-IDEMPOTENCY-RECOVERY-INCREMENT-265.md`.
 - Blueprint only; runtime tests not run. Task remains IN PROGRESS.
 
