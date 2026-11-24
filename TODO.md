@@ -2244,3 +2244,8 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 ### Task 2.8 Increment 224 — Selected mutation Router permission crosswalk (2026-11-24)
 - Re-read selected Router.js mutation branches for event create, reusable form amendment, Project Information save/history/approve/resolve/deactivate and Workflow publish. Router guards and service targets documented as E1 evidence.
 - Increment 224 created/read-back verified; exhaustive route/caller/negative tests remain outstanding; G-01/G-03/G-10 OPEN.
+
+
+### Task 2.8 Increment 225 — Selected frontend API caller inventory (2026-11-24)
+- Read-only source inspection of API core, Router and Events, Forms, Workflows, Projects modules. Captured literal route/caller inventory and limitations for dynamic calls.
+- Document created and read-back verification pending; inventory remains partial, G-01/G-10 open; schema readiness NOT APPROVED.
