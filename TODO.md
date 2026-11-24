@@ -2427,3 +2427,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Production repositories remain read-only; this is a specification, not test-code implementation. Tests not executed.
 - Report: `TASK-2.8-RECEIPT-MUTATION-COVERAGE-REMEDIATION-BLUEPRINT-INCREMENT-252.md`.
 - G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
+
+
+### Task 2.8 — Increment 253 (2026-11-24)
+- Read-only coverage review of project deletion, attachment deletion lifecycle, event void downstream mutation/recovery, material planning failure injection, and audit failure semantics.
+- Recorded bounded coverage gaps D-01 through D-06 and V2 transactional/outbox remediation requirements in `TASK-2.8-MUTATION-RECOVERY-COVERAGE-GAPS-INCREMENT-253.md`.
+- Test review only: no tests run, no failure injection, and no production writes. Task remains IN PROGRESS.
