@@ -2389,3 +2389,10 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Receipt insert, order recomputation and audit are sequential. Inspected receipt aggregation paths appear status-unaware; if void/status invalidation is supported, receipt semantics and aggregation consistency require explicit validation. This remains a candidate risk, not a confirmed defect.
 - Report: `TASK-2.8-PROCUREMENT-RECEIPT-AGGREGATION-RETRY-CROSSWALK-INCREMENT-246.md`.
 - Static only; no tests executed. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 247 — Procurement timeline projection crosswalk (2026-11-24)
+- Read-only review of EventService project-detail synthetic procurement timeline. Order and receipt projections are appended separately from actual event rows; inspected projection path does not explicitly filter cancelled/void/needs-review order statuses or receipt status. Historical display policy remains unknown, so candidate consistency concern only.
+- Projection currently loads tenant collections and scans/matches records; potential scale inefficiency, not benchmarked.
+- Report: `TASK-2.8-PROCUREMENT-TIMELINE-PROJECTION-CONSISTENCY-INCREMENT-247.md`.
+- Static only; no tests/benchmarks. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
