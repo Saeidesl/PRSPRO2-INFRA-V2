@@ -2133,3 +2133,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Retrieved non-truncated recursive default-branch tree snapshots for both production reference repositories: backend tree SHA `8253eb3718d1a2a1bd5de03b6b5090ba69b94b67` (147 file entries, 41 test files); frontend tree SHA `b74424ccb8d981172384d4eddbf6910a8f09b09c` (172 file entries, 46 test files). Tree snapshot SHAs recorded, not parent commit IDs.
 - Increment 205 created and read-back verified: `TASK-2.8-RECURSIVE-PRODUCTION-TREE-INVENTORY-INCREMENT-205.md`.
 - EP-01 advanced to exhaustive path inventory for captured trees, but remains incomplete pending exact commit refs, route/handler/caller/consumer/security/mutation-effect mapping and disposition. Test presence is not execution evidence. G-01/G-02/G-03/G-04/G-10 remain OPEN; schema readiness NOT APPROVED. Production remains read-only.
+
+
+### Task 2.8 Increment 206 — Preliminary route/caller crosswalk (2026-11-24)
+- Read-only fetch of backend Router and frontend API/router/permission modules; extracted 38 exact dispatch literals plus prefix and regex route families and documented client permission gates and API-base behavior.
+- Increment 206 created and read-back verified: `TASK-2.8-ROUTER-CALLER-CROSSWALK-INCREMENT-206.md`.
+- Static inventory only; method branches, exhaustive caller/handler, guards, tenant effects, downstream mutation/history and tests remain to reconcile. G-01/G-10 and G-02/G-03/G-04 remain OPEN. Schema readiness NOT APPROVED.
