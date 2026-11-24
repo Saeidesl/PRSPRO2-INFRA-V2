@@ -2264,3 +2264,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 ### Task 2.8 Increment 228 — Router dispatch surface inventory (2026-11-24)
 - Re-fetched Router.js and grouped observed GET/mutation dispatch surfaces and permission families by domain. Inventory is partial/selected and does not assert exhaustive guard correctness.
 - Increment 228 recorded; row-by-row route/caller/service/data/test reconciliation remains ongoing. G-01/G-10 OPEN.
+
+
+### Task 2.8 Increment 229 — Router source retrieval recovery (2026-11-24)
+- Successfully retrieved production Router.js via verified raw-file URL after prior path-method retrieval failures; verified frontend `js/modules/` listing (24 module entries).
+- Increment 229 documented: `TASK-2.8-ROUTER-RETRIEVAL-RECOVERY-INCREMENT-229.md`.
+- This restores a reliable source retrieval path only; complete caller/branch/guard/service/data/test reconciliation remains pending. G-01/G-10 and other readiness gates remain open; schema readiness NOT APPROVED.
