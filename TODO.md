@@ -2519,3 +2519,8 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 ### Task 2.8 — Increment 269 (2026-11-24)
 - Read-only audit payload/read-access trace: AuditService serializes OldData/NewData, Router audit paths use REPORT_VIEW and tenant filtering. Recorded privacy/minimization candidate risks and PRIV-01..PRIV-10 tests. See `TASK-2.8-AUDIT-PRIVACY-MINIMIZATION-READ-ACCESS-INCREMENT-269.md`.
 - Candidate risk only; no runtime tests or sensitive data inspection. G-01/G-10 remain OPEN.
+
+
+### Task 2.8 — Increment 270 (2026-11-24)
+- Traced FormService.updateEventFormResponse and reviewed reusable-forms.test.js coverage; recorded bounded amendment recovery gaps AM-01..AM-15. See `TASK-2.8-FORM-AMENDMENT-MULTIWRITE-RECOVERY-COVERAGE-INCREMENT-270.md`.
+- Static only; tests not run. G-01/G-03 remain OPEN.
