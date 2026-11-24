@@ -2139,3 +2139,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Read-only fetch of backend Router and frontend API/router/permission modules; extracted 38 exact dispatch literals plus prefix and regex route families and documented client permission gates and API-base behavior.
 - Increment 206 created and read-back verified: `TASK-2.8-ROUTER-CALLER-CROSSWALK-INCREMENT-206.md`.
 - Static inventory only; method branches, exhaustive caller/handler, guards, tenant effects, downstream mutation/history and tests remain to reconcile. G-01/G-10 and G-02/G-03/G-04 remain OPEN. Schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 207 — HTTP operation dispatch inventory (2026-11-24)
+- Static extraction from Router.js segmented GET/POST/PUT/DELETE dispatch: GET 31 exact literals, 13 prefix families, 7 regex families; POST 19 exact literals, 7 prefixes, 10 regex families; PUT 9 prefixes, 6 regex families; DELETE 6 prefixes, 5 regex families (counts are extraction results, not completeness proof).
+- Increment 207 created and read-back verified: `TASK-2.8-HTTP-OPERATION-DISPATCH-INCREMENT-207.md`.
+- Per-branch caller, permission/tenant, validation, mutation effects, audit/history and test reconciliation still pending; G-01/G-10 and remaining gates OPEN. Schema readiness NOT APPROVED.
