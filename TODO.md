@@ -2509,3 +2509,8 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 ### Task 2.8 — Increment 267 (2026-11-24)
 - Prepared decision-ready recommended defaults for procurement (G-02), history/amendments (G-03), storage lifecycle (G-04) and tenant/global classification (G-10), separating recommendations from approved policy. See `TASK-2.8-PO-DECISION-READY-POLICY-GATES-INCREMENT-267.md`.
 - These gates require Product Owner decisions; recommendations are not approval. Task 2.8 remains IN PROGRESS.
+
+
+### Task 2.8 — Increment 268 (2026-11-24)
+- Defined G-01 route-to-mutation closure protocol with required route/caller/permission/tenant/validation/write/lock/audit/test/evidence dispositions and prioritized closure evidence bundle. See `TASK-2.8-ROUTE-TO-MUTATION-ASSURANCE-RECONCILIATION-INCREMENT-268.md`.
+- Protocol is not evidence of route coverage completion; G-01 remains OPEN.
