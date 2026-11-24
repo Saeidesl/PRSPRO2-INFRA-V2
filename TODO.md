@@ -2304,3 +2304,10 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Read-only review of tests/procurement-service.test.js found workspace/project-visibility/allocation-key/allocation-cap tests; no direct receipt mutation, replay, VOID, failure-injection or repair cases in inspected file.
 - Report: `TASK-2.8-PROCUREMENT-TEST-COVERAGE-INCREMENT-234.md`.
 - Broader test-file coverage still pending; tests not executed. G-01/G-10 open, schema NOT APPROVED.
+
+
+### Task 2.8 Increment 235 — Procurement integration/material-planning test review (2026-11-24)
+- Reviewed integration and material-planning tests: event/provenance/legacy integration inertness, standard receipt routes, material need replay, source event void marking for needs, tenant/project visibility.
+- These tests do not constitute direct receipt mutation transaction/failure coverage in inspected cases.
+- Report: `TASK-2.8-PROCUREMENT-INTEGRATION-TESTS-INCREMENT-235.md`.
+- Static review only, tests not executed; G-01/G-10 remain open and schema NOT APPROVED.
