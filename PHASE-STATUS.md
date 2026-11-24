@@ -894,3 +894,9 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Candidate service-level guard to verify: print-template project binding update. Cross-resource ID/tenant negative test gaps documented.
 - Report: `docs/audit/TASK-2.8-ROUTER-MUTATION-READ-AUTHORIZATION-TRACE-INCREMENT-283.md`.
 - Not verified dynamically; audit remains IN PROGRESS.
+
+
+## Task 2.8 — Increment 284
+- Service/resource boundary trace added. Print-template authorization candidate traced to service guard; user-role and workflow-assignment boundaries reviewed.
+- Attachment storage-first deletion failure window documented for recovery testing.
+- Static only, not runtime verified. Report: `docs/audit/TASK-2.8-SERVICE-AUTHORIZATION-STORAGE-BOUNDARY-TRACE-INCREMENT-284.md`.
