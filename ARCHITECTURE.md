@@ -2146,3 +2146,7 @@ Static trace confirms PrintTemplateService.updateProjectBinding applies tenant/t
 
 ## Task 2.8 Increment 285 — Role-permission mapping integrity
 Static trace recorded for single/bulk role permission assignment and removal. Bulk path candidate gaps around permission status and cross-tenant mapping collision semantics need policy/source confirmation and runtime tests; source inventory discrepancy remains unresolved. Report: `docs/audit/TASK-2.8-ROLE-PERMISSION-MAPPING-INTEGRITY-TRACE-INCREMENT-285.md`. No tests or production changes. G-01/G-02/G-10 remain OPEN.
+
+
+## Task 2.8 Increment 286 — Permission resolution and cache scope
+Effective permissions and current-user route traced. Active roles and tenant-filtered mapping links are applied; status semantics for permission catalogue, admin endpoint, and dynamic cache assurance remain open. RolePermission source-name discrepancy from Increment 285 resolved. Report: `docs/audit/TASK-2.8-PERMISSION-RESOLUTION-CACHE-SCOPE-TRACE-INCREMENT-286.md`. Static only, no tests or production changes.
