@@ -1999,7 +1999,7 @@ Selected procurement service and event integration test files were inspected. Th
 Created an implementation-ready receipt mutation test blueprint R-01..R-20 covering validation, tenant isolation, statuses, allocation parity, idempotency, partial failures, audit and concurrency. Production references remain read-only, so this is a test specification rather than implementation. Tests not executed. Report Increment 252; G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
 
 
-### Task 2.8 — mutation recovery test-coverage gaps (Increment 253)
+### Task 2.8 — mutation recovery test-coverage gaps (Increment 260)
 Static review of named deletion, attachment, event/workflow, and material-planning tests found bounded gaps for failure injection across project deletion orchestration, attachment storage/metadata/audit lifecycle, event-void downstream side effects, material reconciliation failure, audit failure semantics, and durable repair of PROCESSING/reconciliation states. Blueprint D-01..D-06 in Infra V2. Tests are not run and findings are not an exhaustive repository-wide absence claim. Production references remain read-only.
 
 
@@ -2027,23 +2027,23 @@ AttachmentService.delete sequentially performs storage delete, metadata DELETED,
 ProjectDeletionService.remove sequentially soft-deletes dependencies, trashes files, marks events VOID, conditionally physically deletes the project row, and then writes audit. Static analysis identified PD-01..PD-10 partial-failure windows and PD-01..PD-14 test blueprint. Audit failure after project physical deletion and mixed child cleanup remain unverified; no tests run.
 
 
-### Task 2.8 — Event void state-transition test specification (Increment 254)
+### Task 2.8 — Event void state-transition test specification (Increment 261)
 EventService.void source trace has a sequential project restore, event VOID update, audits, workflow progress recalculation and material reconciliation/catch. V-01..V-20 test cases are recorded in Infra V2. Runtime tests and failure injection were not run; legacy multi-write sequence remains non-transactional.
 
 
-### Task 2.8 — audit-write and terminal-state failure boundaries (Increment 255)
+### Task 2.8 — audit-write and terminal-state failure boundaries (Increment 262)
 Static source review indicates project cascade may remove the project row before audit insertion; attachment deletion performs storage/metadata mutation before audit. A-01..A-18 failure/contract tests and transactional/outbox V2 requirements recorded. No runtime tests or production changes.
 
 
-### Task 2.8 — concurrency and lock convergence blueprint (Increment 256)
+### Task 2.8 — concurrency and lock convergence blueprint (Increment 263)
 C-01..C-22 tests cover races across event creation/void, deletion, attachment, material planning, receipt paths, schema, lock release and tenant boundaries. Selected existing mocked tests do not establish real concurrency. No tests executed or production experiments performed.
 
 
-### Task 2.8 — logical relationship and status integrity blueprint (Increment 257)
+### Task 2.8 — logical relationship and status integrity blueprint (Increment 264)
 I-01..I-20 blueprint covers logical FK integrity, tenant-aligned edges, polymorphic attachment/audit links, version snapshots, status normalization, cascade semantics and non-destructive orphan reconciliation. No data scan or runtime tests; no production data accessed.
 
 
-### Task 2.8 — cross-domain idempotency and recovery contract (Increment 258)
+### Task 2.8 — cross-domain idempotency and recovery contract (Increment 265)
 O-01..O-16 specify key scope/fingerprint, durable state, lease recovery, retry exhaustion, external outbox and domain operation identities. No runtime or database verification; production remains read-only.
 
 
