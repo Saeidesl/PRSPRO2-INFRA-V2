@@ -905,3 +905,7 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Task 2.8 Increment 285 (2026-11-24)
 - Added static role-permission mapping integrity trace; RP-01..RP-06 follow-up targets.
 - Candidate semantics differences between bulk/single assignment documented; no runtime validation, data access or production changes.
+
+
+## Task 2.8 Increment 286 (2026-11-24)
+- Permission resolver and current-user permission route/cache scope source trace recorded. Permission status policy and dynamic cache assurance remain open; source filename/content mismatch resolved.
