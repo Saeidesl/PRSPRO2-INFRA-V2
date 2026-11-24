@@ -1945,3 +1945,7 @@ Read-only source retrieval of AttachmentService confirms tenant/entity visibilit
 
 ### Task 2.8 Increment 223 — Event/Form/Project-information/Workflow mutation crosswalk (2026-11-24)
 Read-only E1 trace: tenant-scoped validations and selected lock/idempotency/revision controls are observed in source, alongside sequential response/history/audit/central-information/project/workflow/material side effects. Atomicity, fault recovery, exhaustive route/caller parity and tenant-negative/concurrency/fault tests remain unverified. Amendment marker inference is a policy risk candidate only. G-01/G-03/G-10 OPEN; schema readiness NOT APPROVED. No tests or production modifications.
+
+
+### Task 2.8 Increment 224 — Selected mutation Router permission crosswalk (2026-11-24)
+Selected Router.js dispatch branches confirm guards and service targets for Event creation, reusable form amendments, Project Information mutation/read-history/approval/conflict/deactivation, and Workflow publish. This is E1 evidence, not exhaustive coverage. Runtime tests, exhaustive callers/dispatch and negative tenant/permission validation remain open; G-01/G-03/G-10 OPEN; schema readiness NOT APPROVED. No tests or production changes.
