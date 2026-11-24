@@ -2498,3 +2498,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 ### Task 2.8 — Increment 266 (2026-11-24)
 - Consolidated assurance matrix across Event, void, deletion, attachment, planning, procurement, audit, workflow, logical relations and locks, distinguishing source/test presence from execution (E1/E2 vs E3). See `TASK-2.8-CONSOLIDATED-MUTATION-ASSURANCE-EVIDENCE-MATRIX-INCREMENT-266.md`.
 - Matrix is source/test inventory only; runtime evidence remains unavailable and gates remain OPEN.
+
+
+### Task 2.8 Increment 266 — Validator/relationship boundary cross-check (2026-11-24)
+- Read-only review of ProjectValidator, EventValidator and ProcurementService validation helpers. Documented PV-EV-01..08 downstream tenant/relationship/lifecycle test targets; validator-only checks do not prove relationship authorization.
+- Report: `TASK-2.8-VALIDATOR-AND-RELATIONSHIP-BOUNDARY-CROSSCHECK-INCREMENT-266.md`.
+- Static only; tests not run; no production changes/data access. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
