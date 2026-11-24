@@ -2025,3 +2025,7 @@ AttachmentService.delete sequentially performs storage delete, metadata DELETED,
 
 ### Task 2.8 — project cascade deletion boundary (Increment 259)
 ProjectDeletionService.remove sequentially soft-deletes dependencies, trashes files, marks events VOID, conditionally physically deletes the project row, and then writes audit. Static analysis identified PD-01..PD-10 partial-failure windows and PD-01..PD-14 test blueprint. Audit failure after project physical deletion and mixed child cleanup remain unverified; no tests run.
+
+
+### Task 2.8 — Event void state-transition test specification (Increment 254)
+EventService.void source trace has a sequential project restore, event VOID update, audits, workflow progress recalculation and material reconciliation/catch. V-01..V-20 test cases are recorded in Infra V2. Runtime tests and failure injection were not run; legacy multi-write sequence remains non-transactional.
