@@ -2205,3 +2205,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Traced response insert/update, FormVersion and DefinitionSnapshotJSON, audit writes and project central-information synchronization; documented multi-write and replay/recovery gaps.
 - Increment 217 created and read-back verified: `TASK-2.8-REUSABLE-FORM-RESPONSE-PERSISTENCE-TRACE-INCREMENT-217.md`.
 - G-03/G-01/G-10 remain OPEN; no tests or production changes.
+
+
+### Task 2.8 Increment 218 — Workflow publication/material recalculation trace (2026-11-24)
+- Traced WorkflowService publish validation/version snapshot/audit and MaterialPlanning recalculation locking, source-event validation, latest spec revision selection and supersession behavior.
+- Increment 218 created and read-back verified: `TASK-2.8-WORKFLOW-PUBLISH-MATERIAL-RECALC-TRACE-INCREMENT-218.md`.
+- Full material ledger/provenance, transaction/recovery and workflow publish concurrency/tests remain outstanding; readiness gates unchanged.
