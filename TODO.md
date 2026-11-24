@@ -2145,3 +2145,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Static extraction from Router.js segmented GET/POST/PUT/DELETE dispatch: GET 31 exact literals, 13 prefix families, 7 regex families; POST 19 exact literals, 7 prefixes, 10 regex families; PUT 9 prefixes, 6 regex families; DELETE 6 prefixes, 5 regex families (counts are extraction results, not completeness proof).
 - Increment 207 created and read-back verified: `TASK-2.8-HTTP-OPERATION-DISPATCH-INCREMENT-207.md`.
 - Per-branch caller, permission/tenant, validation, mutation effects, audit/history and test reconciliation still pending; G-01/G-10 and remaining gates OPEN. Schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 208 — Router guard/service map snapshot (2026-11-24)
+- Static guard-call counts recorded by GET/POST/PUT/DELETE section (require, requireAny and explicit admin patterns) with service-target families and caveats; no security assurance inferred from counts.
+- Increment 208 created and read-back verified: `TASK-2.8-ROUTER-GUARD-SERVICE-MAP-INCREMENT-208.md`.
+- Branch-level object/tenant/validator/side-effect/caller/test mapping remains outstanding; G-01/G-10 remain OPEN, other gates unchanged.
