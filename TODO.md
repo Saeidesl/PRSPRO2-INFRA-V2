@@ -2120,3 +2120,10 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Converted the Increment 201 domain crosswalk gaps into 13 finite evidence work packages, dependencies, exit criteria and a retrieval-blocker fallback. Avoids repeating bounded audit work and separates evidence gaps from PO policy gates.
 - Document: `TASK-2.8-COVERAGE-GAP-CLOSURE-PLAN-INCREMENT-202.md`.
 - Does not close any readiness gate. G-01/G-02/G-03/G-04/G-10 remain OPEN; schema readiness NOT APPROVED. No tests, SQL/DDL, migration, live data, provisioning or deployment.
+
+
+### Task 2.8 Increment 203 — GitHub connector access recovery (2026-11-24)
+- Root cause of repeated 404s was the incorrect repository owner spelling in requests: `Saeidesla` instead of `Saeidesl`; connector access itself was not disconnected.
+- Revalidated metadata access to all six repositories (four V2 and two production reference repos). Selected read-only fetches from production backend/frontend succeeded; production repositories were not modified.
+- Recorded verified access recovery and sampled source retrieval in `TASK-2.8-GITHUB-ACCESS-RECOVERY-INCREMENT-203.md`; file read-back verified.
+- EP-01 remains INCOMPLETE: sampled fetches do not establish exhaustive source-tree manifest or reviewed commit hashes. G-01/G-02/G-03/G-04/G-10 remain OPEN; schema readiness NOT APPROVED. No tests, DDL, migration, live data, deployment or production changes.
