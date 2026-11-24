@@ -2005,3 +2005,7 @@ Static review of named deletion, attachment, event/workflow, and material-planni
 
 ### Task 2.8 — cross-domain mutation coverage consolidation (Increment 254)
 Risk-prioritized P0/P1/P2 coverage backlog and reusable final-state/replay/retry/audit/tenant-isolation test acceptance criteria consolidated in Increment 254. Code-search tool returned no usable result for specific audit/void/delete searches; this is a limitation rather than absence evidence. Static-only; runtime tests remain unexecuted.
+
+
+### Task 2.8 — authorization mutation coverage boundary (Increment 255)
+Selected access-control tests/source review identifies a bounded test-coverage gap between cache/source-pattern assertions and comprehensive negative mutation-route/resource/tenant authorization matrices. A-01..A-07 recorded in the Infra V2 increment report. No security test run or vulnerability conclusion is claimed.
