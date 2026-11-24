@@ -2049,3 +2049,7 @@ O-01..O-16 specify key scope/fingerprint, durable state, lease recovery, retry e
 
 ### Numbering correction (2026-11-24)
 - Supplemental increments 260–265 supersede duplicate numbering 253–258 in the appended coverage-gap series. The earlier existing increment 257–259 reports remain unchanged.
+
+
+### Task 2.8 — consolidated mutation assurance evidence matrix (Increment 266)
+Cross-domain table separates source trace, test source presence, execution and recovery assurance. Selected test suites have not run; E3/runtime evidence is not established. G-01/G-02/G-03/G-04/G-10 remain open and schema readiness NOT APPROVED.
