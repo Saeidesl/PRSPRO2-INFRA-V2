@@ -2593,3 +2593,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Inspected selected test files at backend main snapshot SHA `8253eb3718d1a2a1bd5de03b6b5090ba69b94b67`: schema-contract, request-cache/access-control, idempotency schema recovery, project deletion mocks, Drive folder mocks and procurement-service mocks.
 - Report: `docs/audit/TASK-2.8-COMMIT-PINNED-TEST-SOURCE-EVIDENCE-INVENTORY-INCREMENT-278.md`.
 - Presence and content of bounded test-source files confirmed; tests NOT RUN, runtime/platform assurance NOT ESTABLISHED, inventory not exhaustive. Gates remain OPEN; no production changes/data access.
+
+
+### Task 2.8 Increment 279 — CI evidence and snapshot applicability (2026-11-24)
+- Confirmed successful Backend source checks, PMS agent suite and procurement diagnostics CI runs on commit `4a131aed6f0e1f7e0e05aad7dc2baacb35671dd7` (2026-11-19); workflow job steps confirm tests and source validation ran.
+- Report: `docs/audit/TASK-2.8-CI-EVIDENCE-SNAPSHOT-APPLICABILITY-INCREMENT-279.md`.
+- This CI-tested commit predates current source snapshot `8253eb3718d1a2a1bd5de03b6b5090ba69b94b67`; full suite success is historical, not current snapshot assurance. Gate closure not claimed.
