@@ -1993,3 +1993,7 @@ Static comparison: inspected single/batch receipt gate rejects order status CANC
 
 ## Audit addendum — Increment 251 (2026-11-24)
 Selected procurement service and event integration test files were inspected. They cover workspace/project lookup/allocation and central-information procurement integration, but the inspected service test file lacks receipt mutation/status/parity/recovery assertions. Bounded test-source observation only, not exhaustive repository-wide absence; tests not run. Report Increment 251. No production changes; G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
+
+
+## Audit addendum — Increment 252 (2026-11-24)
+Created an implementation-ready receipt mutation test blueprint R-01..R-20 covering validation, tenant isolation, statuses, allocation parity, idempotency, partial failures, audit and concurrency. Production references remain read-only, so this is a test specification rather than implementation. Tests not executed. Report Increment 252; G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
