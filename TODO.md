@@ -2575,3 +2575,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Static review recorded optional Event idempotency-key behavior, user-lock scope, replay behavior and legacy no-key path; Procurement createOrder script lock, tenant-scoped replay and multi-sheet non-atomic write graph. ID-01..ID-12 targets.
 - Report: `TASK-2.8-EVENT-PROCUREMENT-IDEMPOTENCY-LOCKING-CROSSCHECK-INCREMENT-275.md`.
 - No runtime tests/failure injection or production/data access. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 276 — File upload/storage content integrity cross-check (2026-11-24)
+- Static review of AttachmentValidator, GoogleDriveStorage and AttachmentService documented allowlists, size checks, limited signature validation, storage-folder selection, metadata/Drive operation consistency risks, and FS-01..FS-12 tests.
+- Report: `TASK-2.8-FILE-UPLOAD-STORAGE-CONTENT-INTEGRITY-CROSSCHECK-INCREMENT-276.md`.
+- No runtime tests/failure injection or production/data access. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
