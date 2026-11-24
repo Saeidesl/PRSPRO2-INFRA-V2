@@ -2318,3 +2318,10 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Project deletion tests cover dependency collection, cross-boundary isolation, shared orders, inactive rows and retry after VOID event.
 - Report: `TASK-2.8-ATTACHMENT-DELETION-TESTS-INCREMENT-236.md`.
 - Static inspection only; actual orchestration/failure ordering tracing remains. G-01/G-10 open; schema NOT APPROVED.
+
+
+### Task 2.8 Increment 237 — Project cascade deletion orchestration (2026-11-24)
+- Read-only trace of project deletion dependency collection, ordering, soft-delete/VOID transitions, attachment metadata/storage ordering, audit attempt and project physical deletion condition.
+- Potential partial-cascade and recovery risks documented; these are not confirmed defects. Source does not evidence rollback/reconciliation queue in inspected path.
+- Report: `TASK-2.8-PROJECT-CASCADE-DELETION-ORCHESTRATION-INCREMENT-237.md` (created).
+- Static only; no destructive/runtime/failure-injection tests. G-01/G-10 open; schema readiness NOT APPROVED.
