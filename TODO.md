@@ -2151,3 +2151,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Static guard-call counts recorded by GET/POST/PUT/DELETE section (require, requireAny and explicit admin patterns) with service-target families and caveats; no security assurance inferred from counts.
 - Increment 208 created and read-back verified: `TASK-2.8-ROUTER-GUARD-SERVICE-MAP-INCREMENT-208.md`.
 - Branch-level object/tenant/validator/side-effect/caller/test mapping remains outstanding; G-01/G-10 remain OPEN, other gates unchanged.
+
+
+### Task 2.8 Increment 209 — Core domain service operation inventory (2026-11-24)
+- Fetched selected core domain services and statically inventoried method families across Event, Form, Project, Workflow, Procurement, Attachment, MaterialPlanning, ProjectInformation and ProjectDeletion; exact blob SHAs and tracing priorities documented.
+- Increment 209 created and read-back verified: `TASK-2.8-CORE-DOMAIN-SERVICE-METHOD-INVENTORY-INCREMENT-209.md`.
+- Method names are navigation evidence only. Branch-level tenant/permission, payload, write atomicity, side-effects, frontend caller and test mapping remain open; readiness gates remain OPEN.
