@@ -2332,3 +2332,10 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Potential retry-discovery gap hypothesized when attachment metadata is soft-deleted before storage deletion fails; requires isolated verification and is not a confirmed defect.
 - Report: `TASK-2.8-STORAGE-SEMANTICS-DELETION-TEST-BOUNDARY-INCREMENT-238.md`.
 - Tests not executed. G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 239 — Retry/recovery multi-write crosswalk (2026-11-24)
+- Crosswalked project cascade, standalone attachment deletion, event void, and material-need reconciliation write ordering and recovery windows.
+- Contrasting attachment deletion order (standalone storage-first vs cascade metadata-first) and event-void multi-write handling recorded as failure hypotheses, not confirmed defects.
+- Report: `TASK-2.8-RETRY-RECOVERY-MULTIWRITE-CROSSWALK-INCREMENT-239.md` created.
+- No tests run. G-01/G-10 remain open; schema readiness NOT APPROVED.
