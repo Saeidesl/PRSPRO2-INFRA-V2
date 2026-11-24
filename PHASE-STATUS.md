@@ -948,3 +948,11 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - DB V2 migration 005 drafted these seven domain tables: project_material_specs, material_need_calculations, material_needs, purchase_orders, purchase_order_items, purchase_allocations, material_receipts; integrity test added.
 - Migration 005 CI validation remains pending. Latest run #18 queued; prior run #15 remained stuck at container initialization when checked. No tests claimed for migration 005.
 - Pending business rules: partial/over-receipt, correction/reversal, allocation reconciliation, procurement order lifecycle and source-event void/revision behavior.
+
+
+## Database checkpoint — 2026-11-24 (DB-4 migration 005 verified)
+- CI run #18 completed successfully: PostgreSQL 16 service healthy, migrations 001–005 applied, and all 7 schema tests passed (0 failures).
+- Read-only bounded source review of ProcurementService.js and MaterialPlanningService.js captured allocation, receipt caps, idempotency, lifecycle projection and source-event invalidation behavior in `docs/PROCUREMENT-SOURCE-EVIDENCE-DB4-INCREMENT-2.md` in the DB repository.
+- Candidate invariants recorded; over-receipt exceptions, reversal workflows, stock valuation and cancellation policy remain unresolved.
+- DB-4 remains IN PROGRESS; CI verified does not equal schema acceptance or release readiness.
+- No production repositories, data, deployment or VPS activity.
