@@ -2439,3 +2439,8 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Consolidated mutation-boundary coverage into a cross-domain prioritized matrix (P0/P1/P2) and reusable failure-injection acceptance criteria. Includes event create/void, deletion, attachment, procurement, planning, audit and workflow mutation.
 - Search limitation recorded; code search yielded no usable results, not evidence of absence. Report: `TASK-2.8-MUTATION-BOUNDARY-COVERAGE-CONSOLIDATION-INCREMENT-254.md`.
 - Static blueprint only; no tests or failure injection run. Task remains IN PROGRESS.
+
+
+### Task 2.8 — Increment 255 (2026-11-24)
+- Reviewed authorization cache tests and selected Router/access-control/permission source. The named test file primarily asserts source patterns/cache behavior; route-by-route mutation denial, tenant isolation, cache reset across execution, exception parity, and direct-service fail-closed coverage remain bounded gaps to specify.
+- Report `TASK-2.8-AUTHORIZATION-MUTATION-COVERAGE-BOUNDARY-INCREMENT-255.md`; static only, no tests run or production writes.
