@@ -2259,3 +2259,8 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 ### Task 2.8 Increment 227 — Remaining selected frontend module inventory (2026-11-24)
 - Read-only inspection of project detail/gallery/status/workflow settings, print designer, admin/settings/dashboard and workflow-department assignment modules. Static caller paths and extraction limits documented.
 - Increment 227 recorded; read-back verification pending. Exhaustive mapping remains open; G-01/G-10 OPEN.
+
+
+### Task 2.8 Increment 228 — Router dispatch surface inventory (2026-11-24)
+- Re-fetched Router.js and grouped observed GET/mutation dispatch surfaces and permission families by domain. Inventory is partial/selected and does not assert exhaustive guard correctness.
+- Increment 228 recorded; row-by-row route/caller/service/data/test reconciliation remains ongoing. G-01/G-10 OPEN.
