@@ -2402,3 +2402,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Static cross-path review found inspected single and batch receipt quantity aggregates include receipt records without explicit status filtering; single receipt replay logic separately excludes VOID for one replay condition, so replay and aggregate semantics diverge. Conditional risk if VOID receipt records exist and should be excluded; not confirmed defect.
 - Report: `TASK-2.8-RECEIPT-STATUS-ENFORCEMENT-CROSS-PATH-INCREMENT-248.md`.
 - Static only, no tests or production changes. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 249 — Single/batch receipt allocation policy parity (2026-11-24)
+- Static comparison: batch path permits blank-project/general receipt against unallocated remainder of an allocation-bearing order item; inspected single path requires a project when item allocations exist and does not show the same allowance. Business policy unknown; source-observed parity candidate.
+- Report: `TASK-2.8-SINGLE-BATCH-RECEIPT-ALLOCATION-POLICY-PARITY-INCREMENT-249.md`.
+- Static only; no tests/production changes. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
