@@ -2530,3 +2530,8 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Read-only Router/AttachmentService review found permission gates and tenant/resource visibility checks in selected attachment and audit access routes. Documented AV-01..AV-08 authorization/tenant test targets.
 - Report: `TASK-2.8-ATTACHMENT-AUDIT-ACCESS-ENFORCEMENT-CROSSCHECK-INCREMENT-270.md`.
 - Static only; no tests, production writes or production data access. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
+
+
+### Task 2.8 — Increment 271 (2026-11-24)
+- Traced ProjectInformationService.save/approve/resolveReferenceConflict and selected project information test files. Recorded PI-01..PI-15 multi-write failure/concurrency blueprint. See `TASK-2.8-PROJECT-INFORMATION-MULTIWRITE-RECOVERY-COVERAGE-INCREMENT-271.md`.
+- Static only; tests not run. G-01/G-03/G-10 remain OPEN.
