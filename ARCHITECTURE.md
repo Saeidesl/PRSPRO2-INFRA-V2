@@ -2069,3 +2069,7 @@ Each route requires a commit-pinned branch/caller/resource/tenant/validation/wri
 
 ### Task 2.8 — audit privacy and read-access boundary (Increment 269)
 AuditService serializes supplied snapshots; selected audit routes require REPORT_VIEW and tenant filtering. Field-level redaction, exhaustive payload callers, retention and negative tests remain unverified. PRIV-01..PRIV-10 blueprint recorded; no data or runtime tests accessed.
+
+
+### Task 2.8 — form amendment multi-write recovery coverage (Increment 270)
+Amendment response update and subsequent project-information synchronization/audit are sequential under lock; replay is intended to resynchronize. Selected reusable-form tests do not evidence amendment failure injection/replay convergence. AM-01..AM-15 blueprint; no tests run; G-01/G-03 OPEN.
