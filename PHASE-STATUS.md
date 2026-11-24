@@ -934,3 +934,10 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Migration 004 drafted tenant-scoped typed project information definitions and values; CI validation is pending run #12.
 - Added test for persistence and tenant isolation of central project information; run #12 pending.
 - No local PostgreSQL runtime available; GitHub Actions remains the test evidence source. No live data or production repositories touched.
+
+
+## Database implementation checkpoint — 2026-11-24 (Migration 004 CI verified)
+- Run #12 succeeded for commit d99ed891464cc0eba8f5e01f4a6f0fc2b3f454da: migrations 001–004 applied in disposable PostgreSQL 16; 6/6 tests passed, including central project information persistence and cross-tenant rejection.
+- DB-3 draft now includes typed central project information definitions and project values (migration 004), alongside project revisions and attachment associations (003).
+- Evidence: https://github.com/Saeidesl/PRSPRO2DATABASE-V2/actions/runs/45479020816
+- Source-evidence alignment and business-rule decisions remain pending; draft schema is not migration-ready/release-approved. No live data or production systems touched.
