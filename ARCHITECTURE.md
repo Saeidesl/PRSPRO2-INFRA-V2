@@ -2150,3 +2150,7 @@ Static trace recorded for single/bulk role permission assignment and removal. Bu
 
 ## Task 2.8 Increment 286 — Permission resolution and cache scope
 Effective permissions and current-user route traced. Active roles and tenant-filtered mapping links are applied; status semantics for permission catalogue, admin endpoint, and dynamic cache assurance remain open. RolePermission source-name discrepancy from Increment 285 resolved. Report: `docs/audit/TASK-2.8-PERMISSION-RESOLUTION-CACHE-SCOPE-TRACE-INCREMENT-286.md`. Static only, no tests or production changes.
+
+
+## 2026-11-24 — Database implementation transition
+The Product Owner authorized beginning database design and implementation rather than continuing extended read-only Task 2.8 audit work. Task 2.8 is paused as an incomplete static audit, not marked complete; its remaining risk/test targets are carried into V2 schema and verification tasks. The initially empty database repository now contains a foundation schema draft. See PRSPRO2DATABASE-V2 for migration files and DB TODO. SQL execution against PostgreSQL has not yet been verified.
