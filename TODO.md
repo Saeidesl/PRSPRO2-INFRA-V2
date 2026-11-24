@@ -2469,3 +2469,8 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 ### Task 2.8 — Increment 254 (2026-11-24)
 - Source-traced EventService.void mutation boundaries and produced V-01..V-20 failure/edge test specification, including scripted fail-at-call harness and retry convergence expectations. See `TASK-2.8-EVENT-VOID-STATE-TRANSITION-FAILURE-TESTS-INCREMENT-254.md`.
 - Test specification only; no production changes or test execution. Task remains IN PROGRESS.
+
+
+### Task 2.8 — Increment 255 (2026-11-24)
+- Read-only cross-check of project cascade deletion, attachment deletion and AuditService.log sequencing. Recorded A-01..A-18 failure and audit contract tests, including project row removal preceding audit insert and storage deletion/metadata/audit partial boundaries. See `TASK-2.8-AUDIT-WRITE-FAILURE-TERMINAL-STATE-INCREMENT-255.md`.
+- Source review only; no runtime tests/failure injection. Task remains IN PROGRESS.
