@@ -956,3 +956,10 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Candidate invariants recorded; over-receipt exceptions, reversal workflows, stock valuation and cancellation policy remain unresolved.
 - DB-4 remains IN PROGRESS; CI verified does not equal schema acceptance or release readiness.
 - No production repositories, data, deployment or VPS activity.
+
+
+## DB-4 checkpoint — 2026-11-24 (expanded procurement tests)
+- Latest database CI run #22 succeeded on commit `0a3d5ff92dcdd5d6a10599fc46316c99da48459e`: all migrations applied and 8/8 tests passed, including partial receipt, project allocation, duplicate receipt idempotency and zero-allocation rejection.
+- Draft correction/cancellation/reconciliation proposal added to `docs/DB4-RECEIPT-CORRECTION-CANCELLATION-RECONCILIATION-DRAFT.md` in DB repo. It is a design draft; not a legacy policy claim or approved migration.
+- Bounded source review did not identify a cancellation command in ProcurementService.js; this does not establish absence across the system.
+- DB-4 continues; stock valuation and receipt corrections are not yet implemented. No production modification or live data.
