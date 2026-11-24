@@ -977,3 +977,10 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Added three disposable PostgreSQL diagnostic tests to database repository commit `7876c44f3fd407289c046aafaa1b4ca58cf0e085`: mismatched allocation-project vs need-project, aggregate allocations exceeding order quantity, and aggregate receipts exceeding order quantity. These tests intentionally demonstrate current schema gaps (not intended business behavior).
 - CI run #28 is currently waiting/in progress at container initialization; test outcome not yet verified.
 - No migration/schema changes in this checkpoint; diagnostics are evidence gathering only. No production repo or live data touched.
+
+
+## DB-4 checkpoint — 2026-11-25 (aggregate enforcement prototype)
+- Migration 006 added trigger-based aggregate allocation and receipt cap enforcement. Allocation guard serializes per purchase-order item, checks allocation sum against ordered quantity, and validates project match with linked need when both project references are present. It also checks cumulative allocations against requested need quantity. Receipt guard serializes per item and caps total receipts at ordered quantity.
+- Updated enforcement tests run #30 succeeded in disposable PostgreSQL: migrations applied and 11/11 tests passed. Run #29 (migration-only checkpoint before test expectation update) failed at tests because diagnostics were still asserting permissive behavior; superseded by #30.
+- Run #31, triggered by roadmap update, remains in progress as of checkpoint.
+- Prototype enforcement needs further edge-case/concurrency and trigger behavior validation; do not mark DB-4 complete. No live production or data changes.
