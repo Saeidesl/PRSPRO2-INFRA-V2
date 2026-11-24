@@ -2298,3 +2298,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Potential cross-path VOID counting inconsistency documented, not confirmed defect; dedicated void/reversal or repair method not found in ProcurementService excerpt.
 - Report: `TASK-2.8-RECEIPT-VOID-AGGREGATION-INCREMENT-233.md`.
 - Tests unavailable; broader repo search and test coverage audit remain. G-01/G-10 open; schema NOT APPROVED.
+
+
+### Task 2.8 Increment 234 — Procurement test coverage inventory (2026-11-24)
+- Read-only review of tests/procurement-service.test.js found workspace/project-visibility/allocation-key/allocation-cap tests; no direct receipt mutation, replay, VOID, failure-injection or repair cases in inspected file.
+- Report: `TASK-2.8-PROCUREMENT-TEST-COVERAGE-INCREMENT-234.md`.
+- Broader test-file coverage still pending; tests not executed. G-01/G-10 open, schema NOT APPROVED.
