@@ -2249,3 +2249,8 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 ### Task 2.8 Increment 225 — Selected frontend API caller inventory (2026-11-24)
 - Read-only source inspection of API core, Router and Events, Forms, Workflows, Projects modules. Captured literal route/caller inventory and limitations for dynamic calls.
 - Document created and read-back verification pending; inventory remains partial, G-01/G-10 open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 226 — Additional frontend caller inventory (2026-11-24)
+- Read-only inspection of Attachments, Audit, Auth, Departments, Event Types, Information Types, Material Planning, Procurement, Reports, Users, Roles and Permissions modules. Selected literal paths captured; dynamic route limits documented.
+- Increment 226 recorded and read-back verification pending; G-01/G-10 open, schema readiness NOT APPROVED.
