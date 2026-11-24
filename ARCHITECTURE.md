@@ -2037,3 +2037,7 @@ Static source review indicates project cascade may remove the project row before
 
 ### Task 2.8 — concurrency and lock convergence blueprint (Increment 256)
 C-01..C-22 tests cover races across event creation/void, deletion, attachment, material planning, receipt paths, schema, lock release and tenant boundaries. Selected existing mocked tests do not establish real concurrency. No tests executed or production experiments performed.
+
+
+### Task 2.8 — logical relationship and status integrity blueprint (Increment 257)
+I-01..I-20 blueprint covers logical FK integrity, tenant-aligned edges, polymorphic attachment/audit links, version snapshots, status normalization, cascade semantics and non-destructive orphan reconciliation. No data scan or runtime tests; no production data accessed.
