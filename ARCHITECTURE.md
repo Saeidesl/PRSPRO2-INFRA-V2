@@ -2117,3 +2117,7 @@ File validator checks MIME-extension allowlists and size; Drive storage checks d
 
 ### Task 2.8 Increment 277 — Closure-readiness synthesis
 Gate register reconciled for G-01/G-02/G-03/G-04/G-10. The distinction between source evidence, test-source blueprints, executed tests, and runtime assurance is explicit. No test execution, runtime validation, data scan, DDL, migration, or production modification occurred. The task cannot be fully assurance-closed without controlled execution and PO policy decisions; the increment provides an administratively closure-ready package for a bounded read-only audit only.
+
+
+### Task 2.8 Increment 278 — Test-source evidence inventory
+At backend tree SHA `8253eb3718d1a2a1bd5de03b6b5090ba69b94b67`, selected schema, cache, idempotency, deletion, storage-folder and procurement tests were read. These provide E1 test-source evidence (including mocks and static source assertions) only. Test execution logs/E2 and live platform assurance/E3 were not established. The inventory is bounded, not exhaustive; G-01/G-02/G-03/G-04/G-10 remain OPEN.
