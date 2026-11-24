@@ -2175,3 +2175,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Traced selected attachment visibility, upload, download/thumbnail, delete and project-image copy logic: tenant/entity checks, project visibility, storage/metadata/audit sequencing and reconciliation gaps documented.
 - Increment 212 created and read-back verified: `TASK-2.8-ATTACHMENT-LIFECYCLE-SOURCE-TRACE-INCREMENT-212.md`.
 - G-04 remains OPEN pending owner taxonomy, storage reconciliation/recovery/retention/purge, failure injection and negative tenant tests; other gates unchanged.
+
+
+### Task 2.8 Increment 213 — Event void downstream trace (2026-11-24)
+- Traced EventService void guard, department/later-event restrictions, snapshot restoration, project/workflow status updates, audit sequence and material-needs reconciliation fallback.
+- Increment 213 created and read-back verified: `TASK-2.8-EVENT-VOID-DOWNSTREAM-TRACE-INCREMENT-213.md`.
+- Multi-write atomicity, downstream parity/recovery and tests remain unresolved; G-03/G-01/G-10 remain OPEN.
