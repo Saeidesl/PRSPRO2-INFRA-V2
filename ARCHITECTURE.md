@@ -1977,3 +1977,7 @@ Receipt batch/single processing and workspace aggregation were read-only crossch
 
 ## Audit addendum — Increment 247 (2026-11-24)
 Read-only audit of synthetic procurement project timeline. Order and receipt projections are appended separately from actual events and inspected segment does not explicitly filter cancelled/void/needs-review order or receipt status. Historical visibility policy is unresolved; candidate consistency risk only. Full tenant collection scans may scale poorly, not benchmarked. Report Increment 247. Static only, no tests or production changes; G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
+
+
+## Audit addendum — Increment 248 (2026-11-24)
+Static cross-path receipt review: inspected single/batch quantity aggregations include receipt records without explicit status filtering; a single-receipt replay check excludes VOID for its matching condition, yielding divergent semantics. Conditional candidate risk only if VOID records are intended excluded from aggregates. Report Increment 248. No tests/production changes; G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
