@@ -2449,3 +2449,8 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 ### Task 2.8 — Increment 256 (2026-11-24)
 - Traced EventService.void write order and identified bounded failure windows V-01..V-07 spanning project restoration, event status, progress recalculation, audits and material reconciliation. Added V-01..V-10 test specification and V2 transaction/outbox recommendation.
 - Report `TASK-2.8-EVENT-VOID-WRITE-SEQUENCE-FAILURE-ANALYSIS-INCREMENT-256.md`. Static only; no tests/failure injection run.
+
+
+### Task 2.8 — Increment 257 (2026-11-24)
+- Traced MaterialPlanningService.markEventVoided multi-row update sequence and lock scope; recorded failure windows MPV-01..MPV-08 and test blueprint MPV-01..MPV-12. Identified repeat note-appending and mixed status convergence as candidates to test, not confirmed runtime failures.
+- Report `TASK-2.8-MATERIAL-PLANNING-VOID-RECONCILIATION-FAILURE-BOUNDARIES-INCREMENT-257.md`. Static-only; no runtime test/failure injection.
