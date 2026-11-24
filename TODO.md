@@ -2367,3 +2367,10 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Reviewed idempotency test harness: wrapper cases modeled but `_createUnlocked_` is stubbed; this does not prove full integration or real GAS lock behavior. Schema recovery test is also mock-based; neither test was executed.
 - Report: `TASK-2.8-EVENT-IDEMPOTENCY-REPLAY-RECOVERY-INCREMENT-243.md`.
 - Static review only; G-01/G-10 OPEN, schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 244 — Form amendment/reference-copy recovery (2026-11-24)
+- Direct template field update writes response before project-information synchronization/audit; amendment-event path has replay checks and attempts synchronization recovery on replay.
+- Reference-copy operation sequentially persists project information, history and sync-log; error path attempts to mark item FAILED but swallows failure of that recovery write. LIVE_SYNC idempotency key observed; collision/retry handling still needs testing.
+- Report: `TASK-2.8-FORM-AMENDMENT-REFERENCE-COPY-RECOVERY-INCREMENT-244.md`.
+- Static only; no tests run. G-01/G-10 OPEN; schema readiness NOT APPROVED.
