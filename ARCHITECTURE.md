@@ -2129,3 +2129,6 @@ Successful CI execution was confirmed for backend commit `4a131aed6f0e1f7e0e05aa
 
 ## Task 2.8 Increment 280 — CI workflow trigger and alerting scope audit
 Static review of backend CI workflows recorded alert monitor limitations (failure-only, rolling 24-hour scope, capped reporting, prior alert issue remains open on no-failure runs), redundant path entries, and path-filter coverage considerations. WF-01..WF-05 assurance targets recorded. No workflow dispatch or production mutation; runtime/test assurance not established. G-01/G-10 remain OPEN.
+
+## Task 2.8 Increment 281 — Production sync/deploy safety trace
+Static trace of the manual Apps Script sync workflow documented gating and safety checks and clarified that `push_only` nevertheless modifies the Apps Script source via `clasp push --force`. Isolation, credentials, secret values, runtime rollback and dispatch authorization remain unverified. SY-01..SY-06 targets recorded. No production mutation or secret inspection; G-01/G-10 OPEN.
