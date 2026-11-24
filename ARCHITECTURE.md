@@ -1985,3 +1985,7 @@ Static cross-path receipt review: inspected single/batch quantity aggregations i
 
 ## Audit addendum — Increment 249 (2026-11-24)
 Static comparison of receipt validation paths: batch appears to allow blank-project receipt for the unallocated remainder of an item with allocations; inspected single receipt path requires ProjectID when allocations exist. Policy parity remains unresolved, candidate behavior difference only. Report Increment 249. No tests or production changes; G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
+
+
+## Audit addendum — Increment 250 (2026-11-24)
+Static comparison: inspected single/batch receipt gate rejects order status CANCELLED specifically, while separate order-item countability logic excludes CANCELLED, VOID, DELETED and NEEDS_REVIEW. Potential policy/gate inconsistency, not confirmed runtime defect. Report Increment 250. No tests/production changes; G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
