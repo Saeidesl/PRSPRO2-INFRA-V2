@@ -2142,3 +2142,7 @@ Pinned snapshot `8253eb3718d1a2a1bd5de03b6b5090ba69b94b67`: route checks are dis
 
 ## Task 2.8 — Increment 284 service-boundary trace
 Static trace confirms PrintTemplateService.updateProjectBinding applies tenant/template/binding/source checks and source-specific PROJECT_EDIT/EVENT_EDIT permissions; UserRoleService validates target user/role tenant and active status; workflow assignment removal uses Router relationship check plus service tenant check; AttachmentService applies tenant/resource visibility and parent-project checks. Attachment deletion is storage-first before metadata update, exposing a recovery/failure window if metadata update fails. Report `docs/audit/TASK-2.8-SERVICE-AUTHORIZATION-STORAGE-BOUNDARY-TRACE-INCREMENT-284.md`. Runtime and failure-injection tests pending.
+
+
+## Task 2.8 Increment 285 — Role-permission mapping integrity
+Static trace recorded for single/bulk role permission assignment and removal. Bulk path candidate gaps around permission status and cross-tenant mapping collision semantics need policy/source confirmation and runtime tests; source inventory discrepancy remains unresolved. Report: `docs/audit/TASK-2.8-ROLE-PERMISSION-MAPPING-INTEGRITY-TRACE-INCREMENT-285.md`. No tests or production changes. G-01/G-02/G-10 remain OPEN.
