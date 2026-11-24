@@ -2132,3 +2132,6 @@ Static review of backend CI workflows recorded alert monitor limitations (failur
 
 ## Task 2.8 Increment 281 — Production sync/deploy safety trace
 Static trace of the manual Apps Script sync workflow documented gating and safety checks and clarified that `push_only` nevertheless modifies the Apps Script source via `clasp push --force`. Isolation, credentials, secret values, runtime rollback and dispatch authorization remain unverified. SY-01..SY-06 targets recorded. No production mutation or secret inspection; G-01/G-10 OPEN.
+
+## Task 2.8 Increment 282 — Sync workflow safety-test coverage
+The selected test source statically asserts manual workflow dispatch and safety-gate text, but does not establish evaluated workflow semantics, real target isolation, secret scope, recovery or deployment behavior. Exact guessed test paths queried returned 404 and are not evidence of an exhaustive test inventory. SYT-01..SYT-05 targets recorded. G-01/G-10 OPEN.
