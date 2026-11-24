@@ -2073,3 +2073,7 @@ AuditService serializes supplied snapshots; selected audit routes require REPORT
 
 ### Task 2.8 — form amendment multi-write recovery coverage (Increment 270)
 Amendment response update and subsequent project-information synchronization/audit are sequential under lock; replay is intended to resynchronize. Selected reusable-form tests do not evidence amendment failure injection/replay convergence. AM-01..AM-15 blueprint; no tests run; G-01/G-03 OPEN.
+
+
+## Task 2.8 audit addendum — Increment 270
+Selected Router and AttachmentService paths contain ATTACHMENT_VIEW/UPLOAD/DELETE and REPORT_VIEW gates with tenant/resource visibility checks; attachment event paths inherit parent-project visibility in inspected functions. AV-01..AV-08 target negative/tenant tests. Static-only, no tests or production/data access. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
