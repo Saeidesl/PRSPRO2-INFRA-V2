@@ -2121,3 +2121,7 @@ Gate register reconciled for G-01/G-02/G-03/G-04/G-10. The distinction between s
 
 ### Task 2.8 Increment 278 — Test-source evidence inventory
 At backend tree SHA `8253eb3718d1a2a1bd5de03b6b5090ba69b94b67`, selected schema, cache, idempotency, deletion, storage-folder and procurement tests were read. These provide E1 test-source evidence (including mocks and static source assertions) only. Test execution logs/E2 and live platform assurance/E3 were not established. The inventory is bounded, not exhaustive; G-01/G-02/G-03/G-04/G-10 remain OPEN.
+
+
+### Task 2.8 Increment 279 — CI evidence applicability
+Successful CI execution was confirmed for backend commit `4a131aed6f0e1f7e0e05aad7dc2baacb35671dd7` (Backend source checks, PMS agent suite, procurement diagnostics) on 2026-11-19. The current inspected tree SHA `8253eb3718d1a2a1bd5de03b6b5090ba69b94b67` is newer; full-suite E2 on that newer tree is not established. This evidence is commit-specific and does not establish E3 platform assurance.
