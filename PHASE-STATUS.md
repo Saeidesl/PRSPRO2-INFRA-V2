@@ -900,3 +900,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Service/resource boundary trace added. Print-template authorization candidate traced to service guard; user-role and workflow-assignment boundaries reviewed.
 - Attachment storage-first deletion failure window documented for recovery testing.
 - Static only, not runtime verified. Report: `docs/audit/TASK-2.8-SERVICE-AUTHORIZATION-STORAGE-BOUNDARY-TRACE-INCREMENT-284.md`.
+
+
+## Task 2.8 Increment 285 (2026-11-24)
+- Added static role-permission mapping integrity trace; RP-01..RP-06 follow-up targets.
+- Candidate semantics differences between bulk/single assignment documented; no runtime validation, data access or production changes.
