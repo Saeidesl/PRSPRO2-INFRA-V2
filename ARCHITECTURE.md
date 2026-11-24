@@ -2138,3 +2138,7 @@ The selected test source statically asserts manual workflow dispatch and safety-
 
 ## Task 2.8 — Increment 283 Router authorization trace
 Pinned snapshot `8253eb3718d1a2a1bd5de03b6b5090ba69b94b67`: route checks are distributed across Router, AccessControlService and service methods. Draft-creator fallbacks and cross-resource ID handling require negative tests. PUT print-template project-binding dispatch lacks visible route-level guard in the branch; service guard/scope is pending verification, not a confirmed defect. Static-only evidence report: `docs/audit/TASK-2.8-ROUTER-MUTATION-READ-AUTHORIZATION-TRACE-INCREMENT-283.md`. No production changes or test execution.
+
+
+## Task 2.8 — Increment 284 service-boundary trace
+Static trace confirms PrintTemplateService.updateProjectBinding applies tenant/template/binding/source checks and source-specific PROJECT_EDIT/EVENT_EDIT permissions; UserRoleService validates target user/role tenant and active status; workflow assignment removal uses Router relationship check plus service tenant check; AttachmentService applies tenant/resource visibility and parent-project checks. Attachment deletion is storage-first before metadata update, exposing a recovery/failure window if metadata update fails. Report `docs/audit/TASK-2.8-SERVICE-AUTHORIZATION-STORAGE-BOUNDARY-TRACE-INCREMENT-284.md`. Runtime and failure-injection tests pending.
