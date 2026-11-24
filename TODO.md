@@ -2291,3 +2291,10 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Potential consistency concern recorded: status handling for VOID receipt rows across aggregate totals needs complete trace; not confirmed defect.
 - Report: `TASK-2.8-PROCUREMENT-HELPERS-SINGLE-RECEIPT-INCREMENT-232.md`.
 - Runtime tests/failure injection unavailable. VOID/reversal and repair tracing remains; G-01/G-10 open, schema NOT APPROVED.
+
+
+### Task 2.8 Increment 233 — Receipt status/void aggregation (2026-11-24)
+- Static findings: service inactive-order predicate, listNeeds countability exclusions, SourceEvent replay excluding VOID, and receipt aggregation excerpts without visible status filtering.
+- Potential cross-path VOID counting inconsistency documented, not confirmed defect; dedicated void/reversal or repair method not found in ProcurementService excerpt.
+- Report: `TASK-2.8-RECEIPT-VOID-AGGREGATION-INCREMENT-233.md`.
+- Tests unavailable; broader repo search and test coverage audit remain. G-01/G-10 open; schema NOT APPROVED.
