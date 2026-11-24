@@ -865,3 +865,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 Increment 277 (2026-11-24)
 - Closure-readiness synthesis and gate reconciliation committed in `docs/audit/TASK-2.8-CLOSURE-READINESS-GATE-RECONCILIATION-INCREMENT-277.md`.
 - G-01/G-02/G-03/G-04/G-10 and runtime assurance dependencies remain OPEN; this increment does not close them. Tests not run, no live data, runtime, migration, DDL or production modification.
+
+
+## Phase 2 — Task 2.8 Increment 278 (2026-11-24)
+- Added bounded test-source inventory pinned to backend tree SHA `8253eb3718d1a2a1bd5de03b6b5090ba69b94b67`.
+- Selected test files for schema, request cache/access control, idempotency schema recovery, project deletion, storage-folder behavior and procurement mocks confirmed by source inspection. No tests were run. Runtime assurance and gate closure not claimed.
