@@ -963,3 +963,11 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Draft correction/cancellation/reconciliation proposal added to `docs/DB4-RECEIPT-CORRECTION-CANCELLATION-RECONCILIATION-DRAFT.md` in DB repo. It is a design draft; not a legacy policy claim or approved migration.
 - Bounded source review did not identify a cancellation command in ProcurementService.js; this does not establish absence across the system.
 - DB-4 continues; stock valuation and receipt corrections are not yet implemented. No production modification or live data.
+
+
+## DB-4 checkpoint — 2026-11-25 (aggregate integrity gap assessment)
+- Database CI run #24 for documentation checkpoint commit `4deed4aa45d6713173a418f6e56e4bdea9daf71b` completed successfully.
+- Additional bounded read-only inspection of legacy ProcurementService.js confirmed sampled order-path aggregate allocation validation, project/need consistency checks and lock use; writes remain multi-step and mark incomplete orders NEEDS_REVIEW.
+- Added DB repository document `docs/DB4-INTEGRITY-GAP-ASSESSMENT-INCREMENT-3.md` distinguishing row-level constraints from aggregate rules that need transactional enforcement.
+- Roadmap updated; no schema or application code changed in this increment. Correction ledger, lifecycle policies and aggregate enforcement implementation remain pending discovery/policy validation.
+- No production repos or data modified.
