@@ -888,3 +888,9 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 Increment 282 (2026-11-24)
 - Sync workflow safety test-source coverage cross-check recorded in `docs/audit/TASK-2.8-SYNC-WORKFLOW-SAFETY-TEST-COVERAGE-CROSSCHECK-INCREMENT-282.md`.
 - Static test source is textual assertion coverage only; execution and platform assurance remain unverified. No production action or data access.
+
+## Task 2.8 — Increment 283
+- Read-only router dispatch authorization trace recorded; static only, pinned backend snapshot 8253eb37.
+- Candidate service-level guard to verify: print-template project binding update. Cross-resource ID/tenant negative test gaps documented.
+- Report: `docs/audit/TASK-2.8-ROUTER-MUTATION-READ-AUTHORIZATION-TRACE-INCREMENT-283.md`.
+- Not verified dynamically; audit remains IN PROGRESS.
