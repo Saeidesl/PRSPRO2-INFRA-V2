@@ -2193,3 +2193,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Traced save revision, ExpectedRevision/replay, history, audit sequence, approval and LIVE_SYNC conflict resolution policy checks; file-based conflict transfer limitation recorded.
 - Increment 215 created and read-back verified: `TASK-2.8-PROJECT-INFORMATION-HISTORY-SYNC-TRACE-INCREMENT-215.md`.
 - Atomicity, complete history consumer parity, sync recovery and negative/concurrency tests remain unresolved; G-03/G-10/G-01 open.
+
+
+### Task 2.8 Increment 216 — Event creation persistence/downstream trace (2026-11-24)
+- Traced EventService creation validation, snapshots, variant validation, repository lock/revalidation, reusable form/central info persistence, procurement integration fallback, project update/audit, idempotency completion and best-effort Telegram.
+- Increment 216 created and read-back verified: `TASK-2.8-EVENT-CREATE-PERSISTENCE-TRACE-INCREMENT-216.md`.
+- Multi-step recovery/fault injection and caller/test coverage remain open; G-01/G-03/G-10 remain OPEN.
