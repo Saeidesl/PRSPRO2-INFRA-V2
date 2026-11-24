@@ -2557,3 +2557,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 ### Task 2.8 — Increment 273 (2026-11-24)
 - Consolidated executable continuation vs hard blockers B-01..B-05: unavailable isolated test execution, real lock/concurrency proof, exhaustive commit-pinned source crosswalk, PO policy decisions and schema-readiness dependency. See `TASK-2.8-REMAINING-EXECUTABLE-WORK-HARD-BLOCKERS-INCREMENT-273.md`.
 - Task remains IN PROGRESS; blockers are explicitly scoped. Production repositories remain READ ONLY.
+
+
+### Task 2.8 Increment 273 — Admin cascade deletion recovery audit (2026-11-24)
+- Static review of ProjectDeletionService identified partial-failure/recovery test needs, especially attachment record soft-delete versus Drive trash ordering, non-transactional cascades, and physical project-row removal. Candidate risk only, no defect confirmed.
+- Report: `TASK-2.8-ADMIN-CASCADE-DELETION-RECOVERY-AUDIT-INCREMENT-273.md`; PD-01..PD-12 targets.
+- No runtime/failure-injection tests, production/data access or changes. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
