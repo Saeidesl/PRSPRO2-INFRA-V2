@@ -2610,3 +2610,8 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Static review of `sync-apps-script.yml` recorded dispatch/confirmation/variable gates, clasp credential handling, isolated target checks, and important semantics: `push_only` still performs `clasp push --force`; deploy mode is gated separately. SY-01..SY-06 assurance targets recorded.
 - Report: `docs/audit/TASK-2.8-PRODUCTION-APPS-SCRIPT-SYNC-DEPLOY-SAFETY-TRACE-INCREMENT-281.md`.
 - No secrets inspected, workflow executed, source pushed, deployment or production data accessed. G-01/G-10 OPEN; runtime assurance NOT VERIFIED.
+
+### Task 2.8 Increment 282 — Sync workflow safety test coverage cross-check (2026-11-24)
+- Inspected `tests/schema-contract.test.js` safety test. It asserts dispatch/confirmation and deploy gates, command presence, excluded-ID refusal string and no push trigger via textual assertions. Test execution not performed; semantics, actual target/secret scope and rollback are unverified.
+- Report: `docs/audit/TASK-2.8-SYNC-WORKFLOW-SAFETY-TEST-COVERAGE-CROSSCHECK-INCREMENT-282.md`.
+- Two exact guessed test paths were absent (not proof of missing coverage). G-01/G-10 remain OPEN; runtime assurance NOT VERIFIED.
