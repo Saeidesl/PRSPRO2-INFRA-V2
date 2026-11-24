@@ -2169,3 +2169,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Read-only source trace of single and batch receipt paths documented: locking, tenant/item/order checks, optional idempotency and event replay, allocation/project and quantity guards, receipt/projection/audit write sequence and partial-write/parity evidence gaps.
 - Increment 211 created and read-back verified: `TASK-2.8-PROCUREMENT-RECEIPT-SOURCE-TRACE-INCREMENT-211.md`.
 - Source evidence remains non-runtime; policy choices and correction/reversal remain pending. G-02/G-10/G-01 remain OPEN.
+
+
+### Task 2.8 Increment 212 — Attachment lifecycle source trace (2026-11-24)
+- Traced selected attachment visibility, upload, download/thumbnail, delete and project-image copy logic: tenant/entity checks, project visibility, storage/metadata/audit sequencing and reconciliation gaps documented.
+- Increment 212 created and read-back verified: `TASK-2.8-ATTACHMENT-LIFECYCLE-SOURCE-TRACE-INCREMENT-212.md`.
+- G-04 remains OPEN pending owner taxonomy, storage reconciliation/recovery/retention/purge, failure injection and negative tenant tests; other gates unchanged.
