@@ -860,3 +860,8 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 checkpoint (2026-11-23, Increment 187)
 - Router workflow-step API crosswalk recorded. Reads for step list allow WORKFLOW_MANAGE or PROJECT_VIEW; event-rule and management data reads require WORKFLOW_MANAGE; nested POST step creation/publish and department assignments are behind WORKFLOW_MANAGE. Runtime permission-negative checks not performed; G-01/G-10 remain open.
 - Artifact `docs/audit/TASK-2.8-WORKFLOW-STEP-ROUTE-AUTHORIZATION-CROSSCHECK-INCREMENT-187.md` committed.
+
+
+## Phase 2 — Task 2.8 Increment 277 (2026-11-24)
+- Closure-readiness synthesis and gate reconciliation committed in `docs/audit/TASK-2.8-CLOSURE-READINESS-GATE-RECONCILIATION-INCREMENT-277.md`.
+- G-01/G-02/G-03/G-04/G-10 and runtime assurance dependencies remain OPEN; this increment does not close them. Tests not run, no live data, runtime, migration, DDL or production modification.
