@@ -2029,3 +2029,7 @@ ProjectDeletionService.remove sequentially soft-deletes dependencies, trashes fi
 
 ### Task 2.8 — Event void state-transition test specification (Increment 254)
 EventService.void source trace has a sequential project restore, event VOID update, audits, workflow progress recalculation and material reconciliation/catch. V-01..V-20 test cases are recorded in Infra V2. Runtime tests and failure injection were not run; legacy multi-write sequence remains non-transactional.
+
+
+### Task 2.8 — audit-write and terminal-state failure boundaries (Increment 255)
+Static source review indicates project cascade may remove the project row before audit insertion; attachment deletion performs storage/metadata mutation before audit. A-01..A-18 failure/contract tests and transactional/outbox V2 requirements recorded. No runtime tests or production changes.
