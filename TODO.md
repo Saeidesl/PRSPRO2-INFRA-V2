@@ -2346,3 +2346,10 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Lock re-entrancy/timeout outcome is a hypothesis only; requires isolated GAS verification. Per-row lock/write performance also remains unmeasured.
 - Report: `TASK-2.8-NESTED-SCRIPTLOCK-MUTATION-PRIMITIVE-INCREMENT-240.md` created.
 - No runtime tests. G-01/G-10 open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 241 — Mutation lock/audit side-effect trace (2026-11-24)
+- Project update on ProjectCode change conditionally holds ScriptLock and then reaches GoogleSheetsRepository.updateById, which independently acquires ScriptLock; nested-lock risk hypothesis recorded, not confirmed.
+- Static trace of project update and Event void side-effect ordering; individual repository locks do not provide operation-level atomicity. Post-write audit failures and event-void sequential side-effect failure windows noted as verification candidates.
+- Report: `TASK-2.8-MUTATION-LOCK-AUDIT-SIDE-EFFECT-TRACE-INCREMENT-241.md`.
+- Read-only evidence only; no tests run. G-01/G-10 remain open; schema readiness NOT APPROVED.
