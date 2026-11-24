@@ -2199,3 +2199,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Traced EventService creation validation, snapshots, variant validation, repository lock/revalidation, reusable form/central info persistence, procurement integration fallback, project update/audit, idempotency completion and best-effort Telegram.
 - Increment 216 created and read-back verified: `TASK-2.8-EVENT-CREATE-PERSISTENCE-TRACE-INCREMENT-216.md`.
 - Multi-step recovery/fault injection and caller/test coverage remain open; G-01/G-03/G-10 remain OPEN.
+
+
+### Task 2.8 Increment 217 — Reusable event-form response persistence trace (2026-11-24)
+- Traced response insert/update, FormVersion and DefinitionSnapshotJSON, audit writes and project central-information synchronization; documented multi-write and replay/recovery gaps.
+- Increment 217 created and read-back verified: `TASK-2.8-REUSABLE-FORM-RESPONSE-PERSISTENCE-TRACE-INCREMENT-217.md`.
+- G-03/G-01/G-10 remain OPEN; no tests or production changes.
