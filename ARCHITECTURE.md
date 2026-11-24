@@ -2041,3 +2041,7 @@ C-01..C-22 tests cover races across event creation/void, deletion, attachment, m
 
 ### Task 2.8 — logical relationship and status integrity blueprint (Increment 257)
 I-01..I-20 blueprint covers logical FK integrity, tenant-aligned edges, polymorphic attachment/audit links, version snapshots, status normalization, cascade semantics and non-destructive orphan reconciliation. No data scan or runtime tests; no production data accessed.
+
+
+### Task 2.8 — cross-domain idempotency and recovery contract (Increment 258)
+O-01..O-16 specify key scope/fingerprint, durable state, lease recovery, retry exhaustion, external outbox and domain operation identities. No runtime or database verification; production remains read-only.
