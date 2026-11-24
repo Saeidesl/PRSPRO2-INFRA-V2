@@ -927,3 +927,10 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - Expanded tests cover project-independent events, void-event invariant, and attachment tenant isolation; CI run #7 is queued at this checkpoint.
 - Task 2.8 supplemental audit remains paused/incomplete; carry findings into validation, do not treat as a gate for DB implementation.
 - No live production data or production repositories were touched.
+
+
+## Database implementation checkpoint — 2026-11-24 (CI validation and central info draft)
+- GitHub Actions runs #9 (migration 003 fix) and #10 (documentation commit) both succeeded; migrations 001–003 and expanded integrity tests ran successfully in disposable PostgreSQL 16.
+- Migration 004 drafted tenant-scoped typed project information definitions and values; CI validation is pending run #12.
+- Added test for persistence and tenant isolation of central project information; run #12 pending.
+- No local PostgreSQL runtime available; GitHub Actions remains the test evidence source. No live data or production repositories touched.
