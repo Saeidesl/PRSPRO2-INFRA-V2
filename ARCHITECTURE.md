@@ -2077,3 +2077,7 @@ Amendment response update and subsequent project-information synchronization/aud
 
 ## Task 2.8 audit addendum — Increment 270
 Selected Router and AttachmentService paths contain ATTACHMENT_VIEW/UPLOAD/DELETE and REPORT_VIEW gates with tenant/resource visibility checks; attachment event paths inherit parent-project visibility in inspected functions. AV-01..AV-08 target negative/tenant tests. Static-only, no tests or production/data access. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
+
+
+### Task 2.8 — project information revision/history/live-sync failure coverage (Increment 271)
+ProjectInformationService save/approve/conflict-resolution operations perform sequential value/history/audit/live-sync writes. Selected tests do not establish complete failure injection. PI-01..PI-15 recorded; runtime tests not run, G-01/G-03/G-10 OPEN.
