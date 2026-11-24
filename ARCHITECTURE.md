@@ -2135,3 +2135,6 @@ Static trace of the manual Apps Script sync workflow documented gating and safet
 
 ## Task 2.8 Increment 282 — Sync workflow safety-test coverage
 The selected test source statically asserts manual workflow dispatch and safety-gate text, but does not establish evaluated workflow semantics, real target isolation, secret scope, recovery or deployment behavior. Exact guessed test paths queried returned 404 and are not evidence of an exhaustive test inventory. SYT-01..SYT-05 targets recorded. G-01/G-10 OPEN.
+
+## Task 2.8 — Increment 283 Router authorization trace
+Pinned snapshot `8253eb3718d1a2a1bd5de03b6b5090ba69b94b67`: route checks are distributed across Router, AccessControlService and service methods. Draft-creator fallbacks and cross-resource ID handling require negative tests. PUT print-template project-binding dispatch lacks visible route-level guard in the branch; service guard/scope is pending verification, not a confirmed defect. Static-only evidence report: `docs/audit/TASK-2.8-ROUTER-MUTATION-READ-AUTHORIZATION-TRACE-INCREMENT-283.md`. No production changes or test execution.
