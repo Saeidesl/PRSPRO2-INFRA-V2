@@ -2625,3 +2625,8 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Service-level trace recorded in `docs/audit/TASK-2.8-SERVICE-AUTHORIZATION-STORAGE-BOUNDARY-TRACE-INCREMENT-284.md`.
 - Print-template project binding candidate traced to service-level authorization and conflict/source validation; static evidence only.
 - User-role tenant checks and workflow assignment removal boundaries inspected. Attachment delete non-transactional storage-first failure window identified. Role-permission deeper validation and failure/runtime assurance remain open.
+
+
+### Task 2.8 Increment 285 — Role-permission mapping integrity (2026-11-24)
+- Static role-permission assignment/list/removal trace recorded in `docs/audit/TASK-2.8-ROLE-PERMISSION-MAPPING-INTEGRITY-TRACE-INCREMENT-285.md`.
+- Bulk-assignment candidate gaps: active permission semantics and cross-tenant mapping collisions differ from single-assignment checks; source inventory for repository implementation remains unresolved. Candidates only, not proven defects. RP-01..RP-06 recorded. Static only; gates remain OPEN.
