@@ -1949,3 +1949,7 @@ Read-only E1 trace: tenant-scoped validations and selected lock/idempotency/revi
 
 ### Task 2.8 Increment 224 — Selected mutation Router permission crosswalk (2026-11-24)
 Selected Router.js dispatch branches confirm guards and service targets for Event creation, reusable form amendments, Project Information mutation/read-history/approval/conflict/deactivation, and Workflow publish. This is E1 evidence, not exhaustive coverage. Runtime tests, exhaustive callers/dispatch and negative tenant/permission validation remain open; G-01/G-03/G-10 OPEN; schema readiness NOT APPROVED. No tests or production changes.
+
+
+### Task 2.8 Increment 225 — Selected frontend API caller inventory (2026-11-24)
+Read-only source inventory of API core, Router and selected Events, Forms, Workflows and Projects modules. Explicit API URL configuration, token/cache/coalescing patterns and selected route literals observed; dynamic API construction and uninspected modules mean this is not exhaustive. E1 only; no tests or production edits. G-01/G-10 OPEN; readiness NOT APPROVED.
