@@ -1969,3 +1969,7 @@ Grouped read-only Router.js dispatch inventory for selected GET and mutation dom
 
 ## Audit addendum — Increment 245 (2026-11-24)
 Read-only material-planning recalculation and event-void reconciliation trace: per-spec recalculation is sequential across calculation-ledger and material-need writes, linking and audit; event-void sequentially invalidates calculations and marks active confirmed needs NEEDS_REVIEW. Failure recovery/atomicity is not demonstrated in the inspected path. Early-order settings are observed disabled in the reviewed create/revise code, business intent pending. Details in the Infra audit report Increment 245. E1 only; no tests or production changes; G-01/G-02/G-03/G-10 OPEN; schema readiness NOT APPROVED.
+
+
+## Audit addendum — Increment 246 (2026-11-24)
+Receipt batch/single processing and workspace aggregation were read-only crosschecked. Batch and single paths have differing validation/replay structures; receipt insertion, order recomputation and audit are sequential. The inspected receipt aggregations appear not to filter by receipt status. If invalidated/void receipts are supported, this requires a policy and consistency test; source-only candidate risk, not a confirmed defect. Report Increment 246. E1 only, no tests/production edits; G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
