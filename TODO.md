@@ -2360,3 +2360,10 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Event create revalidates project/workflow constraints in repository beforeWrite under insert lock; subsequently persists form/central info, procurement integration, project changes and audits, then marks idempotency COMPLETED. Multi-write atomicity and stale PROCESSING recovery remain unverified.
 - Report: `TASK-2.8-PROJECT-CREATE-EVENT-MUTATION-LOCK-TRACE-INCREMENT-242.md`.
 - Static only; no runtime tests. G-01/G-10 open, schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 243 — Event idempotency replay/recovery boundary (2026-11-24)
+- Keyed requests scoped by tenant/creator/key, user-lock serialized; PROCESSING replay rejected pending inspection, completion marker occurs after side effects. Recovery/reconciliation protocol for stuck PROCESSING not evidenced in reviewed code.
+- Reviewed idempotency test harness: wrapper cases modeled but `_createUnlocked_` is stubbed; this does not prove full integration or real GAS lock behavior. Schema recovery test is also mock-based; neither test was executed.
+- Report: `TASK-2.8-EVENT-IDEMPOTENCY-REPLAY-RECOVERY-INCREMENT-243.md`.
+- Static review only; G-01/G-10 OPEN, schema readiness NOT APPROVED.
