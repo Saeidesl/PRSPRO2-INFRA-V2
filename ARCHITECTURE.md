@@ -1941,3 +1941,7 @@ Direct source retrieval confirms the Router PUT `/print-templates/:id/project-da
 
 ### Task 2.8 Increment 222 — Attachment access/delete-order trace (2026-11-24)
 Read-only source retrieval of AttachmentService confirms tenant/entity visibility checks for upload/download/delete and parent-project visibility for project-linked events. Deletion is storage-first, followed by metadata DELETED status and audit. Recovery/reconciliation/failure semantics and retention/purge policy are not demonstrated. E1 source only; G-04/G-01/G-10 OPEN. No tests or production modifications.
+
+
+### Task 2.8 Increment 223 — Event/Form/Project-information/Workflow mutation crosswalk (2026-11-24)
+Read-only E1 trace: tenant-scoped validations and selected lock/idempotency/revision controls are observed in source, alongside sequential response/history/audit/central-information/project/workflow/material side effects. Atomicity, fault recovery, exhaustive route/caller parity and tenant-negative/concurrency/fault tests remain unverified. Amendment marker inference is a policy risk candidate only. G-01/G-03/G-10 OPEN; schema readiness NOT APPROVED. No tests or production modifications.
