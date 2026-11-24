@@ -2429,34 +2429,34 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
 
 
-### Task 2.8 — Increment 253 (2026-11-24)
+### Task 2.8 — Increment 260 (2026-11-24; numbering corrected)
 - Read-only coverage review of project deletion, attachment deletion lifecycle, event void downstream mutation/recovery, material planning failure injection, and audit failure semantics.
-- Recorded bounded coverage gaps D-01 through D-06 and V2 transactional/outbox remediation requirements in `TASK-2.8-MUTATION-RECOVERY-COVERAGE-GAPS-INCREMENT-253.md`.
+- Recorded bounded coverage gaps D-01 through D-06 and V2 transactional/outbox remediation requirements in `TASK-2.8-MUTATION-RECOVERY-COVERAGE-GAPS-INCREMENT-260.md`.
 - Test review only: no tests run, no failure injection, and no production writes. Task remains IN PROGRESS.
 
 
-### Task 2.8 — Increment 254 (2026-11-24)
+### Task 2.8 — Increment 261 (2026-11-24; numbering corrected)
 - Consolidated mutation-boundary coverage into a cross-domain prioritized matrix (P0/P1/P2) and reusable failure-injection acceptance criteria. Includes event create/void, deletion, attachment, procurement, planning, audit and workflow mutation.
 - Search limitation recorded; code search yielded no usable results, not evidence of absence. Report: `TASK-2.8-MUTATION-BOUNDARY-COVERAGE-CONSOLIDATION-INCREMENT-254.md`.
 - Static blueprint only; no tests or failure injection run. Task remains IN PROGRESS.
 
 
-### Task 2.8 — Increment 255 (2026-11-24)
+### Task 2.8 — Increment 262 (2026-11-24; numbering corrected)
 - Reviewed authorization cache tests and selected Router/access-control/permission source. The named test file primarily asserts source patterns/cache behavior; route-by-route mutation denial, tenant isolation, cache reset across execution, exception parity, and direct-service fail-closed coverage remain bounded gaps to specify.
 - Report `TASK-2.8-AUTHORIZATION-MUTATION-COVERAGE-BOUNDARY-INCREMENT-255.md`; static only, no tests run or production writes.
 
 
-### Task 2.8 — Increment 256 (2026-11-24)
+### Task 2.8 — Increment 263 (2026-11-24; numbering corrected)
 - Traced EventService.void write order and identified bounded failure windows V-01..V-07 spanning project restoration, event status, progress recalculation, audits and material reconciliation. Added V-01..V-10 test specification and V2 transaction/outbox recommendation.
 - Report `TASK-2.8-EVENT-VOID-WRITE-SEQUENCE-FAILURE-ANALYSIS-INCREMENT-256.md`. Static only; no tests/failure injection run.
 
 
-### Task 2.8 — Increment 257 (2026-11-24)
+### Task 2.8 — Increment 264 (2026-11-24; numbering corrected)
 - Traced MaterialPlanningService.markEventVoided multi-row update sequence and lock scope; recorded failure windows MPV-01..MPV-08 and test blueprint MPV-01..MPV-12. Identified repeat note-appending and mixed status convergence as candidates to test, not confirmed runtime failures.
 - Report `TASK-2.8-MATERIAL-PLANNING-VOID-RECONCILIATION-FAILURE-BOUNDARIES-INCREMENT-257.md`. Static-only; no runtime test/failure injection.
 
 
-### Task 2.8 — Increment 258 (2026-11-24)
+### Task 2.8 — Increment 265 (2026-11-24; numbering corrected)
 - Traced AttachmentService.delete exact ordering: storage delete/trash, metadata DELETED, then audit. Documented ATT-01..ATT-06 partial-failure windows and ATT-01..ATT-10 test blueprint, including the bounded audit-repair concern for already-DELETED records.
 - Report `TASK-2.8-ATTACHMENT-DELETE-STORAGE-METADATA-AUDIT-BOUNDARY-INCREMENT-258.md`. Static only; no test/failure injection.
 
@@ -2467,25 +2467,29 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 
 
 ### Task 2.8 — Increment 254 (2026-11-24)
-- Source-traced EventService.void mutation boundaries and produced V-01..V-20 failure/edge test specification, including scripted fail-at-call harness and retry convergence expectations. See `TASK-2.8-EVENT-VOID-STATE-TRANSITION-FAILURE-TESTS-INCREMENT-254.md`.
+- Source-traced EventService.void mutation boundaries and produced V-01..V-20 failure/edge test specification, including scripted fail-at-call harness and retry convergence expectations. See `TASK-2.8-EVENT-VOID-STATE-TRANSITION-FAILURE-TESTS-INCREMENT-261.md`.
 - Test specification only; no production changes or test execution. Task remains IN PROGRESS.
 
 
 ### Task 2.8 — Increment 255 (2026-11-24)
-- Read-only cross-check of project cascade deletion, attachment deletion and AuditService.log sequencing. Recorded A-01..A-18 failure and audit contract tests, including project row removal preceding audit insert and storage deletion/metadata/audit partial boundaries. See `TASK-2.8-AUDIT-WRITE-FAILURE-TERMINAL-STATE-INCREMENT-255.md`.
+- Read-only cross-check of project cascade deletion, attachment deletion and AuditService.log sequencing. Recorded A-01..A-18 failure and audit contract tests, including project row removal preceding audit insert and storage deletion/metadata/audit partial boundaries. See `TASK-2.8-AUDIT-WRITE-FAILURE-TERMINAL-STATE-INCREMENT-262.md`.
 - Source review only; no runtime tests/failure injection. Task remains IN PROGRESS.
 
 
 ### Task 2.8 — Increment 256 (2026-11-24)
-- Compiled C-01..C-22 concurrency, locking, race and retry convergence matrix from selected mutation test/source traces. Existing mocked lock coverage does not prove platform concurrency behavior. See `TASK-2.8-RACE-LOCK-REPLAY-CONVERGENCE-TESTS-INCREMENT-256.md`.
+- Compiled C-01..C-22 concurrency, locking, race and retry convergence matrix from selected mutation test/source traces. Existing mocked lock coverage does not prove platform concurrency behavior. See `TASK-2.8-RACE-LOCK-REPLAY-CONVERGENCE-TESTS-INCREMENT-263.md`.
 - Blueprint only; no concurrent test runs or production experiments. Task remains IN PROGRESS.
 
 
 ### Task 2.8 — Increment 257 (2026-11-24)
-- Formalized I-01..I-20 logical-edge, tenant alignment, polymorphic entity, version snapshot, status normalization and reconciliation integrity tests. See `TASK-2.8-LOGICAL-RELATIONSHIP-STATUS-INTEGRITY-INCREMENT-257.md`.
+- Formalized I-01..I-20 logical-edge, tenant alignment, polymorphic entity, version snapshot, status normalization and reconciliation integrity tests. See `TASK-2.8-LOGICAL-RELATIONSHIP-STATUS-INTEGRITY-INCREMENT-264.md`.
 - Test/data scan blueprint only; no production data access or execution. Task remains IN PROGRESS.
 
 
 ### Task 2.8 — Increment 258 (2026-11-24)
-- Consolidated cross-domain idempotency/recovery contract O-01..O-16 and operation identities for events, reference-copy, procurement, planning, attachments and deletion. See `TASK-2.8-CROSS-DOMAIN-IDEMPOTENCY-RECOVERY-INCREMENT-258.md`.
+- Consolidated cross-domain idempotency/recovery contract O-01..O-16 and operation identities for events, reference-copy, procurement, planning, attachments and deletion. See `TASK-2.8-CROSS-DOMAIN-IDEMPOTENCY-RECOVERY-INCREMENT-265.md`.
 - Blueprint only; runtime tests not run. Task remains IN PROGRESS.
+
+
+### Numbering correction (2026-11-24)
+- The six supplementary reports previously labeled 253–258 collided with earlier same-day Task 2.8 increment numbers in the cumulative log. Renumbered these supplementary reports to 260–265 and updated references; original report files are being retired after replacement/read-back verification.
