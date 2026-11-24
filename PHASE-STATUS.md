@@ -917,3 +917,13 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - The three implementation repositories were rechecked: PRSPRO2-V2, PRSPRO2BACKEND-V2 and PRSPRO2DATABASE-V2 exist but were empty. Database work now begins in PRSPRO2DATABASE-V2.
 - Initial database repository structure, design notes and migration 001 foundation SQL were committed. SQL execution and automated integrity validation are pending.
 - Current task DB-1 / foundation schema is IN PROGRESS. No production data, production database, live migration, deployment or VPS activity.
+
+
+## Database implementation checkpoint — 2026-11-24
+- Independent implementation began in PRSPRO2DATABASE-V2; this supersedes historical checkpoints stating the executable schema was not started.
+- Draft migrations 001 foundation and 002 events/forms are applied successfully in disposable PostgreSQL by GitHub Actions run #3; initial tests passed (2/2).
+- Fixed migration runner file-discovery regex. Removed nested transaction statement in migration 001 after log review.
+- Migration 003 adds project revision snapshots and attachment metadata/associations; validation is pending expanded CI run.
+- Expanded tests cover project-independent events, void-event invariant, and attachment tenant isolation; CI run #7 is queued at this checkpoint.
+- Task 2.8 supplemental audit remains paused/incomplete; carry findings into validation, do not treat as a gate for DB implementation.
+- No live production data or production repositories were touched.
