@@ -2535,3 +2535,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 ### Task 2.8 — Increment 271 (2026-11-24)
 - Traced ProjectInformationService.save/approve/resolveReferenceConflict and selected project information test files. Recorded PI-01..PI-15 multi-write failure/concurrency blueprint. See `TASK-2.8-PROJECT-INFORMATION-MULTIWRITE-RECOVERY-COVERAGE-INCREMENT-271.md`.
 - Static only; tests not run. G-01/G-03/G-10 remain OPEN.
+
+
+### Task 2.8 Increment 271 — Request cache lifecycle/auth context cross-check (2026-11-24)
+- Read-only review of AccessControlService, PermissionService, GoogleSheetsRepository and AuthService cache/auth lifecycle. Documented RC-01..RC-10 request-boundary/cache isolation and invalidation tests; reset-at-entry implementation not verified in selected files.
+- Report: `TASK-2.8-REQUEST-CACHE-LIFECYCLE-AUTH-CONTEXT-CROSSCHECK-INCREMENT-271.md`.
+- Static only; no tests or production/data access. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
