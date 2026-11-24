@@ -2277,3 +2277,10 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Noted attachment deletion ordering (storage delete precedes metadata update/audit) as a potential failure-mode requiring failure injection/recovery validation, not confirmed defect.
 - Detailed report: `TASK-2.8-HIGH-IMPACT-MUTATION-TRACE-INCREMENT-230.md`.
 - Tests not executed; caller/route/service/repository tracing incomplete. G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 231 — Procurement batch tracing (2026-11-24)
+- Static trace of batch receipts: tenant-scoped item/order/receipt/allocation checks, idempotency replay, duplicate batch-key checks, quantity/allocation validation, bulk write, order status recalculation, audit and lock release.
+- Potential partial-write/transaction gap recorded for failure-injection validation; not a confirmed defect.
+- Report: `TASK-2.8-PROCUREMENT-BATCH-TRACE-INCREMENT-231.md`.
+- Tests not executed; validation-helper/repository/single-receipt/recovery tracing remains. G-01/G-10 OPEN; schema readiness NOT APPROVED.
