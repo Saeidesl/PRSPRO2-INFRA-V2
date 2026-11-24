@@ -2157,3 +2157,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Fetched selected core domain services and statically inventoried method families across Event, Form, Project, Workflow, Procurement, Attachment, MaterialPlanning, ProjectInformation and ProjectDeletion; exact blob SHAs and tracing priorities documented.
 - Increment 209 created and read-back verified: `TASK-2.8-CORE-DOMAIN-SERVICE-METHOD-INVENTORY-INCREMENT-209.md`.
 - Method names are navigation evidence only. Branch-level tenant/permission, payload, write atomicity, side-effects, frontend caller and test mapping remain open; readiness gates remain OPEN.
+
+
+### Task 2.8 Increment 210 — Frontend domain caller inventory (2026-11-24)
+- Read-only retrieval of eight frontend domain modules (events, forms, projects, workflows, procurement, attachments, project-detail and material-planning) and static path-family extraction.
+- Increment 210 created and read-back verified: `TASK-2.8-FRONTEND-DOMAIN-CALLER-INVENTORY-INCREMENT-210.md`.
+- Caller/path extraction is preliminary, not a precise graph. Exact call operation, backend branch, tenant/permission/payload/side-effect and tests remain pending. Gates unchanged.
