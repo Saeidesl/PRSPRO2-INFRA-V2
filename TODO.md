@@ -2353,3 +2353,10 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Static trace of project update and Event void side-effect ordering; individual repository locks do not provide operation-level atomicity. Post-write audit failures and event-void sequential side-effect failure windows noted as verification candidates.
 - Report: `TASK-2.8-MUTATION-LOCK-AUDIT-SIDE-EFFECT-TRACE-INCREMENT-241.md`.
 - Read-only evidence only; no tests run. G-01/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 242 — Project-create/event mutation lock trace (2026-11-24)
+- Active ProjectService.create acquires ScriptLock then calls ProjectRepository.insert/GoogleSheetsRepository.insert (inner lock): nested-lock risk hypothesis; draft branch has distinct flow. Audit after project insertion remains a partial-write boundary.
+- Event create revalidates project/workflow constraints in repository beforeWrite under insert lock; subsequently persists form/central info, procurement integration, project changes and audits, then marks idempotency COMPLETED. Multi-write atomicity and stale PROCESSING recovery remain unverified.
+- Report: `TASK-2.8-PROJECT-CREATE-EVENT-MUTATION-LOCK-TRACE-INCREMENT-242.md`.
+- Static only; no runtime tests. G-01/G-10 open, schema readiness NOT APPROVED.
