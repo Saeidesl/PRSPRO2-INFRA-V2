@@ -2563,3 +2563,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Static review of ProjectDeletionService identified partial-failure/recovery test needs, especially attachment record soft-delete versus Drive trash ordering, non-transactional cascades, and physical project-row removal. Candidate risk only, no defect confirmed.
 - Report: `TASK-2.8-ADMIN-CASCADE-DELETION-RECOVERY-AUDIT-INCREMENT-273.md`; PD-01..PD-12 targets.
 - No runtime/failure-injection tests, production/data access or changes. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 274 — Form/project information/material planning cross-check (2026-11-24)
+- Static review documented form-definition tenant/reference validation, cache invalidation, project-information attachment/value validation, and versioned material-specification checks. FM-01..FM-12 test targets.
+- Report: `TASK-2.8-FORM-PROJECT-INFORMATION-MATERIAL-PLANNING-CROSSCHECK-INCREMENT-274.md`.
+- Static only; no tests/data/production writes. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
