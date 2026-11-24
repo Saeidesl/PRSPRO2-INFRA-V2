@@ -1973,3 +1973,7 @@ Read-only material-planning recalculation and event-void reconciliation trace: p
 
 ## Audit addendum — Increment 246 (2026-11-24)
 Receipt batch/single processing and workspace aggregation were read-only crosschecked. Batch and single paths have differing validation/replay structures; receipt insertion, order recomputation and audit are sequential. The inspected receipt aggregations appear not to filter by receipt status. If invalidated/void receipts are supported, this requires a policy and consistency test; source-only candidate risk, not a confirmed defect. Report Increment 246. E1 only, no tests/production edits; G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
+
+
+## Audit addendum — Increment 247 (2026-11-24)
+Read-only audit of synthetic procurement project timeline. Order and receipt projections are appended separately from actual events and inspected segment does not explicitly filter cancelled/void/needs-review order or receipt status. Historical visibility policy is unresolved; candidate consistency risk only. Full tenant collection scans may scale poorly, not benchmarked. Report Increment 247. Static only, no tests or production changes; G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
