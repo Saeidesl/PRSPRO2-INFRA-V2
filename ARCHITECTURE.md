@@ -2065,3 +2065,7 @@ Recommended defaults for G-02/G-03/G-04/G-10 are documented separately from PO-a
 
 ### Task 2.8 — G-01 route-to-mutation assurance reconciliation protocol (Increment 268)
 Each route requires a commit-pinned branch/caller/resource/tenant/validation/write/side-effect/lock/audit/test disposition. Inventory alone cannot close G-01. Protocol recorded; G-01 remains OPEN.
+
+
+### Task 2.8 — audit privacy and read-access boundary (Increment 269)
+AuditService serializes supplied snapshots; selected audit routes require REPORT_VIEW and tenant filtering. Field-level redaction, exhaustive payload callers, retention and negative tests remain unverified. PRIV-01..PRIV-10 blueprint recorded; no data or runtime tests accessed.
