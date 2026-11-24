@@ -2045,3 +2045,7 @@ I-01..I-20 blueprint covers logical FK integrity, tenant-aligned edges, polymorp
 
 ### Task 2.8 — cross-domain idempotency and recovery contract (Increment 258)
 O-01..O-16 specify key scope/fingerprint, durable state, lease recovery, retry exhaustion, external outbox and domain operation identities. No runtime or database verification; production remains read-only.
+
+
+### Numbering correction (2026-11-24)
+- Supplemental increments 260–265 supersede duplicate numbering 253–258 in the appended coverage-gap series. The earlier existing increment 257–259 reports remain unchanged.
