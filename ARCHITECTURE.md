@@ -2009,3 +2009,7 @@ Risk-prioritized P0/P1/P2 coverage backlog and reusable final-state/replay/retry
 
 ### Task 2.8 — authorization mutation coverage boundary (Increment 255)
 Selected access-control tests/source review identifies a bounded test-coverage gap between cache/source-pattern assertions and comprehensive negative mutation-route/resource/tenant authorization matrices. A-01..A-07 recorded in the Infra V2 increment report. No security test run or vulnerability conclusion is claimed.
+
+
+### Task 2.8 — event-void write sequence (Increment 256)
+Event void performs sequential project restoration, event VOID mutation, audits, step-progress recalculation, and material-needs reconciliation. Static trace identifies potential partial-state/audit windows V-01..V-07 and tests V-01..V-10. Runtime failure injection not performed; report is bounded and production references remain read-only.
