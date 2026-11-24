@@ -2222,3 +2222,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 ### Task 2.8 Increment 220 — Consolidated audit closure checkpoint (2026-11-24)
 - Consolidated current evidence advances 203–219, gate-specific closure gaps, grouped PO decisions, conservative technical recommendations and completion criteria into `TASK-2.8-CONSOLIDATED-AUDIT-CLOSURE-CHECKPOINT-INCREMENT-220.md`.
 - Increment 220 created and read-back verified. Task 2.8 remains IN PROGRESS; G-01/G-02/G-03/G-04/G-10 remain open; schema readiness NOT APPROVED. PO business decisions and further exhaustive branch/caller/test evidence remain necessary.
+
+
+### Task 2.8 Increment 221 — Print-template project-data authorization trace (2026-11-24)
+- Re-fetched production Router.js and PrintTemplateService.js for the PUT `/print-templates/:id/project-data` path. Router dispatch has no route-level permission call in the branch; service tenant-scopes template lookup, validates binding/source freshness, and gates PROJECT_FIELD/PROJECT_INFORMATION with PROJECT_EDIT and EVENT_FORM_FIELD/EVENT_FIELD with EVENT_EDIT.
+- Classified as E1 source evidence and PARTIAL review candidate, not a confirmed vulnerability. Runtime negative-tenant/permission tests and stale-source checks remain unverified.
+- Increment 221 document created and read-back verified; G-01/G-10 remain OPEN.
