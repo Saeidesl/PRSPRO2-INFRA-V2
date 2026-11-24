@@ -2630,3 +2630,7 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 ### Task 2.8 Increment 285 — Role-permission mapping integrity (2026-11-24)
 - Static role-permission assignment/list/removal trace recorded in `docs/audit/TASK-2.8-ROLE-PERMISSION-MAPPING-INTEGRITY-TRACE-INCREMENT-285.md`.
 - Bulk-assignment candidate gaps: active permission semantics and cross-tenant mapping collisions differ from single-assignment checks; source inventory for repository implementation remains unresolved. Candidates only, not proven defects. RP-01..RP-06 recorded. Static only; gates remain OPEN.
+
+
+### Task 2.8 Increment 286 — Permission resolution/cache scope (2026-11-24)
+- Effective-permission resolution and `/auth/me/permissions` current-user route traced. Active role filtering and tenant-scoped role mappings/request caches observed; permission catalog status semantics and cache isolation/in-request invalidation require assurance. Admin output also does not visibly filter permission status. Report: `docs/audit/TASK-2.8-PERMISSION-RESOLUTION-CACHE-SCOPE-TRACE-INCREMENT-286.md`. Static only.
