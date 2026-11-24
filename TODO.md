@@ -2615,3 +2615,7 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Inspected `tests/schema-contract.test.js` safety test. It asserts dispatch/confirmation and deploy gates, command presence, excluded-ID refusal string and no push trigger via textual assertions. Test execution not performed; semantics, actual target/secret scope and rollback are unverified.
 - Report: `docs/audit/TASK-2.8-SYNC-WORKFLOW-SAFETY-TEST-COVERAGE-CROSSCHECK-INCREMENT-282.md`.
 - Two exact guessed test paths were absent (not proof of missing coverage). G-01/G-10 remain OPEN; runtime assurance NOT VERIFIED.
+
+### Task 2.8 audit increment 283 — Router authorization trace
+- Static route dispatch trace across GET/POST/PUT/DELETE and selected contract tests recorded in `docs/audit/TASK-2.8-ROUTER-MUTATION-READ-AUTHORIZATION-TRACE-INCREMENT-283.md`.
+- Status: IN PROGRESS (static evidence only); route/service authorization and tenant/resource boundaries remain to be traced and dynamically tested.
