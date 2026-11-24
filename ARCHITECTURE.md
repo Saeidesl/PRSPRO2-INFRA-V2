@@ -2001,3 +2001,7 @@ Created an implementation-ready receipt mutation test blueprint R-01..R-20 cover
 
 ### Task 2.8 — mutation recovery test-coverage gaps (Increment 253)
 Static review of named deletion, attachment, event/workflow, and material-planning tests found bounded gaps for failure injection across project deletion orchestration, attachment storage/metadata/audit lifecycle, event-void downstream side effects, material reconciliation failure, audit failure semantics, and durable repair of PROCESSING/reconciliation states. Blueprint D-01..D-06 in Infra V2. Tests are not run and findings are not an exhaustive repository-wide absence claim. Production references remain read-only.
+
+
+### Task 2.8 — cross-domain mutation coverage consolidation (Increment 254)
+Risk-prioritized P0/P1/P2 coverage backlog and reusable final-state/replay/retry/audit/tenant-isolation test acceptance criteria consolidated in Increment 254. Code-search tool returned no usable result for specific audit/void/delete searches; this is a limitation rather than absence evidence. Static-only; runtime tests remain unexecuted.
