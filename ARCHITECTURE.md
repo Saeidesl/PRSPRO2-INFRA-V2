@@ -2081,3 +2081,7 @@ Selected Router and AttachmentService paths contain ATTACHMENT_VIEW/UPLOAD/DELET
 
 ### Task 2.8 — project information revision/history/live-sync failure coverage (Increment 271)
 ProjectInformationService save/approve/conflict-resolution operations perform sequential value/history/audit/live-sync writes. Selected tests do not establish complete failure injection. PI-01..PI-15 recorded; runtime tests not run, G-01/G-03/G-10 OPEN.
+
+
+## Task 2.8 audit addendum — Increment 271
+Request caches exist across AccessControlService, PermissionService and GoogleSheetsRepository, with explicit reset functions. Reset-at-entry implementation and cache isolation across executions were not verified in the selected files; RC-01..RC-10 test targets recorded. Static only, no runtime tests/data/production writes. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
