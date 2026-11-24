@@ -1937,3 +1937,7 @@ Current closure gates remain OPEN: G-01 (exhaustive route/caller/effect disposit
 
 ### Task 2.8 Increment 221 — Print-template project-data authorization trace (2026-11-24)
 Direct source retrieval confirms the Router PUT `/print-templates/:id/project-data` dispatch lacks a route-level permission call in that branch; PrintTemplateService.updateProjectBinding enforces tenant-scoped template lookup, binding/source validation and type-specific PROJECT_EDIT or EVENT_EDIT checks before mutation. This is E1 source evidence only, classified PARTIAL review candidate, not a confirmed vulnerability. Runtime authorization and tenant-negative tests remain unverified. No production changes or tests.
+
+
+### Task 2.8 Increment 222 — Attachment access/delete-order trace (2026-11-24)
+Read-only source retrieval of AttachmentService confirms tenant/entity visibility checks for upload/download/delete and parent-project visibility for project-linked events. Deletion is storage-first, followed by metadata DELETED status and audit. Recovery/reconciliation/failure semantics and retention/purge policy are not demonstrated. E1 source only; G-04/G-01/G-10 OPEN. No tests or production modifications.
