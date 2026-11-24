@@ -2420,3 +2420,10 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Static inspection of selected procurement service and event integration test files: tests cover workspace/need allocation optimization and event central-information integration separation; receipt mutation/status/parity/recovery scenarios were not present in the inspected service test file. Bounded observation, not exhaustive absence claim.
 - Report: `TASK-2.8-PROCUREMENT-RECEIPT-TEST-COVERAGE-CROSSWALK-INCREMENT-251.md`.
 - Test-source only; tests not executed, no production changes. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 252 — Receipt mutation coverage remediation blueprint (2026-11-24)
+- Prepared implementation-ready R-01..R-20 receipt mutation test matrix, fixtures, failure injection boundaries, concurrency limits, test harness requirements and acceptance criteria.
+- Production repositories remain read-only; this is a specification, not test-code implementation. Tests not executed.
+- Report: `TASK-2.8-RECEIPT-MUTATION-COVERAGE-REMEDIATION-BLUEPRINT-INCREMENT-252.md`.
+- G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
