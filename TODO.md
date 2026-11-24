@@ -2459,3 +2459,8 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 ### Task 2.8 — Increment 258 (2026-11-24)
 - Traced AttachmentService.delete exact ordering: storage delete/trash, metadata DELETED, then audit. Documented ATT-01..ATT-06 partial-failure windows and ATT-01..ATT-10 test blueprint, including the bounded audit-repair concern for already-DELETED records.
 - Report `TASK-2.8-ATTACHMENT-DELETE-STORAGE-METADATA-AUDIT-BOUNDARY-INCREMENT-258.md`. Static only; no test/failure injection.
+
+
+### Task 2.8 — Increment 259 (2026-11-24)
+- Traced ProjectDeletionService.remove full sequencing, child soft-deletion, Drive trash, event VOID, physical project-row deletion gate, audit and error reporting. Recorded PD-01..PD-10 bounded windows/questions and PD-01..PD-14 failure-injection blueprint.
+- Report `TASK-2.8-PROJECT-CASCADE-REMOVAL-PARTIAL-FAILURE-BOUNDARY-INCREMENT-259.md`. Static-only; no runtime test/failure injection.
