@@ -2109,3 +2109,7 @@ FormService, ProjectInformationService and MaterialPlanningService selected path
 
 ## Task 2.8 audit addendum — Increment 275
 Event creation optionally uses IdempotencyKey scoped to tenant/user and user-lock; legacy requests without keys remain non-deduplicated. Procurement order creation uses script lock, tenant-scoped key replay, graph prevalidation but non-atomic multi-sheet writes. ID-01..ID-12 tests recorded; static only, no runtime/failure injection/data/production changes. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
+
+
+## Task 2.8 audit addendum — Increment 276
+File validator checks MIME-extension allowlists and size; Drive storage checks decoded size and PDF signature, while other formats appear to rely on declared MIME/extension. Folder selection and DB/Drive consistency require controlled tests. FS-01..FS-12 targets recorded. Static only; no runtime tests/data/production changes. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
