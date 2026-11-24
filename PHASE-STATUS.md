@@ -880,3 +880,7 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 ## Phase 2 — Task 2.8 Increment 280 (2026-11-24)
 - CI workflow trigger and alerting scope review recorded in `docs/audit/TASK-2.8-CI-WORKFLOW-TRIGGER-AND-ALERTING-SCOPE-AUDIT-INCREMENT-280.md`.
 - Static-only observations; workflow execution, trigger behavior, alert permission runtime and full path coverage remain unverified. G-01/G-10 OPEN.
+
+## Phase 2 — Task 2.8 Increment 281 (2026-11-24)
+- Static audit of Apps Script production source-sync and deploy workflow recorded in `docs/audit/TASK-2.8-PRODUCTION-APPS-SCRIPT-SYNC-DEPLOY-SAFETY-TRACE-INCREMENT-281.md`.
+- Clarified push-only semantics (source push still mutates script project) and deployment gates; runtime environment isolation, credential scope, recovery, dispatch controls remain unverified. No production action performed.
