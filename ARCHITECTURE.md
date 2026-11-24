@@ -2089,3 +2089,7 @@ Request caches exist across AccessControlService, PermissionService and GoogleSh
 
 ## Task 2.8 audit addendum — Increment 272
 Selected project/event read paths enforce tenant and project visibility checks; project visibility grants admin/creator/explicit-user/department access and malformed ACL lists fail closed. Independent events are tenant-filtered in inspected paths. PV-01..PV-10 test targets documented; static only, no runtime tests/data/production writes. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
+
+
+### Task 2.8 — workflow version mutation/publication recovery coverage (Increment 272)
+WorkflowService step creation, rule replacement and publication sequentially clone/version/update/audit. Selected tests do not prove failure injection/concurrency across these boundaries. WF-01..WF-15 recorded; no runtime tests, G-01/G-10 OPEN.
