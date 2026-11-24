@@ -2464,3 +2464,8 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 ### Task 2.8 — Increment 259 (2026-11-24)
 - Traced ProjectDeletionService.remove full sequencing, child soft-deletion, Drive trash, event VOID, physical project-row deletion gate, audit and error reporting. Recorded PD-01..PD-10 bounded windows/questions and PD-01..PD-14 failure-injection blueprint.
 - Report `TASK-2.8-PROJECT-CASCADE-REMOVAL-PARTIAL-FAILURE-BOUNDARY-INCREMENT-259.md`. Static-only; no runtime test/failure injection.
+
+
+### Task 2.8 — Increment 254 (2026-11-24)
+- Source-traced EventService.void mutation boundaries and produced V-01..V-20 failure/edge test specification, including scripted fail-at-call harness and retry convergence expectations. See `TASK-2.8-EVENT-VOID-STATE-TRANSITION-FAILURE-TESTS-INCREMENT-254.md`.
+- Test specification only; no production changes or test execution. Task remains IN PROGRESS.
