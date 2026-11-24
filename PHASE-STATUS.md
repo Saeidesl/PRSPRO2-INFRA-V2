@@ -941,3 +941,10 @@ Read-only Event/Form lifecycle source evidence recorded. Void restoration/reconc
 - DB-3 draft now includes typed central project information definitions and project values (migration 004), alongside project revisions and attachment associations (003).
 - Evidence: https://github.com/Saeidesl/PRSPRO2DATABASE-V2/actions/runs/45479020816
 - Source-evidence alignment and business-rule decisions remain pending; draft schema is not migration-ready/release-approved. No live data or production systems touched.
+
+
+## Database checkpoint — 2026-11-24 (DB-4 draft)
+- Read-only source inspection of production backend procurement definitions identified legacy entities 18–25 (material needs, purchase orders/items, allocations, receipts, material specs/calculation history) and confirmed their field inventory. Production repository was not changed.
+- DB V2 migration 005 drafted these seven domain tables: project_material_specs, material_need_calculations, material_needs, purchase_orders, purchase_order_items, purchase_allocations, material_receipts; integrity test added.
+- Migration 005 CI validation remains pending. Latest run #18 queued; prior run #15 remained stuck at container initialization when checked. No tests claimed for migration 005.
+- Pending business rules: partial/over-receipt, correction/reversal, allocation reconciliation, procurement order lifecycle and source-event void/revision behavior.
