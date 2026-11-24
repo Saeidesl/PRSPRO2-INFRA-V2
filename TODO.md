@@ -2541,3 +2541,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Read-only review of AccessControlService, PermissionService, GoogleSheetsRepository and AuthService cache/auth lifecycle. Documented RC-01..RC-10 request-boundary/cache isolation and invalidation tests; reset-at-entry implementation not verified in selected files.
 - Report: `TASK-2.8-REQUEST-CACHE-LIFECYCLE-AUTH-CONTEXT-CROSSCHECK-INCREMENT-271.md`.
 - Static only; no tests or production/data access. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 272 — Project/event read visibility cross-path cross-check (2026-11-24)
+- Static review of project ACL helper and selected EventService read paths documented inherited project visibility, tenant-scoped general events, and PV-01..PV-10 denial/revocation tests.
+- Report: `TASK-2.8-PROJECT-EVENT-READ-VISIBILITY-CROSSCHECK-INCREMENT-272.md`.
+- No confirmed defect; tests not executed, no production/data access. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
