@@ -2017,3 +2017,7 @@ Event void performs sequential project restoration, event VOID mutation, audits,
 
 ### Task 2.8 — material planning void reconciliation (Increment 257)
 Static trace of sequential calculation status and confirmed-need updates, audit and ScriptLock in markEventVoided identified MPV-01..MPV-08; test blueprint MPV-01..MPV-12 and V2 transactional outbox recommendations documented. Retry convergence, repeated note behavior and platform concurrency remain unverified.
+
+
+### Task 2.8 — attachment deletion failure boundaries (Increment 258)
+AttachmentService.delete sequentially performs storage delete, metadata DELETED, then audit. Static review documents failure windows ATT-01..ATT-06, recovery test blueprint ATT-01..ATT-10 and durable storage-job/outbox requirement. No runtime failure injection performed.
