@@ -1961,3 +1961,7 @@ Read-only inventory of selected additional frontend modules and static route lit
 
 ### Task 2.8 Increment 227 — Remaining selected frontend module inventory (2026-11-24)
 Read-only inventory of project-detail/images/status/workflow-settings, print-designer, admin/settings/dashboard and workflow-department-assignment modules, with selected route literals and limitations. E1 only; dynamic paths and complete backend mapping remain open. No tests or production edits. G-01/G-10 OPEN; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 228 — Router dispatch surface inventory (2026-11-24)
+Grouped read-only Router.js dispatch inventory for selected GET and mutation domains and observed permission families. This is not exhaustive path/method/guard validation and does not establish vulnerability or coverage. E1 only, no runtime tests or production changes; G-01/G-10 OPEN; schema readiness NOT APPROVED.
