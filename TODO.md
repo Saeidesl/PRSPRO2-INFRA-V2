@@ -2552,3 +2552,8 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 ### Task 2.8 — Increment 272 (2026-11-24)
 - Traced WorkflowService createStep/saveStepEventRules/publish and selected workflow rule/enforcement tests. Recorded WF-01..WF-15 failure/concurrency coverage blueprint. See `TASK-2.8-WORKFLOW-VERSION-MUTATION-RECOVERY-COVERAGE-INCREMENT-272.md`.
 - Static only; no test execution. G-01/G-10 remain OPEN.
+
+
+### Task 2.8 — Increment 273 (2026-11-24)
+- Consolidated executable continuation vs hard blockers B-01..B-05: unavailable isolated test execution, real lock/concurrency proof, exhaustive commit-pinned source crosswalk, PO policy decisions and schema-readiness dependency. See `TASK-2.8-REMAINING-EXECUTABLE-WORK-HARD-BLOCKERS-INCREMENT-273.md`.
+- Task remains IN PROGRESS; blockers are explicitly scoped. Production repositories remain READ ONLY.
