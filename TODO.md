@@ -2270,3 +2270,10 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Successfully retrieved production Router.js via verified raw-file URL after prior path-method retrieval failures; verified frontend `js/modules/` listing (24 module entries).
 - Increment 229 documented: `TASK-2.8-ROUTER-RETRIEVAL-RECOVERY-INCREMENT-229.md`.
 - This restores a reliable source retrieval path only; complete caller/branch/guard/service/data/test reconciliation remains pending. G-01/G-10 and other readiness gates remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 230 — High-impact mutation tracing (2026-11-24)
+- Static crosswalk partial: event create/update/complete-step, project create/update/reference-copy, attachment lifecycle and procurement receipt-batch entrypoint.
+- Noted attachment deletion ordering (storage delete precedes metadata update/audit) as a potential failure-mode requiring failure injection/recovery validation, not confirmed defect.
+- Detailed report: `TASK-2.8-HIGH-IMPACT-MUTATION-TRACE-INCREMENT-230.md`.
+- Tests not executed; caller/route/service/repository tracing incomplete. G-01/G-10 remain open; schema readiness NOT APPROVED.
