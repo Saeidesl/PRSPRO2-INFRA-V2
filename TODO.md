@@ -2599,3 +2599,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Confirmed successful Backend source checks, PMS agent suite and procurement diagnostics CI runs on commit `4a131aed6f0e1f7e0e05aad7dc2baacb35671dd7` (2026-11-19); workflow job steps confirm tests and source validation ran.
 - Report: `docs/audit/TASK-2.8-CI-EVIDENCE-SNAPSHOT-APPLICABILITY-INCREMENT-279.md`.
 - This CI-tested commit predates current source snapshot `8253eb3718d1a2a1bd5de03b6b5090ba69b94b67`; full suite success is historical, not current snapshot assurance. Gate closure not claimed.
+
+
+### Task 2.8 Increment 280 — CI workflow trigger and alerting scope audit (2026-11-24)
+- Read-only static audit of backend-check, PMS agent suite, procurement diagnostics and Agent monitor workflow definitions. Recorded monitor scope limitations, duplicate path-filter entries, path-trigger coverage boundaries and follow-up test targets WF-01..WF-05.
+- Report: `docs/audit/TASK-2.8-CI-WORKFLOW-TRIGGER-AND-ALERTING-SCOPE-AUDIT-INCREMENT-280.md`.
+- No workflow runs/tests, production modifications or data access. G-01/G-10 remain OPEN; runtime assurance NOT VERIFIED; schema readiness NOT APPROVED.
