@@ -2474,3 +2474,8 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 ### Task 2.8 — Increment 255 (2026-11-24)
 - Read-only cross-check of project cascade deletion, attachment deletion and AuditService.log sequencing. Recorded A-01..A-18 failure and audit contract tests, including project row removal preceding audit insert and storage deletion/metadata/audit partial boundaries. See `TASK-2.8-AUDIT-WRITE-FAILURE-TERMINAL-STATE-INCREMENT-255.md`.
 - Source review only; no runtime tests/failure injection. Task remains IN PROGRESS.
+
+
+### Task 2.8 — Increment 256 (2026-11-24)
+- Compiled C-01..C-22 concurrency, locking, race and retry convergence matrix from selected mutation test/source traces. Existing mocked lock coverage does not prove platform concurrency behavior. See `TASK-2.8-RACE-LOCK-REPLAY-CONVERGENCE-TESTS-INCREMENT-256.md`.
+- Blueprint only; no concurrent test runs or production experiments. Task remains IN PROGRESS.
