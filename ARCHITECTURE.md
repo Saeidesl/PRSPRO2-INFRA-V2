@@ -2093,3 +2093,7 @@ Selected project/event read paths enforce tenant and project visibility checks; 
 
 ### Task 2.8 — workflow version mutation/publication recovery coverage (Increment 272)
 WorkflowService step creation, rule replacement and publication sequentially clone/version/update/audit. Selected tests do not prove failure injection/concurrency across these boundaries. WF-01..WF-15 recorded; no runtime tests, G-01/G-10 OPEN.
+
+
+### Task 2.8 — executable continuation and hard blocker register (Increment 273)
+B-01..B-05 document limits: no isolated runtime test executor, no real platform lock/concurrency proof, incomplete immutable source/caller crosswalk, PO policy decisions pending and schema readiness dependent. No production changes/live data.
