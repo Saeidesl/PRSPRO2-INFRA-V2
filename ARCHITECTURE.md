@@ -2033,3 +2033,7 @@ EventService.void source trace has a sequential project restore, event VOID upda
 
 ### Task 2.8 — audit-write and terminal-state failure boundaries (Increment 255)
 Static source review indicates project cascade may remove the project row before audit insertion; attachment deletion performs storage/metadata mutation before audit. A-01..A-18 failure/contract tests and transactional/outbox V2 requirements recorded. No runtime tests or production changes.
+
+
+### Task 2.8 — concurrency and lock convergence blueprint (Increment 256)
+C-01..C-22 tests cover races across event creation/void, deletion, attachment, material planning, receipt paths, schema, lock release and tenant boundaries. Selected existing mocked tests do not establish real concurrency. No tests executed or production experiments performed.
