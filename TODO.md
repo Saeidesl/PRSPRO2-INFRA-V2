@@ -2181,3 +2181,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Traced EventService void guard, department/later-event restrictions, snapshot restoration, project/workflow status updates, audit sequence and material-needs reconciliation fallback.
 - Increment 213 created and read-back verified: `TASK-2.8-EVENT-VOID-DOWNSTREAM-TRACE-INCREMENT-213.md`.
 - Multi-write atomicity, downstream parity/recovery and tests remain unresolved; G-03/G-01/G-10 remain OPEN.
+
+
+### Task 2.8 Increment 214 — Project cascade deletion source trace (2026-11-24)
+- Traced project deletion preview/remove: dependency collection, code confirmation, lock/revalidation, sequential soft-delete families, attachment storage deletion, event VOID marker, project row removal, audit and partial failure reporting.
+- Increment 214 created and read-back verified: `TASK-2.8-PROJECT-CASCADE-DELETION-TRACE-INCREMENT-214.md`.
+- Multi-step atomicity/recovery, restore/retention policy and negative/fault-injection tests remain unresolved; G-01/G-04/G-10 open.
