@@ -2382,3 +2382,10 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Early-order fields are set DISABLED/blank in inspected create/revise paths; business intent remains unknown.
 - Report: `TASK-2.8-MATERIAL-PLANNING-RECALC-VOID-RECONCILIATION-INCREMENT-245.md`.
 - Static only; no tests run. G-01/G-02/G-03/G-10 remain open; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 246 — Procurement receipt aggregation/retry crosswalk (2026-11-24)
+- Read-only comparison of batch/single receipt persistence, idempotency, allocation validation, order status recomputation and receipt aggregation in needs/orders views.
+- Receipt insert, order recomputation and audit are sequential. Inspected receipt aggregation paths appear status-unaware; if void/status invalidation is supported, receipt semantics and aggregation consistency require explicit validation. This remains a candidate risk, not a confirmed defect.
+- Report: `TASK-2.8-PROCUREMENT-RECEIPT-AGGREGATION-RETRY-CROSSWALK-INCREMENT-246.md`.
+- Static only; no tests executed. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
