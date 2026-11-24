@@ -2569,3 +2569,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Static review documented form-definition tenant/reference validation, cache invalidation, project-information attachment/value validation, and versioned material-specification checks. FM-01..FM-12 test targets.
 - Report: `TASK-2.8-FORM-PROJECT-INFORMATION-MATERIAL-PLANNING-CROSSCHECK-INCREMENT-274.md`.
 - Static only; no tests/data/production writes. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 275 — Event/procurement idempotency and locking cross-check (2026-11-24)
+- Static review recorded optional Event idempotency-key behavior, user-lock scope, replay behavior and legacy no-key path; Procurement createOrder script lock, tenant-scoped replay and multi-sheet non-atomic write graph. ID-01..ID-12 targets.
+- Report: `TASK-2.8-EVENT-PROCUREMENT-IDEMPOTENCY-LOCKING-CROSSCHECK-INCREMENT-275.md`.
+- No runtime tests/failure injection or production/data access. G-01/G-02/G-10 OPEN; schema readiness NOT APPROVED.
