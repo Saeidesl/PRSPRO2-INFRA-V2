@@ -2125,3 +2125,7 @@ At backend tree SHA `8253eb3718d1a2a1bd5de03b6b5090ba69b94b67`, selected schema,
 
 ### Task 2.8 Increment 279 — CI evidence applicability
 Successful CI execution was confirmed for backend commit `4a131aed6f0e1f7e0e05aad7dc2baacb35671dd7` (Backend source checks, PMS agent suite, procurement diagnostics) on 2026-11-19. The current inspected tree SHA `8253eb3718d1a2a1bd5de03b6b5090ba69b94b67` is newer; full-suite E2 on that newer tree is not established. This evidence is commit-specific and does not establish E3 platform assurance.
+
+
+## Task 2.8 Increment 280 — CI workflow trigger and alerting scope audit
+Static review of backend CI workflows recorded alert monitor limitations (failure-only, rolling 24-hour scope, capped reporting, prior alert issue remains open on no-failure runs), redundant path entries, and path-filter coverage considerations. WF-01..WF-05 assurance targets recorded. No workflow dispatch or production mutation; runtime/test assurance not established. G-01/G-10 remain OPEN.
