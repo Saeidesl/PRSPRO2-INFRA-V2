@@ -1965,3 +1965,7 @@ Read-only inventory of project-detail/images/status/workflow-settings, print-des
 
 ### Task 2.8 Increment 228 — Router dispatch surface inventory (2026-11-24)
 Grouped read-only Router.js dispatch inventory for selected GET and mutation domains and observed permission families. This is not exhaustive path/method/guard validation and does not establish vulnerability or coverage. E1 only, no runtime tests or production changes; G-01/G-10 OPEN; schema readiness NOT APPROVED.
+
+
+## Audit addendum — Increment 245 (2026-11-24)
+Read-only material-planning recalculation and event-void reconciliation trace: per-spec recalculation is sequential across calculation-ledger and material-need writes, linking and audit; event-void sequentially invalidates calculations and marks active confirmed needs NEEDS_REVIEW. Failure recovery/atomicity is not demonstrated in the inspected path. Early-order settings are observed disabled in the reviewed create/revise code, business intent pending. Details in the Infra audit report Increment 245. E1 only; no tests or production changes; G-01/G-02/G-03/G-10 OPEN; schema readiness NOT APPROVED.
