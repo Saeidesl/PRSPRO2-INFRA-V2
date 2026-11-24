@@ -2514,3 +2514,8 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 ### Task 2.8 — Increment 268 (2026-11-24)
 - Defined G-01 route-to-mutation closure protocol with required route/caller/permission/tenant/validation/write/lock/audit/test/evidence dispositions and prioritized closure evidence bundle. See `TASK-2.8-ROUTE-TO-MUTATION-ASSURANCE-RECONCILIATION-INCREMENT-268.md`.
 - Protocol is not evidence of route coverage completion; G-01 remains OPEN.
+
+
+### Task 2.8 — Increment 269 (2026-11-24)
+- Read-only audit payload/read-access trace: AuditService serializes OldData/NewData, Router audit paths use REPORT_VIEW and tenant filtering. Recorded privacy/minimization candidate risks and PRIV-01..PRIV-10 tests. See `TASK-2.8-AUDIT-PRIVACY-MINIMIZATION-READ-ACCESS-INCREMENT-269.md`.
+- Candidate risk only; no runtime tests or sensitive data inspection. G-01/G-10 remain OPEN.
