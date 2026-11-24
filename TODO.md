@@ -2254,3 +2254,8 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 ### Task 2.8 Increment 226 — Additional frontend caller inventory (2026-11-24)
 - Read-only inspection of Attachments, Audit, Auth, Departments, Event Types, Information Types, Material Planning, Procurement, Reports, Users, Roles and Permissions modules. Selected literal paths captured; dynamic route limits documented.
 - Increment 226 recorded and read-back verification pending; G-01/G-10 open, schema readiness NOT APPROVED.
+
+
+### Task 2.8 Increment 227 — Remaining selected frontend module inventory (2026-11-24)
+- Read-only inspection of project detail/gallery/status/workflow settings, print designer, admin/settings/dashboard and workflow-department assignment modules. Static caller paths and extraction limits documented.
+- Increment 227 recorded; read-back verification pending. Exhaustive mapping remains open; G-01/G-10 OPEN.
