@@ -2163,3 +2163,9 @@ Reviewed material specification revisioning, append-only calculation ledger, rec
 - Read-only retrieval of eight frontend domain modules (events, forms, projects, workflows, procurement, attachments, project-detail and material-planning) and static path-family extraction.
 - Increment 210 created and read-back verified: `TASK-2.8-FRONTEND-DOMAIN-CALLER-INVENTORY-INCREMENT-210.md`.
 - Caller/path extraction is preliminary, not a precise graph. Exact call operation, backend branch, tenant/permission/payload/side-effect and tests remain pending. Gates unchanged.
+
+
+### Task 2.8 Increment 211 — Procurement receipt source trace (2026-11-24)
+- Read-only source trace of single and batch receipt paths documented: locking, tenant/item/order checks, optional idempotency and event replay, allocation/project and quantity guards, receipt/projection/audit write sequence and partial-write/parity evidence gaps.
+- Increment 211 created and read-back verified: `TASK-2.8-PROCUREMENT-RECEIPT-SOURCE-TRACE-INCREMENT-211.md`.
+- Source evidence remains non-runtime; policy choices and correction/reversal remain pending. G-02/G-10/G-01 remain OPEN.
